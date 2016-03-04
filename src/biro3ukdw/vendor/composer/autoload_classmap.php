@@ -6,8 +6,14 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'CreateBeasiswaContentsTable' => $baseDir . '/database/migrations/2016_03_04_055116_create_beasiswa_contents_table.php',
+    'CreateBeasiswasTable' => $baseDir . '/database/migrations/2016_03_04_054331_create_beasiswas_table.php',
+    'CreateImagesTable' => $baseDir . '/database/migrations/2016_03_04_061034_create_images_table.php',
+    'CreateNewsContentsTable' => $baseDir . '/database/migrations/2016_03_04_055543_create_news_contents_table.php',
     'CreateNewsTable' => $baseDir . '/database/migrations/2016_03_04_041520_create_news_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+    'CreateUkmContentsTable' => $baseDir . '/database/migrations/2016_03_04_060035_create_ukm_contents_table.php',
+    'CreateUkmsTable' => $baseDir . '/database/migrations/2016_03_04_055644_create_ukms_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
