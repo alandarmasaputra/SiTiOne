@@ -11,9 +11,7 @@
 |
 */
 /* home */
-Route::get('/home', function () {   
-    return view('welcome');
-});
+Route::get('/home','HomeController@index');
 
 /* Beasiswa */
 Route::get('/beasiswa/{id}','BeasiswaController@');   
