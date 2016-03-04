@@ -18,8 +18,8 @@ class CreateBeasiswasTable extends Migration
             $table->string('sumber');
             $table->integer('jumlah');
             $table->string('header_pic');
+            $table->timestamp('deadline_date');
             $table->timestamps();
-            $table->timestamps('deadline_date');
         });
     }
 
