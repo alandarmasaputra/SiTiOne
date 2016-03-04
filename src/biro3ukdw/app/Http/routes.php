@@ -10,15 +10,15 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', function () {
+/* home */
+Route::get('/home', function () {   
     return view('welcome');
 });
 
 /* Beasiswa */
-Route::get('/beasiswa/{id}','BeasiswaController@');
-Route::get('/beasiswa/new','BeasiswaController@');
-Route::get('/beasiswa/edit/{id}','BeasiswaController@');
+Route::get('/beasiswa/{id}','BeasiswaController@');   
+Route::get('/beasiswa/new','BeasiswaController@');    
+Route::get('/beasiswa/edit/{id}','BeasiswaController@');    
   
   
  /* News */
