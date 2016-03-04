@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\User;
+
+Route::get('/', "UserController@index");
 
 /*
 |--------------------------------------------------------------------------
