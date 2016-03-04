@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->tinyInteger('auth_level');
             $table->timestamps();
+            $table->boolean('is_aktif');
         });
     }
 
