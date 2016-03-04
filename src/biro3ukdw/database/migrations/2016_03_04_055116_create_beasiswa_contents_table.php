@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateBeasiswaContentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,12 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('beasiswa_contents', function (Blueprint $table) {
+            $table->integer('beasiswa_id');
             $table->increments('id');
-            $table->string('username');
-            $table->string('password');
-            $table->tinyInteger('auth_level');
+            $table->char('type',1)->comment = "i = images , s = string";
+            $table->string('content');
             $table->timestamps();
-            $table->boolean('is_aktif');
         });
     }
 
@@ -29,6 +28,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('users');
+        Schema::drop('beasiswa_contents');
     }
 }
