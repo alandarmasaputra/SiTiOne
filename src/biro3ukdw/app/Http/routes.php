@@ -10,21 +10,20 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-<<<<<<< HEAD
+
 
 use App\User;
 
 Route::get('/', "UserController@index");
-=======
+
 /* home */
-<<<<<<< HEAD
+
 Route::get('/home','HomeController@index');
-=======
+
 Route::get('/home', function () {   
     return view('welcome');
 });
->>>>>>> 4f9b61be3c7717b600794cc431214ba2b29d02d3
->>>>>>> 3b7db019fe0c62bf7c8b27981e08b7982feb8049
+
 
 /* Beasiswa */
 Route::get('/beasiswa/{id}','BeasiswaController@');   
@@ -33,9 +32,9 @@ Route::get('/beasiswa/edit/{id}','BeasiswaController@');
   
   
  /* News */
-Route::get('/news/{id}','NewsController@');
-Route::get('/news/new','NewsController@');
-Route::get('/news/edit/{id}','NewsController@');
+Route::get('/news/{id}','NewsController@detail');
+Route::get('/news/new','NewsController@new');
+Route::get('/news/edit/{id}','NewsController@edit');
 
  /* Ukm */
 Route::get('/ukm/{id}','UkmController@');
