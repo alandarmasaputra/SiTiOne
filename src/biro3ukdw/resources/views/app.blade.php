@@ -8,29 +8,29 @@
     <title>@yield('head_title')</title>
 
     <!-- core CSS -->
-    <link href="{{ assets('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ assets('style/css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ assets('style/css/prettyPhoto.css') }}" rel="stylesheet">
-    <link href="{{ assets('style/css/animate.min.css') }}" rel="stylesheet">
-    <link href="{{ assets('style/css/main.css') }}" rel="stylesheet">
-    <link href="{{ assets('style/css/responsive.css') }}" rel="stylesheet">
+    <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('style/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('style/css/prettyPhoto.css') }}" rel="stylesheet">
+    <link href="{{ asset('style/css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('style/css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('style/css/responsive.css') }}" rel="stylesheet">
     
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->       
-    <link rel="shortcut icon" href="{{ assets('style/images/ico/logo1.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ assets('style/images/ico/apple-touch-icon-144-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ assets('style/images/ico/apple-touch-icon-114-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ assets('style/images/ico/apple-touch-icon-72-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" href="{{ assets('style/images/ico/apple-touch-icon-57-precomposed.png') }}">
+    <link rel="shortcut icon" href="{{ asset('style/images/ico/logo1.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('style/images/ico/apple-touch-icon-144-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('style/images/ico/apple-touch-icon-114-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('style/images/ico/apple-touch-icon-72-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('style/images/ico/apple-touch-icon-57-precomposed.png') }}">
 
-    <script src="{{ assets('style/js/jquery.js') }}"></script>
-    <script src="{{ assets('style/js/bootstrap.min.js') }}"></script>
-    <script src="{{ assets('style/js/jquery.prettyPhoto.js') }}"></script>
-    <script src="{{ assets('style/js/jquery.isotope.min.js') }}"></script>
-    <script src="{{ assets('style/js/main.js') }}"></script>
-    <script src="{{ assets('style/js/wow.min.js') }}"></script>
+    <script src="{{ asset('style/js/jquery.js') }}"></script>
+    <script src="{{ asset('style/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('style/js/jquery.prettyPhoto.js') }}"></script>
+    <script src="{{ asset('style/js/jquery.isotope.min.js') }}"></script>
+    <script src="{{ asset('style/js/main.js') }}"></script>
+    <script src="{{ asset('style/js/wow.min.js') }}"></script>
 
     @yield('head_addition')
 </head><!--/head-->
