@@ -16,14 +16,25 @@ class BeasiswaController extends Controller
         return View::make('beasiswa.index');
 
     }
-    public function submit_new(Request $request){
-    	$name = $request->input('name');
+
+    public function create(){//Request $request){
+    	/*$beasiswa = new Beasiswa;
+    	$beasiswa->$id = $request->input('id');
+    	$beasiswa->$kategori = $request->input('kategori');
+    	$beasiswa->$sumber = $request->input('sumber');
+    	$beasiswa->$jumlah = $request->input('jumlah');
+    	$beasiswa->$header_pic = $request->input('header_pic');
+    	$beasiswa->$deadline_date = $request->input('deadline_date');
+    	$beasiswa->$created_at = $request->input('created_at');
+    	$beasiswa->$updated_at = $request->input('updated_at');
+    	*/return view('beasiswa.new');
 
     	 	
     }
-    public function submit_edit($id){
-           $beasiswa = Beasiswa::find($id);
-           return view('beasiswa.edit', compact('beasiswa'));
+    public function edit(Request $request, $id){
+           	$beasiswa = Beasiswa::where('id',$id)->first();
+           
+            return view('beasiswa.edit', compact('beasiswa'));
     }
 
     /*public function new(){
@@ -36,10 +47,32 @@ class BeasiswaController extends Controller
      		//return view('beasiswa.detail', ['beasiswa' => beasiswa::findOrFail($id)]);
 
     }
+    public function submit_new(){
+    	$beasiswa = new Beasiswa;
+    	$beasiswa->$kategori = $request->input('kategori');
+    	$beasiswa->$sumber = $request->input('sumber');
+    	$beasiswa->$jumlah = $request->input('jumlah');
+    	$beasiswa->$header_pic = $request->input('header_pic');
+    	$beasiswa->$deadline_date = $request->input('deadline_date');
+    	$beasiswa->$updated_at = $request->input('updated_at');
 
-    public function update($id){
-            $beasiswa = Beasiswa::find($id);
-            $beasiswa->update($beasiswa);
-            return view('beasiswa.edit', compact('beasiswa')); 
+    }
+
+    public function update(Request $request, $id){
+    	$beasiswa = Beasiswa::find($id);
+
+           
+            //$beasiswa->$kategori = $request->input('kategori');
+    		//$beasiswa->$sumber = $request->input('sumber');
+    		//$beasiswa->$jumlah = $request->input('jumlah');
+    		$beasiswa->header_pic = $request->input('header_pic');
+    		//$beasiswa->$deadline_date = $request->input('deadline_date');
+    		//$beasiswa->$updated_at = $request->input('updated_at');
+
+    		$beasiswa->save();
+        //$beasiswaUpdate = $request->all();
+        //$beasiswa = Beasiswa::find($id);
+        //$beasiswa->update($beasiswaUpdate);
+        echo("suskes");
     }
 }
