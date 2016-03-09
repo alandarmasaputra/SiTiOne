@@ -25,12 +25,12 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ assets('style/images/ico/apple-touch-icon-72-precomposed.png') }}">
     <link rel="apple-touch-icon-precomposed" href="{{ assets('style/images/ico/apple-touch-icon-57-precomposed.png') }}">
 
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/jquery.isotope.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/wow.min.js"></script>
+    <script src="{{ assets('style/js/jquery.js') }}"></script>
+    <script src="{{ assets('style/js/bootstrap.min.js') }}"></script>
+    <script src="{{ assets('style/js/jquery.prettyPhoto.js') }}"></script>
+    <script src="{{ assets('style/js/jquery.isotope.min.js') }}"></script>
+    <script src="{{ assets('style/js/main.js') }}"></script>
+    <script src="{{ assets('style/js/wow.min.js') }}"></script>
 
     @yield('head_addition')
 </head><!--/head-->
