@@ -27,27 +27,23 @@ Route::get('/home', function () {
 
 /* Beasiswa */
 Route::get('/beasiswa/{id}','BeasiswaController@');   
-Route::get('/beasiswa/new','BeasiswaController@');    
-Route::get('/beasiswa/edit/{id}','BeasiswaController@');    
+Route::get('/beasiswa/new','BeasiswaController@');        
   
   
  /* News */
 Route::get('/news/{id}','NewsController@detail');
 Route::get('/news/new','NewsController@new');
-Route::get('/news/edit/{id}','NewsController@edit');
+
 
  /* Ukm */
 Route::get('/ukm/{id}','UkmController@');
 Route::get('/ukm/new','UkmController@');
-Route::get('/ukm/edit/{id}','UkmController@');
 
  /* Event */
 Route::get('/event/{id}','EventController@');
 Route::get('/event/new','EventController@');
-Route::get('/event/edit/{id}','EventController@');
 
  /* Admin */
-Route::get('/admin/organize','AdminController@');
 
  /* Searh */
 //Route::get('/search?query={}','SearchController@');
@@ -64,5 +60,9 @@ Route::get('/admin/organize','AdminController@');
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+    Route::get('/beasiswa/edit/{id}','BeasiswaController@edit');
+    Route::get('/news/edit/{id}','NewsController@edit');
+    Route::get('/ukm/edit/{id}','UkmController@edit');
+    Route::get('/event/edit/{id}','EventController@edit');
+    Route::get('/admin/organize','AdminController@organize');
 });
