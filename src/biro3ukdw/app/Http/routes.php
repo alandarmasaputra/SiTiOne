@@ -22,7 +22,7 @@ Route::get('/', "UserController@index");
 
 
 Route::get('/home', function () {   
-    return view('welcome');
+    return view('app');
 });
 
 Route::resource('news','NewsController');
