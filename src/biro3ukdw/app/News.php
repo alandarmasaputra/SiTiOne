@@ -8,5 +8,12 @@ class News extends Model
 
 {
 
-  //  protected $fillable = ['header_pic'];
+  
+	protected $table = 'news';
+
+	
+    protected $fillable = [
+    'id', 
+    'header_pic',
+    ];	
 }

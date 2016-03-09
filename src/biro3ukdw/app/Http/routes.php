@@ -14,15 +14,18 @@
 
 use App\User;
 
+
 Route::get('/', "UserController@index");
 
 /* home */
 
-Route::get('/home','HomeController@index');
+
 
 Route::get('/home', function () {   
     return view('welcome');
 });
+
+Route::resource('news','NewsController');
 
 
 /* Beasiswa */
@@ -31,8 +34,10 @@ Route::get('/beasiswa/new','BeasiswaController@');
   
   
  /* News */
-Route::get('/news/{id}','NewsController@detail');
+
+Route::get('/news/{id}','NewsController@update');
 Route::get('/news/new','NewsController@new');
+
 
 
  /* Ukm */
