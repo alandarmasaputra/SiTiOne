@@ -44,6 +44,7 @@ Route::get('/news/new','NewsController@new');
 Route::post('/news/edit/{id}','NewsController@edit');
 
 
+
  /* Ukm */
 Route::get('/ukm','UkmController@index');
 Route::get('/ukm/new','UkmController@create');
@@ -60,6 +61,11 @@ Route::get('/event/edit/{id}','EventController@edit');
 Route::get('/alan/test',function(){
     return view('tes');
 });
+
+Route::get('/welly',function(){
+    return view('news.edit');
+});
+
 
  /* Searh */
 //Route::get('/search?query={}','SearchController@');
