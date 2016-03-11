@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Request;
+use Illuminate\Http\Request;
 use App\News;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -11,29 +11,45 @@ use App\Http\Controllers\Controller;
 class NewsController extends Controller
 {
     //
-    
+    public function index(){
+      //print news
+        $news=News::orderBy('created_at','desc')->get();
+        //echo "<pre>".json_encode($beasiswa,JSON_PRETTY_PRINT)."</pre>";
+        return View::make('news.index');
+
+    }
     
 
-    public function edit($id){
-           $news = News::find($id);
-           return view('news.edit', compact('news'));
+     public function create(){
+        
+        return view('news.create');
+            
     }
 
-   // public function new(){
-            //return view('news.new'); 
-  //  }
-//
+     public function submit_new(Request $request){
+        $news = new News;
+        $news->header_pic = $request->input('header_pic');
+        $news->save();
+        return view('news.create', compact('news'));
+    }
+
+    public function edit(Request $request, $id){
+            $news = News::where('id',$id)->first();
+            return view('news.edit', compact('news'));
+
+    }
+
+   
      public function detail($id){
             $news = News::find($id);
             return view('news.detail', compact('news')); 
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
-        
-        $newsUpdate = Request::all();
         $news = News::find($id);
-        $news->update($newsUpdate);
+        $news->header_pic = $request->input('header_pic');
+        $news->save();
         echo("suskes");
     }
 
