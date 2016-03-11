@@ -10,10 +10,10 @@ use App\Http\Controllers\Controller;
 class EventController extends Controller
 {
     public function index(){
-        $event=Event::orderBy('created_at','desc')
-        ->get();
-        echo "<pre>".json_encode($event,JSON_PRETTY_PRINT)."</pre>";
-        return View::make('event.index');
+        $events = Event::get();
+        return view('event.index',[
+            'event'=>$events
+        ]);
 
     }
 

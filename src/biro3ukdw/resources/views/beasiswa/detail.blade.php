@@ -6,7 +6,7 @@ Detail Beasiswa - Biro3 | UKW
 <div class="container">
     <div class="page-header">
         <h2>
-            Beasiswa Baru
+            Detail Beasiswa
         </h2>
     </div>
     <div class="text-center">

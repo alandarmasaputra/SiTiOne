@@ -1,37 +1,46 @@
 @extends('layout.app')
 @section('head_title')
-New Beasiswa - Biro3 | UKW
+Create Beasiswa - Biro3 | UKDW
 @endsection
 @section('body_content')
-<div class="container">
-    <div class="page-header">
-        <h2>
-            Beasiswa Baru
-        </h2>
+<div class="container-fluid">
+    <div class ="row">
+         <div class ="col-md-8 col-md-offset-2">
+             <div class ="panel panel-default">
+<h2 class= "text-center" >Create Beasiswa</h2>
+
+    <hr>
+ 
+{!! Form::model(['method' => 'POST', 'action' => ['BeasiswaController@submit_new']]) !!}
+        <div class="form-group">
+        {!! Form::label('kategori', 'Kategori :') !!}
+        {!! Form::text('kategori', null, array('class' => 'form-control')) !!}
     </div>
-    <div class="text-center">
-        <form>
-            <img id="header-pic-show">
-            <input id="header-pic" type="file" onchange="imageupload(this)">
-            <script>
-                function imageupload(element){
-                    var elementId = element.id;
-                    if(element.files && element.files[0]){
-                        var reader = new FileReader();
-                        reader.onload = function(e){
-                            $("#"+elementId+"-show")
-                            .attr('src', e.target.result)
-                        }
-                        if (reader.readAsDataURL) {reader.readAsDataURL(element.files[0]);}
-                        else if(reader.readAsDataurl) {reader.readAsDataurl(element.files[0]);}
-                        else if(reader.readAsDataUrl) {reader.readAsDataUrl(element.files[0]);}
-                    }
-                    else{
-                        $(elementId+"-show").attr('src',"");
-                    }
-                }
-            </script>
-        </form>
+    <div class="form-group">
+        {!! Form::label('sumber', 'Sumber :') !!}
+        {!! Form::text('sumber', null, array('class' => 'form-control')) !!}
     </div>
+    <div class="form-group">
+        {!! Form::label('jumlah', 'Jumlah :') !!}
+        {!! Form::text('jumlah', null, array('class' => 'form-control')) !!}
+    </div>
+    
+    <div class="form-group">
+        {!! Form::label('header_pic', 'Header Picture :') !!}
+        {!! Form::text('header_pic', null, array('class' => 'form-control')) !!}
+    </div>
+    <div class="form-group">
+        {!! Form::label('deadline_date', 'Deadline Date :') !!}
+        {!! Form::date('deadline_date', null, array('class' => 'form-control')) !!}
+    </div>
+    
+ <br>
+
+    {!! Form::submit('Create data', array('class' => 'btn btn-primary')) !!}
+ <!-- -->
+{!! Form::close() !!}
+</div>
+</div>
+</div>
 </div>
 @endsection
