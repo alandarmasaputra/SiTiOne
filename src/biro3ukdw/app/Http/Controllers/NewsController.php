@@ -19,10 +19,10 @@ class NewsController extends Controller
            return view('news.edit', compact('news'));
     }
 
-    public function new(){
-            return view('news.new'); 
-    }
-
+   // public function new(){
+            //return view('news.new'); 
+  //  }
+//
      public function detail($id){
             $news = News::find($id);
             return view('news.detail', compact('news')); 

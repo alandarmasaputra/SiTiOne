@@ -22,21 +22,25 @@ Route::get('/', "UserController@index");
 
 
 Route::get('/home', function () {   
-    return view('welcome');
+    return view('app');
 });
 
 Route::resource('news','NewsController');
 
 
 /* Beasiswa */
-Route::get('/beasiswa/{id}','BeasiswaController@');   
-Route::get('/beasiswa/new','BeasiswaController@');        
+Route::get('/beasiswa/index','BeasiswaController@index');
+Route::get('/beasiswa/{id}','BeasiswaController@detail');
+Route::post('/beasiswa/update/{id}','BeasiswaController@update');   
+Route::get('/beasiswa/new','BeasiswaController@new');
+Route::get('/beasiswa/edit/{id}','BeasiswaController@edit');        
   
   
  /* News */
 
 Route::get('/news/{id}','NewsController@update');
 Route::get('/news/new','NewsController@new');
+//Route::get('/news/edit/{id}','NewsController@edit');
 
 
  /* Ukm */

@@ -6,11 +6,19 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+<<<<<<< HEAD
     'App\\Beasiswa' => $baseDir . '/app/beasiswa.php',
     'App\\BeasiswaContent' => $baseDir . '/app/BeasiswaContent.php',
     'App\\Console\\Commands\\Inspire' => $baseDir . '/app/Console/Commands/Inspire.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Event' => $baseDir . '/app/Event.php',
+=======
+    'App\\Beasiswa' => $baseDir . '/app/Beasiswa.php',
+    'App\\BeasiswaContent' => $baseDir . '/app/BeasiswaContent.php',
+    'App\\Console\\Commands\\Inspire' => $baseDir . '/app/Console/Commands/Inspire.php',
+    'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'App\\Event' => $baseDir . '/app/event.php',
+>>>>>>> 618986de7fb1ec81096d684d89adf28e2639c796
     'App\\EventContent' => $baseDir . '/app/EventContent.php',
     'App\\Events\\Event' => $baseDir . '/app/Events/Event.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -31,17 +39,27 @@ return array(
     'App\\Http\\Middleware\\RedirectIfAuthenticated' => $baseDir . '/app/Http/Middleware/RedirectIfAuthenticated.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\Request' => $baseDir . '/app/Http/Requests/Request.php',
+<<<<<<< HEAD
     'App\\Images' => $baseDir . '/app/Images.php',
+=======
+    'App\\Images' => $baseDir . '/app/images.php',
+>>>>>>> 618986de7fb1ec81096d684d89adf28e2639c796
     'App\\Jobs\\Job' => $baseDir . '/app/Jobs/Job.php',
     'App\\News' => $baseDir . '/app/News.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
+<<<<<<< HEAD
     'App\\Ukm' => $baseDir . '/app/Ukm.php',
     'App\\UkmContent' => $baseDir . '/app/UkmContent.php',
     'App\\User' => $baseDir . '/app/User.php',
     'App\\beasiswa_content' => $baseDir . '/app/beasiswa_content.php',
+=======
+    'App\\Ukm' => $baseDir . '/app/ukm.php',
+    'App\\UkmContent' => $baseDir . '/app/UkmContent.php',
+    'App\\User' => $baseDir . '/app/User.php',
+>>>>>>> 618986de7fb1ec81096d684d89adf28e2639c796
     'App\\news_content' => $baseDir . '/app/news_content.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
@@ -1926,6 +1944,7 @@ return array(
     'Psy\\CodeCleaner\\NamespaceAwarePass' => $vendorDir . '/psy/psysh/src/Psy/CodeCleaner/NamespaceAwarePass.php',
     'Psy\\CodeCleaner\\NamespacePass' => $vendorDir . '/psy/psysh/src/Psy/CodeCleaner/NamespacePass.php',
     'Psy\\CodeCleaner\\StaticConstructorPass' => $vendorDir . '/psy/psysh/src/Psy/CodeCleaner/StaticConstructorPass.php',
+    'Psy\\CodeCleaner\\StrictTypesPass' => $vendorDir . '/psy/psysh/src/Psy/CodeCleaner/StrictTypesPass.php',
     'Psy\\CodeCleaner\\UseStatementPass' => $vendorDir . '/psy/psysh/src/Psy/CodeCleaner/UseStatementPass.php',
     'Psy\\CodeCleaner\\ValidClassNamePass' => $vendorDir . '/psy/psysh/src/Psy/CodeCleaner/ValidClassNamePass.php',
     'Psy\\CodeCleaner\\ValidConstantPass' => $vendorDir . '/psy/psysh/src/Psy/CodeCleaner/ValidConstantPass.php',
@@ -1972,6 +1991,7 @@ return array(
     'Psy\\Exception\\ParseErrorException' => $vendorDir . '/psy/psysh/src/Psy/Exception/ParseErrorException.php',
     'Psy\\Exception\\RuntimeException' => $vendorDir . '/psy/psysh/src/Psy/Exception/RuntimeException.php',
     'Psy\\Exception\\ThrowUpException' => $vendorDir . '/psy/psysh/src/Psy/Exception/ThrowUpException.php',
+    'Psy\\Exception\\TypeErrorException' => $vendorDir . '/psy/psysh/src/Psy/Exception/TypeErrorException.php',
     'Psy\\ExecutionLoop\\ForkingLoop' => $vendorDir . '/psy/psysh/src/Psy/ExecutionLoop/ForkingLoop.php',
     'Psy\\ExecutionLoop\\Loop' => $vendorDir . '/psy/psysh/src/Psy/ExecutionLoop/Loop.php',
     'Psy\\Formatter\\CodeFormatter' => $vendorDir . '/psy/psysh/src/Psy/Formatter/CodeFormatter.php',
