@@ -12,16 +12,22 @@ New UKM - Biro3 | UKW
     <div class="text-center">
         <form>
             <img id="header-pic-show">
-            <input id="header-pic" type="file" onchange="read">
+            <input id="header-pic" type="file" onchange="imageupload(this)">
             <script>
                 function imageupload(element){
-                    var id = element.id;
+                    var elementId = element.id;
                     if(element.files && element.files[0]){
                         var reader = new FileReader();
                         reader.onload = function(e){
-                            $('#blah')
+                            $("#"+elementId+"-show")
                             .attr('src', e.target.result)
                         }
+                        if (reader.readAsDataURL) {reader.readAsDataURL(element.files[0]);}
+                        else if(reader.readAsDataurl) {reader.readAsDataurl(element.files[0]);}
+                        else if(reader.readAsDataUrl) {reader.readAsDataUrl(element.files[0]);}
+                    }
+                    else{
+                        $(elementId+"-show").attr('src',"");
                     }
                 }
             </script>
