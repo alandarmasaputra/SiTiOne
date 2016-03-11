@@ -39,9 +39,11 @@ Route::get('/beasiswa/{id}','BeasiswaController@detail');
   
  /* News */
 
-Route::post('/news/{id}','NewsController@update');
-Route::get('/news/new','NewsController@new');
+Route::post('/news/{id}','NewsController@index');
+Route::get('/news/new','NewsController@create');
 Route::post('/news/edit/{id}','NewsController@edit');
+Route::post('/news/new','NewsController@submit_new'); 
+Route::post('/news/update/{id}','NewsController@update');
 
 
 
@@ -63,7 +65,7 @@ Route::get('/alan/test',function(){
 });
 
 Route::get('/welly',function(){
-    return view('news.edit');
+    return view('news.create');
 });
 
 
