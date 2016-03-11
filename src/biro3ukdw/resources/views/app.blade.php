@@ -52,7 +52,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="images/logobesar.png" alt="logo"></a>
+                    <a class="navbar-brand" href="index.html"><img src="{{ asset('style/images/logobesar.png') }}" alt="logo"></a>
                 </div>
                 
                 <div class="collapse navbar-collapse navbar-right">
@@ -62,7 +62,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="blog-item.html">UKM</a></li>
+                                <li><a href="#">UKM</a></li>
                                 <li><a href="">BEASISWA</a></li>
                                 <li><a href="">NEWS</a></li>
                                 <li><a href="">EVENT</a></li>

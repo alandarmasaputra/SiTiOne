@@ -15,14 +15,14 @@
 use App\User;
 
 
-Route::get('/', "UserController@index");
+Route::get('/', "HomeController@index");
 
 /* home */
 
 
 
 Route::get('/home', function () {   
-    return view('app');
+    return redirect('/');
 });
 
 
@@ -31,8 +31,9 @@ Route::get('/home', function () {
 /* Beasiswa */
 Route::get('/beasiswa/index','BeasiswaController@index');
 Route::get('/beasiswa/{id}','BeasiswaController@detail');
-Route::post('/beasiswa/update/{id}','BeasiswaController@update');   
-Route::get('/beasiswa/new','BeasiswaController@new');
+Route::post('/beasiswa/update/{id}','BeasiswaController@update');
+Route::post('/beasiswa/submit','BeasiswaController@submit_new');   
+Route::get('/beasiswa/create','BeasiswaController@create');
 Route::get('/beasiswa/edit/{id}','BeasiswaController@edit');        
   
   
@@ -43,8 +44,8 @@ Route::get('/news/new','NewsController@new');
 Route::post('/news/edit/{id}','NewsController@edit');
 
 
-
  /* Ukm */
+Route::get('/ukm','UkmController@index');
 Route::get('/ukm/{id}','UkmController@');
 Route::get('/ukm/new','UkmController@');
 
@@ -52,7 +53,9 @@ Route::get('/ukm/new','UkmController@');
 Route::get('/event/{id}','EventController@');
 Route::get('/event/new','EventController@');
 
- /* Admin */
+Route::get('/alan/test',function(){
+    return view('tes');
+});
 
  /* Searh */
 //Route::get('/search?query={}','SearchController@');
