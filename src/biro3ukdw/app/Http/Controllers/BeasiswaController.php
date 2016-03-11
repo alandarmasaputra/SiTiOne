@@ -10,9 +10,9 @@ use App\Http\Controllers\Controller;
 class BeasiswaController extends Controller
 {
     public function index(){
-        $beasiswas = Beasiswa::get();
+        $beasiswas = Beasiswa::all();
         return view('beasiswa.index',[
-            'beasiswa'=>$beasiswas
+            'beasiswas'=> $beasiswas
         ]);
 
     }

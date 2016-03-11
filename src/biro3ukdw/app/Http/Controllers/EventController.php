@@ -12,7 +12,7 @@ class EventController extends Controller
     public function index(){
         $events = Event::get();
         return view('event.index',[
-            'event'=>$events
+            'events'=> $events
         ]);
 
     }
