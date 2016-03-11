@@ -4,7 +4,7 @@
     <h1>Edit Data <small>{{ $news->header_pic }}</small></h1>
     <hr>
  
-{!! Form::model($news, ['method' => 'PATCH', 'action' => ['NewsController@update', $news->id]]) !!}
+{!! Form::model($news, ['method' => 'PATCH', 'action' => ['NewsController@submit_new', $news->id]]) !!}
     <div class="form-group">
         {!! Form::label('id', 'Id :') !!}
         {!! Form::text('id', null, array('class' => 'form-control')) !!}
