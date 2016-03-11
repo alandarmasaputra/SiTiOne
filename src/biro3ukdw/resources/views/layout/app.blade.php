@@ -8,29 +8,30 @@
     <title>@yield('head_title')</title>
 
     <!-- core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/prettyPhoto.css" rel="stylesheet">
-    <link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
+    <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('style/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('style/css/prettyPhoto.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('style/css/animate.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('style/css/main.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('style/css/responsive.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('style/css/app.css') }}" rel="stylesheet" type="text/css">
     
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->       
-    <link rel="shortcut icon" href="images/ico/logo1.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="{{ asset('style/images/ico/logo1.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('style/images/ico/apple-touch-icon-144-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('style/images/ico/apple-touch-icon-114-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('style/images/ico/apple-touch-icon-72-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('style/images/ico/apple-touch-icon-57-precomposed.png') }}">
 
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/jquery.isotope.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/wow.min.js"></script>
+    <script src="{{ asset('jquery/jquery.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('style/js/jquery.prettyPhoto.js') }}"></script>
+    <script src="{{ asset('style/js/jquery.isotope.min.js') }}"></script>
+    <script src="{{ asset('style/js/main.js') }}"></script>
+    <script src="{{ asset('style/js/wow.min.js') }}"></script>
 
     @yield('head_addition')
 </head><!--/head-->
@@ -52,23 +53,23 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="images/logobesar.png" alt="logo"></a>
+                    <a class="navbar-brand" href="index.html"><img src="{{ asset('style/images/logobesar.png') }}" alt="logo"></a>
                 </div>
                 
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="{{ url('/') }}">Home</a></li>
                         
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="blog-item.html">UKM</a></li>
-                                <li><a href="">BEASISWA</a></li>
-                                <li><a href="">NEWS</a></li>
-                                <li><a href="">EVENT</a></li>
+                                <li><a href="{{url('/ukm')}}">UKM</a></li>
+                                <li><a href="{{url('/beasiswa')}}">BEASISWA</a></li>
+                                <li><a href="{{url('/news')}}">NEWS</a></li>
+                                <li><a href="{{url('/event')}}">EVENT</a></li>
                             </ul>
                         </li>
-                        <li class="active"><a href="blog.html">Blog</a></li> 
+                        <li class=""><a href="blog.html">Blog</a></li> 
                         <li><a href="contact-us.html">Contact</a></li>       
                         <li><a href=login.html>Login</a></li>                 
                     </ul>

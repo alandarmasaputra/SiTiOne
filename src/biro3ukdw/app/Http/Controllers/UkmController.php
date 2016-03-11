@@ -11,8 +11,22 @@ class UkmController extends Controller
 {
     function index(){
         $ukms = Ukm::get();
-        echo "<pre>".json_encode($ukms,JSON_PRETTY_PRINT)."</pre>"
+        return view('ukm.index',[
+            'ukms'=>$ukms
+        ]);
+    }
+    
+    function create(){
+        return view('ukm.new');
+    }
+    function submitNew(){
         
-        //return view('')
+    }
+    
+    function edit(){
+    
+    }
+    function update(){
+    
     }
 }
