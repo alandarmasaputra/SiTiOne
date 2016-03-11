@@ -15,14 +15,14 @@
 use App\User;
 
 
-Route::get('/', "UserController@index");
+Route::get('/', "HomeController@index");
 
 /* home */
 
 
 
 Route::get('/home', function () {   
-    return view('app');
+    return redirect('/');
 });
 
 Route::resource('news','NewsController');

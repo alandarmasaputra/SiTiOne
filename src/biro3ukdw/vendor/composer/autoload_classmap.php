@@ -6,19 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-<<<<<<< HEAD
     'App\\Beasiswa' => $baseDir . '/app/beasiswa.php',
     'App\\BeasiswaContent' => $baseDir . '/app/BeasiswaContent.php',
     'App\\Console\\Commands\\Inspire' => $baseDir . '/app/Console/Commands/Inspire.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Event' => $baseDir . '/app/Event.php',
-=======
-    'App\\Beasiswa' => $baseDir . '/app/Beasiswa.php',
-    'App\\BeasiswaContent' => $baseDir . '/app/BeasiswaContent.php',
-    'App\\Console\\Commands\\Inspire' => $baseDir . '/app/Console/Commands/Inspire.php',
-    'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
-    'App\\Event' => $baseDir . '/app/event.php',
->>>>>>> 618986de7fb1ec81096d684d89adf28e2639c796
     'App\\EventContent' => $baseDir . '/app/EventContent.php',
     'App\\Events\\Event' => $baseDir . '/app/Events/Event.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -39,27 +31,16 @@ return array(
     'App\\Http\\Middleware\\RedirectIfAuthenticated' => $baseDir . '/app/Http/Middleware/RedirectIfAuthenticated.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\Request' => $baseDir . '/app/Http/Requests/Request.php',
-<<<<<<< HEAD
     'App\\Images' => $baseDir . '/app/Images.php',
-=======
-    'App\\Images' => $baseDir . '/app/images.php',
->>>>>>> 618986de7fb1ec81096d684d89adf28e2639c796
     'App\\Jobs\\Job' => $baseDir . '/app/Jobs/Job.php',
     'App\\News' => $baseDir . '/app/News.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
-<<<<<<< HEAD
     'App\\Ukm' => $baseDir . '/app/Ukm.php',
     'App\\UkmContent' => $baseDir . '/app/UkmContent.php',
     'App\\User' => $baseDir . '/app/User.php',
-    'App\\beasiswa_content' => $baseDir . '/app/beasiswa_content.php',
-=======
-    'App\\Ukm' => $baseDir . '/app/ukm.php',
-    'App\\UkmContent' => $baseDir . '/app/UkmContent.php',
-    'App\\User' => $baseDir . '/app/User.php',
->>>>>>> 618986de7fb1ec81096d684d89adf28e2639c796
     'App\\news_content' => $baseDir . '/app/news_content.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
