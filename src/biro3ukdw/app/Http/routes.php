@@ -25,7 +25,7 @@ Route::get('/home', function () {
     return redirect('/');
 });
 
-Route::resource('news','NewsController');
+
 
 
 /* Beasiswa */
@@ -39,9 +39,9 @@ Route::get('/beasiswa/edit/{id}','BeasiswaController@edit');
   
  /* News */
 
-Route::get('/news/{id}','NewsController@update');
+Route::post('/news/{id}','NewsController@update');
 Route::get('/news/new','NewsController@new');
-//Route::get('/news/edit/{id}','NewsController@edit');
+Route::post('/news/edit/{id}','NewsController@edit');
 
 
  /* Ukm */
