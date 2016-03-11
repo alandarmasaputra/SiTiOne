@@ -40,10 +40,10 @@ Route::get('/beasiswa/{id}','BeasiswaController@detail');
  /* News */
 
 Route::post('/news/{id}','NewsController@index');
-Route::get('/news/new','NewsController@new');
+Route::get('/news/new','NewsController@create');
 Route::post('/news/edit/{id}','NewsController@edit');
-Route::post('/news/new','BeasiswaController@submit_new'); 
-Route::post('/news/update/{id}','BeasiswaController@update');
+Route::post('/news/new','NewsController@submit_new'); 
+Route::post('/news/update/{id}','NewsController@update');
 
 
 

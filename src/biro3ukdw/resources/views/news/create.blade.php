@@ -11,19 +11,16 @@ Edit News - Biro3 | UKDW
 
     <hr>
  
-{!! Form::model( ['method' => 'POST', 'action' => ['NewsController@update']]) !!}
-    <div class="form-group">
-        {!! Form::label( 'Id :') !!}
-        {!! Form::text(null, array('class' => 'form-control')) !!}
-    </div>
+{!! Form::model( ['method' => 'POST', 'action' => ['NewsController@submit_new']]) !!}
+    
  
     <div class="form-group">
-        {!! Form::label( 'HEADER_PIC :') !!}
-        {!! Form::text( null, array('class' => 'form-control')) !!}
+        {!! Form::label('header_pic', 'HEADER_PIC :') !!}
+        {!! Form::text('header_pic', null, array('class' => 'form-control')) !!}
     </div>
     <div class="form-group">
-        {!! Form::label( 'CONTENT :') !!}
-        {!! Form::text( null, array('class' => 'form-control')) !!}
+        {!! Form::label('header_pic', 'CONTENT :') !!}
+        {!! Form::text('header_pic', null, array('class' => 'form-control')) !!}
         
     </div>
  <br>

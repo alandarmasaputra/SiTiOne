@@ -31,6 +31,7 @@ class NewsController extends Controller
         $news->header_pic = $request->input('header_pic');
         $news->save();
         return view('news.create', compact('news'));
+        echo("suskes");
     }
 
     public function edit(Request $request, $id){
