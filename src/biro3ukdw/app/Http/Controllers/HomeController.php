@@ -7,16 +7,21 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\News;
+use App\Ukm;
+use App\Beasiswa;
+use App\Event;
 class HomeController extends Controller
 {
     public function index(){
-    	//print news
-        $news=News::orderBy('created_at','desc')
-        ->get();
-
-        //return view('')
-         echo "<pre>".json_encode($news,JSON_PRETTY_PRINT)."</pre>";
-
-
+        $newss = News::get();
+        $ukms = Ukm::get();
+        $beasiswas = Beasiswa::get();
+        $events = Event::get();
+    	return view('home',[
+            'newss'=>$newss,
+            'ukms'=>$ukms,
+            'beasiswas'=>$beasiswas,
+            'events'=>$events
+        ]);
     }
 }

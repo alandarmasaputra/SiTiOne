@@ -46,8 +46,8 @@ Route::post('/news/edit/{id}','NewsController@edit');
 
  /* Ukm */
 Route::get('/ukm','UkmController@index');
+Route::get('/ukm/new','UkmController@create');
 Route::get('/ukm/{id}','UkmController@');
-Route::get('/ukm/new','UkmController@');
 
  /* Event */
 Route::get('/event/index','EventController@index');
