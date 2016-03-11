@@ -31,8 +31,9 @@ Route::resource('news','NewsController');
 /* Beasiswa */
 Route::get('/beasiswa/index','BeasiswaController@index');
 Route::get('/beasiswa/{id}','BeasiswaController@detail');
-Route::post('/beasiswa/update/{id}','BeasiswaController@update');   
-Route::get('/beasiswa/new','BeasiswaController@new');
+Route::post('/beasiswa/update/{id}','BeasiswaController@update');
+Route::post('/beasiswa/submit','BeasiswaController@submit_new');   
+Route::get('/beasiswa/create','BeasiswaController@create');
 Route::get('/beasiswa/edit/{id}','BeasiswaController@edit');        
   
   
