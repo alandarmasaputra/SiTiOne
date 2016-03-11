@@ -29,12 +29,12 @@ Route::get('/home', function () {
 
 
 /* Beasiswa */
-Route::get('/beasiswa/','BeasiswaController@index');
-Route::get('/beasiswa/{id}','BeasiswaController@detail');  
+Route::get('/beasiswa/','BeasiswaController@index');  
+Route::post('/beasiswa/new','BeasiswaController@submit_new');
 Route::get('/beasiswa/new','BeasiswaController@create');
 Route::get('/beasiswa/edit/{id}','BeasiswaController@edit');
 Route::post('/beasiswa/update/{id}','BeasiswaController@update');
-Route::post('/beasiswa/submit','BeasiswaController@submit_new');         
+Route::get('/beasiswa/{id}','BeasiswaController@detail');         
   
   
  /* News */
@@ -53,12 +53,12 @@ Route::get('/ukm/new','UkmController@create');
 Route::get('/ukm/{id}','UkmController@');
 
  /* Event */
-Route::get('/event/index','EventController@index');
-Route::get('/event/{id}','EventController@detail');
+Route::get('/event/','EventController@index');  
+Route::post('/event/new','EventController@submit_new');
+Route::get('/event/new','EventController@create');
+Route::get('/event/edit/{id}','EventController@edit');
 Route::post('/event/update/{id}','EventController@update');
-Route::post('/event/submit','EventController@submit_new');   
-Route::get('/event/create','EventController@create');
-Route::get('/event/edit/{id}','EventController@edit'); 
+Route::get('/event/{id}','EventController@detail');    
 
 Route::get('/alan/test',function(){
     return view('tes');
