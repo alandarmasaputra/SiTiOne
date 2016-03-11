@@ -39,8 +39,8 @@ Route::get('/news/{id}','NewsController@update');
 Route::get('/news/new','NewsController@new');
 
 
-
  /* Ukm */
+Route::get('/ukm','UkmController@index');
 Route::get('/ukm/{id}','UkmController@');
 Route::get('/ukm/new','UkmController@');
 
@@ -48,7 +48,9 @@ Route::get('/ukm/new','UkmController@');
 Route::get('/event/{id}','EventController@');
 Route::get('/event/new','EventController@');
 
- /* Admin */
+Route::get('/alan/test',function(){
+    return view('tes');
+});
 
  /* Searh */
 //Route::get('/search?query={}','SearchController@');
