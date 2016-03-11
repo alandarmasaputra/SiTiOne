@@ -40,7 +40,7 @@ class EventController extends Controller
     	$event->tempat = $request->input('tempat');
     	$event->event_date = $request->input('event_date');
         $event->save();
-        return view('event.create', compact('event'));
+        return redirect('/event/new/');
     }
 
     public function update(Request $request, $id){
@@ -51,6 +51,6 @@ class EventController extends Controller
     	$event->tempat = $request->input('tempat');
     	$event->event_date = $request->input('event_date');
     	$event->save();
-        return view('event.edit', compact('event'));
+        return redirect('/event/edit/'.$id);
     }
 }
