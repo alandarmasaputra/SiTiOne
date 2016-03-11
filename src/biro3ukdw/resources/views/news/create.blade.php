@@ -7,15 +7,12 @@ Edit News - Biro3 | UKDW
     <div class ="row">
          <div class ="col-md-8 col-md-offset-2">
              <div class ="panel panel-default">
-<h2 class= "text-center" style="color:black;">Edit News</h2>
+<h2 class= "text-center" style="color:black;">Create News</h2>
 
     <hr>
  
-{!! Form::model($news, ['method' => 'POST', 'action' => ['NewsController@update', $news->id]]) !!}
-    <div class="form-group">
-        {!! Form::label('id', 'Id :') !!}
-        {!! Form::text('id', null, array('class' => 'form-control')) !!}
-    </div>
+{!! Form::model( ['method' => 'POST', 'action' => ['NewsController@submit_new']]) !!}
+    
  
     <div class="form-group">
         {!! Form::label('header_pic', 'HEADER_PIC :') !!}

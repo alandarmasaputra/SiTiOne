@@ -10,10 +10,10 @@ use App\Http\Controllers\Controller;
 class EventController extends Controller
 {
     public function index(){
-        $event=Event::orderBy('created_at','desc')
-        ->get();
-        echo "<pre>".json_encode($event,JSON_PRETTY_PRINT)."</pre>";
-        return View::make('event.index');
+        $events = Event::get();
+        return view('event.index',[
+            'events'=> $events
+        ]);
 
     }
 
@@ -40,7 +40,7 @@ class EventController extends Controller
     	$event->tempat = $request->input('tempat');
     	$event->event_date = $request->input('event_date');
         $event->save();
-        return view('event.create', compact('event'));
+        return redirect('/event/new/');
     }
 
     public function update(Request $request, $id){
@@ -51,6 +51,6 @@ class EventController extends Controller
     	$event->tempat = $request->input('tempat');
     	$event->event_date = $request->input('event_date');
     	$event->save();
-        return view('event.edit', compact('event'));
+        return redirect('/event/edit/'.$id);
     }
 }

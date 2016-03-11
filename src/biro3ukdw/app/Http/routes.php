@@ -29,19 +29,22 @@ Route::get('/home', function () {
 
 
 /* Beasiswa */
-Route::get('/beasiswa/index','BeasiswaController@index');
-Route::get('/beasiswa/{id}','BeasiswaController@detail');
+Route::get('/beasiswa/','BeasiswaController@index');  
+Route::post('/beasiswa/new','BeasiswaController@submit_new');
+Route::get('/beasiswa/new','BeasiswaController@create');
+Route::get('/beasiswa/edit/{id}','BeasiswaController@edit');
 Route::post('/beasiswa/update/{id}','BeasiswaController@update');
-Route::post('/beasiswa/submit','BeasiswaController@submit_new');   
-Route::get('/beasiswa/create','BeasiswaController@create');
-Route::get('/beasiswa/edit/{id}','BeasiswaController@edit');        
+Route::get('/beasiswa/{id}','BeasiswaController@detail');         
   
   
  /* News */
 
-Route::post('/news/{id}','NewsController@update');
-Route::get('/news/new','NewsController@new');
+Route::post('/news/{id}','NewsController@index');
+Route::get('/news/new','NewsController@create');
 Route::post('/news/edit/{id}','NewsController@edit');
+Route::post('/news/new','NewsController@submit_new'); 
+Route::post('/news/update/{id}','NewsController@update');
+
 
 
  /* Ukm */
@@ -50,16 +53,21 @@ Route::get('/ukm/new','UkmController@create');
 Route::post('/ukm/new','UkmController@submit_new');
 
  /* Event */
-Route::get('/event/index','EventController@index');
-Route::get('/event/{id}','EventController@detail');
+Route::get('/event/','EventController@index');  
+Route::post('/event/new','EventController@submit_new');
+Route::get('/event/new','EventController@create');
+Route::get('/event/edit/{id}','EventController@edit');
 Route::post('/event/update/{id}','EventController@update');
-Route::post('/event/submit','EventController@submit_new');   
-Route::get('/event/create','EventController@create');
-Route::get('/event/edit/{id}','EventController@edit'); 
+Route::get('/event/{id}','EventController@detail');    
 
 Route::get('/alan/test',function(){
     return view('tes');
 });
+
+Route::get('/welly',function(){
+    return view('news.create');
+});
+
 
  /* Searh */
 //Route::get('/search?query={}','SearchController@');

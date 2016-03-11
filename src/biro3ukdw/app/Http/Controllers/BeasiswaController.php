@@ -10,10 +10,10 @@ use App\Http\Controllers\Controller;
 class BeasiswaController extends Controller
 {
     public function index(){
-        $beasiswa=Beasiswa::orderBy('created_at','desc')
-        ->get();
-        echo "<pre>".json_encode($beasiswa,JSON_PRETTY_PRINT)."</pre>";
-        return View::make('beasiswa.index');
+        $beasiswas = Beasiswa::all();
+        return view('beasiswa.index',[
+            'beasiswas'=> $beasiswas
+        ]);
 
     }
 
@@ -28,6 +28,7 @@ class BeasiswaController extends Controller
     }
 
      public function detail($id){
+            
             $beasiswa = Beasiswa::where('id',$id)->first();
             return view('beasiswa.detail', compact('beasiswa')); 
      		
@@ -40,7 +41,7 @@ class BeasiswaController extends Controller
     	$beasiswa->header_pic = $request->input('header_pic');
     	$beasiswa->deadline_date = $request->input('deadline_date');
         $beasiswa->save();
-        return view('beasiswa.create', compact('beasiswa'));
+        return redirect('/beasiswa/new/');
     }
 
     public function update(Request $request, $id){
@@ -51,6 +52,6 @@ class BeasiswaController extends Controller
     	$beasiswa->header_pic = $request->input('header_pic');
     	$beasiswa->deadline_date = $request->input('deadline_date');
     	$beasiswa->save();
-        return view('beasiswa.edit', compact('beasiswa'));
+        return redirect('/beasiswa/edit/'.$id);
     }
 }
