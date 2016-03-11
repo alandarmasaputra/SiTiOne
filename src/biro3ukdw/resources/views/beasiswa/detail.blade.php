@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('head_title')
-Edit Beasiswa - Biro3 | UKW
+Detail Beasiswa - Biro3 | UKW
 @endsection
 @section('body_content')
 <div class="container">

@@ -10,10 +10,10 @@ use App\Http\Controllers\Controller;
 class BeasiswaController extends Controller
 {
     public function index(){
-        $beasiswa=Beasiswa::orderBy('created_at','desc')
-        ->get();
-        echo "<pre>".json_encode($beasiswa,JSON_PRETTY_PRINT)."</pre>";
-        return View::make('beasiswa.index');
+        $beasiswas = Beasiswa::get();
+        return view('beasiswa.index',[
+            'beasiswa'=>$beasiswas
+        ]);
 
     }
 
@@ -28,6 +28,7 @@ class BeasiswaController extends Controller
     }
 
      public function detail($id){
+            
             $beasiswa = Beasiswa::where('id',$id)->first();
             return view('beasiswa.detail', compact('beasiswa')); 
      		
