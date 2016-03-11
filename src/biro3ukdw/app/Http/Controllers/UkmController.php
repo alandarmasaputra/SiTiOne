@@ -19,14 +19,16 @@ class UkmController extends Controller
     function create(){
         return view('ukm.new');
     }
-    function submitNew(){
-        
+    function submit_new(Request $request){
+        $input = $request->all();
+        $ukm = new Ukm;
+        return Redirect::back()->withInput();
     }
     
     function edit(){
     
     }
-    function update(){
+    function submitEdit(){
     
     }
 }

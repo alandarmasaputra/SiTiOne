@@ -10,3 +10,27 @@ body{
     min-height: 100vh;
     padding-bottom: 100px;
 }
+
+.flex{
+    display: flex;
+}
+
+.items-center{
+    align-items: center;
+}
+
+.editor img{
+    max-width: 80%;
+}
+
+.editor input[type="file"]{
+    display: inline-block;
+}
+
+.editor button{
+    display:inline-block;
+}
+
+.hidden{
+    display:none;
+}

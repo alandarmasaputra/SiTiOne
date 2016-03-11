@@ -10,9 +10,9 @@
     <!-- core CSS -->
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('style/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('style/css/main.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('style/css/prettyPhoto.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('style/css/animate.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('style/css/main.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('style/css/responsive.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('style/css/app.css') }}" rel="stylesheet" type="text/css">
     
@@ -28,6 +28,7 @@
 
     <script src="{{ asset('jquery/jquery.js') }}"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+    
     <script src="{{ asset('style/js/jquery.prettyPhoto.js') }}"></script>
     <script src="{{ asset('style/js/jquery.isotope.min.js') }}"></script>
     <script src="{{ asset('style/js/main.js') }}"></script>
