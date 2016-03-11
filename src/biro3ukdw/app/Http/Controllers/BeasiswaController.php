@@ -10,7 +10,6 @@ use App\Http\Controllers\Controller;
 class BeasiswaController extends Controller
 {
     public function index(){
-    	//print news
         $beasiswa=Beasiswa::orderBy('created_at','desc')
         ->get();
         echo "<pre>".json_encode($beasiswa,JSON_PRETTY_PRINT)."</pre>";
@@ -46,15 +45,11 @@ class BeasiswaController extends Controller
 
     public function update(Request $request, $id){
     	$beasiswa = Beasiswa::find($id);
-
-           
             $beasiswa->kategori = $request->input('kategori');
     		$beasiswa->sumber = $request->input('sumber');
     		$beasiswa->jumlah = $request->input('jumlah');
     		$beasiswa->header_pic = $request->input('header_pic');
     		$beasiswa->deadline_date = $request->input('deadline_date');
-    		$beasiswa->updated_at = $request->input('updated_at');
-
     		$beasiswa->save();
             return view('beasiswa.edit', compact('beasiswa'));
     }
