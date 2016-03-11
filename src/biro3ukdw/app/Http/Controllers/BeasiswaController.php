@@ -45,12 +45,12 @@ class BeasiswaController extends Controller
 
     public function update(Request $request, $id){
     	$beasiswa = Beasiswa::find($id);
-            $beasiswa->kategori = $request->input('kategori');
-    		$beasiswa->sumber = $request->input('sumber');
-    		$beasiswa->jumlah = $request->input('jumlah');
-    		$beasiswa->header_pic = $request->input('header_pic');
-    		$beasiswa->deadline_date = $request->input('deadline_date');
-    		$beasiswa->save();
-            return view('beasiswa.edit', compact('beasiswa'));
+        $beasiswa->kategori = $request->input('kategori');
+    	$beasiswa->sumber = $request->input('sumber');
+    	$beasiswa->jumlah = $request->input('jumlah');
+    	$beasiswa->header_pic = $request->input('header_pic');
+    	$beasiswa->deadline_date = $request->input('deadline_date');
+    	$beasiswa->save();
+        return view('beasiswa.edit', compact('beasiswa'));
     }
 }

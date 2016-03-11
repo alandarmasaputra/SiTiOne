@@ -50,8 +50,12 @@ Route::get('/ukm/{id}','UkmController@');
 Route::get('/ukm/new','UkmController@');
 
  /* Event */
-Route::get('/event/{id}','EventController@');
-Route::get('/event/new','EventController@');
+Route::get('/event/index','EventController@index');
+Route::get('/event/{id}','EventController@detail');
+Route::post('/event/update/{id}','EventController@update');
+Route::post('/event/submit','EventController@submit_new');   
+Route::get('/event/create','EventController@create');
+Route::get('/event/edit/{id}','EventController@edit'); 
 
 Route::get('/alan/test',function(){
     return view('tes');
