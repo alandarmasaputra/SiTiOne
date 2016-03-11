@@ -20,16 +20,26 @@ class NewsController extends Controller
     }
     
 
+     public function create(){
+        
+        return view('news.create');
+            
+    }
+
+     public function submit_new(Request $request){
+        $news = new News;
+        $news->header_pic = $request->input('header_pic');
+        $news->save();
+        return view('news.create', compact('news'));
+    }
+
     public function edit(Request $request, $id){
             $news = News::where('id',$id)->first();
             return view('news.edit', compact('news'));
 
     }
 
-   // public function new(){
-            //return view('news.new'); 
-  //  }
-//
+   
      public function detail($id){
             $news = News::find($id);
             return view('news.detail', compact('news')); 
