@@ -29,12 +29,12 @@ Route::get('/home', function () {
 
 
 /* Beasiswa */
-Route::get('/beasiswa/index','BeasiswaController@index');
-Route::get('/beasiswa/{id}','BeasiswaController@detail');
+Route::get('/beasiswa/','BeasiswaController@index');
+Route::get('/beasiswa/{id}','BeasiswaController@detail');  
+Route::get('/beasiswa/new','BeasiswaController@create');
+Route::get('/beasiswa/edit/{id}','BeasiswaController@edit');
 Route::post('/beasiswa/update/{id}','BeasiswaController@update');
-Route::post('/beasiswa/submit','BeasiswaController@submit_new');   
-Route::get('/beasiswa/create','BeasiswaController@create');
-Route::get('/beasiswa/edit/{id}','BeasiswaController@edit');        
+Route::post('/beasiswa/submit','BeasiswaController@submit_new');         
   
   
  /* News */
