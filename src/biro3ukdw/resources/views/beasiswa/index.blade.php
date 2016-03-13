@@ -2,12 +2,11 @@
 @section('head_title')
 Beasiswa - Biro3 | UKW
 @endsection
-
 @section('body_content')
 <div class="container">
     <div class="page-header">
         <h2>
-            Beasiswa
+            Sudah jadi.. design ada di anggit/dodo
         </h2>
     </div>
     <div class="text-center">
