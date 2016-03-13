@@ -1,4 +1,7 @@
 @extends('layout.app')
 @section('head_title')
- sudah jadi.. design ada di anggit
+Biro3 | UKDW
+@endsection
+@section('body_content')
+ Design sudah jadi,design di anggit/dodo 
 @endsection
