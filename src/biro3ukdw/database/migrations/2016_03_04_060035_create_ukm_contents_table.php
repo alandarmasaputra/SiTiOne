@@ -16,7 +16,7 @@ class CreateUkmContentsTable extends Migration
             $table->integer('ukm_id');
             $table->increments('id');
             $table->char('type',1)->comment = "i = images , s = string";
-            $table->string('content');
+            $table->text('content');
             $table->timestamps();
         });
     }

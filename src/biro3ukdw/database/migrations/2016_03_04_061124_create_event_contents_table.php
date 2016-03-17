@@ -16,7 +16,7 @@ class CreateEventContentsTable extends Migration
             $table->increments('id');
             $table->integer('event_id');
             $table->char('type');
-            $table->string('content');
+            $table->text('content');
             $table->timestamps();
         });
     }

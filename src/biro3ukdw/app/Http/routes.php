@@ -30,10 +30,6 @@ Route::get('/home', function () {
 
 /* Beasiswa */
 Route::get('/beasiswa/','BeasiswaController@index');  
-Route::post('/beasiswa/new','BeasiswaController@submit_new');
-Route::get('/beasiswa/new','BeasiswaController@create');
-Route::get('/beasiswa/edit/{id}','BeasiswaController@edit');
-Route::post('/beasiswa/update/{id}','BeasiswaController@update');
 Route::get('/beasiswa/{id}','BeasiswaController@detail');         
   
   
@@ -89,4 +85,10 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/ukm/edit/{id}','UkmController@edit');
     Route::get('/event/edit/{id}','EventController@edit');
     Route::get('/admin/organize','AdminController@organize');
+    
+    
+    Route::post('/beasiswa/new','BeasiswaController@submit_new');
+    Route::get('/beasiswa/new','BeasiswaController@create');
+    Route::get('/beasiswa/edit/{id}','BeasiswaController@edit');
+    Route::post('/beasiswa/update/{id}','BeasiswaController@update');
 });

@@ -78,7 +78,7 @@
             </div><!--/.container-->
         </nav><!--/nav-->
     </header><!--/header-->
-
+    @include('errors.common')
     @yield('body_content')
     <footer id="footer" class="midnight-blue">
         <div class="container">
