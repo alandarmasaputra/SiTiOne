@@ -30,6 +30,11 @@ class UkmController extends Controller
     function create(){
         return view('ukm.new');
     }
+    
+    
+    /*
+    *Submit new UKM entry
+    */
     function submit_new(Request $request){
         $input = $request->all();
         
@@ -155,12 +160,12 @@ class UkmController extends Controller
         
         
         // Testing Materials
-        
+        /*
             echo "<pre>".json_encode($input,JSON_PRETTY_PRINT)."</pre>";
             echo "<pre>";
             print_r($input);
             echo "</pre>";
-        
+        */
         
         
         $success_message = 'UKM berhasil terdaftar';
