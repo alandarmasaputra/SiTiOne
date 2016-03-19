@@ -60,4 +60,11 @@ class AppUtility
         $image = $image->stream();
         Storage::disk('local')->put($filename, $image->__toString());
     }
+    
+    public static function get_image_data($filename){
+        $image = Intervention::make(storage_path()."\\app\\".$filename);
+        $type = AppUtility::image_mime_to_extension($image->mime());
+        $data = 'data:image/png'.';base64,'.base64_encode($image->encode('png'));
+        return $data;
+    }
 }

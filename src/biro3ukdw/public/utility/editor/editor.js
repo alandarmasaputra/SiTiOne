@@ -106,18 +106,50 @@ function newImage(){
     return "<div class='editor-item row'>"
             +newEditorNumber()
             +"<div class='editor-record'>"
-                +"<img class='editor-image-show'></img>"
                 +"<input class='editor-item-id' type='hidden' name='type' value='image'>"
+                +"<img class='editor-image-show'></img>"
                 +"<input class='editor-image' type='file' onchange='imageupload(this)'>"
             +"</div>"
             +newButtonPanel()
         +"</div>"
 }
 
+function initLoad(){
+    $('#editor-content').find('.editor-paragraph').each(function(){
+        $(this).summernote('code',$(this).parent().children('.content-old').text(),{
+            callbacks: {
+                onKeydown: function(e) {
+                    var num = $(this).parent().find('.note-editor .note-editable').text().length;
+                    var key = e.keyCode;
+                    var maxlength = 16000;
+                    allowed_keys = [8, 37, 38, 39, 40, 46]
+                    if($.inArray(key, allowed_keys) != -1)
+                        return true
+                    else if(num >= maxlength){
+                        $(this).parent().find('.note-editor .note-editable').text($(this).parent().find('.note-editor .note-editable').text().substr(0,maxlength))
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                }
+            },
+            toolbar:[
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['codeview', ['codeview']]
+            ],
+            disableDragAndDrop: true
+        });
+    })
+}
+
 function serializeId(){
     var i = 0;
     $('#editor-content').children().each(function(){
-        $(this).find(".editor-item-number").html(i);
+        $(this).find(".editor-item-number").html(i+1);
 
         $(this).find(".editor-item-id").attr('id','type-'+i)
         $(this).find(".editor-item-id").attr('name','type-'+i)
@@ -129,6 +161,8 @@ function serializeId(){
         $(this).find(".editor-image").attr('name','img-'+i)
 
         $(this).find(".editor-image-show").attr('id','img-'+i+"-show")
+        
+        $(this).find(".content-old").attr('id','content-'+i+'-old')
         i++;
     })
 }

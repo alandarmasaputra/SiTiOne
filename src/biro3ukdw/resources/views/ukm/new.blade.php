@@ -10,14 +10,14 @@ New UKM - Biro3 | UKW
 
 @section('body_content')
 <div class="container">
-    @if(session('error_message'))
+    @if(session('errorMessage'))
         <div>
-            <span class="label label-warning">Alert</span> {{ session('error_message') }}
+            <span class="label label-warning">Alert</span> {{ session('errorMessage') }}
         </div>
     @endif
-    @if(session('success_message'))
+    @if(session('successMessage'))
         <div>
-            <span class="label label-success">Success</span> {{ session('success_message') }}
+            <span class="label label-success">Success</span> {{ session('successMessage') }}
         </div>    
     @endif
     <div class="page-header">
@@ -28,6 +28,7 @@ New UKM - Biro3 | UKW
     <!-- jangan diubah ubah -->
     <div class="text-center editor">
         <form method="post" action="{{ url('/ukm/new') }}" enctype="multipart/form-data"><!--  -->
+            {!! csrf_field() !!}
             <div class="editor-header">
                 <div><label>Photo</label></div>
                 <img id="header-pic-show">
