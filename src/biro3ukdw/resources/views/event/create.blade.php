@@ -12,7 +12,7 @@ Create Event - Biro3 | UKDW
     <hr>
  
 {!! Form::model(['method' => 'POST', 'action' => ['EventController@submit_new']]) !!}
-        <div class="form-group">
+    <div class="form-group">
         {!! Form::label('kategori', 'Kategori :') !!}
         {!! Form::text('kategori', null, array('class' => 'form-control')) !!}
     </div>

@@ -10,9 +10,9 @@
     <!-- core CSS -->
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('style/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('style/css/main.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('style/css/prettyPhoto.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('style/css/animate.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('style/css/main.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('style/css/responsive.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('style/css/app.css') }}" rel="stylesheet" type="text/css">
     
@@ -28,6 +28,7 @@
 
     <script src="{{ asset('jquery/jquery.js') }}"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+    
     <script src="{{ asset('style/js/jquery.prettyPhoto.js') }}"></script>
     <script src="{{ asset('style/js/jquery.isotope.min.js') }}"></script>
     <script src="{{ asset('style/js/main.js') }}"></script>
@@ -40,12 +41,12 @@
      <header id="header">    
         <nav class="navbar navbar-inverse" role="banner">
             <div class="container">
-            				<div class="search" style="float:right;">
-                                <form role="form">
-                                    <input type="text" class="search-form" autocomplete="off" placeholder="Search">
-                                    <i class="fa fa-search"></i>
-                                </form>
-                           </div>
+                <div class="search" style="float:right;">
+                    <form role="form">
+                        <input type="text" class="search-form" autocomplete="off" placeholder="Search">
+                        <i class="glyphicon glyphicon-search"></i><!-- class="fa fa-search" -->
+                    </form>
+                </div>
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
@@ -77,7 +78,7 @@
             </div><!--/.container-->
         </nav><!--/nav-->
     </header><!--/header-->
-
+    @include('errors.common')
     @yield('body_content')
     <footer id="footer" class="midnight-blue">
         <div class="container">

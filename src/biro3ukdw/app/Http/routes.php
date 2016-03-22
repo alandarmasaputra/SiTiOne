@@ -30,10 +30,6 @@ Route::get('/home', function () {
 
 /* Beasiswa */
 Route::get('/beasiswa/','BeasiswaController@index');  
-Route::post('/beasiswa/new','BeasiswaController@submit_new');
-Route::get('/beasiswa/new','BeasiswaController@create');
-Route::get('/beasiswa/edit/{id}','BeasiswaController@edit');
-Route::post('/beasiswa/update/{id}','BeasiswaController@update');
 Route::get('/beasiswa/{id}','BeasiswaController@detail');         
   
   
@@ -45,12 +41,10 @@ Route::post('/news/edit/{id}','NewsController@edit');
 Route::post('/news/new','NewsController@submit_new'); 
 Route::post('/news/update/{id}','NewsController@update');
 
+    
 
 
  /* Ukm */
-Route::get('/ukm','UkmController@index');
-Route::get('/ukm/new','UkmController@create');
-Route::get('/ukm/{id}','UkmController@');
 
  /* Event */
 Route::get('/event/','EventController@index');  
@@ -84,7 +78,18 @@ Route::get('/alan/test',function(){
 Route::group(['middleware' => ['web']], function () {
     Route::get('/beasiswa/edit/{id}','BeasiswaController@edit');
     Route::get('/news/edit/{id}','NewsController@edit');
-    Route::get('/ukm/edit/{id}','UkmController@edit');
     Route::get('/event/edit/{id}','EventController@edit');
     Route::get('/admin/organize','AdminController@organize');
+    
+    Route::get('/ukm/new',['as'=>'ukm_new', 'uses'=>'UkmController@create']);
+    Route::post('/ukm/new',['as'=>'ukm_new', 'uses'=>'UkmController@submit_new']);
+    Route::get('/ukm/edit/{id}',['as'=>'ukm_edit', 'uses'=>'UkmController@edit']);
+    Route::post('/ukm/update/{id}',['as'=>'ukm_update', 'uses'=>'UkmController@update']);
+    Route::get('/ukm/{id}',['as'=>'ukm_get', 'uses'=>'UkmController@detail']);
+    Route::get('/ukm',['as'=>'ukm_index', 'uses'=>'UkmController@index']);
+    
+    Route::post('/beasiswa/new','BeasiswaController@submit_new');
+    Route::get('/beasiswa/new','BeasiswaController@create');
+    Route::get('/beasiswa/edit/{id}','BeasiswaController@edit');
+    Route::post('/beasiswa/update/{id}','BeasiswaController@update');
 });

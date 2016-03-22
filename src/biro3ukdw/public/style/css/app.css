@@ -10,3 +10,105 @@ body{
     min-height: 100vh;
     padding-bottom: 100px;
 }
+
+.flex{
+    display: flex;
+}
+
+.items-center{
+    align-items: center;
+}
+
+.editor img{
+    max-width: 80%;
+    
+}
+
+.editor input[type="file"]{
+    display: inline-block;
+}
+
+.editor button{
+    display:inline-block;
+}
+
+.hidden{
+    display:none;
+}
+
+.editor-item{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: lightgrey;
+    padding: 5px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.editor-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.editor-header img{
+    min-width: 300px;
+    min-height: 300px;
+}
+
+.editor-item .editor-record{
+    flex: 1 0 80%;
+    max-width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.editor-item .editor-record .panel{
+    margin:0;
+    text-align: left;
+}
+
+.editor-item .editor-item-number{
+    color: black;
+    background: white;
+    flex: 0 0 3%;
+    align-self: flex-start;
+    min-width: 2em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    border-radius: 0.1em;
+    border-left: 3px solid black;
+    font-size: 1.2em;
+}
+
+.editor-item .editor-button{
+    display: flex;
+    flex: 1 0 6%;
+    flex-direction: column-reverse;
+    align-content: flex-end;
+    align-items: flex-end;    
+}
+
+.editor-item .editor-button button{
+    min-width: 70pt;
+}
+
+@media only screen and (max-width: 700px) {
+    .editor-item .editor-button {
+        flex-direction: row;
+        max-height: 40px;
+        justify-content: flex-end;
+    }
+    .editor-item .editor-record{
+        text-align: center;
+    }
+    .editor-item .editor-record{
+        padding-right: 0px;
+    }
+}
+
+.editor-item .col-md-2 button{
+    width: 100%;
+}

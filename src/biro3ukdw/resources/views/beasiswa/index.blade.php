@@ -6,32 +6,13 @@ Beasiswa - Biro3 | UKW
 <div class="container">
     <div class="page-header">
         <h2>
-            Beasiswa
+            Sudah jadi.. design ada di anggit/dodo
         </h2>
     </div>
     <div class="text-center">
-        <form>
-            <img id="header-pic-show">
-            <input id="header-pic" type="file" onchange="imageupload(this)">
-            <script>
-                function imageupload(element){
-                    var elementId = element.id;
-                    if(element.files && element.files[0]){
-                        var reader = new FileReader();
-                        reader.onload = function(e){
-                            $("#"+elementId+"-show")
-                            .attr('src', e.target.result)
-                        }
-                        if (reader.readAsDataURL) {reader.readAsDataURL(element.files[0]);}
-                        else if(reader.readAsDataurl) {reader.readAsDataurl(element.files[0]);}
-                        else if(reader.readAsDataUrl) {reader.readAsDataUrl(element.files[0]);}
-                    }
-                    else{
-                        $(elementId+"-show").attr('src',"");
-                    }
-                }
-            </script>
-        </form>
+        @foreach($beasiswas as $beasiswa)
+            <h2>{{ $beasiswa->kategori }} <small>{{ $beasiswa->sumber }}: Level {{ $beasiswa->jumlah }}</small></h2>
+        @endforeach
     </div>
 </div>
 @endsection

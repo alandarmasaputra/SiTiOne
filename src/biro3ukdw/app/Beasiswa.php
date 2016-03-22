@@ -7,13 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Beasiswa extends Model
 {
     public function content(){
-    	return $this->hasMany('App\beasiswa_content');
+    	return $this->hasMany('App\BeasiswaContent');
     }
-    protected $table = 'beasiswas';
-
-	
-    protected $fillable = [
-    'id', 
-    'header_pic',
-    ];
+   
 }
