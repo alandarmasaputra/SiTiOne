@@ -64,9 +64,7 @@ Route::get('/alan/test',function(){
     return view('tes');
 });
 
-Route::get('/welly',function(){
-    return view('news.create');
-});
+
 
 
  /* Searh */
