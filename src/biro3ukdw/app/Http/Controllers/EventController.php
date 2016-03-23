@@ -46,6 +46,10 @@ class EventController extends Controller
         
         //Validasi required input
         $event_name = trim($input['title']);
+        $event_kategori = trim($input['kategori']);
+        $event_sumber = trim($input['sumber']);
+        $event_tempat = trim($input['tempat']);
+        $event_date = trim($input['tanggal']);
         
         $errors = array();
         if(!isset($event_name) || $event_name==''){
@@ -60,7 +64,26 @@ class EventController extends Controller
             }
             
         }
-        
+        if(!isset($event_kategori) || $event_kategori==''){
+            $errors[] = "Kategori Event harus diisi";
+            
+        }
+        if(!isset($event_sumber) || $event_sumber==''){
+            $errors[] = "Sumber Event harus diisi";
+            
+        }
+        if(!isset($event_tempat) || $event_tempat==''){
+            $errors[] = "Tempat Event harus diisi";
+            
+        }
+        if(!isset($event_date)){
+            $errors[] = "Tanggal Event harus diisi";
+        }
+        if(strtotime($event_date)==false){
+            $errors[] = "Tanggal Event tidak valid";
+        }
+
+
         //Kalau error redirect kembali
         if(count($errors)>0){
             return back()->withErrors($errors);
@@ -71,7 +94,11 @@ class EventController extends Controller
         //Save Header
         $newEvent = new Event();
         $newEvent->name = $event_name;
-        
+        $newEvent->kategori = $event_kategori;
+        $newEvent->sumber = $event_sumber;
+        $newEvent->tempat = $event_tempat;
+        $newEvent->event_date = strtotime($request->input('tanggal'));
+
         //check if header picture exist
         if($request->hasFile('header-pic')){
             try{
@@ -90,7 +117,7 @@ class EventController extends Controller
                 $image = AppUtility::compress_image($image);
 
                 //Save Image filename
-                $newUkm->header_pic = $filename;
+                $newEvent->header_pic = $filename;
 
                 //Save Image
                 AppUtility::save_image($filename,$image);
@@ -100,8 +127,9 @@ class EventController extends Controller
             }
         }
         
-        $newUkm->save();
-        $newUkm = UKM::where('name',$ukm_name)->first();
+        $newEvent->save();
+        echo "Save!!!!!!!!!!";
+        $newEvent = Event::where('name',$event_name)->first();
         
         
         //Make Contents
@@ -109,23 +137,23 @@ class EventController extends Controller
         while(true){
             if(isset($input['type-'.$content_id])){
                 //New Content
-                $newUkmContent = new UkmContent();
-                $newUkmContent->ukm_id = $newUkm->id;
+                $newEventContent = new EventContent();
+                $newEventContent->event_id = $newEvent->id;
                 
                 //Check Isi Content
                 if($input['type-'.$content_id]=="text"){
                     //Set Type Content
-                    $newUkmContent->type = 's';
+                    $newEventContent->type = 's';
                     
                     
-                    $newUkmContent->content = $input['paragraph-'.$content_id];
+                    $newEventContent->content = $input['paragraph-'.$content_id];
                 }
                 else if($input['type-'.$content_id]=="image"){
                     //Set Type Content
                     if($request->hasFile('img-'.$content_id)){
                         try{
 
-                            $newUkmContent->type = 'i';
+                            $newEventContent->type = 'i';
 
                             //ambil file dari 
                             $file = $request->file('img-'.$content_id);
@@ -134,7 +162,7 @@ class EventController extends Controller
 
                             //make filename
                             $extension = AppUtility::image_mime_to_extension($image->mime()); 
-                            $filename = 'ukm_c_';
+                            $filename = 'event_c_';
                             $filename .= AppUtility::get_random_name('');
                             $filename .= $extension;
 
@@ -149,7 +177,7 @@ class EventController extends Controller
                             //Save Image
                             AppUtility::save_image($filename,$image);
 
-                            $newUkmContent->content = $filename;
+                            $newEventContent->content = $filename;
                         }catch(\Exception $e){
                             echo $e;
                             $errors[] = "Terjadi kesalahan saat mengupload gambar.";
@@ -159,7 +187,7 @@ class EventController extends Controller
                 }
                 
                 //Save Content
-                $newUkmContent->save();
+                $newEventContent->save();
             }
             else{
                 break;
@@ -170,17 +198,17 @@ class EventController extends Controller
         
         
         // Testing Materials
-        /*
+        
             echo "<pre>".json_encode($input,JSON_PRETTY_PRINT)."</pre>";
             echo "<pre>";
             print_r($input);
             echo "</pre>";
-        */
         
         
-        $successMessage = 'UKM berhasil terdaftar';
+        
+        $successMessage = 'Event berhasil terdaftar';
         return back()
-            ->with('successMessage',$successMessage)
+          ->with('successMessage',$successMessage)
             ->withErrors($errors);
     }
 

@@ -46,13 +46,7 @@ Route::post('/news/update/{id}','NewsController@update');
 
  /* Ukm */
 
- /* Event */
-Route::get('/event/','EventController@index');  
-Route::post('/event/new','EventController@submit_new');
-Route::get('/event/new','EventController@create');
-Route::get('/event/edit/{id}','EventController@edit');
-Route::post('/event/update/{id}','EventController@update');
-Route::get('/event/{id}','EventController@detail');    
+ /* Event */   
 
 Route::get('/alan/test',function(){
     return view('tes');
@@ -78,6 +72,14 @@ Route::get('/welly',function(){
 */
 
 Route::group(['middleware' => ['web']], function () {
+
+    Route::get('/event/','EventController@index');  
+    Route::post('/event/new','EventController@submit_new');
+    Route::get('/event/new','EventController@create');
+    Route::get('/event/edit/{id}','EventController@edit');
+    Route::post('/event/update/{id}','EventController@update');
+    Route::get('/event/{id}','EventController@detail'); 
+
     Route::get('/beasiswa/edit/{id}','BeasiswaController@edit');
     Route::get('/news/edit/{id}','NewsController@edit');
     Route::get('/event/edit/{id}','EventController@edit');
