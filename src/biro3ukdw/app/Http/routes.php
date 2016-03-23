@@ -90,9 +90,9 @@ Route::group(['middleware' => ['web']], function () {
     
 
 	Route::get('/beasiswa/','BeasiswaController@index');  
-	Route::get('/beasiswa/{id}','BeasiswaController@detail'); 
-    Route::post('/beasiswa/new','BeasiswaController@submit_new');
     Route::get('/beasiswa/new','BeasiswaController@create');
+    Route::post('/beasiswa/new','BeasiswaController@submit_new');
     Route::get('/beasiswa/edit/{id}','BeasiswaController@edit');
     Route::post('/beasiswa/update/{id}','BeasiswaController@update');
+	Route::get('/beasiswa/{id}','BeasiswaController@detail'); 
 });

@@ -34,10 +34,20 @@ New Beasiswa - Biro3 | UKW
                 <div><label>Photo</label></div>
                 <img id="header-pic-show">
                 <br>
-                <div id="header-pic-alert" style="display:none;">please select valid file type. The supported file types are .jpg, .png, .bmp</div>
+				<label>Deadline-date</label>
+				<input type="date" name="deadline-date" required>
+				<div>
+					<input type="radio" name="kategori-utama" value="internal" required><label>Internal</label>
+					<input type="radio" name="kategori-utama" value="external" required><label>External</label>
+				</div>
+                <div>
+					<label>Tag</label>
+					<input type="text" name="kategori-tambahan">
+				</div>
+				<div id="header-pic-alert" style="display:none;">please select valid file type. The supported file types are .jpg, .png, .bmp</div>
                 <input name="header-pic" id="header-pic" type="file" onchange="imageupload(this)">
                 <h2>
-                <div><label>Nama UKM</label></div>
+                <div><label>Nama Beasiswa</label></div>
                 <input name="title" type="text" required></h2>
             </div>
             <hr>

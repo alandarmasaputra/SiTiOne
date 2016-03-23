@@ -25,9 +25,7 @@ class BeasiswaController extends Controller
     }
 
     public function create(){
-    	
-    	return view('beasiswa.new');
-    	 	
+    	return view('beasiswa.new'); 	
     }
     public function edit($id){
            	$beasiswa = Beasiswa::where('id',$id)->first();
@@ -42,6 +40,8 @@ class BeasiswaController extends Controller
      		
     }
     public function submit_new(Request $request){
+		
+		
     	$input = $request->all();
         
         //Validasi required input
@@ -60,6 +60,10 @@ class BeasiswaController extends Controller
             }
             
         }
+		$kategori_utama = trim($input['kategori-utama']);
+		if(!isset($kategori_utama) || $kategori_utama==''){
+			$errors[] = "Kategori internal/external harus diisi";
+		}
         
         //Kalau error redirect kembali
         if(count($errors)>0){
@@ -176,7 +180,6 @@ class BeasiswaController extends Controller
             print_r($input);
             echo "</pre>";
         */
-        
         
         $successMessage = 'UKM berhasil terdaftar';
         return back()

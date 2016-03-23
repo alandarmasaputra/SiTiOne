@@ -259,6 +259,11 @@ class UkmController extends Controller
                 $errors[] = "Terjadi kesalahan saat mengupload gambar.";
             }
         }
+		else{
+			if(isset($input['header-pic-old']) && trim($input['header-pic-old'])!=''){
+				$newUkm->header_pic = $input['header-pic-old'];
+			}
+		}
         
         $newUkm->save();
         $newUkm->clear();

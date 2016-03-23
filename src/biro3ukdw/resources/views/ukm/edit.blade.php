@@ -36,9 +36,15 @@ use App\AppUtility;
             {!! csrf_field() !!}
             <div class="editor-header">
                 <div><label>Photo</label></div>
-                <img id="header-pic-show" src="{{ AppUtility::get_image_data($ukm->header_pic) }}">
-                <br>
-                <div id="header-pic-alert" style="display:none;">please select valid file type. The supported file types are .jpg, .png, .bmp</div>
+				
+				@if($ukm->header_pic)
+				<img id="header-pic-show" src="{{ AppUtility::get_image_data($ukm->header_pic) }}">
+                @else
+				<img id="header-pic-show">
+                @endif
+				<br>
+                <textarea name="header-pic-old" style="display:none;">{{ $ukm->header_pic }}</textarea>
+				<div id="header-pic-alert" style="display:none;">please select valid file type. The supported file types are .jpg, .png, .bmp</div>
                 <input name="header-pic" id="header-pic" type="file" onchange="imageupload(this)">
                 <h2>
                 <div><label>Nama UKM</label></div>
