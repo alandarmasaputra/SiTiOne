@@ -91,7 +91,7 @@ class BeasiswaController extends Controller
                 $image = AppUtility::compress_image($image);
 
                 //Save Image filename
-                $newUkm->header_pic = $filename;
+                $newBeasiswa->header_pic = $filename;
 
                 //Save Image
                 AppUtility::save_image($filename,$image);
@@ -101,8 +101,8 @@ class BeasiswaController extends Controller
             }
         }
         
-        $newUkm->save();
-        $newUkm = UKM::where('name',$ukm_name)->first();
+        $newBeasiswa->save();
+        $newBeasiswa = Beasiswa::where('name',$beasiswa_name)->first();
         
         
         //Make Contents
@@ -110,23 +110,23 @@ class BeasiswaController extends Controller
         while(true){
             if(isset($input['type-'.$content_id])){
                 //New Content
-                $newUkmContent = new UkmContent();
-                $newUkmContent->ukm_id = $newUkm->id;
+                $newBeasiswaContent = new BeasiswaContent();
+                $newBeasiswaContent->beasiswa_id = $newBeasiswa->id;
                 
                 //Check Isi Content
                 if($input['type-'.$content_id]=="text"){
                     //Set Type Content
-                    $newUkmContent->type = 's';
+                    $newBeasiswaContent->type = 's';
                     
                     
-                    $newUkmContent->content = $input['paragraph-'.$content_id];
+                    $newBeasiswaContent->content = $input['paragraph-'.$content_id];
                 }
                 else if($input['type-'.$content_id]=="image"){
                     //Set Type Content
                     if($request->hasFile('img-'.$content_id)){
                         try{
 
-                            $newUkmContent->type = 'i';
+                            $newBeasiswaContent->type = 'i';
 
                             //ambil file dari 
                             $file = $request->file('img-'.$content_id);
@@ -135,7 +135,7 @@ class BeasiswaController extends Controller
 
                             //make filename
                             $extension = AppUtility::image_mime_to_extension($image->mime()); 
-                            $filename = 'ukm_c_';
+                            $filename = 'beasiswa_c_';
                             $filename .= AppUtility::get_random_name('');
                             $filename .= $extension;
 
@@ -150,7 +150,7 @@ class BeasiswaController extends Controller
                             //Save Image
                             AppUtility::save_image($filename,$image);
 
-                            $newUkmContent->content = $filename;
+                            $newBeasiswaContent->content = $filename;
                         }catch(\Exception $e){
                             echo $e;
                             $errors[] = "Terjadi kesalahan saat mengupload gambar.";
@@ -160,7 +160,7 @@ class BeasiswaController extends Controller
                 }
                 
                 //Save Content
-                $newUkmContent->save();
+                $newBeasiswaContent->save();
             }
             else{
                 break;
