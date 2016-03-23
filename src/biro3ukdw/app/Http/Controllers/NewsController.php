@@ -16,7 +16,7 @@ use App\AppUtility;
 
 
 class NewsController extends Controller
-{
+{   
     //
     function index(){
       //print news
@@ -27,13 +27,14 @@ class NewsController extends Controller
     }
     
 
-     public function create(){
-        
-        return view('news.create');
+     function create(){
+    
+        return view('news.new');
             
     }
+    
 
-     public function submit_new(Request $request){
+     function submit_new(Request $request){
          $input = $request->all();
         
         //Validasi required input
@@ -161,13 +162,7 @@ class NewsController extends Controller
         }
         
         
-        // Testing Materials
-        /*
-            echo "<pre>".json_encode($input,JSON_PRETTY_PRINT)."</pre>";
-            echo "<pre>";
-            print_r($input);
-            echo "</pre>";
-        */
+        
         
         
         $successMessage = 'NEWS berhasil terdaftar';
@@ -175,9 +170,9 @@ class NewsController extends Controller
             ->with('successMessage',$successMessage)
             ->withErrors($errors);
     }
-    }
+    }  
 
-    public function edit(Request $request, $id){
+    function edit($id){
             $news = News::where('id',$id)->first();
         $contents = $news->content();
         return view('news.edit',[
@@ -188,18 +183,15 @@ class NewsController extends Controller
     }
 
    
-     public function detail($id){
+    function detail($id){
            $new = News::where('id',$id)->first();
         return view('news.detail',[
             'new' => $new
         ]);
     }
 
-
-
-
-    public function update(Request $request, $id)
-    {$input = $request->all();
+     function update(Request $request, $id){
+        $input = $request->all();
                                                        
         $news_name = trim($input['title']);
         
@@ -208,10 +200,10 @@ class NewsController extends Controller
             $errors[] = "Nama NEWS harus diisi";
         }
         else{
-            $newNews = News::where('name',$news_name)->where('id','!=',$id)->first();
+            $newUkm = UKM::where('name',$ukm_name)->where('id','!=',$id)->first();
             
-            if($newNews!=null){
-                $errors[] = "Nama NEWS sudah ada";
+            if($newUkm!=null){
+                $errors[] = "Nama UKM sudah ada";
             }
         }
         
@@ -220,7 +212,7 @@ class NewsController extends Controller
             return back()->withErrors($errors)->withInput();
         }
         
-        $newNews = News::where('id',$id)->first();
+        $newUkm = Ukm::where('id',$id)->first();
             
         //Initialization Error
         $errors = array();
@@ -255,16 +247,16 @@ class NewsController extends Controller
             }
         }
         
-        $newNews->save();
-        $newNews->clear();
+        $newUkm->save();
+        $newUkm->clear();
         
         //Make Contents
         $content_id = 0;
         while(true){
             if(isset($input['type-'.$content_id])){
                 //New Content
-                $newNewsContent = new UkmContent();
-                $newNewsContent->news_id = $newNews->id;
+                $newUkmContent = new NewsContent();
+                $newUkmContent->ukm_id = $newUkm->id;
                 
                 //Check Isi Content
                 if($input['type-'.$content_id]=="text"){
@@ -325,21 +317,12 @@ class NewsController extends Controller
             $content_id++;
         }
         
-        // Testing Materials
-        /*
-            echo "<pre>".json_encode($input,JSON_PRETTY_PRINT)."</pre>";
-            echo "<pre>";
-            print_r($input);
-            echo "</pre>";
-        */
-        
+       
         $errors = array();
         $successMessage = 'NEWS berhasil diedit';
         $request->session()->flash('successMessage',$successMessage);
         return redirect(url('/news/edit/'.$id))->withErrors($errors)->with('successMessage',$successMessage);
     }
-    }
 
-      
 
-}
+
