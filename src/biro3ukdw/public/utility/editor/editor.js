@@ -3,8 +3,10 @@ function imageupload(element){
     if(element.files && element.files[0]){
         var file = element.files[0];
         var validFileType = ".jpg, .png, .bmp";
-        var extension = file.name.substring(file.name.lastIndexOf('.'));
+        var extension = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
         $("#"+elementId+"-show").attr('src', "");
+
+        console.log(extension);
 
         //validatefile
         if(validFileType.toLowerCase().indexOf(extension)<0){

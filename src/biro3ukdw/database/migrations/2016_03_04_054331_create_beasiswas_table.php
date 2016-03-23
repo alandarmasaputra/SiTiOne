@@ -14,6 +14,7 @@ class CreateBeasiswasTable extends Migration
     {
         Schema::create('beasiswas', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->string('kategori');
             $table->string('sumber');
             $table->integer('jumlah');
