@@ -28,7 +28,6 @@ class BeasiswaController extends Controller
     }
 
      public function detail($id){
-            
             $beasiswa = Beasiswa::where('id',$id)->first();
             return view('beasiswa.detail', compact('beasiswa')); 
      		

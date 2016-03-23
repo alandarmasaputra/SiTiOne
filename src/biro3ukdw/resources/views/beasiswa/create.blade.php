@@ -1,46 +1,59 @@
 @extends('layout.app')
+
 @section('head_title')
-Create Beasiswa - Biro3 | UKDW
+New Beasiswa - Biro3 | UKW
 @endsection
+
+@section('head_addition')
+	<link href="{{ url('utility/summernote/summernote.css')}}" rel="stylesheet" type="text/css">
+	<script src="{{ url('utility/summernote/summernote.js') }}"></script>
+@endsection
+
 @section('body_content')
-<div class="container-fluid">
-    <div class ="row">
-         <div class ="col-md-8 col-md-offset-2">
-             <div class ="panel panel-default">
-<h2 class= "text-center" >Create Beasiswa</h2>
-
-    <hr>
- 
-{!! Form::model(['method' => 'POST', 'action' => ['BeasiswaController@submit_new']]) !!}
-        <div class="form-group">
-        {!! Form::label('kategori', 'Kategori :') !!}
-        {!! Form::text('kategori', null, array('class' => 'form-control')) !!}
+<div class="container">
+    @if(session('errorMessage'))
+        <div>
+            <span class="label label-warning">Alert</span> {{ session('errorMessage') }}
+        </div>
+    @endif
+    @if(session('successMessage'))
+        <div>
+            <span class="label label-success">Success</span> {{ session('successMessage') }}
+        </div>    
+    @endif
+    <div class="page-header">
+        <h2>
+            Beasiswa Baru
+        </h2>
     </div>
-    <div class="form-group">
-        {!! Form::label('sumber', 'Sumber :') !!}
-        {!! Form::text('sumber', null, array('class' => 'form-control')) !!}
+    <!-- jangan diubah ubah -->
+    <div class="text-center editor">
+        <form method="post" action="{{ url('/beasiswa/new') }}" enctype="multipart/form-data"><!--  -->
+            {!! csrf_field() !!}
+            <div class="editor-header">
+                <div><label>Photo</label></div>
+                <img id="header-pic-show">
+                <br>
+                <div id="header-pic-alert" style="display:none;">please select valid file type. The supported file types are .jpg, .png, .bmp</div>
+                <input name="header-pic" id="header-pic" type="file" onchange="imageupload(this)">
+                <h2>
+                <div><label>Nama UKM</label></div>
+                <input name="title" type="text" required></h2>
+            </div>
+            <hr>
+            <div id="editor-content">
+            </div>
+            <button id="new-paragraph"><span class="glyphicon glyphicon-plus"></span> Paragraph</button>
+            <button id="new-image"><span class="glyphicon glyphicon-plus"></span> Image</button>
+            
+            <br>
+            <br>
+            <input type="submit">
+            
+            <!-- include harus sebelum tutup form -->
+            <script src="{{ url('utility/editor/editor.js') }}"></script>
+        </form>
     </div>
-    <div class="form-group">
-        {!! Form::label('jumlah', 'Jumlah :') !!}
-        {!! Form::text('jumlah', null, array('class' => 'form-control')) !!}
-    </div>
-    
-    <div class="form-group">
-        {!! Form::label('header_pic', 'Header Picture :') !!}
-        {!! Form::text('header_pic', null, array('class' => 'form-control')) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('deadline_date', 'Deadline Date :') !!}
-        {!! Form::date('deadline_date', null, array('class' => 'form-control')) !!}
-    </div>
-    
- <br>
-
-    {!! Form::submit('Create data', array('class' => 'btn btn-primary')) !!}
- <!-- -->
-{!! Form::close() !!}
-</div>
-</div>
-</div>
+    <!-- -->
 </div>
 @endsection
