@@ -46,6 +46,8 @@ class BeasiswaController extends Controller
         
         //Validasi required input
         $beasiswa_name = trim($input['title']);
+        $beasiswa_sumber = trim($input['sumber']);
+        $beasiswa_jumlah = trim($input['jumlah']);
         
         $errors = array();
         if(!isset($beasiswa_name) || $beasiswa_name==''){

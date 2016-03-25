@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('head_title')
-New UKM - Biro3 | UKW
+Edit UKM - Biro3 | UKDW
 @endsection
 
 @section('head_addition')
@@ -27,7 +27,7 @@ use App\AppUtility;
     @endif
     <div class="page-header">
         <h2>
-            UKM Baru
+            Edit UKM
         </h2>
     </div>
     <!-- jangan diubah ubah -->
