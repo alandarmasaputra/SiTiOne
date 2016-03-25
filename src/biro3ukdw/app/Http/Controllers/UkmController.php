@@ -16,8 +16,6 @@ use App\AppUtility;
 
 class UkmController extends Controller
 {
-	
-	
     function index(){
         $ukms = Ukm::get();
         return view('ukm.index',[

@@ -112,3 +112,24 @@ body{
 .editor-item .col-md-2 button{
     width: 100%;
 }
+
+.tag-list-item{
+	margin: 1px;
+	padding: 1px 3px;
+	border-radius: 2px;
+	border: 1px solid rgba(30,30,30,0.2);
+}
+
+.tag-list-item, .tag-list-item *{
+	font-size: 0.9em;
+	padding: 2px;
+}
+
+.tag-list-item .tag-list-remove{
+	margin-left: 3px;
+}
+
+.tag-list-item .tag-list-remove:hover{
+	padding: 1px;
+	border: 1px solid rgba(30,30,30,0.2);
+}

@@ -45,7 +45,7 @@ use App\AppUtility;
 				<br>
                 <textarea name="header-pic-old" style="display:none;">{{ $ukm->header_pic }}</textarea>
 				<div id="header-pic-alert" style="display:none;">please select valid file type. The supported file types are .jpg, .png, .bmp</div>
-                <input name="header-pic" id="header-pic" type="file" onchange="imageupload(this)">
+                <input name="header-pic" id="header-pic" type="file" onchange="imageupload(event,this)">
                 <h2>
                 <div><label>Nama UKM</label></div>
                 <input name="title" type="text" value="{{ $ukm->name }}" required></h2>
