@@ -184,7 +184,17 @@ class UkmController extends Controller
     
     function edit($id){
         $ukm = Ukm::where('id',$id)->first();
-        $contents = $ukm->content();
+		
+		if($ukm==null){
+			$errors = array();
+			$errors[] = "Ukm yang dituju tidak ditemukan";
+			return redirect('/ukm')->withErrors($errors);
+		}
+        
+		
+		$contents = $ukm->content();
+		
+		
         return view('ukm.edit',[
             'ukm' => $ukm,
             'ukm_contents' => $contents

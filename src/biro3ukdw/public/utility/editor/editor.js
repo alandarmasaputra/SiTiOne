@@ -32,7 +32,7 @@ function imageupload(element){
 
 function deleteParent(event,element){
     event.preventDefault();
-    $(element).parent().parent().remove();
+    $(element).parents('.editor-item').remove();
     serializeId()
 }
 
@@ -40,14 +40,14 @@ function initSummernote(jqElement){
     $(jqElement).summernote({
         callbacks: {
             onKeydown: function(e) {
-                var num = $(this).parent().find('.note-editor .note-editable').text().length;
+                var num = $(this).parents('.editor-item').find('.note-editor .note-editable').text().length;
                 var key = e.keyCode;
                 var maxlength = 16000;
                 allowed_keys = [8, 37, 38, 39, 40, 46]
                 if($.inArray(key, allowed_keys) != -1)
                     return true
                 else if(num >= maxlength){
-                    $(this).parent().find('.note-editor .note-editable').text($(this).parent().find('.note-editor .note-editable').text().substr(0,maxlength))
+                    $(this).parents('.editor-item').find('.note-editor .note-editable').text($(this).parents('.editor-item').find('.note-editor .note-editable').text().substr(0,maxlength))
                     e.preventDefault();
                     e.stopPropagation();
                 }
@@ -69,7 +69,7 @@ function initSummernote(jqElement){
 function insertParagraphBefore(event,element){
     event.preventDefault();
     var nElement = $(newParagraph());
-    $(nElement).insertBefore($(element).parent().parent());
+    $(nElement).insertBefore($(element).parents('.editor-item'));
     initSummernote(nElement.find('textarea'))
     serializeId()
 }
@@ -77,7 +77,7 @@ function insertParagraphBefore(event,element){
 function insertImageBefore(event,element){
     event.preventDefault();
     var nElement = $(newImage());
-    $(nElement).insertBefore($(element).parent().parent());
+    $(nElement).insertBefore($(element).parents('.editor-item'));
     serializeId()
 }
 
@@ -118,17 +118,17 @@ function newImage(){
 
 function initLoad(){
     $('#editor-content').find('.editor-paragraph').each(function(){
-        $(this).summernote('code',$(this).parent().children('.content-old').text(),{
+        $(this).summernote('code',$(this).parents('.editor-item').find('.content-old').text(),{
             callbacks: {
                 onKeydown: function(e) {
-                    var num = $(this).parent().find('.note-editor .note-editable').text().length;
+                    var num = $(this).parents('.editor-item').find('.note-editor .note-editable').text().length;
                     var key = e.keyCode;
                     var maxlength = 16000;
                     allowed_keys = [8, 37, 38, 39, 40, 46]
                     if($.inArray(key, allowed_keys) != -1)
                         return true
                     else if(num >= maxlength){
-                        $(this).parent().find('.note-editor .note-editable').text($(this).parent().find('.note-editor .note-editable').text().substr(0,maxlength))
+                        $(this).parents('.editor-item').find('.note-editor .note-editable').text($(this).parents('.editor-item').find('.note-editor .note-editable').text().substr(0,maxlength))
                         e.preventDefault();
                         e.stopPropagation();
                     }
@@ -150,7 +150,7 @@ function initLoad(){
 
 function serializeId(){
     var i = 0;
-    $('#editor-content').children().each(function(){
+    $('#editor-content').children('.editor-item').each(function(){
         $(this).find(".editor-item-number").html(i+1);
 
         $(this).find(".editor-item-id").attr('id','type-'+i)
