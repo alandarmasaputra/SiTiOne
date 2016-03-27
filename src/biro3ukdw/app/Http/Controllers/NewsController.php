@@ -74,7 +74,7 @@ class NewsController extends Controller
         else{
             $newNews = News::where('name',$news_name)->first();
             
-            if($newUkm!=null){
+            if($newNews!=null){
                 $errors[] = "Nama News sudah ada";
             }
             
@@ -254,7 +254,7 @@ class NewsController extends Controller
         }
         else{
             if(isset($input['header-pic-old']) && trim($input['header-pic-old'])!=''){
-                $newUkm->header_pic = $input['header-pic-old'];
+                $newNews->header_pic = $input['header-pic-old'];
             }
         }
         
