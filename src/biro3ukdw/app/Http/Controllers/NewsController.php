@@ -32,23 +32,49 @@ class NewsController extends Controller
         return view('news.new');
             
     }
-    
 
-     function submit_new(Request $request){
-         $input = $request->all();
+
+    function detail($id){
+        $news = News::where('id',$id)->first();
+        return view('news.detail',[
+            'news' => $news
+        ]);
+    }
+
+    function edit($id){
+        $news = News::where('id',$id)->first();
+        
+        if($news==null){
+            $errors = array();
+            $errors[] = "News yang dituju tidak ditemukan";
+            return redirect('/news')->withErrors($errors);
+        }
+        
+        
+        $contents = $news->content();
+        
+        
+        return view('news.edit',[
+            'news' => $news,
+            'news_contents' => $contents
+        ]);
+    }
+
+    function submit_new(Request $request){
+        $input = $request->all();
         
         //Validasi required input
         $news_name = trim($input['title']);
         
         $errors = array();
         if(!isset($news_name) || $news_name==''){
-            $errors[] = "Nama News harus diisi";
+            $errors[] = "Nama NEWS harus diisi";
             
         }
         else{
             $newNews = News::where('name',$news_name)->first();
             
-            if($newNews!=null){
+            if($newUkm!=null){
                 $errors[] = "Nama News sudah ada";
             }
             
@@ -163,47 +189,27 @@ class NewsController extends Controller
         
         
         
-        
-        
-        $successMessage = 'NEWS berhasil terdaftar';
+        $successMessage = 'News berhasil terdaftar';
         return back()
             ->with('successMessage',$successMessage)
             ->withErrors($errors);
     }
-    }  
 
-    function edit($id){
-            $news = News::where('id',$id)->first();
-        $contents = $news->content();
-        return view('news.edit',[
-            'news' => $ukm,
-            'news_contents' => $contents
-        ]);
 
-    }
-
-   
-    function detail($id){
-           $new = News::where('id',$id)->first();
-        return view('news.detail',[
-            'new' => $new
-        ]);
-    }
-
-     function update(Request $request, $id){
+       function update(Request $request, $id){
         $input = $request->all();
                                                        
         $news_name = trim($input['title']);
         
         $errors = array();
         if(!isset($news_name) || $news_name==''){
-            $errors[] = "Nama NEWS harus diisi";
+            $errors[] = "Nama News harus diisi";
         }
         else{
-            $newUkm = UKM::where('name',$ukm_name)->where('id','!=',$id)->first();
+            $newNews = News::where('name',$news_name)->where('id','!=',$id)->first();
             
-            if($newUkm!=null){
-                $errors[] = "Nama UKM sudah ada";
+            if($newNews!=null){
+                $errors[] = "Nama News sudah ada";
             }
         }
         
@@ -212,7 +218,7 @@ class NewsController extends Controller
             return back()->withErrors($errors)->withInput();
         }
         
-        $newUkm = Ukm::where('id',$id)->first();
+        $newNews = News::where('id',$id)->first();
             
         //Initialization Error
         $errors = array();
@@ -246,17 +252,22 @@ class NewsController extends Controller
                 $errors[] = "Terjadi kesalahan saat mengupload gambar.";
             }
         }
+        else{
+            if(isset($input['header-pic-old']) && trim($input['header-pic-old'])!=''){
+                $newUkm->header_pic = $input['header-pic-old'];
+            }
+        }
         
-        $newUkm->save();
-        $newUkm->clear();
+        $newNews->save();
+        $newNews->clear();
         
         //Make Contents
         $content_id = 0;
         while(true){
             if(isset($input['type-'.$content_id])){
                 //New Content
-                $newUkmContent = new NewsContent();
-                $newUkmContent->ukm_id = $newUkm->id;
+                $newNewsContent = new NewsContent();
+                $newNewsContent->news_id = $newNews->id;
                 
                 //Check Isi Content
                 if($input['type-'.$content_id]=="text"){
@@ -317,12 +328,31 @@ class NewsController extends Controller
             $content_id++;
         }
         
-       
+        // Testing Materials
+        /*
+            echo "<pre>".json_encode($input,JSON_PRETTY_PRINT)."</pre>";
+            echo "<pre>";
+            print_r($input);
+            echo "</pre>";
+        */
+        
         $errors = array();
-        $successMessage = 'NEWS berhasil diedit';
+        $successMessage = 'News berhasil diedit';
         $request->session()->flash('successMessage',$successMessage);
         return redirect(url('/news/edit/'.$id))->withErrors($errors)->with('successMessage',$successMessage);
     }
 
 
 
+
+
+
+
+
+
+
+
+
+
+    
+}

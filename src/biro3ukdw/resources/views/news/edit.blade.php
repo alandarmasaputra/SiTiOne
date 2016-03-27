@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('head_title')
-New NEWS - Biro3 | UKW
+Edit NEWS - Biro3 | UKDW
 @endsection
 
 @section('head_addition')
@@ -27,21 +27,27 @@ use App\AppUtility;
     @endif
     <div class="page-header">
         <h2>
-            UKM Baru
+            Edit News
         </h2>
     </div>
     <!-- jangan diubah ubah -->
     <div class="text-center editor">
-        <form method="post" action="{{ url('/news/update/'.$ukm->id) }}" enctype="multipart/form-data"><!--  -->
+        <form method="post" action="{{ url('/news/update/'.$news->id) }}" enctype="multipart/form-data"><!--  -->
             {!! csrf_field() !!}
             <div class="editor-header">
                 <div><label>Photo</label></div>
+                
+                @if($news->header_pic)
                 <img id="header-pic-show" src="{{ AppUtility::get_image_data($news->header_pic) }}">
+                @else
+                <img id="header-pic-show">
+                @endif
                 <br>
+                <textarea name="header-pic-old" style="display:none;">{{ $news->header_pic }}</textarea>
                 <div id="header-pic-alert" style="display:none;">please select valid file type. The supported file types are .jpg, .png, .bmp</div>
-                <input name="header-pic" id="header-pic" type="file" onchange="imageupload(this)">
+                <input name="header-pic" id="header-pic" type="file" onchange="imageupload(event,this)">
                 <h2>
-                <div><label>Nama NEWS</label></div>
+                <div><label>Nama News</label></div>
                 <input name="title" type="text" value="{{ $news->name }}" required></h2>
             </div>
             <hr>
