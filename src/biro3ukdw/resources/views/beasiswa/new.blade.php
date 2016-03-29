@@ -10,7 +10,7 @@ New Beasiswa - Biro3 | UKW
 @endsection
 
 @section('body_content')
-<div class="container">
+<div class="container-fluid">
     @if(session('errorMessage'))
         <div>
             <span class="label label-warning">Alert</span> {{ session('errorMessage') }}

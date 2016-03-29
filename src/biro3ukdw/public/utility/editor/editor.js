@@ -19,7 +19,8 @@ function imageupload(element){
         var reader = new FileReader();
         reader.onload = function(e){
             $("#"+elementId+"-show")
-            .attr('src', e.target.result)
+            .attr('style', "background-image: url('"+e.target.result+"');")
+			.height('400px')
         }
         if (reader.readAsDataURL) {reader.readAsDataURL(element.files[0]);}
         else if(reader.readAsDataurl) {reader.readAsDataurl(element.files[0]);}

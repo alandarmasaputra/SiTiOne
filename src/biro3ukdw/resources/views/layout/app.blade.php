@@ -20,7 +20,7 @@
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->       
-    <link rel="shortcut icon" href="{{ asset('style/images/ico/logo1.png') }}">
+    <link rel="icon" href="{{ asset('style/images/ico/logo-title.png') }}">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('style/images/ico/apple-touch-icon-144-precomposed.png') }}">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('style/images/ico/apple-touch-icon-114-precomposed.png') }}">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('style/images/ico/apple-touch-icon-72-precomposed.png') }}">
@@ -39,59 +39,58 @@
 
 <body>
      <header id="header">    
-        <nav class="navbar navbar-inverse" role="banner">
-            <div class="container">
-                <div class="search" style="float:right;">
-                    <form role="form">
-                        <input type="text" class="search-form" autocomplete="off" placeholder="Search">
-                        <i class="glyphicon glyphicon-search"></i><!-- class="fa fa-search" -->
-                    </form>
-                </div>
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html"><img src="{{ asset('style/images/logobesar.png') }}" alt="logo"></a>
-                </div>
-                
-                <div class="collapse navbar-collapse navbar-right">
-                    <ul class="nav navbar-nav">
-                        <li><a href="{{ url('/') }}">Home</a></li>
-                        
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{url('/ukm')}}">UKM</a></li>
-                                <li><a href="{{url('/beasiswa')}}">BEASISWA</a></li>
-                                <li><a href="{{url('/news')}}">NEWS</a></li>
-                                <li><a href="{{url('/event')}}">EVENT</a></li>
-                            </ul>
-                        </li>
-                        <li class=""><a href="blog.html">Blog</a></li> 
-                        <li><a href="contact-us.html">Contact</a></li>       
-                        <li><a href=login.html>Login</a></li>                 
-                    </ul>
-                </div>
-            </div><!--/.container-->
-        </nav><!--/nav-->
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">
+					<img class="header-logo" src="{{url('/style/images/ico/logo-white.svg')}}">
+					<div class="header-title">
+						<div>Biro Kemahasiswaan</div>
+						<div>Universitas Kristen Dutawacana</div>
+					</div>
+				</a>
+			</div>
+			<div class="collapse navbar-collapse navbar-right">
+				<ul class="nav navbar-nav">
+					<li><a href="{{ url('/') }}">Home</a></li>
+					<li><a href="{{url('/beasiswa')}}">Beasiswa</a></li> 
+					<li><a href="{{url('/event')}}">Event</a></li>    
+					<li><a href="{{url('/news')}}">News</a></li>
+					<li><a href="{{url('/ukm')}}">UKM</a></li>
+                    <li><a href="#">Profil</a></li>
+					<li>
+						<div class="search">
+							<form role="form">
+								<input type="text" class="search-form" autocomplete="off" placeholder="Search">
+								<i class="glyphicon glyphicon-search"></i><!-- class="fa fa-search" -->
+							</form>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
     </header><!--/header-->
     @include('errors.common')
     @yield('body_content')
     <footer id="footer" class="midnight-blue">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6">
                     &copy; 2016 <a target="_blank">UKDW</a>. All Rights Reserved.
                 </div>
                 <div class="col-sm-6">
                     <ul class="pull-right">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Faq</a></li>
-                        <li><a href="#">Contact Us</a></li>
+						<li><a href="{{ url('/') }}">Home</a></li>
+						<li><a href="{{url('/beasiswa')}}">Beasiswa</a></li> 
+						<li><a href="{{url('/event')}}">Event</a></li>    
+						<li><a href="{{url('/news')}}">News</a></li>
+						<li><a href="{{url('/ukm')}}">UKM</a></li>
+						<li><a href="#">Profil</a></li>
                     </ul>
                 </div>
             </div>

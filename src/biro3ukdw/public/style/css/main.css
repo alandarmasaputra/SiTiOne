@@ -6,21 +6,23 @@
 **************************/
 
 body {
-  background: #fff;
   font-family: 'Open Sans', sans-serif;
   color:#4e4e4e;
   line-height: 22px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 600; 
-  font-family: 'Open Sans', sans-serif;
-  color:#4e4e4e;
+h1,h2,h3,h4,h5,h6{
+	font-variant: small-caps;
+}
+
+button, input[type="button"], input[type="submit"]{
+	transition: all 0.3s ease;
+}
+
+button:hover, input[type="button"]:hover, input[type="submit"]:hover{
+	transition: all 0.3s ease;
+	color:black;
+	background: #eee;
 }
 
 h1{
@@ -44,11 +46,12 @@ h4{
 }
 
 a {
-  color: #c52d2f;
-  -webkit-transition: color 300ms, background-color 300ms;
-  -moz-transition: color 300ms, background-color 300ms;
-  -o-transition:  color 300ms, background-color 300ms;
-  transition:  color 300ms, background-color 300ms;
+	font-variant: small-caps;
+	color: white;
+	-webkit-transition: color 300ms ease, background-color 300ms ease, font-weight 300ms ease;
+	-moz-transition: color 300ms ease, background-color 300ms ease, font-weight 300ms ease;
+	-o-transition:  color 300ms ease, background-color 300ms ease, font-weight 300ms ease;
+	transition:  color 300ms ease, background-color 300ms ease, font-weight 300ms ease;
 }
 
 a:hover, a:focus {
@@ -175,7 +178,7 @@ body > section {
 **************************/
 
 #header .search{
-  display: inline-block;
+	display: inline-block;
 }
 
 .navbar>.container .navbar-brand{
@@ -233,16 +236,17 @@ ul.social-share li a:hover {
 }
 
 input.search-form{
-  background: transparent;
-  border: 0 none;
-  width: 60px;
-  padding: 0 10px;
-  color: #FFF;
-  -webkit-transition: all 400ms;
-  -moz-transition: all 400ms;
-  -ms-transition: all 400ms;
-  -o-transition: all 400ms;
-  transition: all 400ms;
+	background: transparent;
+	border: 1px solid #ffffff;
+	border-radius: 20px;
+	width: 180px;
+	padding: 0 10px;
+	color: #FFF;
+	-webkit-transition: all 400ms;
+	-moz-transition: all 400ms;
+	-ms-transition: all 400ms;
+	-o-transition: all 400ms;
+	transition: all 400ms;
 }
 
 input.search-form::-webkit-input-placeholder{
@@ -251,10 +255,6 @@ input.search-form::-webkit-input-placeholder{
 
 input.search-form:hover::-webkit-input-placeholder {
   color: #fff;
-}
-
-input.search-form:hover {
-  width: 180px;
 }
 
 .navbar-brand {
@@ -2500,8 +2500,8 @@ shortcodes page css
 }
 
 #footer {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   color: #fff;
   background: #2e2e2e;
 }

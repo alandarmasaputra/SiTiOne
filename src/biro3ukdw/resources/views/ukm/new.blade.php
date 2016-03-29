@@ -9,7 +9,7 @@ New UKM - Biro3 | UKW
 @endsection
 
 @section('body_content')
-<div class="container">
+<div class="container-fluid body-content">
     @if(session('errorMessage'))
         <div>
             <span class="label label-warning">Alert</span> {{ session('errorMessage') }}
@@ -20,21 +20,18 @@ New UKM - Biro3 | UKW
             <span class="label label-success">Success</span> {{ session('successMessage') }}
         </div>    
     @endif
-    <div class="page-header">
-        <h2>
-            UKM Baru
-        </h2>
-    </div>
+	<h2>
+		UKM Baru
+	</h2>
     <!-- jangan diubah ubah -->
     <div class="text-center editor">
         <form method="post" action="{{ url('/ukm/new') }}" enctype="multipart/form-data"><!--  -->
             {!! csrf_field() !!}
             <div class="editor-header">
-                <div><label>Photo</label></div>
-                <img id="header-pic-show">
-                <br>
-                <div id="header-pic-alert" style="display:none;">please select valid file type. The supported file types are .jpg, .png, .bmp</div>
-                <input name="header-pic" id="header-pic" type="file" onchange="imageupload(this)">
+				<div id="header-pic-show">
+					<div id="header-pic-alert" style="display:none;">please select valid file type. The supported file types are .jpg, .png, .bmp</div>
+					<label>Upload foto:</label> <input name="header-pic" id="header-pic" type="file" onchange="imageupload(this)">
+                </div>
                 <h2>
                 <div><label>Nama UKM</label></div>
                 <input name="title" type="text" required></h2>
