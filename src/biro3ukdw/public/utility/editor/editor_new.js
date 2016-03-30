@@ -6,6 +6,7 @@ $('.editor-new .editor-content-container').prop('disabled',true);
 $('.editor-new .editor-content-label').prop('disabled',true);
 $('.editor .nofade').prop('disabled',false);
 $('.editor .nofade *').prop('disabled',false);
+$('form').attr('onsubmit','return false');
 
 $('#editor-header-title').blur(function(){
 	if($('#editor-header-title').val().trim()!=''){
@@ -18,6 +19,7 @@ $('#editor-header-title').blur(function(){
 			$('.editor-new .editor-content-label').prop('disabled',false);
 			$('.editor-new').removeClass('editor-new');
 			initNew();
+			$('form').removeAttr('onsubmit');
 		}
 	}
 })
