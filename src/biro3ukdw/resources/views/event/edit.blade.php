@@ -55,8 +55,7 @@ use App\AppUtility;
                 <input name="sumber" type="text" value="{{ $event->sumber }}" required></h2>
                 <div><label>Tempat Event</label></div>
                 <input name="tempat" type="text" value="{{ $event->tempat }}" required></h2>
-                <div><label>Tanggal Event</label></div>
-                <input name="tanggal" type="date" value="{{ date_format($event->event_date,"mm-dd-yyyy") }}" required></h2>
+                
             </div>
             <hr>
             <div id="editor-content">

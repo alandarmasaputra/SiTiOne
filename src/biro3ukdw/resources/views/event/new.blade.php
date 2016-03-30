@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('head_title')
-New Event - Biro3 | UKW
+Event Baru
 @endsection
 
 @section('head_addition')
@@ -9,7 +9,7 @@ New Event - Biro3 | UKW
 @endsection
 
 @section('body_content')
-<div class="container">
+<div class="container-fluid body-content">
     @if(session('errorMessage'))
         <div>
             <span class="label label-warning">Alert</span> {{ session('errorMessage') }}
@@ -26,39 +26,54 @@ New Event - Biro3 | UKW
         </h2>
     </div>
     <!-- jangan diubah ubah -->
-    <div class="text-center editor">
+    <div class="text-left editor editor-new">
         <form method="post" action="{{ url('/event/new') }}" enctype="multipart/form-data"><!--  -->
             {!! csrf_field() !!}
             <div class="editor-header">
-                <div><label>Photo</label></div>
-                <img id="header-pic-show">
-                <br>
-                <div id="header-pic-alert" style="display:none;">please select valid file type. The supported file types are .jpg, .png, .bmp</div>
-                <input name="header-pic" id="header-pic" type="file" onchange="imageupload(this)">
-                <h2>
-                <div><label>Nama Event</label></div>
-                <input name="title" type="text" required></h2>
-                <div><label>Kategori Event</label></div>
-                <input name="kategori" type="text" required></h2>
-                <div><label>Sumber Event</label></div>
-                <input name="sumber" type="text" required></h2>
-                <div><label>Tempat Event</label></div>
-                <input name="tempat" type="text" required></h2>
-                <div><label>Tanggal Event</label></div>
-                <input name="tanggal" type="date" required></h2>
+                <div id="header-pic-show">
+                    <div id="header-pic-alert" style="display:none;">please select valid file type. The supported file types are .jpg, .png, .bmp</div>
+                    <label>Upload foto:</label> <input name="header-pic" id="header-pic" type="file" onchange="imageupload(this)">
+                </div>
+                <h2 class="text-left nofade">
+                    <label>Nama Event:</label>
+                    <input name="title" id="editor-header-title" type="text" required>
+                </h2>
+                <h2 class="text-left nofade">
+                    <label>Kategori Event:</label>
+                    <input name="kategori" id="editor-header-title" type="text" required>
+                </h2>
+                <h2 class="text-left nofade">
+                    <label>Sumber Event:</label>
+                    <input name="sumber" id="editor-header-title" type="text" required>
+                </h2>
+                <h2 class="text-left nofade">
+                    <label>Tempat Event:</label>
+                    <input name="tempat" id="editor-header-title" type="text" required>
+                </h2>
+                <h2 class="text-left nofade">
+                    <label>Tanggap Event:</label>
+                    <input name="tanggal" id="editor-header-title" type="date" required>
+                </h2>
+                
             </div>
-            <hr>
-            <div id="editor-content">
+            <h2 class="editor-content-label text-left">
+                Content
+            </h2>
+            <div class="editor-content-container text-center">
+                <div id="editor-content">
+                </div>
+                <button id="new-paragraph"><span class="glyphicon glyphicon-plus"></span> Paragraph</button>
+                <button id="new-image"><span class="glyphicon glyphicon-plus"></span> Image</button>
             </div>
-            <button id="new-paragraph"><span class="glyphicon glyphicon-plus"></span> Paragraph</button>
-            <button id="new-image"><span class="glyphicon glyphicon-plus"></span> Image</button>
-            
             <br>
             <br>
-            <input type="submit">
+            <div class="text-center">
+                <input type="submit">
+            </div>
             
             <!-- include harus sebelum tutup form -->
             <script src="{{ url('utility/editor/editor.js') }}"></script>
+            <script src="{{ url('utility/editor/editor_new.js') }}"></script>
         </form>
     </div>
     <!-- -->

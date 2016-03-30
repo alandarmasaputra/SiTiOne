@@ -31,6 +31,12 @@ class EventController extends Controller
     }
     public function edit($id){
         $event = Event::where('id',$id)->first();
+        if($event==null){
+            $errors = array();
+            $errors[] = "Event yang dituju tidak ditemukan";
+            return redirect('/event')->withErrors($errors);
+        }
+        
         $contents = $event->content();
         return view('event.edit',[
             'event' => $event,
@@ -224,7 +230,7 @@ class EventController extends Controller
         $event_kategori = trim($input['kategori']);
         $event_sumber = trim($input['sumber']);
         $event_tempat = trim($input['tempat']);
-        $event_date = trim($input['tanggal']);
+       // $event_date = trim($input['tanggal']);
 
         
         $errors = array();
@@ -250,12 +256,12 @@ class EventController extends Controller
             $errors[] = "Tempat Event harus diisi";
             
         }
-        if(!isset($event_date)){
-            $errors[] = "Tanggal Event harus diisi";
-        }
-        if(strtotime($event_date)==false){
-            $errors[] = "Tanggal Event tidak valid";
-        }
+        //if(!isset($event_date)){
+         //   $errors[] = "Tanggal Event harus diisi";
+        //}
+        //if(strtotime($event_date)==false){
+         //   $errors[] = "Tanggal Event tidak valid";
+        //}
 
         
         //Kalau error redirect kembali
@@ -270,6 +276,10 @@ class EventController extends Controller
         
         //Save Header;
         $newEvent->name = $event_name;
+        $newEvent->kategori = $event_kategori;
+        $newEvent->sumber = $event_sumber;
+        $newEvent->tempat = $event_tempat;
+        //$newEvent->event_date = date('Y-m-d H:i:s', strtotime($request->input('tanggal')));
         
         //check if header picture exist
         if($request->hasFile('header-pic')){
