@@ -116,7 +116,7 @@ function newImage(){
             +"<div class='editor-record'>"
                 +"<input class='editor-item-id' type='hidden' name='type' value='image'>"
                 +"<div class='editor-image-show'>"
-                +"<input class='editor-image' type='file' onchange='imageupload(this)'>"
+                	+"<input class='editor-image' type='file' onchange='imageupload(this)'>"
 				+"</div>"
             +"</div>"
             +newButtonPanel()

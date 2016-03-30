@@ -31,26 +31,31 @@ use App\AppUtility;
         </h2>
     </div>
     <!-- jangan diubah ubah -->
-    <div class="text-center editor">
+    <div class="text-left editor">
         <form method="post" action="{{ url('/ukm/update/'.$ukm->id) }}" enctype="multipart/form-data"><!--  -->
             {!! csrf_field() !!}
             <div class="editor-header">
-                <div><label>Photo</label></div>
-				
+					 
 				@if($ukm->header_pic)
-				<img id="header-pic-show" src="{{ AppUtility::get_image_data($ukm->header_pic) }}">
-                @else
-				<img id="header-pic-show">
+				<div id="header-pic-show">
+					<div id="header-pic-alert" style="display:none;">please select valid file type. The supported file types are .jpg, .png, .bmp</div>
+					<label>Upload foto:</label> <input name="header-pic" id="header-pic" type="file" onchange="imageupload(this)">
+				</div>
+				@else
+				<div id="header-pic-show" style="background-image: url('{{AppUtility::get_image_data($ukm->header_pic) }}'); height: 400px">
+					<div id="header-pic-alert" style="display:none;">please select valid file type. The supported file types are .jpg, .png, .bmp</div>
+					<label>Upload foto:</label> <input name="header-pic" id="header-pic" type="file" onchange="imageupload(this)">
+				</div>
                 @endif
-				<br>
                 <textarea name="header-pic-old" style="display:none;">{{ $ukm->header_pic }}</textarea>
-				<div id="header-pic-alert" style="display:none;">please select valid file type. The supported file types are .jpg, .png, .bmp</div>
-                <input name="header-pic" id="header-pic" type="file" onchange="imageupload(event,this)">
-                <h2>
-                <div><label>Nama UKM</label></div>
-                <input name="title" type="text" value="{{ $ukm->name }}" required></h2>
+				<h2>
+					<label>Nama UKM:</label>
+					<input name="title" id="editor-header-title" type="text" value="{{ $ukm->name }}" required>
+				</h2>
             </div>
-            <hr>
+			<h2 class="editor-content-label text-left">
+				Content
+			</h2>
             <div id="editor-content">
                 <?php
                     //start counter
@@ -70,8 +75,9 @@ use App\AppUtility;
                     @elseif($content->type == 'i')
                         <input class="editor-item-id" type="hidden" name="type-{{$i}}" value="image" id="type-{{$i}}">
                         <textarea class="content-old" id="content-{{$i}}-old" name="content-{{$i}}-old" style="display:none;">{{ $content->content }}</textarea>
-                        <img class="editor-image-show" id="img-{{$i}}-show" src="{{AppUtility::get_image_data($content->content)}}">
-                        <input class="editor-image" type="file" onchange="imageupload(this)" id="img-{{$i}}" name="img-{{$i}}">
+                        <div class='editor-image-show' style="background-image:url('{{ AppUtility::get_image_data($content->content) }}'); height:400px;'">
+                			<input class='editor-image' type='file' onchange='imageupload(this)'>
+						</div>
                     @endif
                     </div>
                     {!! newButtonPanel() !!}
@@ -90,7 +96,9 @@ use App\AppUtility;
             
             <br>
             <br>
-            <input type="submit">
+			<div class="text-center">
+            	<input type="submit">
+			</div>
             
             <!-- include harus sebelum tutup form -->
             <script src="{{ url('utility/editor/editor.js') }}"></script>

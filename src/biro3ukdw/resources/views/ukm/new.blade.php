@@ -48,10 +48,11 @@ UKM Baru
 				<button id="new-paragraph"><span class="glyphicon glyphicon-plus"></span> Paragraph</button>
 				<button id="new-image"><span class="glyphicon glyphicon-plus"></span> Image</button>
 			</div>
-            
             <br>
             <br>
-            <input type="submit">
+			<div class="text-center">
+            	<input type="submit">
+			</div>
             
             <!-- include harus sebelum tutup form -->
             <script src="{{ url('utility/editor/editor.js') }}"></script>
