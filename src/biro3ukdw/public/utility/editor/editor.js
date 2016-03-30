@@ -11,6 +11,9 @@ function imageupload(element){
         //validatefile
         if(validFileType.toLowerCase().indexOf(extension)<0){
             $("#"+elementId+"-alert").show();
+            $("#"+elementId+"-show")
+            .attr('style', '')
+			.css('height','auto')
             return;
         }
         $("#"+elementId+"-alert").hide();
@@ -20,7 +23,7 @@ function imageupload(element){
         reader.onload = function(e){
             $("#"+elementId+"-show")
             .attr('style', "background-image: url('"+e.target.result+"');")
-			.height('400px')
+			.css('height','400px')
         }
         if (reader.readAsDataURL) {reader.readAsDataURL(element.files[0]);}
         else if(reader.readAsDataurl) {reader.readAsDataurl(element.files[0]);}
@@ -61,9 +64,11 @@ function initSummernote(jqElement){
             ['color', ['color']],
             ['para', ['ul', 'ol', 'paragraph']],
             ['height', ['height']],
+			['insert',['link']],
             ['codeview', ['codeview']]
         ],
-        disableDragAndDrop: true
+        disableDragAndDrop: true,
+		minHeight: "180px"
     });
 }
 
@@ -110,8 +115,9 @@ function newImage(){
             +newEditorNumber()
             +"<div class='editor-record'>"
                 +"<input class='editor-item-id' type='hidden' name='type' value='image'>"
-                +"<img class='editor-image-show'></img>"
+                +"<div class='editor-image-show'>"
                 +"<input class='editor-image' type='file' onchange='imageupload(this)'>"
+				+"</div>"
             +"</div>"
             +newButtonPanel()
         +"</div>"
@@ -136,17 +142,22 @@ function initLoad(){
                 }
             },
             toolbar:[
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['font', ['strikethrough', 'superscript', 'subscript']],
-                ['fontsize', ['fontsize']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']],
-                ['codeview', ['codeview']]
+				['style', ['bold', 'italic', 'underline', 'clear']],
+				['font', ['strikethrough', 'superscript', 'subscript']],
+				['fontsize', ['fontsize']],
+				['color', ['color']],
+				['para', ['ul', 'ol', 'paragraph']],
+				['height', ['height']],
+				['insert',['link']],
+				['codeview', ['codeview']]
             ],
             disableDragAndDrop: true
         });
     })
+}
+
+function initNew(){
+	$('#new-paragraph').click();
 }
 
 function serializeId(){

@@ -57,12 +57,12 @@
 			</div>
 			<div class="collapse navbar-collapse navbar-right">
 				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/') }}">Home</a></li>
-					<li><a href="{{url('/beasiswa')}}">Beasiswa</a></li> 
-					<li><a href="{{url('/event')}}">Event</a></li>    
-					<li><a href="{{url('/news')}}">News</a></li>
-					<li><a href="{{url('/ukm')}}">UKM</a></li>
-                    <li><a href="#">Profil</a></li>
+					<li><a class="@yield('nav_home')" href="{{ url('/') }}">Home</a></li>
+					<li><a class="@yield('nav_beasiswa')" href="{{url('/beasiswa')}}">Beasiswa</a></li> 
+					<li><a class="@yield('nav_event')" href="{{url('/event')}}">Event</a></li>    
+					<li><a class="@yield('nav_news')" href="{{url('/news')}}">News</a></li>
+					<li><a class="@yield('nav_ukm')" href="{{url('/ukm')}}">UKM</a></li>
+                    <li><a class="@yield('nav_profil')" href="#">Profil</a></li>
 					<li>
 						<div class="search">
 							<form role="form">

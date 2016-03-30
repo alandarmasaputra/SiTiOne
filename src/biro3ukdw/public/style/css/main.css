@@ -7,6 +7,7 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
+  font-variant: normal;
   color:#4e4e4e;
   line-height: 22px;
 }
@@ -44,6 +45,8 @@ h3{
 h4{
   font-size: 16px;
 }
+
+
 
 a {
 	font-variant: small-caps;
@@ -1529,12 +1532,6 @@ ul.social_icons li  a i{
   padding: 10px;
 }
 
-.text-left {
-  color: #FFFFFF;
-  font-size: 12px;
-  margin-top: 15px;
-}
-
 /*************************
 ********* Portfolio CSS ******
 **************************/
@@ -2500,7 +2497,7 @@ shortcodes page css
 }
 
 #footer {
-  padding-top: 20px;
+  padding-top: 30px;
   padding-bottom: 20px;
   color: #fff;
   background: #2e2e2e;
