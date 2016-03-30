@@ -89,9 +89,9 @@ function insertImageBefore(event,element){
 
 function newButtonPanel(){
     return "<div class='editor-button'>"
-                +"<button onclick='insertParagraphBefore(event,this)'><span class='glyphicon glyphicon-plus'></span>Text</button>"
-                +"<button onclick='insertImageBefore(event,this)'><span class='glyphicon glyphicon-plus'></span>Image</button>"
-                +"<button onclick='deleteParent(event,this)'><span class='glyphicon glyphicon-remove'></span>Delete</button>"
+                +"<button type='button' onclick='insertParagraphBefore(event,this)'><span class='glyphicon glyphicon-plus'></span>Text</button>"
+                +"<button type='button' onclick='insertImageBefore(event,this)'><span class='glyphicon glyphicon-plus'></span>Image</button>"
+                +"<button type='button' onclick='deleteParent(event,this)'><span class='glyphicon glyphicon-remove'></span>Delete</button>"
             +"</div>"
 }
 
@@ -151,7 +151,8 @@ function initLoad(){
 				['insert',['link']],
 				['codeview', ['codeview']]
             ],
-            disableDragAndDrop: true
+            disableDragAndDrop: true,
+			minHeight: "180px"
         });
     })
 }

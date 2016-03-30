@@ -37,12 +37,12 @@ use App\AppUtility;
             <div class="editor-header">
 					 
 				@if($ukm->header_pic)
-				<div id="header-pic-show">
+				<div id="header-pic-show" style="background-image: url('{{AppUtility::get_image_data($ukm->header_pic) }}'); height: 400px">
 					<div id="header-pic-alert" style="display:none;">please select valid file type. The supported file types are .jpg, .png, .bmp</div>
 					<label>Upload foto:</label> <input name="header-pic" id="header-pic" type="file" onchange="imageupload(this)">
 				</div>
 				@else
-				<div id="header-pic-show" style="background-image: url('{{AppUtility::get_image_data($ukm->header_pic) }}'); height: 400px">
+				<div id="header-pic-show">
 					<div id="header-pic-alert" style="display:none;">please select valid file type. The supported file types are .jpg, .png, .bmp</div>
 					<label>Upload foto:</label> <input name="header-pic" id="header-pic" type="file" onchange="imageupload(this)">
 				</div>
@@ -91,8 +91,8 @@ use App\AppUtility;
                 ?>
                 @endforeach
             </div>
-            <button id="new-paragraph"><span class="glyphicon glyphicon-plus"></span> Paragraph</button>
-            <button id="new-image"><span class="glyphicon glyphicon-plus"></span> Image</button>
+            <button type="button" id="new-paragraph"><span class="glyphicon glyphicon-plus"></span> Paragraph</button>
+            <button type="button" id="new-image"><span class="glyphicon glyphicon-plus"></span> Image</button>
             
             <br>
             <br>
@@ -113,9 +113,9 @@ use App\AppUtility;
 
 function newButtonPanel(){
     return "<div class='editor-button'>"
-                ."<button onclick='insertParagraphBefore(event,this)'><span class='glyphicon glyphicon-plus'></span>Text</button>"
-                ."<button onclick='insertImageBefore(event,this)'><span class='glyphicon glyphicon-plus'></span>Image</button>"
-                ."<button onclick='deleteParent(event,this)'><span class='glyphicon glyphicon-remove'></span>Delete</button>"
+                ."<button type='button' onclick='insertParagraphBefore(event,this)'><span class='glyphicon glyphicon-plus'></span>Text</button>"
+                ."<button type='button' onclick='insertImageBefore(event,this)'><span class='glyphicon glyphicon-plus'></span>Image</button>"
+                ."<button type='button' onclick='deleteParent(event,this)'><span class='glyphicon glyphicon-remove'></span>Delete</button>"
             ."</div>";
 }
 

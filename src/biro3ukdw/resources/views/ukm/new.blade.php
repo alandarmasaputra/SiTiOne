@@ -45,8 +45,8 @@ UKM Baru
 			<div class="editor-content-container text-center">
 				<div id="editor-content">
 				</div>
-				<button id="new-paragraph"><span class="glyphicon glyphicon-plus"></span> Paragraph</button>
-				<button id="new-image"><span class="glyphicon glyphicon-plus"></span> Image</button>
+				<button type="button" id="new-paragraph"><span class="glyphicon glyphicon-plus"></span> Paragraph</button>
+				<button type="button" id="new-image"><span class="glyphicon glyphicon-plus"></span> Image</button>
 			</div>
             <br>
             <br>
