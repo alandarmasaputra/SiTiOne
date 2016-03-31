@@ -8,14 +8,24 @@ use App\AppUtility;
 
 ?>
 @section('body_content')
-<div class="container-fluid">
-    <div class="text-center">
-        @if($ukm->header_pic)
-            <img src="{{ AppUtility::get_image_data($ukm->header_pic) }}">
-        @endif
-        <h2>{{ $ukm->name }}</h2>
+<div class="container-fluid body-content body-ukm-detail">
+    <div class="text-left ukm-cover"
+	 <?php
+	 	if($ukm->header_pic){
+	 ?>
+	 	style="background-image: url('{{AppUtility::get_image_data($ukm->header_pic)}}')"
+	 <?php
+		}
+	 ?>>
+		<div class="ukm-item-facade">
+			<div>
+				<a href="{{ url('/ukm/edit/'.$ukm->id) }}"><button class="button-inline">edit</button></a>
+				<button class="button-inline">delete</button>
+			</div>
+        	<h2 class="ukm-title">{{ $ukm->name }}</h2>
+		</div>
     </div>
-    <div class="text-center">
+    <div class="text-left ukm-description">
         @foreach($ukm->content as $ukm_content)
         
             @if($ukm_content->type == 's')

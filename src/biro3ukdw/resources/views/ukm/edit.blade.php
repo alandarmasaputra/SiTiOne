@@ -14,7 +14,7 @@ use App\AppUtility;
 
 
 @section('body_content')
-<div class="container">
+<div class="container body-content">
     @if(session('errorMessage'))
         <div>
             <span class="label label-warning">Alert</span> {{ session('error_message') }}

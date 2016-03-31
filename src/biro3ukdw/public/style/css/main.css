@@ -50,7 +50,6 @@ h4{
 
 a {
 	font-variant: small-caps;
-	color: white;
 	-webkit-transition: color 300ms ease, background-color 300ms ease, font-weight 300ms ease;
 	-moz-transition: color 300ms ease, background-color 300ms ease, font-weight 300ms ease;
 	-o-transition:  color 300ms ease, background-color 300ms ease, font-weight 300ms ease;

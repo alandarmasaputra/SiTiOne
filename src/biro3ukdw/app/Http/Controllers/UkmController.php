@@ -28,6 +28,9 @@ class UkmController extends Controller
     }
     
     function detail($id){
+		if($id==''){
+			return redirect('ukm');
+		}
         $ukm = UKM::where('id',$id)->first();
         return view('ukm.detail',[
             'ukm' => $ukm
@@ -354,6 +357,6 @@ class UkmController extends Controller
 		$errors = array();
         $successMessage = 'UKM berhasil diedit';
         $request->session()->flash('successMessage',$successMessage);
-        return redirect(url('/ukm/edit/'.$id))->withErrors($errors)->with('successMessage',$successMessage);
+        return redirect(url('/ukm/'.$id))->withErrors($errors)->with('successMessage',$successMessage);
     }
 }
