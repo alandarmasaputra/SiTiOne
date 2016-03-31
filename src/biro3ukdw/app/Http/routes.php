@@ -99,4 +99,11 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/beasiswa/edit/{id}','BeasiswaController@edit');
     Route::post('/beasiswa/update/{id}','BeasiswaController@update');
 	Route::get('/beasiswa/{id}','BeasiswaController@detail'); 
+
+    Route::get('/profil',function()
+    {
+    return view('profil');
+});
+
+
 });

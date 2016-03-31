@@ -1,5 +1,23 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,300,800);
 
+/*************************
+*******Profil******
+**************************/
+.blog-item{
+color: white;}
+
+.accordion-group p{
+color:white;}
+
+.accordion-group h2{
+color:blue;}
+
+.row h4{
+color:white;}
+
+.widget h3{
+color:blue;}
+
 
 /*************************
 *******Typography******
@@ -14,6 +32,8 @@ body {
 
 h1,h2,h3,h4,h5,h6{
 	font-variant: small-caps;
+
+
 }
 
 button, input[type="button"], input[type="submit"]{
@@ -33,6 +53,7 @@ h1{
 
 h2{
   font-size: 20px;
+
 }
 
 h3{
@@ -774,6 +795,7 @@ input.search-form:hover::-webkit-input-placeholder {
 
 .accordion h2{
   margin-bottom: 25px;
+
 }
 
 .panel-default{
@@ -819,6 +841,8 @@ input.search-form:hover::-webkit-input-placeholder {
 
 .accordion-inner h4{
   margin-top: 0;
+
+
 }
 
 .panel-heading.active{
@@ -1948,6 +1972,9 @@ textarea#message{
 ****blog page css*****
 **********************/
 
+
+
+
 .widget {
   margin-bottom: 60px;
   padding-left: 0;
@@ -1973,7 +2000,7 @@ textarea#message{
 }
 
 .widget h3 {
-  color: #000;
+  
   text-transform: uppercase;
   margin-bottom: 20px;
 }
@@ -2121,9 +2148,16 @@ ul.faq li > div h3 {
   padding-bottom: 25px;
 }
 
+
 .blog .blog-item .blog-content h2 {
   margin-top: 0;
   font-size: 30px;
+}
+
+.blog .blog-item .blog-content h8 {
+  margin-top: 0;
+  font-size: 30px;
+color:white;
 }
 
 .readmore{
