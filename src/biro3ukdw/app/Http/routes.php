@@ -84,12 +84,13 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/ukm/',['as'=>'ukm_index', 'uses'=>'UkmController@index']);
     Route::get('/ukm',['as'=>'ukm_index', 'uses'=>'UkmController@index']);
 
-     Route::get('/news/new',['as'=>'news_new', 'uses'=>'NewsController@create']);
+    Route::get('/news/new',['as'=>'news_new', 'uses'=>'NewsController@create']);
     Route::post('/news/new',['as'=>'news_new', 'uses'=>'NewsController@submit_new']);
     Route::get('/news/edit/{id}',['as'=>'news_edit', 'uses'=>'NewsController@edit']);
     Route::post('/news/update/{id}',['as'=>'news_update', 'uses'=>'NewsController@update']);
     Route::get('/news/{id}',['as'=>'news_get', 'uses'=>'NewsController@detail']);
     Route::get('/news',['as'=>'news_index', 'uses'=>'NewsController@index']);
+    Route::get('/news/',['as'=>'news_index', 'uses'=>'NewsController@index']);
     
 
 	Route::get('/beasiswa/','BeasiswaController@index');  
@@ -98,4 +99,11 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/beasiswa/edit/{id}','BeasiswaController@edit');
     Route::post('/beasiswa/update/{id}','BeasiswaController@update');
 	Route::get('/beasiswa/{id}','BeasiswaController@detail'); 
+
+    Route::get('/profil',function()
+    {
+    return view('profil');
+});
+
+
 });

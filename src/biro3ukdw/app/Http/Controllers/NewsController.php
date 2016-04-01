@@ -35,6 +35,9 @@ class NewsController extends Controller
 
 
     function detail($id){
+        if($id==''){
+            return redirect('news');
+        }
         $news = News::where('id',$id)->first();
         return view('news.detail',[
             'news' => $news
@@ -328,18 +331,11 @@ class NewsController extends Controller
             $content_id++;
         }
         
-        // Testing Materials
-        /*
-            echo "<pre>".json_encode($input,JSON_PRETTY_PRINT)."</pre>";
-            echo "<pre>";
-            print_r($input);
-            echo "</pre>";
-        */
         
         $errors = array();
         $successMessage = 'News berhasil diedit';
         $request->session()->flash('successMessage',$successMessage);
-        return redirect(url('/news/edit/'.$id))->withErrors($errors)->with('successMessage',$successMessage);
+        return redirect(url('/news/'.$id))->withErrors($errors)->with('successMessage',$successMessage);
     }
 
 
