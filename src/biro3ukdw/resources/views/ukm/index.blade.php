@@ -3,6 +3,10 @@
 UKM - Biro3 | UKDW
 @endsection
 
+@section('nav_ukm')
+active
+@endsection
+
 <?php
 	use App\AppUtility;
 ?>
@@ -17,6 +21,21 @@ UKM - Biro3 | UKDW
 		</h2>
 	</div>
 	<div class="ukm-container">
+		<div class="ukm-item">
+			<a href="{{url('/ukm/new')}}">
+				<div class="ukm-item-facade text-center flex-column contents-center">
+					<div>
+						<h2>
+							<span class="glyphicon glyphicon-plus">
+							</span>
+						</h2>
+					</div>
+					<h2>
+						Tambah UKM
+					</h2>
+				</div>
+			</a>
+		</div>
 		@foreach($ukms as $ukm)
 		<div class="ukm-item"
 			<?php if($ukm->header_pic){ ?>
@@ -31,7 +50,9 @@ UKM - Biro3 | UKDW
 				<div class="ukm-preview-content">
 					@foreach($ukm->content as $content)
 						@if($content->type=='s')
+						<div>
 							{!!$content->content!!}
+						</div>
 							<?php break; ?>
 						@endif
 					@endforeach

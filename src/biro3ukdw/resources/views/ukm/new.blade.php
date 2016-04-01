@@ -10,16 +10,6 @@ UKM Baru
 
 @section('body_content')
 <div class="container-fluid body-content">
-    @if(session('errorMessage'))
-        <div>
-            <span class="label label-warning">Alert</span> {{ session('errorMessage') }}
-        </div>
-    @endif
-    @if(session('successMessage'))
-        <div>
-            <span class="label label-success">Success</span> {{ session('successMessage') }}
-        </div>    
-    @endif
 	<div class="page-header">
 		<h2>
 			UKM Baru
@@ -40,7 +30,7 @@ UKM Baru
 				</h2>
             </div>
 			<h2 class="editor-content-label text-left">
-				Content
+				Deskripsi
 			</h2>
 			<div class="editor-content-container text-center">
 				<div id="editor-content">

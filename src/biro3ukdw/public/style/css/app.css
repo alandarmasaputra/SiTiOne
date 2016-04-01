@@ -149,7 +149,11 @@ input{
 }
 
 .navbar-nav>li a.active{
-	border-bottom: 2px solid white;
+	background: black;
+}
+
+.navbar-nav>li a.active:hover{
+	background: white;
 }
 
 .navbar-toggle{
@@ -173,8 +177,41 @@ input{
     display: flex;
 }
 
+.flex-column{
+	display: flex;
+	flex-flow: column nowrap;
+}
+
 .items-center{
     align-items: center;
+}
+
+.contents-center{
+	align-content: center;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.justify-end{
+    justify-content: flex-end;
+}
+
+.justify-start{
+    justify-content: flex-start;
+}
+
+header a{
+	color: white;
+}
+
+.notification-bar{
+	background: white;
+}
+
+.notification-bar, .notification-bar *{
+	color: black;
 }
 
 .editor .editor-image-show{
@@ -182,10 +219,6 @@ input{
 	background-position: center;
 	background-size: contain;
 	max-height: 70vw;
-}
-
-header a{
-	color: white;
 }
 
 .editor-header #header-pic-show{
@@ -278,9 +311,12 @@ input[type="text"]{
 }
 
 @media only screen and (max-width: 700px) {
+	.editor-item .editor-record{
+		min-width: 100%;
+	}
+	
     .editor-item .editor-button {
         flex-direction: row;
-        max-height: 40px;
         justify-content: flex-end;
     }
 	
@@ -331,8 +367,8 @@ input[type="text"]{
 	margin: 5px;
 	flex-basis: 250px;
 	max-width: 300px;
-	min-width: 200px;
-	height: 40vw;
+	min-height: 60vh;
+	height: 60vh;
 	flex-grow: 1;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -346,6 +382,92 @@ input[type="text"]{
 @media (max-width: 400px){
 	.ukm-item{
 		min-width: 100%;
+		max-width: 100%;
+	}
+}
+
+.beasiswa-container{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+
+.beasiswa-preview-item{
+	box-shadow: 2px 3px 5px black;
+	flex: 1 0 455px;
+	max-width: 500px;
+	min-height: 279px;
+	margin: 10px;
+	display: flex;
+	flex-flow: row wrap;
+	margin-top: 100px;
+}
+
+.beasiswa-preview-pic-border{
+	width: 100%;
+	height: 115px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+.beasiswa-preview-pic{
+	box-shadow: 2px 3px 5px black;
+	border-radius: 50%;
+	width: 173px;
+	height: 173px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.beasiswa-preview-pic-plus{
+	box-shadow: 2px 3px 5px black;
+	background: black;
+	border-radius: 50%;
+	width: 173px;
+	height: 173px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.beasiswa-facade{
+	flex-basis: 100%;
+	display: flex;
+	flex-flow: column;
+	align-content: stretch;
+	background: rgba(0,0,0,0.4);
+}
+
+.beasiswa-preview-description{
+	padding: 0 10% 5px 10%;
+	flex-grow: 1;
+}
+
+.beasiswa-readmore{
+	align-items: flex-end;
+}
+
+.beasiswa-readmore a{
+	padding: 5px 10px;
+	color: white;
+	border-bottom: 2px solid #eee;
+	border-right: 2px solid #eee;
+}
+
+.beasiswa-readmore a:hover{
+	background: white;
+	color: black;
+	border-top: 2px solid #eee;
+	border-left: 2px solid #eee;
+}
+
+@media (max-width: 500px){
+	.beasiswa-preview-item{
+		min-width: 100%;
+		max-width: 100%;
 	}
 }
 
@@ -413,6 +535,7 @@ input[type="text"]{
 	min-width: 100%;
 	word-wrap: break-word;
 	word-break: break-all;
+	overflow: hidden;
 	
 }
 .tag-list-item{

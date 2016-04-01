@@ -13,6 +13,7 @@ use Session;
 use Intervention\Image\Facades\Image as Intervention;
 use Image;
 use App\AppUtility;
+use Carbon\Carbon;
 
 class BeasiswaController extends Controller
 {
@@ -28,12 +29,12 @@ class BeasiswaController extends Controller
     	return view('beasiswa.new'); 	
     }
     public function edit($id){
-           	$beasiswa = Beasiswa::where('id',$id)->first();
-            return view('beasiswa.edit', compact('beasiswa'));
+		$beasiswa = Beasiswa::where('id',$id)->first();
+		return view('beasiswa.edit', compact('beasiswa'));
     }
 
-     public function detail($id){
-            $beasiswa = Beasiswa::where('id',$id)->first();
+    public function detail($id){
+        $beasiswa = Beasiswa::where('id',$id)->first();
         return view('beasiswa.detail',[
             'beasiswa' => $beasiswa
         ]);
@@ -45,11 +46,17 @@ class BeasiswaController extends Controller
     	$input = $request->all();
         
         //Validasi required input
-        $beasiswa_name = trim($input['title']);
-        $beasiswa_sumber = trim($input['sumber']);
-        $beasiswa_jumlah = trim($input['jumlah']);
-        
-        $errors = array();
+        try{
+			$beasiswa_name = trim($input['title']);
+			$beasiswa_sumber = trim($input['sumber']);
+			$beasiswa_deadline_date = Carbon::createFromFormat('Y-m-d', $request->input('deadline-date'));
+			$kategori_utama = trim($input['kategori-utama']);
+		}catch(\Exception $e){
+			$errors = array();
+			$errors[] = "Terjadi error ketika memproses input";
+		}
+		
+		$errors = array();
         if(!isset($beasiswa_name) || $beasiswa_name==''){
             $errors[] = "Nama Beasiswa harus diisi";
             
@@ -62,21 +69,25 @@ class BeasiswaController extends Controller
             }
             
         }
-		$kategori_utama = trim($input['kategori-utama']);
 		if(!isset($kategori_utama) || $kategori_utama==''){
 			$errors[] = "Kategori internal/external harus diisi";
 		}
         
+		$beasiswa_kategori = trim($kategori_utama." ".trim($input['kategori-tambahan']));
+		
         //Kalau error redirect kembali
         if(count($errors)>0){
             return back()->withErrors($errors);
         }
-    
-        $errors = array();
+    	
+		$errors = array();
         
         //Save Header
         $newBeasiswa = new Beasiswa();
         $newBeasiswa->name = $beasiswa_name;
+		$newBeasiswa->sumber = $beasiswa_sumber;
+		$newBeasiswa->deadline_date = $beasiswa_deadline_date;
+		$newBeasiswa->kategori = $beasiswa_kategori;
         
         //check if header picture exist
         if($request->hasFile('header-pic')){
@@ -105,7 +116,6 @@ class BeasiswaController extends Controller
                 $errors[] = "Terjadi kesalahan saat mengupload gambar.";
             }
         }
-        
         $newBeasiswa->save();
         $newBeasiswa = Beasiswa::where('name',$beasiswa_name)->first();
         
@@ -175,18 +185,13 @@ class BeasiswaController extends Controller
         }
         
         
-        // Testing Materials
-        /*
-            echo "<pre>".json_encode($input,JSON_PRETTY_PRINT)."</pre>";
-            echo "<pre>";
-            print_r($input);
-            echo "</pre>";
-        */
         
-        $successMessage = 'UKM berhasil terdaftar';
+        $successMessage = 'Beasiswa berhasil terdaftar';
         return back()
             ->with('successMessage',$successMessage)
             ->withErrors($errors);
+		
+        /**/
     }
 
     public function update(Request $request, $id){
@@ -195,7 +200,7 @@ class BeasiswaController extends Controller
     	$beasiswa->sumber = $request->input('sumber');
     	$beasiswa->jumlah = $request->input('jumlah');
     	$beasiswa->header_pic = $request->input('header_pic');
-    	$beasiswa->deadline_date = $request->input('deadline_date');
+    	$beasiswa->deadline_date = $request->input('deadline-date');
     	$beasiswa->save();
         return redirect('/beasiswa/edit/'.$id);
     }

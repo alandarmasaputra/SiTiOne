@@ -54,7 +54,7 @@ use App\AppUtility;
 				</h2>
             </div>
 			<h2 class="editor-content-label text-left">
-				Content
+				Deskripsi
 			</h2>
             <div id="editor-content">
                 <?php
