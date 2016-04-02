@@ -62,7 +62,7 @@ active
 					<input type="radio" name="kategori-utama" value="external" required><label>External</label>
 				</div>
 				
-				<label>Tag</label>
+				<label>Tags:</label>
 				<div>
 					<input type="text" id="tag-input"><button id="tag-add"><span class="glyphicon glyphicon-plus"></span></button>
 				</div>

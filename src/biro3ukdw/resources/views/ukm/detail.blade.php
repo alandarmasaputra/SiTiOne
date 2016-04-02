@@ -8,7 +8,7 @@ use App\AppUtility;
 
 ?>
 @section('body_content')
-<div class="container-fluid body-content body-ukm-detail">
+<div class="container-fluid body-content ukm-detail-body">
     <div class="text-left ukm-cover"
 	 <?php
 	 	if($ukm->header_pic){
@@ -19,6 +19,7 @@ use App\AppUtility;
 	 ?>>
 		<div class="ukm-item-facade">
 			<div>
+				<a href="{{ url('/ukm/') }}"><button class="button-inline"><span class="glyphicon glyphicon-menu-left"></span>back</button></a>
 				<a href="{{ url('/ukm/edit/'.$ukm->id) }}"><button class="button-inline">edit</button></a>
 				<button class="button-inline">delete</button>
 			</div>

@@ -334,7 +334,7 @@ class UkmController extends Controller
                     
                 }
                 //Save Content
-                echo "<pre>".json_encode($newUkmContent,JSON_PRETTY_PRINT)."</pre>";
+                //echo "<pre>".json_encode($newUkmContent,JSON_PRETTY_PRINT)."</pre>";
 				if($newUkmContent->content){
                 	$newUkmContent->save();
 				}

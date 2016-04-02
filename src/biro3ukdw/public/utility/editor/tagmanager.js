@@ -39,6 +39,15 @@ var tagManager = {};
 		}
 	}
 
+function loadTagList(){
+	var tagString = $('#kategori-tambahan').val().trim();
+	var tagSplit = tagString.split(" ");
+	for(var i = 0; i<tagSplit.length; i++){
+		tagManager.addToTag(tagSplit[i]);
+	}
+	updateTagList();
+}
+
 function updateTagList(){
 	var tagListItems = "";
 	var tagListHidden = "";

@@ -15,16 +15,6 @@ use App\AppUtility;
 
 @section('body_content')
 <div class="container body-content">
-    @if(session('errorMessage'))
-        <div>
-            <span class="label label-warning">Alert</span> {{ session('error_message') }}
-        </div>
-    @endif
-    @if(session('successMessage'))
-        <div>
-            <span class="label label-success">Success</span> {{ session('success_message') }}
-        </div>    
-    @endif
     <div class="page-header">
         <h2>
             Edit UKM
@@ -110,7 +100,6 @@ use App\AppUtility;
 @endsection
 
 <?php
-
 function newButtonPanel(){
     return "<div class='editor-button'>"
                 ."<button type='button' onclick='insertParagraphBefore(event,this)'><span class='glyphicon glyphicon-plus'></span>Text</button>"
@@ -118,5 +107,4 @@ function newButtonPanel(){
                 ."<button type='button' onclick='deleteParent(event,this)'><span class='glyphicon glyphicon-remove'></span>Delete</button>"
             ."</div>";
 }
-
 ?>

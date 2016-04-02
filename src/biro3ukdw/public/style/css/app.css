@@ -386,6 +386,84 @@ input[type="text"]{
 	}
 }
 
+
+
+.ukm-detail-body{
+	min-height: 100%;
+}
+
+.ukm-detail-body *{
+	color: white;
+}
+
+.ukm-description{
+	background: rgba(0,0,0,0.8);
+	padding: 20px 5%;
+	word-break: break-all;
+}
+
+.ukm-description *{
+	color: white;
+	transition: all 0.5s ease;
+}
+
+.ukm-description img{
+	max-height: 30vw;
+}
+
+.ukm-item-facade{
+	background: rgba(0,0,0,0.4);
+	padding: 25px;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-flow: column;
+	align-content: stretch;
+}
+
+.ukm-item-facade>*{
+}
+
+.ukm-preview-title, .ukm-title{
+	color: white;
+	font-size: 2em;
+	border-bottom: 2px solid rgba(255,255,255,0.1);
+	padding: 3px 0;
+	flex-grow: 0;
+}
+
+.ukm-preview-title:hover{
+	border-bottom: 2px solid rgba(255,255,255,0.5);
+}
+
+.ukm-preview-content{
+	color: white;
+	flex-grow: 1;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-end;
+	max-width: 100%;
+	word-wrap: break-word;
+	overflow: hidden;
+}
+
+.ukm-preview-content *{
+	flex-basis: 100%;
+	min-width: 100%;
+	word-wrap: break-word;
+	word-break: break-all;
+	overflow: hidden;
+}
+
+.ukm-detail-pic{
+	max-width: 100%;
+}
+
+.ukm-detail-pic img{
+	width: 100%;
+	height: auto;
+}
+
 .beasiswa-container{
 	display: flex;
 	flex-flow: row wrap;
@@ -471,83 +549,56 @@ input[type="text"]{
 	}
 }
 
-.body-ukm-detail{
-	min-height: 100%;
-}
-
-.body-ukm-detail *{
-	color: white;
-}
-
-.ukm-description{
-	background: rgba(0,0,0,0.8);
-	padding: 20px 5%;
-	word-break: break-all;
-}
-
-.ukm-description *{
-	color: white;
-	transition: all 0.5s ease;
-}
-
-.ukm-description img{
-	max-height: 30vw;
-}
-
-.ukm-item-facade{
-	background: rgba(0,0,0,0.4);
-	padding: 25px;
-	height: 100%;
-	width: 100%;
+.beasiswa-detail-body{
 	display: flex;
-	flex-flow: column;
-	align-content: stretch;
+	flex-flow: row wrap;
 }
 
-.ukm-item-facade>*{
+.beasiswa-detail-header{
+	padding: 10px;
+	border: 1px solid rgba(100,100,100,0.3);
+	flex: 1 0 300px;
+	max-width: 300px;
+	min-height: 430px;
 }
 
-.ukm-preview-title, .ukm-title{
+.beasiswa-detail-header-buttons *{
 	color: white;
-	font-size: 2em;
-	border-bottom: 2px solid rgba(255,255,255,0.1);
-	padding: 3px 0;
-	flex-grow: 0;
 }
 
-.ukm-preview-title:hover{
-	border-bottom: 2px solid rgba(255,255,255,0.5);
+.beasiswa-detail-description{
+	background: rgba(0,0,0,0.6);
+	padding: 15px;
+	flex: 1 1 400px;
+	max-width: 830px;
+	min-height: 100px;
+	font-size: 1.1em;
 }
 
-.ukm-preview-content{
-	color: white;
-	flex-grow: 1;
-	display: flex;
-	flex-flow: column nowrap;
-	justify-content: flex-end;
-	max-width: 100%;
-	word-wrap: break-word;
-	overflow: hidden;
+.beasiswa-detail-description *{
+	color: #ddd;
 }
 
-.ukm-preview-content *{
-	flex-basis: 100%;
-	min-width: 100%;
-	word-wrap: break-word;
-	word-break: break-all;
-	overflow: hidden;
-	
+@media screen and (max-width: 740px){
+	.beasiswa-detail-header, .beasiswa-detail-body{
+		flex-basis: 100%;
+		max-width: 100%;
+		min-width: 100%;
+		min-height: 0;
+		width: 100%;
+	}
 }
+
 .tag-list-item{
 	margin: 1px;
-	padding: 1px 3px;
-	border-radius: 2px;
-	border: 1px solid rgba(30,30,30,0.2);
+	padding: 3px 6px;
+	border-radius: 4px;
+	border: 1px solid rgba(255,255,255,0.2);
 }
 
 .tag-list-item, .tag-list-item *{
 	font-size: 0.9em;
-	padding: 2px;
+	padding: 3px;
 }
 
 .tag-list-item .tag-list-remove{
