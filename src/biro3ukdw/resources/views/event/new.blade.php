@@ -50,7 +50,7 @@ Event Baru
                     <label>Tempat Event:</label>
                     <input name="tempat" type="text" required>
                 </h2>
-                <h2>
+                <h2 class="text-left nofade">
                     <label>Tanggal Event: </label>
                     <input type="date" name="tanggal" required>
                 </h2>
