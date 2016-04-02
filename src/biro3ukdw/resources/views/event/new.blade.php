@@ -50,10 +50,10 @@ Event Baru
                     <label>Tempat Event:</label>
                     <input name="tempat" type="text" required>
                 </h2>
-                <div>
-                    <label>Deadline-date: </label>
+                <h2>
+                    <label>Tanggal Event: </label>
                     <input type="date" name="tanggal" required>
-                </div>
+                </h2>
                 
             </div>
             <h2 class="editor-content-label text-left">
