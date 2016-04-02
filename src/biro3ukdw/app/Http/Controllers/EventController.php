@@ -60,7 +60,7 @@ class EventController extends Controller
         $event_kategori = trim($input['kategori']);
         $event_sumber = trim($input['sumber']);
         $event_tempat = trim($input['tempat']);
-        $event_date = Carbon::createFromFormat('Y-m-d', $request->input('event_date'));
+        $event_date = Carbon::createFromFormat('Y-m-d', $request->input('tanggal'));
         
         $errors = array();
         if(!isset($event_name) || $event_name==''){
@@ -231,7 +231,7 @@ class EventController extends Controller
         $event_kategori = trim($input['kategori']);
         $event_sumber = trim($input['sumber']);
         $event_tempat = trim($input['tempat']);
-        $event_date = $event_date = Carbon::createFromFormat('Y-m-d', $request->input('event_date'));
+        $event_date = $event_date = Carbon::createFromFormat('Y-m-d', $request->input('tanggal'));
 
         
         $errors = array();
