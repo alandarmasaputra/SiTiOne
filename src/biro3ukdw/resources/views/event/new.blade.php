@@ -40,20 +40,20 @@ Event Baru
                 </h2>
                 <h2 class="text-left nofade">
                     <label>Kategori Event:</label>
-                    <input name="kategori" id="editor-header-title" type="text" required>
+                    <input name="kategori" type="text" required>
                 </h2>
                 <h2 class="text-left nofade">
                     <label>Sumber Event:</label>
-                    <input name="sumber" id="editor-header-title" type="text" required>
+                    <input name="sumber" type="text" required>
                 </h2>
                 <h2 class="text-left nofade">
                     <label>Tempat Event:</label>
-                    <input name="tempat" id="editor-header-title" type="text" required>
+                    <input name="tempat" type="text" required>
                 </h2>
-                <h2 class="text-left nofade">
-                    <label>Tanggap Event:</label>
-                    <input name="tanggal" id="editor-header-title" type="date" required>
-                </h2>
+                <div>
+                    <label>Deadline-date: </label>
+                    <input type="date" name="tanggal" required>
+                </div>
                 
             </div>
             <h2 class="editor-content-label text-left">

@@ -64,6 +64,10 @@ use App\AppUtility;
                     <label>Tempat Event:</label>
                     <input name="tempat" id="editor-header-title" type="text" value="{{ $event->tempat }}" required>
                 </h2>
+                <div>
+                    <label>Tanggal Event:</label>
+                    <input type="date" name="tanggal" value="{{ (new Carbon($event->event_date))->format('Y-m-d') }}" required>
+                </div>
             </div>
             <h2 class="editor-content-label text-left">
                 Content

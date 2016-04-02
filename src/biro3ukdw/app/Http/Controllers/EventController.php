@@ -13,6 +13,7 @@ use Session;
 use Intervention\Image\Facades\Image as Intervention;
 use Image;
 use App\AppUtility;
+use Carbon\Carbon;
 
 class EventController extends Controller
 {
@@ -59,7 +60,7 @@ class EventController extends Controller
         $event_kategori = trim($input['kategori']);
         $event_sumber = trim($input['sumber']);
         $event_tempat = trim($input['tempat']);
-        $event_date = trim($input['tanggal']);
+        $event_date = Carbon::createFromFormat('Y-m-d', $request->input('event_date'));
         
         $errors = array();
         if(!isset($event_name) || $event_name==''){
@@ -107,7 +108,7 @@ class EventController extends Controller
         $newEvent->kategori = $event_kategori;
         $newEvent->sumber = $event_sumber;
         $newEvent->tempat = $event_tempat;
-        $newEvent->event_date = date('Y-m-d H:i:s', strtotime($request->input('tanggal')));
+        $newEvent->event_date = $event_date;
 
         //check if header picture exist
         if($request->hasFile('header-pic')){
@@ -230,7 +231,7 @@ class EventController extends Controller
         $event_kategori = trim($input['kategori']);
         $event_sumber = trim($input['sumber']);
         $event_tempat = trim($input['tempat']);
-       // $event_date = trim($input['tanggal']);
+        $event_date = $event_date = Carbon::createFromFormat('Y-m-d', $request->input('event_date'));
 
         
         $errors = array();
@@ -279,7 +280,7 @@ class EventController extends Controller
         $newEvent->kategori = $event_kategori;
         $newEvent->sumber = $event_sumber;
         $newEvent->tempat = $event_tempat;
-        //$newEvent->event_date = date('Y-m-d H:i:s', strtotime($request->input('tanggal')));
+        $newEvent->event_date = $event_date;
         
         //check if header picture exist
         if($request->hasFile('header-pic')){

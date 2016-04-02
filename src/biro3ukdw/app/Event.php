@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\EventContent;
 class Event extends Model
 {
     public function content(){
