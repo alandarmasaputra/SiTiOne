@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('head_title')
-New UKM - Biro3 | UKW
+Detail UKM - Biro3 | UKW
 @endsection
 <?php 
 

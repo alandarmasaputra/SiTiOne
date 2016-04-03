@@ -20,10 +20,10 @@ use App\AppUtility;
 				@else
 				@if(strpos($beasiswa->kategori,'internal')!==false)
 				<?php $internal = true ?>
-				<img src="{{url('style/images/ico/beasiswa_placeholder.png')}}">
+				<img src="{{url('style/images/ico/beasiswa_dalam.png')}}">
 				@else
 				<?php $internal = false ?>
-				<img src="{{url('style/images/ico/beasiswa_placeholder.png')}}">
+				<img src="{{url('style/images/ico/beasiswa_luar.png')}}">
 				@endif
 				@endif
 			</div>
