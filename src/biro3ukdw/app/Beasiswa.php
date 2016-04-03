@@ -26,7 +26,7 @@ class Beasiswa extends Model
         BeasiswaContent::where('beasiswa_id', $this->id)
             ->where('type','s')
             ->delete();
-		$imagescontent = UkmContent::where('beasiswa_id', $this->id)
+		$imagescontent = BeasiswaContent::where('beasiswa_id', $this->id)
 							->where('type','i')
 							->get();
         foreach($imagescontent as $content){

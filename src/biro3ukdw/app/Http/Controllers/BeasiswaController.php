@@ -215,14 +215,7 @@ class BeasiswaController extends Controller
             $errors[] = "Nama Beasiswa harus diisi";
             
         }
-        else{
-            $newBeasiswa = Beasiswa::where('name',$beasiswa_name)->first();
-            
-            if($newBeasiswa!=null){
-                $errors[] = "Nama Beasiswa sudah ada";
-            }
-            
-        }
+		
 		if(!isset($kategori_utama) || $kategori_utama==''){
 			$errors[] = "Kategori internal/external harus diisi";
 		}
@@ -237,7 +230,12 @@ class BeasiswaController extends Controller
 		$errors = array();
         
         //Save Header
-        $newBeasiswa = new Beasiswa();
+        $newBeasiswa = Beasiswa::where('id',$id)->first();
+		if($newBeasiswa==null){
+			$errors[] = "Beasiswa yang diedit tidak ditemukan";
+			return redirect('/beasiswa')->withErrors($errors);
+		}
+		
         $newBeasiswa->name = $beasiswa_name;
 		$newBeasiswa->sumber = $beasiswa_sumber;
 		$newBeasiswa->deadline_date = $beasiswa_deadline_date;
@@ -272,7 +270,7 @@ class BeasiswaController extends Controller
         }
 		else{
 			if(isset($input['header-pic-old']) && trim($input['header-pic-old'])!=''){
-				$newUkm->header_pic = $input['header-pic-old'];
+				$newBeasiswa->header_pic = $input['header-pic-old'];
 			}
 		}
         $newBeasiswa->save();
@@ -329,7 +327,7 @@ class BeasiswaController extends Controller
                     }
                     else{
 						if(isset($input['content-'.$content_id.'-old'])){
-                            $newUkmContent->content = $input['content-'.$content_id.'-old'];
+                            $newBeasiswaContent->content = $input['content-'.$content_id.'-old'];
 						}
 					}
                 }

@@ -14,7 +14,7 @@ use Carbon\Carbon;
 ?>
 
 @section('body_content')
-<div class="container body-content">
+<div class="container-fluid body-content">
     <div class="page-header">
         <h2>
             Edit Beasiswa
