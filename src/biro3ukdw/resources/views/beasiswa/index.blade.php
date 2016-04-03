@@ -45,12 +45,12 @@ use Carbon\Carbon;
 								 if(strpos($beasiswa->kategori,'internal')!==false){
 									 $internal = true;
 							 ?>
-							 	style="background-image: url('{{url('style/images/ico/beasiswa_placeholder.png')}}')"
+							 	style="background-image: url('{{url('style/images/ico/beasiswa dalam negri 2.png')}}')"
 							 <?php
 								 }else{
 									 $internal = false;
 							 ?>
-							 	style="background-image: url('{{url('style/images/ico/beasiswa_placeholder.png')}}')"
+							 	style="background-image: url('{{url('style/images/ico/beasiswa luar negri fix.png')}}')"
 							 <?php
 							 }}
 							 ?>>
