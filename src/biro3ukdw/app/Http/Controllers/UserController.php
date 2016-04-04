@@ -9,5 +9,7 @@ use App\User;
 
 class UserController extends Controller
 {
-    function
+	function loginpage(){
+		
+	}
 }

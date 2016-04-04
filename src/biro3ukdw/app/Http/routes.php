@@ -15,15 +15,10 @@
 use App\User;
 
 
-Route::get('/', "HomeController@index");
 
 /* home */
 
 
-
-Route::get('/home', function () {   
-    return redirect('/');
-});
 
 
 
@@ -64,7 +59,8 @@ Route::get('/alan/test',function(){
 */
 
 Route::group(['middleware' => ['web']], function () {
-
+	Route::get('/', "HomeController@index");
+	
     Route::get('/event/','EventController@index');  
     Route::post('/event/new','EventController@submit_new');
     Route::get('/event/new','EventController@create');
@@ -102,8 +98,8 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/profil',function()
     {
-    return view('profil');
-});
+		return view('profil');
+	});
 
 
 });
