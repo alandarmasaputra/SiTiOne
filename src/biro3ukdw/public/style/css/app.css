@@ -538,8 +538,6 @@ input[type="text"]{
 .beasiswa-readmore a:hover{
 	background: white;
 	color: black;
-	border-top: 2px solid #eee;
-	border-left: 2px solid #eee;
 }
 
 @media (max-width: 500px){
