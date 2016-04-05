@@ -39,12 +39,12 @@
      <header id="header">    
         <nav class="navbar navbar-inverse" role="banner">
             <div class="container">
-            				<div class="search" style="float:right;">
-                                <form role="form">
-                                    <input type="text" class="search-form" autocomplete="off" placeholder="Search">
-                                    <i class="fa fa-search"></i>
-                                </form>
-                           </div>
+				<div class="search" style="float:right;">
+					<form role="form">
+						<input type="text" class="search-form" autocomplete="off" placeholder="Search">
+						<i class="fa fa-search"></i>
+					</form>
+			    </div>
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
@@ -52,7 +52,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="{{ asset('style/images/logobesar.png') }}" alt="logo"></a>
+                    <a class="navbar-brand" href="asdf"><img src="{{ asset('style/images/logobesar.png') }}" alt="logo"></a>
                 </div>
                 
                 <div class="collapse navbar-collapse navbar-right">

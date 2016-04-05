@@ -47,7 +47,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html">
+				<a class="navbar-brand" href="{{ url('/')}}">
 					<img class="header-logo" src="{{url('/style/images/ico/logo-white.svg')}}">
 					<div class="header-title">
 						<div>Biro Kemahasiswaan</div>

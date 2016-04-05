@@ -34,6 +34,5 @@ class HomeController extends Controller
 			'beasiswas'=>$beasiswas,
 			'events'=>$events
 		]);
-
     }
 }
