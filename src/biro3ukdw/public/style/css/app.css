@@ -1,5 +1,87 @@
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/OpenSans-Light.ttf');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/OpenSans-Regular.ttf');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/OpenSans-Semibold.ttf');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/OpenSans-Bold.ttf');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../fonts/OpenSans-ExtraBold.ttf');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 300;
+  src: url('../fonts/OpenSans-LightItalic.ttf');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/OpenSans-Italic.ttf');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  src: url('../fonts/OpenSans-SemiboldItalic.ttf');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: url('../fonts/OpenSans-BoldItalic.ttf');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 800;
+  src: url('../fonts/OpenSans-ExtraBoldItalic.ttf');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+
 *{
-	word-break: break-all;
+	word-break: break-word, break-all;
 	word-wrap: break-word;
 }
 
@@ -85,7 +167,48 @@ body{
 	.dashboard, .dashboard *{
 		display: none;
 	}
-}	
+}
+
+.cinema{
+	padding-top: 15vh;
+	padding-bottom: 15vh;
+}
+
+.loading{
+	display: inline-block;
+}
+
+.loading .glyphicon-refresh {
+	font-size: 2em;
+	color: white;
+    animation: spin 0.7s infinite linear;
+    -webkit-animation: spin2 0.7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+
+.ajax-search-container{
+	padding: 3px;
+}
+
+.ajax-search-container>*{
+	font-size: 1.3em;
+}
+
+.ajax-search-container input{
+	background: rgba(0,0,0,0);
+	border: 1px solid rgba(124,124,124,0.8);
+	border-radius: 8px;
+	color: black;
+}
 
 .card{
 	background: #fff;
@@ -131,20 +254,32 @@ button{
 .page-header{
 	background: #fff;
 	box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-	padding: 15px 30px 15px 15px;
 	border: 0;
+	padding: 0;
 	margin: 30px 0px 15px -15px;
 	display: inline-block;
 	font-weight: bold;
+	line-height: 0;
 }
 
-.page-header *{
+.page-header>*{
+	padding: 10px 15px 10px 15px;
 	font-weight: bold;
 	margin: 0;
 }
 
+.page-header a{
+	color: white;
+}
+
+.page-header>button:hover a{
+	color: black;
+}
+
 .page-header *{
-	
+	vertical-align: bottom;
+	line-height: 15px;
+	display: inline-block;
 }
 
 #header{
@@ -262,6 +397,10 @@ header .container-fluid{
 
 .search-form{
 	border: 1px solid white;
+}
+
+.search-div{
+	
 }
 
 .navbar-brand img.header-logo{
@@ -558,16 +697,21 @@ input[type="text"]{
 
 
 .ukm-item{
-	box-shadow: 2px 3px 5px black;
-	margin: 5px;
-	flex-basis: 250px;
-	max-width: 300px;
-	min-height: 60vh;
+	transition: padding 0.5s ease;
+	border: 1px solid rgba(124,124,124,0.5);
+	box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+	flex-basis: 200px;
+	max-width: 250px;
+	min-height: 80vh;
 	height: 60vh;
 	flex-grow: 1;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+
+.ukm-item:hover{
+	padding: 10px;
 }
 
 .ukm-item *{
@@ -585,20 +729,18 @@ input[type="text"]{
 
 .ukm-detail-body{
 	min-height: 100%;
-}
-
-.ukm-detail-body *{
-	color: white;
+	padding-left: 0;
+	padding-right: 0;
 }
 
 .ukm-description{
-	background: rgba(0,0,0,0.8);
+	background: white;
 	padding: 20px 5%;
-	word-break: break-all;
+	min-height: 200px;
 }
 
 .ukm-description *{
-	color: white;
+	color: black;
 	transition: all 0.5s ease;
 }
 
@@ -627,10 +769,6 @@ input[type="text"]{
 	flex-grow: 0;
 }
 
-.ukm-preview-title:hover{
-	border-bottom: 2px solid rgba(255,255,255,0.5);
-}
-
 .ukm-preview-content{
 	color: white;
 	flex-grow: 1;
@@ -646,7 +784,6 @@ input[type="text"]{
 	flex-basis: 100%;
 	min-width: 100%;
 	word-wrap: break-word;
-	word-break: break-all;
 	overflow: hidden;
 }
 
@@ -701,11 +838,20 @@ input[type="text"]{
 	align-items: flex-end;
 }
 
-.beasiswa-preview-pic{
-	box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+.beasiswa-preview-pic, 
+.beasiswa-preview-pic-plus{
+	height: 145px;
+	width: 100%;
+	margin-bottom: -30px;
+	/*
 	border-radius: 50%;
 	width: 173px;
 	height: 173px;
+	*/
+}
+
+.beasiswa-preview-pic{
+	box-shadow: 0 3px 5px rgba(0,0,0,0.1);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -713,9 +859,6 @@ input[type="text"]{
 
 .beasiswa-preview-pic-plus{
 	box-shadow: 0 3px 5px rgba(0,0,0,0.1);
-	border-radius: 50%;
-	width: 173px;
-	height: 173px;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -775,9 +918,12 @@ input[type="text"]{
 .beasiswa-detail-body{
 	display: flex;
 	flex-flow: row wrap;
+	padding-left: 0;
+	box-shadow: 0 3px 10px rgba(0,0,0,0.3);
 }
 
 .beasiswa-detail-header{
+	background: white;
 	padding: 10px;
 	border: 1px solid rgba(100,100,100,0.3);
 	flex: 1 0 300px;
@@ -785,21 +931,41 @@ input[type="text"]{
 	min-height: 430px;
 }
 
-.beasiswa-detail-header-buttons *{
-	color: white;
+.beasiswa-detail-header .beasiswa-detail-header-title{
+	
+}
+
+.beasiswa-detail-pic{
+	text-align: center;
+	border-bottom: 1px solid rgba(100,100,100,0.3);
+}
+
+.beasiswa-detail-pic img{
+	max-width: 100%;
+	max-height: 300px;
+	height: auto;
+	width: auto;
+}
+
+.beasiswa-detail-metadata{
+	padding-bottom: 20px;
+	border-bottom: 1px solid rgba(100,100,100,0.3);
+}
+
+.beasiswa-detail-metadata dt{
+	margin-top: 4px;
+}
+
+.beasiswa-detail-metadata dt:first-child{
+	margin-top: 0px;
 }
 
 .beasiswa-detail-description{
-	background: rgba(0,0,0,0.6);
+	background: white;
 	padding: 15px;
 	flex: 1 1 400px;
-	max-width: 830px;
 	min-height: 100px;
 	font-size: 1.1em;
-}
-
-.beasiswa-detail-description *{
-	color: #ddd;
 }
 
 @media screen and (max-width: 740px){
@@ -816,7 +982,7 @@ input[type="text"]{
 	margin: 1px;
 	padding: 3px 6px;
 	border-radius: 4px;
-	border: 1px solid rgba(255,255,255,0.2);
+	border: 1px solid rgba(124,124,124,0.5);
 }
 
 .tag-list-item, .tag-list-item *{
@@ -830,7 +996,7 @@ input[type="text"]{
 
 .tag-list-item .tag-list-remove:hover{
 	padding: 1px;
-	border: 1px solid rgba(30,30,30,0.2);
+	border: 1px solid rgba(124,124,124,0.);
 }
 
 

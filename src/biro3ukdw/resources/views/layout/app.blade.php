@@ -33,7 +33,6 @@
     <script src="{{ asset('style/js/jquery.isotope.min.js') }}"></script>
     <script src="{{ asset('style/js/main.js') }}"></script>
     <script src="{{ asset('style/js/wow.min.js') }}"></script>
-
     @yield('head_addition')
 </head><!--/head-->
 

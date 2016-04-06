@@ -75,6 +75,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/event/edit/{id}','EventController@edit');
     Route::get('/admin/organize','AdminController@organize');
     
+	Route::post('/ukm/list','UkmController@getList');
     Route::get('/ukm/new',['as'=>'ukm_new', 'uses'=>'UkmController@create']);
     Route::post('/ukm/new',['as'=>'ukm_new', 'uses'=>'UkmController@submit_new']);
     Route::get('/ukm/edit/{id}',['as'=>'ukm_edit', 'uses'=>'UkmController@edit']);

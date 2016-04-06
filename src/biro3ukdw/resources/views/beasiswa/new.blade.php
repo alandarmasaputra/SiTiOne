@@ -23,11 +23,19 @@ active
 			<div class="row">
 				<div class="col-md-12">
 					<div class="page-header">
+						<button>
+							<a href="{{ url('/beasiswa') }}">
+								<span class="glyphicon glyphicon-menu-left">
+								</span>
+							</a>
+						</button>
 						<h2>
 							Beasiswa Baru
 						</h2>
 					</div>
 				</div>
+			</div>
+			<div class="row">
 				<div class="col-md-12 body-content card">
 					<!-- jangan diubah ubah -->
 					<div class="editor editor-new">
@@ -48,7 +56,7 @@ active
 									</div>
 
 									<div class="editor-header-input-control">
-										<label>Deadline-date: </label>
+										<label>Pendaftaran Terakhir: </label>
 										<input type="date" name="deadline-date" required>
 									</div>
 
@@ -99,7 +107,6 @@ active
 			
 		</div>
 	</div>
-	
 </div>
 
 @endsection

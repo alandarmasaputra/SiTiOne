@@ -18,10 +18,21 @@ class UkmController extends Controller
 {
     function index(){
         $ukms = Ukm::get();
-        return view('ukm.index',[
-            'ukms'=>$ukms
-        ]);
+        return view('ukm.index');
     }
+	
+	function getList(Request $request){
+		
+		try{
+			$ukms = Ukm::where('name','like','%'.$request->all()['query'].'%')->get();
+			return view('ukm.list',[
+				'ukms'=>$ukms
+			]);
+		}
+		catch(\Exception $e){
+			echo $e;
+		}
+	}
     
     function create(){
         return view('ukm.new');

@@ -61,7 +61,7 @@ use Carbon\Carbon;
 					</div>
 					<div class="beasiswa-preview-description">
 						<h4 class="text-left">Sumber: <strong>{{$beasiswa->sumber}}</strong></h4>
-						<h4 class="text-left">Tanggal Deadline: <strong>{{(new Carbon($beasiswa->deadline_date))->format('l, d F Y')}}</strong></h4>
+						<h4 class="text-left">Pendaftaran Terakhir: <strong>{{(new Carbon($beasiswa->deadline_date))->format('l, d F Y')}}</strong></h4>
 						<br>
 						@foreach($beasiswa->content as $content)
 						@if($content->type == 's')
