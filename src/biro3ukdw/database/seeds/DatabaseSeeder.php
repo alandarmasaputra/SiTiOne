@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 		$admin = new User;
+		$admin->email = "superadmin@gmail.com";
 		$admin->username = "admin";
 		$admin->password = bcrypt('admin');
 		$admin->auth_level = 0;

@@ -19,8 +19,12 @@ var tagManager = {};
 		return tagManager.find(word)!=null;
 	}
 	tagManager.addToTag = function(word){
-		if(!tagManager.exists(word)){
-			tagManager.tags.push(word);
+		var words = word.split(" ")
+		
+		for(var sample in words){
+			if(!tagManager.exists(words[sample])){
+				tagManager.tags.push(words[sample]);
+			}
 		}
 	}
 	tagManager.sort = function(){

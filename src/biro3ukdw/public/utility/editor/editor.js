@@ -40,9 +40,40 @@ function deleteParent(event,element){
     serializeId()
 }
 
+function CleanPastedHTML(input) {
+	// 1. remove line breaks / Mso classes
+	var stringStripper = /(\n|\r| class=(")?Mso[a-zA-Z]+(")?)/g;
+	var output = input.replace(stringStripper, ' ');
+	// 2. strip Word generated HTML comments
+	var commentSripper = new RegExp('<!--(.*?)-->','g');
+	var output = output.replace(commentSripper, '');
+	var tagStripper = new RegExp('<(/)*(meta|link|span|\\?xml:|st1:|o:|font)(.*?)>','gi');
+	// 3. remove tags leave content if any
+	output = output.replace(tagStripper, '');
+	// 4. Remove everything in between and including tags '<style(.)style(.)>'
+	var badTags = ['style', 'script','applet','embed','noframes','noscript'];
+
+	for (var i=0; i< badTags.length; i++) {
+	tagStripper = new RegExp('<'+badTags[i]+'.*?'+badTags[i]+'(.*?)>', 'gi');
+	output = output.replace(tagStripper, '');
+	}
+	// 5. remove attributes ' style="..."'
+	var badAttributes = ['style', 'start'];
+	for (var i=0; i< badAttributes.length; i++) {
+	var attributeStripper = new RegExp(' ' + badAttributes[i] + '="(.*?)"','gi');
+	output = output.replace(attributeStripper, '');
+	}
+	return output;
+}
+
 function initSummernote(jqElement){
     $(jqElement).summernote({
         callbacks: {
+			onPaste: function (e) {
+				var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
+				e.preventDefault();
+				document.execCommand('insertText', false, bufferText);
+			},
             onKeydown: function(e) {
                 var num = $(this).parents('.editor-item').find('.note-editor .note-editable').text().length;
                 var key = e.keyCode;
@@ -125,22 +156,28 @@ function newImage(){
 
 function initLoad(){
     $('#editor-content').find('.editor-paragraph').each(function(){
-        $(this).summernote('code',$(this).parents('.editor-item').find('.content-old').text(),{
-            callbacks: {
-                onKeydown: function(e) {
-                    var num = $(this).parents('.editor-item').find('.note-editor .note-editable').text().length;
-                    var key = e.keyCode;
-                    var maxlength = 16000;
-                    allowed_keys = [8, 37, 38, 39, 40, 46]
-                    if($.inArray(key, allowed_keys) != -1)
-                        return true
-                    else if(num >= maxlength){
-                        $(this).parents('.editor-item').find('.note-editor .note-editable').text($(this).parents('.editor-item').find('.note-editor .note-editable').text().substr(0,maxlength))
-                        e.preventDefault();
-                        e.stopPropagation();
-                    }
-                }
-            },
+		$(this).text($(this).parents('.editor-item').find('.content-old').text())
+        $(this).summernote({
+			callbacks: {
+				onPaste: function (e) {
+					var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
+					e.preventDefault();
+					document.execCommand('insertText', false, bufferText);
+				},
+				onKeydown: function(e) {
+					var num = $(this).parents('.editor-item').find('.note-editor .note-editable').text().length;
+					var key = e.keyCode;
+					var maxlength = 16000;
+					allowed_keys = [8, 37, 38, 39, 40, 46]
+					if($.inArray(key, allowed_keys) != -1)
+						return true
+					else if(num >= maxlength){
+						$(this).parents('.editor-item').find('.note-editor .note-editable').text($(this).parents('.editor-item').find('.note-editor .note-editable').text().substr(0,maxlength))
+						e.preventDefault();
+						e.stopPropagation();
+					}
+				}
+			},
             toolbar:[
 				['style', ['bold', 'italic', 'underline', 'clear']],
 				['font', ['strikethrough', 'superscript', 'subscript']],

@@ -7,11 +7,6 @@ Beasiswa - Biro3 | UKW
 use Carbon\Carbon;
 ?>
 <div class="container-fluid body-content">
-    <div class="page-header">
-        <h2>
-            Beasiswa
-        </h2>
-    </div>
     <div class="beasiswa-container">
 			<div class="beasiswa-preview-item">
 				<div class="beasiswa-facade">
@@ -19,10 +14,10 @@ use Carbon\Carbon;
 						<div class="beasiswa-preview-pic-plus">
 						</div>
 					</div>
-					<div class="beasiswa-preview-description">
+					<div class="beasiswa-preview-title">
 						<h2 class="text-center">Tambah Beasiswa</h2>
 					</div>
-					<div class="beasiswa-readmore flex justify-end">
+					<div class="beasiswa-addnew flex justify-center">
 						<a href="{{ url('/beasiswa/new') }}"><span class="glyphicon glyphicon-plus"></span></a>
 						<!--
 						<a href="#" class="btn btn-xs btn-hover btn-default"><span class="glyphicon glyphicon-download-alt"></span></a>
@@ -56,13 +51,15 @@ use Carbon\Carbon;
 							 ?>>
 						</div>
 					</div>
-					<div class="beasiswa-preview-description">
-						<h2 class="text-center">
+					<div class="text-center beasiswa-preview-title">
+						<h2>
 							{{$beasiswa->name}}
 							@if($internal)
 							(<em>Internal</em>)
 							@endif
 						</h2>
+					</div>
+					<div class="beasiswa-preview-description">
 						<h4 class="text-left">Sumber: <strong>{{$beasiswa->sumber}}</strong></h4>
 						<h4 class="text-left">Tanggal Deadline: <strong>{{(new Carbon($beasiswa->deadline_date))->format('l, d F Y')}}</strong></h4>
 						<br>
@@ -73,7 +70,7 @@ use Carbon\Carbon;
 						@endif
 						@endforeach
 					</div>
-					<div class="beasiswa-readmore flex justify-end">
+					<div class="beasiswa-addnew flex justify-center">
 						<a href="{{ url('/beasiswa/'.$beasiswa->id) }}">Read More</a>
 					</div>
 				</div>

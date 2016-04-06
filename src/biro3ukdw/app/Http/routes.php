@@ -60,6 +60,9 @@ Route::get('/alan/test',function(){
 
 Route::group(['middleware' => ['web']], function () {
 	Route::get('/', "HomeController@index");
+	Route::get('/login', "HomeController@login");
+	Route::post('/login', "HomeController@trylogin");
+	Route::get('/logout', "HomeController@logout");
 	
     Route::get('/event/','EventController@index');  
     Route::post('/event/new','EventController@submit_new');

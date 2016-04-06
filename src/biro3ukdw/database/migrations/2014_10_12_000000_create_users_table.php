@@ -17,7 +17,8 @@ class CreateUsersTable extends Migration
             $table->string('username');
             $table->string('email')->unique()->nullable();
             $table->string('password');
-            $table->tinyInteger('auth_level');
+			$table->rememberToken();
+            $table->tinyInteger('auth_level')->comment = "0:superadmin, 1:admin, 2:staff, 3:volunteer";
             $table->timestamps();
             $table->boolean('is_aktif');
         });

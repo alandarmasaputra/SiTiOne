@@ -23,4 +23,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+	
+	function authlevelstring(){
+		$authlevel = $this->auth_level;
+		switch($authlevel){
+			case 0: return "superadmin";
+			case 1: return "admin";
+			case 2: return "staff";
+			case 3: return "volunteer";
+		}
+	}
 }

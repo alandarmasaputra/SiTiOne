@@ -8,6 +8,7 @@ use App\News;
 use App\Beasiswa;
 use App\Ukm;
 use App\Event;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -35,4 +36,47 @@ class HomeController extends Controller
 			'events'=>$events
 		]);
     }
+	
+	public function login(){
+		if(Auth::user()){
+			return redirect('/');
+		}
+		return view('auth.login');
+	}
+	
+	public function trylogin(Request $request){
+		if(Auth::user()){
+			return redirect('/');
+		}
+		
+		$username = $request->input('username');
+		$password = $request->input('password');
+		$errors = array();
+		
+		if($username == null || trim($username)==''){
+			$errors[] = "username tidak boleh kosong";
+		}
+		
+		if($password == null || trim($password)==''){
+			$errors[] = "password tidak boleh kosong";
+		}
+		
+		if(count($errors)>0){
+			return redirect('/login')->withErrors($errors);
+		}
+		
+		if(Auth::attempt(['username'=>$username, 'password'=>$password])){
+			return redirect()->intended('/');
+		}else{
+			$errors[] = "username atau password salah.";
+			return redirect('/login')->withErrors($errors);
+		}
+		
+	}
+	
+	public function logout(){
+		Auth::logout();
+		$successMessage = "Telah berhasil logout";
+		return redirect('/')->with('successMessage',$successMessage);
+	}
 }
