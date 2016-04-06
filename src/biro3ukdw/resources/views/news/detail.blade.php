@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('head_title')
-New News - Biro3 | UKW
+Detail News - Biro3 | UKW
 @endsection
 <?php 
 

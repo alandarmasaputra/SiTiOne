@@ -17,6 +17,21 @@ News - Biro3 | UKDW
 		</h2>
 	</div>
 	<div class="ukm-container">
+		<div class="ukm-item">
+			<a href="{{url('/news/new')}}">
+				<div class="ukm-item-facade text-center flex-column contents-center">
+					<div>
+						<h2>
+							<span class="glyphicon glyphicon-plus">
+							</span>
+						</h2>
+					</div>
+					<h2>
+						Tambah News
+					</h2>
+				</div>
+			</a>
+		</div>
 		@foreach($news as $news)
 		<div class="ukm-item"
 			<?php if($news->header_pic){ ?>
