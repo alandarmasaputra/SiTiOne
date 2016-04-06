@@ -1,0 +1,11 @@
+@extends('layout.app')
+@section('head_title')
+biro3
+@endsection
+@section('body_content')
+<div>
+	<p>
+		znjahdfesiuh
+	</p>
+</div>
+@endsection
