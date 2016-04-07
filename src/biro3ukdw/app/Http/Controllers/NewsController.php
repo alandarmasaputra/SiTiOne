@@ -18,7 +18,7 @@ use App\AppUtility;
 class NewsController extends Controller
 {   
     //
-    function index(){
+    public function index(){
       //print news
         $new = News::get();
         return view('news.index',['news'=> $new]);
@@ -27,14 +27,14 @@ class NewsController extends Controller
     }
     
 
-     function create(){
+     public function create(){
     
         return view('news.new');
             
     }
 
 
-    function detail($id){
+    public function detail($id){
         if($id==''){
             return redirect('news');
         }
@@ -44,7 +44,7 @@ class NewsController extends Controller
         ]);
     }
 
-    function edit($id){
+    public function edit($id){
         $news = News::where('id',$id)->first();
         
         if($news==null){
@@ -63,15 +63,23 @@ class NewsController extends Controller
         ]);
     }
 
-    function submit_new(Request $request){
+    public function submit_new(Request $request){
         $input = $request->all();
         
         //Validasi required input
-        $news_name = trim($input['title']);
+       
+         try{
+            $news_name = trim($input['title']);
+           
+            $kategori_utama = trim($input['kategori-utama']);
+        }catch(\Exception $e){
+            $errors = array();
+            $errors[] = "Terjadi error ketika memproses input";
+        }
         
         $errors = array();
         if(!isset($news_name) || $news_name==''){
-            $errors[] = "Nama NEWS harus diisi";
+            $errors[] = "Nama Beasiswa harus diisi";
             
         }
         else{
@@ -82,6 +90,11 @@ class NewsController extends Controller
             }
             
         }
+        if(!isset($kategori_utama) || $kategori_utama==''){
+            $errors[] = "Kategori internal/external harus diisi";
+        }
+        
+        $news_kategori = trim($kategori_utama." ".trim($input['kategori-tambahan']));
         
         //Kalau error redirect kembali
         if(count($errors)>0){
@@ -93,6 +106,7 @@ class NewsController extends Controller
         //Save Header
         $newNews = new News();
         $newNews->name = $news_name;
+        $newNews->kategori = $news_kategori;
         
         //check if header picture exist
         if($request->hasFile('header-pic')){
@@ -199,22 +213,29 @@ class NewsController extends Controller
     }
 
 
-       function update(Request $request, $id){
+       public function update(Request $request, $id){
         $input = $request->all();
                                                        
-        $news_name = trim($input['title']);
+        try{
+            $news_name = trim($input['title']);
+           
+            $kategori_utama = trim($input['kategori-utama']);
+        }catch(\Exception $e){
+            $errors = array();
+            $errors[] = "Terjadi error ketika memproses input";
+        }
         
         $errors = array();
-        if(!isset($news_name) || $news_name==''){
+         if(!isset($news_name) || $news_name==''){
             $errors[] = "Nama News harus diisi";
-        }
-        else{
-            $newNews = News::where('name',$news_name)->where('id','!=',$id)->first();
             
-            if($newNews!=null){
-                $errors[] = "Nama News sudah ada";
-            }
         }
+        
+        if(!isset($kategori_utama) || $kategori_utama==''){
+            $errors[] = "Kategori internal/external harus diisi";
+        }
+        
+        $news_kategori = trim($kategori_utama." ".trim($input['kategori-tambahan']));
         
         //Kalau error redirect kembali
         if(count($errors)>0){
@@ -228,6 +249,7 @@ class NewsController extends Controller
         
         //Save Header;
         $newNews->name = $news_name;
+        $newNews->kategori = $news_kategori;
         
         //check if header picture exist
         if($request->hasFile('header-pic')){

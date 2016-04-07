@@ -1,59 +1,72 @@
 @extends('layout.app')
 @section('head_title')
-News - Biro3 | UKDW
+News - Biro3 | UKW
 @endsection
-
-<?php
-	use App\AppUtility;
-?>
-
 @section('body_content')
-
-
+<?php
+use Carbon\Carbon;
+?>
 <div class="container-fluid body-content">
-	<div class="page-header">
-		<h2>
-			News	
-		</h2>
-	</div>
-	<div class="ukm-container">
-		<div class="ukm-item">
-			<a href="{{url('/news/new')}}">
-				<div class="ukm-item-facade text-center flex-column contents-center">
-					<div>
-						<h2>
-							<span class="glyphicon glyphicon-plus">
-							</span>
-						</h2>
+    <div class="beasiswa-container">
+			<div class="beasiswa-preview-item">
+				<div class="beasiswa-facade">
+					<div class="beasiswa-preview-pic-border">
+						<div class="beasiswa-preview-pic-plus">
+						</div>
 					</div>
-					<h2>
-						Tambah News
-					</h2>
-				</div>
-			</a>
-		</div>
-		@foreach($news as $news)
-		<div class="ukm-item"
-			<?php if($news->header_pic){ ?>
-			style="background-image: url('{{ AppUtility::get_image_data($news->header_pic)}}')"
-			<?php } ?>>
-			<div class="ukm-item-facade">
-				<div class="ukm-preview-title">
-					<a href="{{ url('/news/'.$news->id) }}">
-						{{$news->name}}
-					</a>
-				</div>
-				<div class="ukm-preview-content">
-					@foreach($news->content as $content)
-						@if($content->type=='s')
-							{!!$content->content!!}
-							<?php break; ?>
-						@endif
-					@endforeach
+					<div class="beasiswa-preview-title">
+						<h2 class="text-center">Tambah News</h2>
+					</div>
+					<div class="beasiswa-addnew flex justify-center">
+						<a href="{{ url('/news/new') }}"><span class="glyphicon glyphicon-plus"></span></a>
+						
+					</div>
 				</div>
 			</div>
-		</div>
-		@endforeach
-	</div>
+        @foreach($news as $news)
+			<div class="beasiswa-preview-item">
+				<div class="beasiswa-facade">
+					<div class="beasiswa-preview-pic-border">
+						<div class="beasiswa-preview-pic"
+							  <?php
+							 if($news->header_pic){
+							 ?>
+							 	style="background-image: url('{{AppUtility::get_image_data($news->header_pic)}}')" 
+							 <?php
+							 }else{
+								 
+							 ?>
+							 	style="background-image: url('{{url('style/images/ico/beasiswa_dalam.png')}}')"
+							 
+							 	
+							 <?php
+							 }
+							 ?>>
+							 >
+						</div>
+					</div>
+					<div class="text-center beasiswa-preview-title">
+						<h2>
+							{{$news->name}}
+							
+						</h2>
+					</div>
+					<div class="beasiswa-preview-description">
+						
+						<h4 class="text-left">createde at: <strong>{{$news->created_at ->format('l, d F Y')}}</strong></h4>
+						@foreach($news->content as $content)
+						@if($content->type == 's')
+						{!! $content->content !!}
+						<?php break; ?>
+						@endif
+						@endforeach
+					</div>
+					<div class="beasiswa-addnew flex justify-center">
+						<a href="{{ url('/news/'.$news->id) }}">Read More</a>
+					</div>
+				</div>
+			</div>
+        @endforeach
+    </div>
 </div>
 @endsection
