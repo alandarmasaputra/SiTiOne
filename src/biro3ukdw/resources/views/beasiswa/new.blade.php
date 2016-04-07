@@ -23,12 +23,12 @@ active
 			<div class="row">
 				<div class="col-md-12">
 					<div class="page-header">
-						<button>
-							<a href="{{ url('/beasiswa') }}">
+						<a href="{{ url('/beasiswa') }}">
+							<button>
 								<span class="glyphicon glyphicon-menu-left">
 								</span>
-							</a>
-						</button>
+							</button>
+						</a>
 						<h2>
 							Beasiswa Baru
 						</h2>

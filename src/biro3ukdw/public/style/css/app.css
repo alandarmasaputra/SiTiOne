@@ -262,17 +262,18 @@ button{
 	line-height: 0;
 }
 
-.page-header>*{
+.page-header>*, .page-header>a>button{
 	padding: 10px 15px 10px 15px;
 	font-weight: bold;
 	margin: 0;
 }
 
-.page-header a{
+.page-header>a{
+	padding: 0;
 	color: white;
 }
 
-.page-header>button:hover a{
+.page-header>a:hover{
 	color: black;
 }
 

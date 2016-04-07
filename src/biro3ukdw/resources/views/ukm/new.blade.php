@@ -19,12 +19,12 @@ UKM Baru
 			<div class="row">
 				<div class="col-md-12">
 					<div class="page-header">
-						<button>
-							<a href="{{ url('/ukm') }}">
+						<a href="{{ url('/ukm') }}">
+							<button>
 								<span class="glyphicon glyphicon-menu-left">
 								</span>
-							</a>
-						</button>
+							</button>
+						</a>
 						<h2>
 							UKM Baru
 						</h2>

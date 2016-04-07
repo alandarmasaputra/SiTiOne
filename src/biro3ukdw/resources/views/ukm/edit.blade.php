@@ -23,12 +23,12 @@ use App\AppUtility;
 			<div class="row">
 				<div class="col-md-12">
 					<div class="page-header">
-						<button>
-							<a href="{{ url('/ukm/'.$ukm->id) }}">
+						<a href="{{ url('/ukm/'.$ukm->id) }}">
+							<button>
 								<span class="glyphicon glyphicon-menu-left">
 								</span>
-							</a>
-						</button>
+							</button>
+						</a>
 						<h2>
             				Edit ukm
 						</h2>

@@ -10,12 +10,12 @@ use App\AppUtility;
 @section('body_content')
 <div class="container">
 	<div class="page-header">
-		<button>
-			<a href="{{ url('/ukm') }}">
+		<a href="{{ url('/ukm') }}">
+			<button>
 				<span class="glyphicon glyphicon-menu-left">
 				</span>
-			</a>
-		</button>
+			</button>
+		</a>
 		<h2>
 			{{ $ukm->name }}
 		</h2>

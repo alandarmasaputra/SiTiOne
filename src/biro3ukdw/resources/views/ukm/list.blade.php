@@ -19,9 +19,9 @@ use App\AppUtility;
 	</a>
 </div>
 @else
-@if(count($ukms) <= 0)
+@if(count($ukms) == 0)
 <div class="cinema">
-	
+	<span>Hasil yang sesuai dengan pencarian tidak ditemukan</span>
 </div>
 @endif
 @endif
