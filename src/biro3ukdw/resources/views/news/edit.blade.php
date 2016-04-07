@@ -57,6 +57,29 @@ use Carbon\Carbon;
                                 <h2 class="text-left">
                                     <input name="title" id="editor-header-title" type="text" value="{{ $news->name }}" required>
                                 </h2>
+                                <div class="editor-header-input-group">
+                                <div class="editor-header-input-control">
+                                        <label>Kategori: </label>
+                                        <div>
+                                            <div>
+                                                <input type="radio" name="kategori-utama" value="internal" required<?php if($news->isInternal()){ echo " checked"; } ?>><label>Internal</label>
+                                            </div>
+                                            <div>
+                                                <input type="radio" name="kategori-utama" value="external" required<?php if($news->isExternal()){ echo " checked"; } ?>><label>External</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="editor-header-input-control">
+                                        <label>Tags:</label>
+                                        <div>
+                                            <input type="text" id="tag-input"><button id="tag-add"><span class="glyphicon glyphicon-plus"></span></button>
+                                        </div>
+                                        <div id="tag-list">
+                                        </div>
+                                        <input type="hidden" id="kategori-tambahan" name="kategori-tambahan" value="{{ $news->tags() }}">
+                                    </div>
+                                </div>
                                 
                                    <div class="editor-content-container text-center">
                                 <div id="editor-content">

@@ -52,7 +52,7 @@ use Carbon\Carbon;
                     <dt>Kata Kunci</dt>
                     <dd>
                         <div>
-                            @foreach(explode(' ',$news->name) as $tag)
+                            @foreach(explode(' ',$news->kategori) as $tag)
                             <span class="tag-list-item">{{$tag}}</span>
                             @endforeach
                         </div>
