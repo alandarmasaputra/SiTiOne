@@ -7,6 +7,71 @@ active
 @endsection
 
 @extends('layout.app')
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="readmore.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+        
+<style>
+				img.avatar {
+					border: 3px solid #e1e1e1;
+					height: 100px;
+					width: 100px;
+					margin: auto;
+				}
+
+				.only-bottom-margin {
+				  margin-top: 3%;
+				}
+
+				.activity-mini {
+				  padding-right: 0px;
+				  float: left;
+				}
+				.img-circle {
+					-webkit-animation: fadein 2.5s; /* Safari and Chrome */
+					-moz-animation: fadein 2.5s; /* Firefox */
+					-ms-animation: fadein 2.5s; /* Internet Explorer */
+					-o-animation: fadein 2.5s; /* Opera */
+					animation: fadein 2.5s;
+				}
+
+				@keyframes fadein {
+					from { opacity: 0; }
+					to   { opacity: 1; }
+				}
+
+				/* Firefox */
+				@-moz-keyframes fadein {
+					from { opacity: 0; }
+					to   { opacity: 1; }
+				}
+
+				/* Safari and Chrome */
+				@-webkit-keyframes fadein {
+					from { opacity: 0; }
+					to   { opacity: 1; }
+				}
+
+				/* Internet Explorer */
+				@-ms-keyframes fadein {
+					from { opacity: 0; }
+					to   { opacity: 1; }
+				}​
+
+				/* Opera */
+				@-o-keyframes fadein {
+					from { opacity: 0; }
+					to   { opacity: 1; }
+				}​
+
+
+</style>
 @section('body_content')
   <section id="blog" class="container">
         <div class="blog">
@@ -52,7 +117,7 @@ active
       									</div>
 								</div>
 							</div>
-					
+					<!--kurang Bp. Handono-->
 						
 					</div>
 				
