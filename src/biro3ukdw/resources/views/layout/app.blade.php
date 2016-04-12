@@ -84,7 +84,7 @@
 					</li>
 					@else
 					<li>
-						<span><em>{{Auth::user()->authlevelstring()}}</em></span>
+						<span><em><a href="{{url('/editprofile')}}">{{Auth::user()->authlevelstring()}}</em></a></span>
 					</li>
 					<li>
 						<span><strong>{{Auth::user()->username}}</strong></span>
