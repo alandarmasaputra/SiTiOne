@@ -5,6 +5,7 @@ Beasiswa - Biro3 | UKW
 @section('body_content')
 <?php
 use Carbon\Carbon;
+use App\AppUtility;
 ?>
 <div class="container-fluid body-content">
     <div class="beasiswa-container">
