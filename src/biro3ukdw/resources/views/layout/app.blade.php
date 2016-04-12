@@ -84,10 +84,10 @@
 					</li>
 					@else
 					<li>
-						<span><em><a href="{{url('/editprofile')}}">{{Auth::user()->authlevelstring()}}</em></a></span>
+						<span><em>{{Auth::user()->authlevelstring()}}</em></span>
 					</li>
 					<li>
-						<span><strong>{{Auth::user()->username}}</strong></span>
+						<span><strong><a href="{{url('/editprofile')}}">{{Auth::user()->username}}</a></strong></span>
 					</li>
 					<li>
 						<a href="{{url('/logout')}}">Logout</a>
