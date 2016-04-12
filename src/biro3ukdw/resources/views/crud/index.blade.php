@@ -23,8 +23,10 @@ active
 	<tbody>
 		@foreach ($user as $data)
 
-		
-		{!! Form::submit('Create') !!}   
+		<a href="{{ url('#') }}"><b>Create New User<b></a>
+		<br>
+		<br>
+		 
 
 		<tr>
 			<td><a href="{{ url('user/'. $data->id . '/edit') }}">{{ $data->username }}</a></td>
