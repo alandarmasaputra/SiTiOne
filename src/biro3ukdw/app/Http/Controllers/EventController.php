@@ -14,6 +14,7 @@ use Intervention\Image\Facades\Image as Intervention;
 use Image;
 use App\AppUtility;
 use Carbon\Carbon;
+use Auth;
 
 class EventController extends Controller
 {
@@ -26,7 +27,11 @@ class EventController extends Controller
     }
 
     public function create(){
-    	
+    	if(!Auth::user()){
+            $errors = array();
+            $errors[] = "Anda memasukkan alamat url yang salah";
+            return back()->withErrors($errors);
+        }
     	return view('event.new');
     	 	
     }
@@ -36,6 +41,11 @@ class EventController extends Controller
             $errors = array();
             $errors[] = "Event yang dituju tidak ditemukan";
             return redirect('/event')->withErrors($errors);
+        }
+        if(!Auth::user()){
+            $errors = array();
+            $errors[] = "Anda memasukkan alamat url yang salah";
+            return back()->withErrors($errors);
         }
         
         $contents = $event->content();

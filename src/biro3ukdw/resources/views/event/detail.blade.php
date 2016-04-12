@@ -2,42 +2,65 @@
 @section('head_title')
 Detail Event - Biro3 | UKW
 @endsection
-<?php 
-
-use App\AppUtility;
-
-?>
 @section('body_content')
-<div class="container-fluid body-content ukm-detail-body">
-    <div class="text-left ukm-cover"
-	 <?php
-	 	if($event->header_pic){
-	 ?>
-	 	style="background-image: url('{{AppUtility::get_image_data($event->header_pic)}}')"
-	 <?php
-		}
-	 ?>>
-		<div class="ukm-item-facade">
-			<div>
-				<a href="{{ url('/event/') }}"><button class="button-inline"><span class="glyphicon glyphicon-menu-left"></span>back</button></a>
-				<a href="{{ url('/event/edit/'.$event->id) }}"><button class="button-inline">edit</button></a>
-				<button class="button-inline">delete</button>
-			</div>
-        	<h2 class="ukm-title">{{ $event->name }}</h2>
-		</div>
+<?php
+use App\AppUtility;
+use Carbon\Carbon;
+?>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header">
+                <button>
+                    <a href="{{ url('/event') }}">
+                        <span class="glyphicon glyphicon-menu-left">
+                        </span>
+                    </a>
+                </button>
+                <h2>
+                    Event {{$event->name}}
+                </h2>
+            </div>
+        </div>
     </div>
-    <div class="text-left ukm-description">
-        @foreach($event->content as $event_content)
-        
-            @if($event_content->type == 's')
-                <div>
-                    {!! $event_content->content !!}
+    <div class="row">
+        <div class="beasiswa-detail-body body-content">
+            <div class="beasiswa-detail-header">
+                <div class="beasiswa-detail-pic">
+                    @if($event->header_pic)
+                    <img src="{{AppUtility::get_image_data($event->header_pic)}}">
+                    @else
+                    
+                    <img src="{{url('style/images/ico/beasiswa_dalam.png')}}">
+                    
+                    @endif
+                    
                 </div>
-            @elseif($event_content->type == 'i')
-                <img src="{{ AppUtility::get_image_data($event_content->content) }}">
-            @endif
-
-        @endforeach
+                @if(Auth::user())
+                <div class="beasiswa-detail-header-buttons">
+                    <a href="{{url('/event/edit/'.$event->id)}}"><button>Edit</button></a>
+                    <a href="#"><button class="button-delete">Delete</button></a>
+                </div>
+                @endif
+                <h2 class="beasiswa-detail-header-title">{{$event->name}}</h2>
+               
+                <br>
+            </div>
+            <div class="beasiswa-detail-description">
+                <dl class="beasiswa-detail-metadata">
+                    
+                    
+                    
+                    <dt>Created At</dt>
+                    <dd>
+                        {{(new Carbon($event->craeted_at))->format('l, d F Y')}}
+                    </dd>
+                </dl>
+                @foreach($event->content as $content)
+                {!! $content->content !!}
+                @endforeach
+            </div>
+        </div>
     </div>
 </div>
 @endsection
