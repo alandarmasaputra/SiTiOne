@@ -9,21 +9,28 @@ use App\AppUtility;
 ?>
 <div class="container-fluid body-content">
     <div class="beasiswa-container">
+			
 			<div class="beasiswa-preview-item">
 				<div class="beasiswa-facade">
 					<div class="beasiswa-preview-pic-border">
 						<div class="beasiswa-preview-pic-plus">
 						</div>
 					</div>
+					
 					<div class="beasiswa-preview-title">
+					@if(Auth::user())
 						<h2 class="text-center">Tambah News</h2>
+						@endif
 					</div>
+
 					<div class="beasiswa-addnew flex justify-center">
 						<a href="{{ url('/news/new') }}"><span class="glyphicon glyphicon-plus"></span></a>
 						
 					</div>
+					
 				</div>
 			</div>
+			
         @foreach($news as $news)
 			<div class="beasiswa-preview-item">
 				<div class="beasiswa-facade">

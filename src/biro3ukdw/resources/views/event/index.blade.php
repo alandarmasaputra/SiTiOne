@@ -21,6 +21,7 @@ active
         </h2>
     </div>
     <div class="ukm-container">
+    @if(Auth::user())
         <div class="ukm-item">
             <a href="{{url('/event/new')}}">
                 <div class="ukm-item-facade text-center flex-column contents-center">
@@ -36,6 +37,7 @@ active
                 </div>
             </a>
         </div>
+        @endif
         @foreach($events as $event)
         <div class="ukm-item"
             <?php if($event->header_pic){ ?>
