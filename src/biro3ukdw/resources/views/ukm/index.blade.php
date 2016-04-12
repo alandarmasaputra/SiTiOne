@@ -17,14 +17,25 @@ active
 
 @section('body_content')
 
-<div class="container-fluid body-content">
-	<div class="text-center ajax-search-container">
-		<input type="text" id="ajax-search-bar" data-url="{{ url('/ukm/list') }}" placeholder="Cari UKM">
-		<span class="glyphicon glyphicon-search"></span>
-		{!! csrf_field() !!}
+<div class="container body-content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="page-header">
+				<h2>
+					UKM
+				</h2>
+				<span>
+					<input type="text" id="ajax-search-bar" data-url="{{ url('/ukm/list') }}" placeholder="Cari UKM">
+					<span class="glyphicon glyphicon-search"></span>
+					{!! csrf_field() !!}
+				</span>
+			</div>
+		</div>
 	</div>
-	<div class="ukm-container">
-		
+	<div class="row">
+		<div class="col-md-12 ukm-container">
+
+		</div>
 	</div>
 </div>
 

@@ -3,6 +3,7 @@
 Detail Beasiswa - Biro3 | UKW
 @endsection
 @section('body_content')
+
 <?php
 use App\AppUtility;
 use Carbon\Carbon;
@@ -30,12 +31,12 @@ use Carbon\Carbon;
 					@if($beasiswa->header_pic)
 					<img src="{{AppUtility::get_image_data($beasiswa->header_pic)}}">
 					@else
-					@if(strpos($beasiswa->kategori,'internal')!==false)
-					<?php $internal = true ?>
-					<img src="{{url('style/images/ico/beasiswa_dalam.png')}}">
-					@else
-					<?php $internal = false ?>
-					<img src="{{url('style/images/ico/beasiswa_luar.png')}}">
+						@if($beasiswa->isInternal())
+						<?php $internal = true ?>
+						<img src="{{url('style/images/ico/beasiswa_dalam.png')}}">
+						@else
+						<?php $internal = false ?>
+						<img src="{{url('style/images/ico/beasiswa_luar.png')}}">
 					@endif
 					@endif
 				</div>
@@ -45,8 +46,8 @@ use Carbon\Carbon;
 					<a href="#"><button class="button-delete">Delete</button></a>
 				</div>
 				@endif
-				<h2 class="beasiswa-detail-header-title">{{$beasiswa->name}}</h2>
-				@if($internal)
+				<h2 class="beasiswa-detail-header-title"><strong>{{$beasiswa->name}}</strong></h2>
+				@if($beasiswa->isInternal())
 				<h4>Beasiswa Internal</h4>
 				@else
 				<h4>Beasiswa External</h4>
@@ -59,7 +60,7 @@ use Carbon\Carbon;
 					<dd>{{ $beasiswa->sumber }}</dd>
 					<dt>Kata Kunci</dt>
 					<dd>
-						<div>
+						<div class="tag-list-container">
 							@foreach(explode(' ',$beasiswa->kategori) as $tag)
 							<span class="tag-list-item">{{$tag}}</span>
 							@endforeach
