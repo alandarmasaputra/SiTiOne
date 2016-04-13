@@ -19,6 +19,12 @@ class UserController extends Controller
 		return view('crud.index', compact('user'));
 	}
 
+	function edit()
+	{
+		$user = User::all();
+		return view('crud.edit', compact('user'));
+	}
+
 	function create()
 	{
 		return view('news.new');

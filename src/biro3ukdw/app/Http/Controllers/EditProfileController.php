@@ -17,4 +17,8 @@ class EditProfileController extends Controller
 		return view('editprofile');
 	}
 
+	public function lempar(){
+		return view('crud.edit');
+	}
+
 }

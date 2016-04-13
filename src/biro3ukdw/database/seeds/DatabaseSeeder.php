@@ -20,5 +20,13 @@ class DatabaseSeeder extends Seeder
 		$admin->is_aktif = true;
 		$admin->save();
         // $this->call(UsersTableSeeder::class);
+
+        $admins = new User;
+        $admins->email = "asdad@yahoo.com";
+        $admins->username = "admins";
+        $admins->password = bcrypt('admins');
+        $admins->auth_level = 2;
+        $admins->is_aktif = true;
+        $admins->save();
     }
 }
