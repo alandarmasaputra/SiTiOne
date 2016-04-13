@@ -1,0 +1,23 @@
+Home :
+Belum ada isinya.
+
+Beasiswa :
+Belum ada isinya.
+
+Event :
+Belum ada isinya.
+
+News :
+Belum ada isinya.
+
+UKM :
+Belum ada isinya.
+
+Profil :
+Belum rapi isinya
+
+Lain2:
+Fungsi search belum berjalan
+Hiasan panah (LOGIN) sedikit aneh kalau dilihat
+Belum responsive
+
