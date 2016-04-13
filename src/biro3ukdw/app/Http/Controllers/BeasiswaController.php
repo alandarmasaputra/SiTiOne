@@ -24,6 +24,22 @@ class BeasiswaController extends Controller
         ]);
 
     }
+	
+	function getList(Request $request){
+		
+		try{
+			$beasiswas = Beasiswa::where('name','like','%'.$request->all()['query'].'%')
+				->orWhere('kategori','like','%'.$request->all()['query'].'%')
+				->orderBy('id','desc')
+				->get();
+			return view('beasiswa.list',[
+				'beasiswas'=>$beasiswas
+			]);
+		}
+		catch(\Exception $e){
+			echo $e;
+		}
+	}
 
     public function create(){
     	return view('beasiswa.new'); 	
@@ -49,7 +65,13 @@ class BeasiswaController extends Controller
         try{
 			$beasiswa_name = trim($input['title']);
 			$beasiswa_sumber = trim($input['sumber']);
-			$beasiswa_deadline_date = Carbon::createFromFormat('Y-m-d', $request->input('deadline-date'));
+			$beasiswa_deadline_date_string = $request->input('deadline-date');
+			if(trim($beasiswa_deadline_date_string)!=''){
+				$beasiswa_deadline_date = Carbon::createFromFormat('Y-m-d', $beasiswa_deadline_date_string);
+			}
+			else{
+				$beasiswa_deadline_date = null;
+			}
 			$kategori_utama = trim($input['kategori-utama']);
 		}catch(\Exception $e){
 			$errors = array();
@@ -193,17 +215,44 @@ class BeasiswaController extends Controller
 		
         /**/
     }
+	
+	function delete($id){
+		$errors = array();
+		$deleteBeasiswa = Beasiswa::find($id);
+		
+		if(!$deleteBeasiswa){
+			$errors[] = "Beasiswa tidak ditemukan";
+			return redirect(url('/beasiswa'))->withErrors($errors);
+		}
+		
+		$oldImages = $deleteBeasiswa->clear();
+		$deletables = array();
+		foreach($oldImages as $oldImage){
+			$deletables[$oldImage->content] = false;
+		}
+		AppUtility::unlink_deletables($deletables);
+		Beasiswa::destroy($id);
+		
+		return redirect(url('/beasiswa'))->with('successMessage','Beasiswa berhasil di hapus');
+	}
 
     public function update(Request $request, $id){
 		
 		
     	$input = $request->all();
+        $deletables = array();
         
         //Validasi required input
         try{
 			$beasiswa_name = trim($input['title']);
 			$beasiswa_sumber = trim($input['sumber']);
-			$beasiswa_deadline_date = Carbon::createFromFormat('Y-m-d', $request->input('deadline-date'));
+			$beasiswa_deadline_date_string = $request->input('deadline-date');
+			if($beasiswa_deadline_date_string){
+				$beasiswa_deadline_date = Carbon::createFromFormat('Y-m-d', $beasiswa_deadline_date_string);
+			}
+			else{
+				$beasiswa_deadline_date = null;
+			}
 			$kategori_utama = trim($input['kategori-utama']);
 		}catch(\Exception $e){
 			$errors = array();
@@ -240,7 +289,7 @@ class BeasiswaController extends Controller
 		$newBeasiswa->sumber = $beasiswa_sumber;
 		$newBeasiswa->deadline_date = $beasiswa_deadline_date;
 		$newBeasiswa->kategori = $beasiswa_kategori;
-        
+		
         //check if header picture exist
         if($request->hasFile('header-pic')){
             try{
@@ -259,24 +308,35 @@ class BeasiswaController extends Controller
                 $image = AppUtility::compress_image($image);
 
                 //Save Image filename
+				if($newBeasiswa->header_pic){
+        			$deletables[$newBeasiswa->header_pic]=false;
+				}
+				
                 $newBeasiswa->header_pic = $filename;
+        		
+				$deletables[$filename]=true;
 
                 //Save Image
                 AppUtility::save_image($filename,$image);
             }catch(\Exception $e){
-                        echo $e;
+                echo $e;
                 $errors[] = "Terjadi kesalahan saat mengupload gambar.";
             }
         }
 		else{
 			if(isset($input['header-pic-old']) && trim($input['header-pic-old'])!=''){
-				$newBeasiswa->header_pic = $input['header-pic-old'];
+				$filename = $input['header-pic-old'];
+				$newBeasiswa->header_pic = $filename;
+        		$deletables[$filename]=true;
 			}
 		}
         $newBeasiswa->save();
-		$newBeasiswa->clear();
-        
-        
+		$oldImages = $newBeasiswa->clear();
+		
+        foreach($oldImages as $oldImage){
+			$deletables[$oldImage->content] = false;
+		}
+		
         //Make Contents
         $content_id = 0;
         while(true){
@@ -318,6 +378,7 @@ class BeasiswaController extends Controller
 
                             //Save Image
                             AppUtility::save_image($filename,$image);
+							$deletables[$filename] = true;
 
                             $newBeasiswaContent->content = $filename;
                         }catch(\Exception $e){
@@ -327,7 +388,9 @@ class BeasiswaController extends Controller
                     }
                     else{
 						if(isset($input['content-'.$content_id.'-old'])){
-                            $newBeasiswaContent->content = $input['content-'.$content_id.'-old'];
+							$filename = $input['content-'.$content_id.'-old'];
+                            $newBeasiswaContent->content = $filename;
+							$deletables[$filename] = true;
 						}
 					}
                 }
@@ -339,6 +402,8 @@ class BeasiswaController extends Controller
                 break;
             }
             
+			AppUtility::unlink_deletables($deletables);
+			
             $content_id++;
         }
         

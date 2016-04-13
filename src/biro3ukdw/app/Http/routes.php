@@ -71,6 +71,7 @@ Route::group(['middleware' => ['web']], function () {
 		Route::post('/ukm/new',['as'=>'ukm_new', 'uses'=>'UkmController@submit_new']);
 		Route::get('/ukm/edit/{id}',['as'=>'ukm_edit', 'uses'=>'UkmController@edit']);
 		Route::post('/ukm/update/{id}',['as'=>'ukm_update', 'uses'=>'UkmController@update']);
+		Route::get('/ukm/delete/{id}','UkmController@delete');
 		
 		Route::get('/news/new',['as'=>'news_new', 'uses'=>'NewsController@create']);
 		Route::post('/news/new',['as'=>'news_new', 'uses'=>'NewsController@submit_new']);
@@ -81,8 +82,12 @@ Route::group(['middleware' => ['web']], function () {
 		Route::post('/beasiswa/new','BeasiswaController@submit_new');
 		Route::get('/beasiswa/edit/{id}','BeasiswaController@edit');
 		Route::post('/beasiswa/update/{id}','BeasiswaController@update');
+		Route::get('/beasiswa/delete/{id}','BeasiswaController@delete');
 	});
 	
+	Route::get('/home',function(){
+		return redirect(url('/'));
+	});
 	Route::get('/', "HomeController@index");
 	Route::get('/login', "HomeController@login");
 	Route::post('/login', "HomeController@trylogin");
@@ -109,6 +114,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/news/',['as'=>'news_index', 'uses'=>'NewsController@index']);
     
 
+	Route::post('/beasiswa/list','BeasiswaController@getList');
 	Route::get('/beasiswa/','BeasiswaController@index');  
 	Route::get('/beasiswa/{id}','BeasiswaController@detail'); 
 
