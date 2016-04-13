@@ -65,7 +65,12 @@ use Carbon\Carbon;
 
 									<div class="editor-header-input-control">
 										<label>Pendaftaran Terakhir: </label>
-										<input type="date" name="deadline-date" value="{{ (new Carbon($beasiswa->deadline_date))->format('Y-m-d') }}" required>
+										@if($beasiswa->deadline_date)
+										<input type="date" name="deadline-date" value="{{ (new Carbon($beasiswa->deadline_date))->format('Y-m-d') }}">
+										@else
+										<input type="date" name="deadline-date">
+										@endif
+										
 									</div>
 
 									<div class="editor-header-input-control">

@@ -124,12 +124,12 @@
                 </div>
                 <div class="col-sm-6">
                     <ul class="pull-right">
-						<li><a href="{{ url('/') }}">Home</a></li>
-						<li><a href="{{url('/beasiswa')}}">Beasiswa</a></li> 
-						<li><a href="{{url('/event')}}">Event</a></li>    
-						<li><a href="{{url('/news')}}">News</a></li>
-						<li><a href="{{url('/ukm')}}">UKM</a></li>
-						<li><a href="{{url('/profil')}}">Profil</a></li>
+					<li><a class="@yield('nav_home')" href="{{ url('/') }}">Home</a></li>
+					<li><a class="@yield('nav_beasiswa')" href="{{url('/beasiswa')}}">Beasiswa</a></li> 
+					<li><a class="@yield('nav_event')" href="{{url('/event')}}">Event</a></li>    
+					<li><a class="@yield('nav_news')" href="{{url('/news')}}">News</a></li>
+					<li><a class="@yield('nav_ukm')" href="{{url('/ukm')}}">UKM</a></li>
+                    <li><a class="@yield('nav_profil')" href="{{url('/profil')}}">Profil</a></li>
                     </ul>
                 </div>
             </div>

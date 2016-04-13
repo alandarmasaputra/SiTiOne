@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\BeasiswaContent;
+use File;
 class Beasiswa extends Model
 {
     public function content(){
@@ -29,13 +30,18 @@ class Beasiswa extends Model
 		$imagescontent = BeasiswaContent::where('beasiswa_id', $this->id)
 							->where('type','i')
 							->get();
-        foreach($imagescontent as $content){
+		
+		
+        /*
+		foreach($imagescontent as $content){
             if(File::exists(storage_path()."\\app\\".$content->content)){
                 File::delete(storage_path()."\\app\\".$content->content);
             }
-		}
+		}*/
 		BeasiswaContent::where('beasiswa_id', $this->id)
             ->where('type','i')
             ->delete();
+		
+		return $imagescontent;
 	}
 }
