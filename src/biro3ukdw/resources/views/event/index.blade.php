@@ -9,6 +9,7 @@ active
 
 <?php
     use App\AppUtility;
+	use Carbon\Carbon;
 ?>
 
 @section('body_content')
@@ -57,28 +58,34 @@ active
 					<img src="{{ asset('style/images/eventmark/cd-icon-location.svg') }}">
 				</div>
 				<div class="event-timeline-content">
-					
-						<?php if($event->header_pic){ ?>
-						style="background-image: url('{{ AppUtility::get_image_data($event->header_pic)}}')"
-						<?php } ?>>
-						<div class="ukm-item-facade">
-							<div class="ukm-preview-title">
-								<a href="{{ url('/event/'.$event->id) }}">
-									{{$event->name}}
-								</a>
-							</div>
-							<div class="ukm-preview-content">
-								@foreach($event->content as $content)
-									@if($content->type=='s')
-									<div>
-										{!!$content->content!!}
-									</div>
-										<?php break; ?>
-									@endif
-								@endforeach
-							</div>
+					@if($event->header_pic)
+					<div class="event-timeline-pic"
+						 style="background-image: url('{{ AppUtility::get_image_data($event->header_pic)}}')">
+					</div>
+					@endif
+					<div class="event-timeline-text">
+						<div class="event-timeline-title">
+							<a href="{{ url('/event/'.$event->id) }}">
+								{{$event->name}}
+							</a>
+							<div class="event-timeline-sumber">{{$event->sumber}}</div>
 						</div>
-					
+						@if($event->event_date)
+						<div class="event-timeline-date">
+							{{(new Carbon($event->event_date))->format('l, d F Y')}}
+						</div>
+						@endif
+						<div class="event-detail-content">
+							@foreach($event->content as $content)
+								@if($content->type=='s')
+								<div>
+									{!!$content->content!!}
+								</div>
+									<?php break; ?>
+								@endif
+							@endforeach
+						</div>
+					</div>
 				</div>
 			</div>
 			@endforeach
