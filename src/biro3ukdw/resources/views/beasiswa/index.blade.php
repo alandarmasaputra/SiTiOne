@@ -29,75 +29,34 @@ use App\AppUtility;
 	</div>
 	<div class="row">
 		<div class="beasiswa-container col-md-12 glass">
-				<div class="beasiswa-preview-item">
-					<div class="beasiswa-facade">
-						<div class="beasiswa-preview-pic-border">
-							<div class="beasiswa-preview-pic-plus">
-							</div>
-						</div>
-						<div class="beasiswa-preview-title">
-							<h2 class="text-center">Tambah Beasiswa</h2>
-						</div>
-						<div class="beasiswa-addnew flex justify-center">
-							<a href="{{ url('/beasiswa/new') }}"><span class="glyphicon glyphicon-plus"></span></a>
-							<!--
-							<a href="#" class="btn btn-xs btn-hover btn-default"><span class="glyphicon glyphicon-download-alt"></span></a>
-							<a href="#" class="btn btn-xs btn-hover btn-default"><span class="glyphicon glyphicon-print"></span></a>
-							-->
-						</div>
-					</div>
-				</div>
-			@foreach($beasiswas as $beasiswa)
-				<div class="beasiswa-preview-item">
-					<div class="beasiswa-facade">
-						<div class="beasiswa-preview-pic-border">
-							<div class="beasiswa-preview-pic"
-								 <?php
-								 if($beasiswa->header_pic){
-								 ?>
-									style="background-image: url('{{AppUtility::get_image_data($beasiswa->header_pic)}}')" 
-								 <?php
-								 }else{
-									 if(strpos($beasiswa->kategori,'internal')!==false){
-										 $internal = true;
-								 ?>
-									style="background-image: url('{{url('style/images/ico/beasiswa_dalam.png')}}')"
-								 <?php
-									 }else{
-										 $internal = false;
-								 ?>
-									style="background-image: url('{{url('style/images/ico/beasiswa_luar.png')}}')"
-								 <?php
-								 }}
-								 ?>>
-							</div>
-						</div>
-						<div class="text-center beasiswa-preview-title">
-							<h2>
-								{{$beasiswa->name}}
-								@if($internal)
-								(<em>Internal</em>)
-								@endif
-							</h2>
-						</div>
-						<div class="beasiswa-preview-description">
-							<h4 class="text-left">Sumber: <strong>{{$beasiswa->sumber}}</strong></h4>
-							<h4 class="text-left">Pendaftaran Terakhir: <strong>{{(new Carbon($beasiswa->deadline_date))->format('l, d F Y')}}</strong></h4>
-							<br>
-							@foreach($beasiswa->content as $content)
-							@if($content->type == 's')
-							{!! $content->content !!}
-							<?php break; ?>
-							@endif
-							@endforeach
-						</div>
-						<div class="beasiswa-addnew flex justify-center">
-							<a href="{{ url('/beasiswa/'.$beasiswa->id) }}">Read More</a>
-						</div>
-					</div>
-				</div>
-			@endforeach
 		</div>
 	</div>
 </div>
+
+<script src="{{ url('utility/searchbuff/preparetoken.js') }}"></script>
+<script>
+	var searchBar = $('input#ajax-search-bar');
+	var lastQuery = "";
+	var itemContainer = $('.beasiswa-container');
+	searchBuff.url = searchBar.attr('data-url');
+	searchBuff.postload = function(){
+		lastQuery = searchBar.val();
+	}
+	searchBuff.success = function(data){
+		itemContainer.html(data);
+	}
+	searchBuff.error = function(data){
+		if(itemContainer.html().trim()==''){
+			itemContainer.html("<div class='cinema'>Telah terjadi kesalahan</div>")
+		}
+	}
+	searchBuff.data = {query:""};
+	searchBuff.start();
+	searchBar.keyup(function(){
+		searchBuff.data = {query:searchBar.val()}
+		if(lastQuery != searchBar.val()){
+			searchBuff.start();
+		}
+	})
+</script>
 @endsection

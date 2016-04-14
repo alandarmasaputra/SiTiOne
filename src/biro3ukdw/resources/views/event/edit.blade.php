@@ -23,12 +23,12 @@ use Carbon\Carbon;
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header">
-                        <button>
-                            <a href="{{ url('/event/'.$event->id) }}">
-                                <span class="glyphicon glyphicon-menu-left">
-                                </span>
-                            </a>
-                        </button>
+						<a href="{{ url('/event/'.$event->id) }}">
+							<button>
+									<span class="glyphicon glyphicon-menu-left">
+									</span>
+							</button>
+						</a>
                         <h2>
                             Edit Event
                         </h2>
@@ -58,26 +58,31 @@ use Carbon\Carbon;
                                     <input name="title" id="editor-header-title" type="text" value="{{ $event->name }}" required>
                                 </h2>
                                 <div class="editor-header-input-group">
-                                    
-                                    
                                     <div class="editor-header-input-control">
-                                            <label>Kategori Event:</label>
-                                            <input name="kategori" type="text" value="{{ $event->kategori }}" required>
+										<label>Penyelenggara Event:</label>
+										<input name="sumber" type="text" value="{{ $event->sumber }}" required>
                                     </div>
                                     <div class="editor-header-input-control">
-                                            <label>Sumber Event:</label>
-                                            <input name="sumber" type="text" value="{{ $event->sumber }}" required>
+										<label>Tanggal Event: </label>
+										@if($event->event_date)
+										<input type="date" name="tanggal" value="{{ (new Carbon($event->event_date))->format('Y-m-d') }}">
+										@else
+										<input type="date" name="tanggal">
+										@endif
                                     </div>
                                     <div class="editor-header-input-control">
-                                            <label>Tempat Event:</label>
-                                            <input name="tempat" type="text" value="{{ $event->tempat }}" required>
+										<label>Tempat Event:</label>
+										<input name="tempat" type="text" value="{{ $event->tempat }}" required>
                                     </div>
                                     <div class="editor-header-input-control">
-                                            <label>Tanggal Event: </label>
-                                            <input type="date" name="tanggal" value="{{ (new Carbon($event->event_date))->format('Y-m-d') }}" required>
-                                    </div>
-
-                                    
+										<label>Tags:</label>
+										<div>
+											<input type="text" id="tag-input"><button id="tag-add"><span class="glyphicon glyphicon-plus"></span></button>
+										</div>
+										<div id="tag-list">
+										</div>
+										<input type="hidden" id="kategori-tambahan" name="kategori" value="{{ $event->kategori }}">
+                                    </div>     
                                 </div>
                             </div>
                             <div class="editor-content-container text-center">

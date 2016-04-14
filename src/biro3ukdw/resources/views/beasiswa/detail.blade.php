@@ -43,7 +43,7 @@ use Carbon\Carbon;
 				@if(Auth::user())
 				<div class="beasiswa-detail-header-buttons">
 					<a href="{{url('/beasiswa/edit/'.$beasiswa->id)}}"><button>Edit</button></a>
-					<a href="#"><button class="button-delete">Delete</button></a>
+					<a href="{{url('/beasiswa/delete/'.$beasiswa->id)}}"><button class="button-delete">Delete</button></a>
 				</div>
 				@endif
 				<h2 class="beasiswa-detail-header-title"><strong>{{$beasiswa->name}}</strong></h2>
@@ -66,13 +66,21 @@ use Carbon\Carbon;
 							@endforeach
 						</div>
 					</dd>
+					@if($beasiswa->deadline_date)
 					<dt>Pendaftaran Terakhir</dt>
 					<dd>
 						{{(new Carbon($beasiswa->deadline_date))->format('l, d F Y')}}
 					</dd>
+					@endif
 				</dl>
 				@foreach($beasiswa->content as $content)
+				@if($content->type=='i')
+				<div class="img-container">
+					<img src="{{AppUtility::get_image_data($content->content)}}">
+				</div>
+				@else
 				{!! $content->content !!}
+				@endif
 				@endforeach
 			</div>
 		</div>
