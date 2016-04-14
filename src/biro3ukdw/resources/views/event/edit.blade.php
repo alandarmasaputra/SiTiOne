@@ -23,12 +23,12 @@ use Carbon\Carbon;
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header">
-                        <button>
-                            <a href="{{ url('/event/'.$event->id) }}">
-                                <span class="glyphicon glyphicon-menu-left">
-                                </span>
-                            </a>
-                        </button>
+						<a href="{{ url('/event/'.$event->id) }}">
+							<button>
+									<span class="glyphicon glyphicon-menu-left">
+									</span>
+							</button>
+						</a>
                         <h2>
                             Edit Event
                         </h2>
@@ -59,12 +59,16 @@ use Carbon\Carbon;
                                 </h2>
                                 <div class="editor-header-input-group">
                                     <div class="editor-header-input-control">
-										<label>Sumber Event:</label>
+										<label>Penyelenggara Event:</label>
 										<input name="sumber" type="text" value="{{ $event->sumber }}" required>
                                     </div>
                                     <div class="editor-header-input-control">
 										<label>Tanggal Event: </label>
-										<input type="date" name="tanggal" value="{{ (new Carbon($event->event_date))->format('Y-m-d') }}" required>
+										@if($event->event_date)
+										<input type="date" name="tanggal" value="{{ (new Carbon($event->event_date))->format('Y-m-d') }}">
+										@else
+										<input type="date" name="tanggal">
+										@endif
                                     </div>
                                     <div class="editor-header-input-control">
 										<label>Tempat Event:</label>

@@ -23,12 +23,12 @@ active
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header">
-                        <button>
-                            <a href="{{ url('/event') }}">
-                                <span class="glyphicon glyphicon-menu-left">
-                                </span>
-                            </a>
-                        </button>
+						<a href="{{ url('/event') }}">
+							<button>
+								<span class="glyphicon glyphicon-menu-left">
+								</span>
+							</button>
+						</a>
                         <h2>
                             Event Baru
                         </h2>
@@ -53,12 +53,12 @@ active
 
 
 									<div class="editor-header-input-control">
-										<label>Sumber Event:</label>
+										<label>Penyelenggara Event:</label>
 										<input name="sumber" type="text" required>
 									</div>
 									<div class="editor-header-input-control">
 										<label>Tanggal Event: </label>
-										<input type="date" name="tanggal" required>
+										<input type="date" name="tanggal">
                                     </div>
 									<div class="editor-header-input-control">
 										<label>Tempat Event:</label>
@@ -96,7 +96,6 @@ active
                     <!-- -->
                 </div>
             </div>
-            
         </div>
     </div>
 </div>

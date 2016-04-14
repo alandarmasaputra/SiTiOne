@@ -1416,6 +1416,15 @@ input[type="text"]{
   }
 }
 
+.event-detail{
+	background: white;
+	padding: 20px 0 50px 0 ;
+}
+
+.event-detail-facade{
+	border: 1px solid rgba(124,124,124,0.5);
+}
+
 @media only screen and (min-width: 1170px) {
   .event-timeline::before {
     left: 50%;
