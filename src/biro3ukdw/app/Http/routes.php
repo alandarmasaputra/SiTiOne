@@ -77,6 +77,7 @@ Route::group(['middleware' => ['web']], function () {
 		Route::post('/news/new',['as'=>'news_new', 'uses'=>'NewsController@submit_new']);
 		Route::get('/news/edit/{id}',['as'=>'news_edit', 'uses'=>'NewsController@edit']);
 		Route::post('/news/update/{id}',['as'=>'news_update', 'uses'=>'NewsController@update']);
+        Route::get('/news/delete/{id}','NewsController@delete');
 		
 		Route::get('/beasiswa/new','BeasiswaController@create');
 		Route::post('/beasiswa/new','BeasiswaController@submit_new');

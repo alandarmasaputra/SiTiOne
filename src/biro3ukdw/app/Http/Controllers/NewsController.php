@@ -362,6 +362,15 @@ class NewsController extends Controller
 
 
 
+    function delete($id)
+    {       
+        News::find($id)->delete();
+
+        return redirect(url('/news'))->with('successMessage', 'Data berhasil dihapus!');
+    }
+
+
+
 
 
 
