@@ -117,7 +117,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/ukm/',['as'=>'ukm_index', 'uses'=>'UkmController@index']);
     Route::get('/ukm',['as'=>'ukm_index', 'uses'=>'UkmController@index']);
 
-
+    Route::post('/news/list','NewsController@getList');
     Route::get('/news/{id}',['as'=>'news_get', 'uses'=>'NewsController@detail']);
     Route::get('/news',['as'=>'news_index', 'uses'=>'NewsController@index']);
     Route::get('/news/',['as'=>'news_index', 'uses'=>'NewsController@index']);

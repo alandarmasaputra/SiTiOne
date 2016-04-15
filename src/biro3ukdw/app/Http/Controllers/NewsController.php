@@ -13,6 +13,7 @@ use Session;
 use Intervention\Image\Facades\Image as Intervention;
 use Image;
 use App\AppUtility;
+use Carbon\Carbon;
 
 
 class NewsController extends Controller
@@ -20,8 +21,11 @@ class NewsController extends Controller
     //
     public function index(){
       //print news
-        $new = News::get();
-        return view('news.index',['news'=> $new]);
+
+     $news= News::all();
+        return view('news.index',[
+            'news'=> $news
+        ]);
 
 
     }
@@ -362,12 +366,47 @@ class NewsController extends Controller
 
 
 
-    function delete($id)
-    {       
-        News::find($id)->delete();
 
-        return redirect(url('/news'))->with('successMessage', 'Data berhasil dihapus!');
+
+    function delete($id){
+        $errors = array();
+        $deleteNews= News::find($id);
+        
+        if(!$deleteNews){
+            $errors[] = "News tidak ditemukan";
+            return redirect(url('/news'))->withErrors($errors);
+        }
+        
+        $oldImages = $deleteNews->clear();
+        $deletables = array();
+        foreach($oldImages as $oldImage){
+            $deletables[$oldImage->content] = false;
+        }
+        AppUtility::unlink_deletables($deletables);
+        News::destroy($id);
+        
+        return redirect(url('/news'))->with('successMessage','News berhasil di hapus');
     }
+
+
+
+    function getList(Request $request){
+        
+        try{
+            $news = News::where('name','like','%'.$request->all()['query'].'%')
+                ->orWhere('kategori','like','%'.$request->all()['query'].'%')
+                ->orderBy('id','desc')
+                ->get();
+            return view('news.list',[
+                'news'=>$news
+            ]);
+        }
+        catch(\Exception $e){
+            echo $e;
+        }
+    }
+
+
 
 
 
