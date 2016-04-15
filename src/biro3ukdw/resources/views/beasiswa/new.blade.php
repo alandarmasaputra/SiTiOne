@@ -57,7 +57,7 @@ active
 
 									<div class="editor-header-input-control">
 										<label>Pendaftaran Terakhir: </label>
-										<input type="date" name="deadline-date" required>
+										<input type="date" name="deadline-date">
 									</div>
 
 									<div class="editor-header-input-control">

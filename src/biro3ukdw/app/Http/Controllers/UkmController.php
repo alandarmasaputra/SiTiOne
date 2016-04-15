@@ -24,7 +24,9 @@ class UkmController extends Controller
 	function getList(Request $request){
 		
 		try{
-			$ukms = Ukm::where('name','like','%'.$request->all()['query'].'%')->get();
+			$ukms = Ukm::where('name','like','%'.$request->all()['query'].'%')
+				->orderBy('id','desc')
+				->get();
 			return view('ukm.list',[
 				'ukms'=>$ukms
 			]);
@@ -215,10 +217,25 @@ class UkmController extends Controller
         ]);
     }
     
-    
-    
-    
-    
+    function delete($id){
+		$errors = array();
+		$deleteUkm = Ukm::find($id);
+		
+		if(!$deleteUkm){
+			$errors[] = "Ukm tidak ditemukan";
+			return redirect(url('/ukm'))->withErrors($errors);
+		}
+		
+		$oldImages = $deleteUkm->clear();
+		$deletables = array();
+		foreach($oldImages as $oldImage){
+			$deletables[$oldImage->content] = false;
+		}
+		AppUtility::unlink_deletables($deletables);
+		Ukm::destroy($id);
+		
+		return redirect(url('/ukm'))->with('successMessage','Ukm berhasil di hapus');
+	}
     
     /*
     **Editing Submission
@@ -227,6 +244,7 @@ class UkmController extends Controller
     */
     function update(Request $request, $id){
 		$input = $request->all();
+		$deletables = array();
                                                        
         $ukm_name = trim($input['title']);
         
@@ -271,7 +289,8 @@ class UkmController extends Controller
 
                 //compress image
                 $image = AppUtility::compress_image($image);
-
+				$deletables[$newUkm->header_pic] = false;
+				$deletables[$filename] = true;
                 //Save Image filename
                 $newUkm->header_pic = $filename;
 
@@ -283,13 +302,19 @@ class UkmController extends Controller
         }
 		else{
 			if(isset($input['header-pic-old']) && trim($input['header-pic-old'])!=''){
-				$newUkm->header_pic = $input['header-pic-old'];
+				$filename = $input['header-pic-old'];
+				$newUkm->header_pic = $filename;
+				$deletables[$filename] = true;
 			}
 		}
         
         $newUkm->save();
-        $newUkm->clear();
+        $oldImages = $newUkm->clear();
         
+		foreach($oldImages as $oldImage){
+			$deletables[$oldImage->content] = false;
+		}
+		
         //Make Contents
         $content_id = 0;
         while(true){
@@ -339,7 +364,9 @@ class UkmController extends Controller
                     }
                     else{
                         if(isset($input['content-'.$content_id.'-old'])){   
-                            $newUkmContent->content = $input['content-'.$content_id.'-old'];
+							$filename = $input['content-'.$content_id.'-old'];
+                            $newUkmContent->content = $filename;
+							$deletables[$filename] = true;
                         }
                     }
                     
@@ -364,6 +391,8 @@ class UkmController extends Controller
             print_r($input);
             echo "</pre>";
         */
+		
+		AppUtility::unlink_deletables($deletables);
 		
 		$errors = array();
         $successMessage = 'UKM berhasil diedit';

@@ -34,7 +34,7 @@ use App\AppUtility;
 			@if(Auth::user())
 			<div>
 				<a href="{{ url('/ukm/edit/'.$ukm->id) }}"><button class="button-inline">edit</button></a>
-				<button class="button-inline button-delete">delete</button>
+				<a href="{{ url('/ukm/delete/'.$ukm->id) }}"><button class="button-inline button-delete">delete</button></a>
 			</div>
 			@endif
         	<h2 class="ukm-title">{{ $ukm->name }}</h2>

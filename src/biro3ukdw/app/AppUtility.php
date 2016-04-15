@@ -3,6 +3,7 @@
 namespace App;
 use Intervention\Image\Facades\Image as Intervention;
 use Storage;
+use File;
 
 class AppUtility
 {
@@ -60,11 +61,30 @@ class AppUtility
         $image = $image->stream();
         Storage::disk('local')->put($filename, $image->__toString());
     }
+	
+	public static function delete_image($filename){
+		if(File::exists(storage_path()."\\app\\".$filename)){
+			File::delete(storage_path()."\\app\\".$filename);
+		}
+	}
+	
+	public static function unlink_deletables($deletables){   
+		foreach($deletables as $key => $value){
+			if($value==false){
+				AppUtility::delete_image($key);
+			}
+		}
+	}
     
     public static function get_image_data($filename){
-        $image = Intervention::make(storage_path()."\\app\\".$filename);
-        $type = AppUtility::image_mime_to_extension($image->mime());
-        $data = 'data:image/png'.';base64,'.base64_encode($image->encode('jpg',50));
-        return $data;
+		try{
+			$image = Intervention::make(storage_path()."\\app\\".$filename);
+			$type = AppUtility::image_mime_to_extension($image->mime());
+			$data = 'data:image/png'.';base64,'.base64_encode($image->encode('jpg',50));
+			return $data;
+		}
+		catch(\Exception $e){
+			return "";
+		}
     }
 }

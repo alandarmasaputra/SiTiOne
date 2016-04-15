@@ -14,9 +14,13 @@ class Event extends Model
         EventContent::where('event_id', $this->id)
             ->where('type','s')
             ->delete();
+		$imagescontent = EventContent::where('event_id', $this->id)
+							->where('type','i')
+							->get();
         EventContent::where('event_id', $this->id)
             ->where('type','i')
             ->delete();
+		return $imagescontent;
         /*
         $ukm_contents = UkmContent::where('ukm_id', $this->id)
                                 ->where('type','i')
