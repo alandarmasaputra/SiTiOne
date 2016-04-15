@@ -59,16 +59,16 @@ use Carbon\Carbon;
 				</div>
 				<div class="beasiswa-detail-description">
 					<dl class="beasiswa-detail-metadata">
-
-
-
 						<dt>Created At</dt>
 						<dd>
 							{{(new Carbon($event->created_at))->format('l, d F Y')}}
 						</dd>
 					</dl>
 					@foreach($event->content as $content)
+					@if($content->type=='s')
 					{!! $content->content !!}
+					<?php break; ?>
+					@endif
 					@endforeach
 				</div>
 			</div>
