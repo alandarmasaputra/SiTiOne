@@ -20,20 +20,20 @@ active
 
 <div class="form-g">
     {!! Form::label('title', 'Username:', ['class' => 'control-label']) !!}
-    {!! Form::text('username', null, ['class' => 'form-control']) !!}
+    <br>{!! Form::text('username') !!}
 </div>
 
 <div class="form-g">
     {!! Form::label('description', 'Email:', ['class' => 'control-label']) !!}
-    {!! Form::text('email', null, ['class' => 'form-control']) !!}
+   <br> {!! Form::text('email') !!}
 </div>
 <div class="form-g">
     {!! Form::label('description', 'Level:', ['class' => 'control-label']) !!}
-    {!! Form::text('auth_level', null, ['class' => 'form-control']) !!}
+    <br>{!! Form::text('auth_level') !!}
 </div>
 <div class="form-g">
     {!! Form::label('description', 'Status:', ['class' => 'control-label']) !!}
-    {!! Form::text('is_aktif', null, ['class' => 'form-control']) !!}
+    <br>{!! Form::text('is_aktif') !!}
 </div>
 
 
