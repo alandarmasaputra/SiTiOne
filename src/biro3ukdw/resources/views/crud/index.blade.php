@@ -18,20 +18,21 @@ active
 		<th>Email</th>
 		<th>Level</th>
 		<th></th>
+		<th></th>
 		
 		
 	</thead>
 	<tbody>
 		<a href="{{ url('#') }}"><b>Create New User<b></a>
 		<br>
-		 <a href="{{url('/edituser/edit/')}}"><b>Edit Data<b></a>
+		 
 		
 		@foreach ($user as $data)
 
 		
 		<br>
 		<br>
-		 
+		  @if(Auth::user()-> auth_level < $data['auth_level'])
 
 		<tr>
 			<td>{{ $data->username }}</td>
@@ -43,8 +44,9 @@ active
 				{!! Form::close() !!}
 				
 				</td>
+				<td><a href="{{url('/edituser/edit/'.$data->id)}}"><b>Edit Data<b></a>  </td>
 				
-				
+		@endif		
 				
 
 			    

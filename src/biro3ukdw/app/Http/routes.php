@@ -86,9 +86,9 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/beasiswa/delete/{id}','BeasiswaController@delete');
 
         Route::get('/user', "UserController@index");
-        Route::get('/edituser/edit/',"UserController@edit");
-       
-
+        Route::get('/edituser/edit/{id}',"UserController@edit");
+        Route::get('/edituser/update/{id}',['as'=>'edituser_update', 'uses'=>'UserController@update']);
+        
 
         Route::get('/editprofile', "EditProfileController@index");
         

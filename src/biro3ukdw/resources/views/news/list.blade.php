@@ -14,7 +14,7 @@ use Carbon\Carbon;
 			<h2 class="text-center">Tambah News</h2>
 		</div>
 		<div class="beasiswa-addnew flex justify-center">
-			<a href="{{ url('/beasiswa/new') }}"><span class="glyphicon glyphicon-plus"></span></a>
+			<a href="{{ url('/news/new') }}"><span class="glyphicon glyphicon-plus"></span></a>
 			<!--
 			<a href="#" class="btn btn-xs btn-hover btn-default"><span class="glyphicon glyphicon-download-alt"></span></a>
 			<a href="#" class="btn btn-xs btn-hover btn-default"><span class="glyphicon glyphicon-print"></span></a>
