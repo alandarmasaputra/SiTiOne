@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\UserAddition;
 
 class User extends Authenticatable
 {
@@ -34,7 +35,7 @@ class User extends Authenticatable
 		}
 	}
 	
-	function addition(){
-		return $this->hasOne('App\UserAddition');
+	public function addition(){
+		return UserAddition::where('id',$this->id)->first();
 	}
 }
