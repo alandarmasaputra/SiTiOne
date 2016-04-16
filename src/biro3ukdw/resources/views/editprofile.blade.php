@@ -27,13 +27,13 @@ $addition = $user->addition();
 	<div class="col-md-12 body-content card">
 		<!-- jangan diubah ubah -->
 		<div>
-			<form method="post" action="{{ url('/edituser/edit/'.$user->id) }}" enctype="multipart/form-data"><!--  -->
+			<form method="post" action="{{ url('/editprofile/editself') }}" enctype="multipart/form-data"><!--  -->
 				{!! csrf_field() !!}
 
 					<div class="editor-header-input-group">
 						<div class="editor-header-input-control">
 							<label>Jabatan User:</label>
-						   	<input type="text" name="jabatan">
+						   	<input type="text" name="jabatan" <?php if($addition){if($addition->jabatan){echo "value='$addition->jabatan'";}} ?>>
 						</div>
 						<div class="editor-header-input-control">
 							<label>Email User:</label>
@@ -41,7 +41,7 @@ $addition = $user->addition();
 						</div>
 						<div class="editor-header-input-control">
 							<label>Telepon User:</label>
-							<input type="text" name="email">
+							<input type="text" name="phone" <?php if($addition){if($addition->phone){echo "value='$addition->phone'";}} ?>>
 						</div>
 
 					</div>
