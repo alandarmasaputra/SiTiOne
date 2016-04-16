@@ -77,6 +77,7 @@ Route::group(['middleware' => ['web']], function () {
 		Route::post('/news/new',['as'=>'news_new', 'uses'=>'NewsController@submit_new']);
 		Route::get('/news/edit/{id}',['as'=>'news_edit', 'uses'=>'NewsController@edit']);
 		Route::post('/news/update/{id}',['as'=>'news_update', 'uses'=>'NewsController@update']);
+        Route::get('/news/delete/{id}','NewsController@delete');
 		
 		Route::get('/beasiswa/new','BeasiswaController@create');
 		Route::post('/beasiswa/new','BeasiswaController@submit_new');
@@ -85,9 +86,9 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/beasiswa/delete/{id}','BeasiswaController@delete');
 
         Route::get('/user', "UserController@index");
-        Route::get('/edituser/edit/',"UserController@edit");
-       
-
+        Route::get('/edituser/edit/{id}',"UserController@edit");
+        Route::get('/edituser/update/{id}',['as'=>'edituser_update', 'uses'=>'UserController@update']);
+        
 
         Route::get('/editprofile', "EditProfileController@index");
         
@@ -116,7 +117,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/ukm/',['as'=>'ukm_index', 'uses'=>'UkmController@index']);
     Route::get('/ukm',['as'=>'ukm_index', 'uses'=>'UkmController@index']);
 
-
+    Route::post('/news/list','NewsController@getList');
     Route::get('/news/{id}',['as'=>'news_get', 'uses'=>'NewsController@detail']);
     Route::get('/news',['as'=>'news_index', 'uses'=>'NewsController@index']);
     Route::get('/news/',['as'=>'news_index', 'uses'=>'NewsController@index']);

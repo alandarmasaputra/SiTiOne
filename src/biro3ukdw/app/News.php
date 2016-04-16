@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\NewsContent;
+use File;
 
 class News extends Model
 {
@@ -32,14 +33,12 @@ class News extends Model
         $imagescontent = NewsContent::where('news_id', $this->id)
                             ->where('type','i')
                             ->get();
-        foreach($imagescontent as $content){
-            if(File::exists(storage_path()."\\app\\".$content->content)){
-                File::delete(storage_path()."\\app\\".$content->content);
-            }
-        }
+       
         NewsContent::where('news_id', $this->id)
             ->where('type','i')
             ->delete();
+
+        return $imagescontent;
     }
 }
     

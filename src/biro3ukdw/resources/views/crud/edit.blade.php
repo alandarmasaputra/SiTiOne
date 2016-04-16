@@ -8,104 +8,42 @@ active
 
 @extends('layout.app')
 @section('body_content')
+
 <div class="card">
  <h1>Data User</h1> <hr>
+
+
+ {!! Form::model($user, [
+    'method' => 'PATCH',
+    'route' => ['user.update', $user->id]
+]) !!}
+
+<div class="form-g">
+    {!! Form::label('title', 'Username:', ['class' => 'control-label']) !!}
+    <br>{!! Form::text('username') !!}
+</div>
+
+<div class="form-g">
+    {!! Form::label('description', 'Email:', ['class' => 'control-label']) !!}
+   <br> {!! Form::text('email') !!}
+</div>
+<div class="form-g">
+    {!! Form::label('description', 'Level:', ['class' => 'control-label']) !!}
+    <br>{!! Form::text('auth_level') !!}
+</div>
+<div class="form-g">
+    {!! Form::label('description', 'Status:', ['class' => 'control-label']) !!}
+    <br>{!! Form::text('is_aktif') !!}
+</div>
+
+
+{!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}
+
+{!! Form::close() !!}
  
-<table class="table table-bordered">
-	<thead>
-		<th>Username</th>
-		<th>Email</th>
-		<th>Password</th>
-		<th>Level</th>
-		<th>Status</th>		
-		<th>option</th>
-		
-	</thead>
-	<tbody>
-		<a href="{{ url('#') }}"><b>Create New User<b></a>
-		@foreach ($user as $data)
 
-		
-		<br>
-		<br>
-		 
-
-		<tr>
-			<td> <input name="title"  type="text" value="{{ $data->username }}" required></td>
-			<td><input name="title"  type="text" value="{{ $data->email }}" required></td>
-			<td>{{ $data->password}}</td>
-			<td>
+		@stop
 			
-			@if($data->auth_level==0)
-			<select>
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            </select></td>	
 			
-			@elseif($data->auth_level=1)
-			<select>
-			<option value="1">1</option>
-            <option value="0">0</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            </select></td>	
-            @elseif($data->auth_level=2)
-			<select>
-			<option value="2">2</option>
-			<option value="1">1</option>
-            <option value="0">0</option>
-            <option value="3">3</option>
-            </select></td>	
-            @elseif($data->auth_level=3)
-			<select>
-			<option value="3">3</option>
-			<option value="1">1</option>
-            <option value="0">0</option>
-            <option value="2">2</option>
-            
-            </select></td>	
-			
-            @endif
-            
-			<td>
-			@if($data->is_aktif==0)
-
-			<select>
-            <option value="0">0</option>
-            <option value="1">1</option>
-            </select></td>		
-            @else
-            <select>
-            <option value="1">1</option>
-            <option value="0">0</option>
-            
-            </select></td>	
-
-            @endif
 		
-				<td>         
-
 				
-				{!! Form::open(['method' => 'POST', 'route' => ['user.update', $data->id]]) !!}
-				{!! Form::submit('Update') !!}   
-				{!! Form::close() !!}
-				
-				
-				</td>
-				              
-				
-				
-				
-				
-				
-
-		</tr>
-		</tbody>
-		@endforeach
-	</table>
- </div>
- 
-@stop
-
