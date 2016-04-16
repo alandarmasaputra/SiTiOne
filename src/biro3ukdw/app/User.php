@@ -36,12 +36,12 @@ class User extends Authenticatable
 	}
 	
 	public function addition(){
-		return UserAddition::where('id',$this->id)->first();
+		return UserAddition::where('user_id',$this->id)->first();
 	}
 	
 	public function clear(){
-		$add = UserAddition::where('id',$this->id)->get();
-		UserAddition::where('id',$this->id)->delete();
+		$add = UserAddition::where('user_id',$this->id)->get();
+		UserAddition::where('user_id',$this->id)->delete();
 		return $add;
 	}
 }
