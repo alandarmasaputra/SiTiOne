@@ -33,4 +33,8 @@ class User extends Authenticatable
 			case 3: return "volunteer";
 		}
 	}
+	
+	function addition(){
+		return $this->hasOne('App\UserAddition');
+	}
 }
