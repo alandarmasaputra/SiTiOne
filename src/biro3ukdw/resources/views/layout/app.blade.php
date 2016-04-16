@@ -120,9 +120,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-4">
-					 <p class="glyphicon glyphicon-map-marker"> Jl.Dr.Wahidin Sudiro Husodo No.5–25, Yogyakarta (55224)</p>
-					<p class="glyphicon glyphicon-earphone"> Telp.0274–563929 Fax.0274–513235   </p>
-					<p class="glyphicon glyphicon-envelope"> Email: humas@staff.ukdw.ac.id</p>
+					<p><span class="glyphicon glyphicon-map-marker"></span>    Jl.Dr.Wahidin Sudiro Husodo No.5–25, Yogyakarta (55224)</p>
+					<p><span class="glyphicon glyphicon-earphone"></span>    Telp.0274–563929 Fax.0274–513235</p>
+					<p><span class="glyphicon glyphicon-envelope"></span>    Email: humas@staff.ukdw.ac.id </p>
                 </div>
                 <div class="col-sm-8">
                     <div class="pull-right">
