@@ -91,7 +91,5 @@ active
 			@endforeach
 		</div>
 	</div>
-    
->>>>>>> fd5514ccaf4f571ff7181f066ea79dd904b64826
 </div>
 @endsection

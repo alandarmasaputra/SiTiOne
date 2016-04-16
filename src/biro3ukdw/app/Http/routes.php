@@ -104,17 +104,10 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('/login', "HomeController@trylogin");
 	Route::get('/logout', "HomeController@logout");
 
-<<<<<<< HEAD
+	
     Route::resource('user','UserController');
 	Route::get('/user', "UserController@index");
 
-=======
-  
-
-    Route::get('/admin/organize','AdminController@organize');
-    
-
->>>>>>> fd5514ccaf4f571ff7181f066ea79dd904b64826
     Route::get('/event/','EventController@index');  
     Route::get('/event/{id}','EventController@detail'); 
 	
