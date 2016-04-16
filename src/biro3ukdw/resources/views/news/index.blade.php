@@ -12,6 +12,8 @@ News - Biro3 | UKDW
 use Carbon\Carbon;
 use App\AppUtility;
 ?>
+
+
 <div class="container body-content">
 	<div class="row">
 		<div class="col-md-12">
@@ -24,6 +26,7 @@ use App\AppUtility;
 					<span class="glyphicon glyphicon-search"></span>
 					{!! csrf_field() !!}
 				</span>
+
 			</div>
 		</div>
 	</div>
