@@ -1,7 +1,7 @@
 <?php
 
 use Carbon\Carbon;
-
+use App\AppUtility;
 ?>
 @if(Auth::user())
 <div class="beasiswa-preview-item">
@@ -40,13 +40,11 @@ use Carbon\Carbon;
 					style="background-image: url('{{AppUtility::get_image_data($beasiswa->header_pic)}}')" 
 				 <?php
 				 }else{
-					 if(strpos($beasiswa->kategori,'internal')!==false){
-						 $internal = true;
+					 if($beasiswa->isInternal()){
 				 ?>
 					style="background-image: url('{{url('style/images/ico/beasiswa_dalam.png')}}')"
 				 <?php
 					 }else{
-						 $internal = false;
 				 ?>
 					style="background-image: url('{{url('style/images/ico/beasiswa_luar.png')}}')"
 				 <?php
@@ -57,7 +55,7 @@ use Carbon\Carbon;
 		<div class="text-center beasiswa-preview-title">
 			<h2>
 				{{$beasiswa->name}}
-				@if($internal)
+				@if($beasiswa->isInternal())
 				(<em>Internal</em>)
 				@endif
 			</h2>

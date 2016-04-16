@@ -46,8 +46,10 @@ use App\AppUtility;
 		itemContainer.html(data);
 	}
 	searchBuff.error = function(data){
+		console.log(data.responseText);
 		if(itemContainer.html().trim()==''){
-			itemContainer.html("<div class='cinema'>Telah terjadi kesalahan</div>")
+			itemContainer.html(data.responseText)
+			//itemContainer.html("<div class='cinema'>Telah terjadi kesalahan</div>")
 		}
 	}
 	searchBuff.data = {query:""};

@@ -81,7 +81,7 @@
 
 
 *{
-	word-break: break-word, break-all;
+	word-break: break-all;
 	word-wrap: break-word;
 }
 
@@ -621,8 +621,8 @@ input[type="text"]{
 }
 
 .editor-item .editor-record{
-    flex: 1 0 80%;
-    max-width: 100%;
+    flex: 0 0 80%;
+    max-width: 80%;
     padding-right: 10px;
     padding-left: 10px;
 }
@@ -818,10 +818,10 @@ input[type="text"]{
 
 .beasiswa-preview-item{
 	box-shadow: 0 3px 5px rgba(0,0,0,0.6);
-	flex: 0 1 325px;
+	flex: 0 1 24%;
 	display: flex;
 	flex-flow: row wrap;
-	margin: 10px;
+	margin: 2px;
 }
 
 .beasiswa-preview-title{
@@ -835,6 +835,7 @@ input[type="text"]{
 	width: auto;
 	background:white;
 	padding: 5px 10px;
+	max-width: 90%;
 }
 
 .beasiswa-preview-pic-border{
@@ -880,12 +881,15 @@ input[type="text"]{
 	display: flex;
 	flex-flow: column;
 	align-content: stretch;
+	justify-content: space-between;
 }
 
 .beasiswa-preview-description{
-	padding: 0 10% 5px 10%;
+	padding: 20px 10% 20px 10%;
 	flex-grow: 1;
 	overflow-y: hidden;
+	max-height: 150px;
+	margin-top: -40px;
 }
 
 .beasiswa-addnew{
@@ -919,7 +923,13 @@ input[type="text"]{
 	color: white;
 }
 
-@media (max-width: 500px){
+@media (max-width: 990px){
+	.beasiswa-preview-item{
+		flex-basis: 47%;
+	}
+}
+
+@media (max-width: 600px){
 	.beasiswa-preview-item{
 		min-width: 100%;
 		max-width: 100%;
