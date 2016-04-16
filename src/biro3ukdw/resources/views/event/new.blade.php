@@ -23,12 +23,12 @@ active
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header">
-                        <button>
-                            <a href="{{ url('/event') }}">
-                                <span class="glyphicon glyphicon-menu-left">
-                                </span>
-                            </a>
-                        </button>
+						<a href="{{ url('/event') }}">
+							<button>
+								<span class="glyphicon glyphicon-menu-left">
+								</span>
+							</button>
+						</a>
                         <h2>
                             Event Baru
                         </h2>
@@ -51,23 +51,28 @@ active
                                 </h2>
                                 <div class="editor-header-input-group">
 
-                                    
-                                <div class="editor-header-input-control">
-                                        <label>Kategori Event:</label>
-                                        <input name="kategori" type="text" required>
-                                </div>
-                                <div class="editor-header-input-control">
-                                        <label>Sumber Event:</label>
-                                        <input name="sumber" type="text" required>
-                                </div>
-                                <div class="editor-header-input-control">
-                                        <label>Tempat Event:</label>
-                                        <input name="tempat" type="text" required>
-                                </div>
-                                <div class="editor-header-input-control">
-                                        <label>Tanggal Event: </label>
-                                        <input type="date" name="tanggal" required>
+
+									<div class="editor-header-input-control">
+										<label>Penyelenggara Event:</label>
+										<input name="sumber" type="text" required>
+									</div>
+									<div class="editor-header-input-control">
+										<label>Tanggal Event: </label>
+										<input type="date" name="tanggal">
                                     </div>
+									<div class="editor-header-input-control">
+										<label>Tempat Event:</label>
+										<input name="tempat" type="text" required>
+									</div>
+									<div class="editor-header-input-control">
+										<label>Tags:</label>
+										<div>
+											<input type="text" id="tag-input"><button id="tag-add"><span class="glyphicon glyphicon-plus"></span></button>
+										</div>
+										<div id="tag-list">
+										</div>
+										<input type="hidden" id="kategori-tambahan" name="kategori">
+									</div>
                                 </div>
                             </div>
                             <div class="editor-content-container text-center">
@@ -91,7 +96,6 @@ active
                     <!-- -->
                 </div>
             </div>
-            
         </div>
     </div>
 </div>

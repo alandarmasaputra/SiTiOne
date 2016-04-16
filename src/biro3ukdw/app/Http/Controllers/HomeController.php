@@ -66,7 +66,15 @@ class HomeController extends Controller
 		}
 		
 		if(Auth::attempt(['username'=>$username, 'password'=>$password])){
-			return redirect()->intended('/');
+			if(Auth::user()->is_aktif==false){
+				Auth::logout();
+				$errors[] = "username atau password salah.";
+				return redirect('/login')->withErrors($errors);
+			}
+			
+			
+			$successMessage = "Telah berhasil login";
+			return redirect()->intended('/')->with('successMessage',$successMessage);
 		}else{
 			$errors[] = "username atau password salah.";
 			return redirect('/login')->withErrors($errors);

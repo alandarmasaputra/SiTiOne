@@ -1,0 +1,10 @@
+ada gambar ">"
+http://localhost/SiTiOne/src/biro3ukdw/public/news
+
+edit news belum bisa
+
+delete news, event belum bisa
+
+
+
+

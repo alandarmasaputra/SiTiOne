@@ -3,6 +3,7 @@
 Detail Beasiswa - Biro3 | UKW
 @endsection
 @section('body_content')
+
 <?php
 use App\AppUtility;
 use Carbon\Carbon;
@@ -30,23 +31,23 @@ use Carbon\Carbon;
 					@if($beasiswa->header_pic)
 					<img src="{{AppUtility::get_image_data($beasiswa->header_pic)}}">
 					@else
-					@if(strpos($beasiswa->kategori,'internal')!==false)
-					<?php $internal = true ?>
-					<img src="{{url('style/images/ico/beasiswa_dalam.png')}}">
-					@else
-					<?php $internal = false ?>
-					<img src="{{url('style/images/ico/beasiswa_luar.png')}}">
+						@if($beasiswa->isInternal())
+						<?php $internal = true ?>
+						<img src="{{url('style/images/ico/beasiswa_dalam.png')}}">
+						@else
+						<?php $internal = false ?>
+						<img src="{{url('style/images/ico/beasiswa_luar.png')}}">
 					@endif
 					@endif
 				</div>
 				@if(Auth::user())
 				<div class="beasiswa-detail-header-buttons">
 					<a href="{{url('/beasiswa/edit/'.$beasiswa->id)}}"><button>Edit</button></a>
-					<a href="#"><button class="button-delete">Delete</button></a>
+					<a href="{{url('/beasiswa/delete/'.$beasiswa->id)}}"><button class="button-delete">Delete</button></a>
 				</div>
 				@endif
-				<h2 class="beasiswa-detail-header-title">{{$beasiswa->name}}</h2>
-				@if($internal)
+				<h2 class="beasiswa-detail-header-title"><strong>{{$beasiswa->name}}</strong></h2>
+				@if($beasiswa->isInternal())
 				<h4>Beasiswa Internal</h4>
 				@else
 				<h4>Beasiswa External</h4>
@@ -59,19 +60,27 @@ use Carbon\Carbon;
 					<dd>{{ $beasiswa->sumber }}</dd>
 					<dt>Kata Kunci</dt>
 					<dd>
-						<div>
+						<div class="tag-list-container">
 							@foreach(explode(' ',$beasiswa->kategori) as $tag)
 							<span class="tag-list-item">{{$tag}}</span>
 							@endforeach
 						</div>
 					</dd>
+					@if($beasiswa->deadline_date)
 					<dt>Pendaftaran Terakhir</dt>
 					<dd>
 						{{(new Carbon($beasiswa->deadline_date))->format('l, d F Y')}}
 					</dd>
+					@endif
 				</dl>
 				@foreach($beasiswa->content as $content)
+				@if($content->type=='i')
+				<div class="img-container">
+					<img src="{{AppUtility::get_image_data($content->content)}}">
+				</div>
+				@else
 				{!! $content->content !!}
+				@endif
 				@endforeach
 			</div>
 		</div>

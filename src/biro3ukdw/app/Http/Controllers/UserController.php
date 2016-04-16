@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\User;
+use Input;
+
+
+
 
 class UserController extends Controller
 {
@@ -19,7 +23,15 @@ class UserController extends Controller
 		return view('user', compact('user'));
 	}
 
-	public function create()
+
+	function edit($id)
+	{
+		$user = User::find($id);
+		return view('crud.edit', compact('user'));
+	}
+
+	function create()
+
 	{
 		return view('news.new');
 	}
@@ -32,13 +44,17 @@ class UserController extends Controller
         return redirect('user')->with('message', 'Data berhasil dihapus!');
 	}
 
-	function update($id)
-	{
-		$userUpdate = Request::all();
-	    $user = User::find($id);
-	    $user->update($userUpdate);
-	    return redirect('user')->with('message', 'Data berhasil dirubah!');
-	}
+	public function update($id, Request $request)
+{
+    $user = User::findOrFail($id);
+
+
+    $input = array_except(Input::all(), '_method');
+
+    $user->update($input);
+
+    return redirect('user');
+}
      
     function show($id)
 	{

@@ -9,6 +9,7 @@ active
 @extends('layout.app')
 @section('body_content')
 <div class="card">
+ 
  <h1>Data User</h1> <hr>
  
 <table class="table table-bordered">
@@ -19,15 +20,22 @@ active
 		<th></th>
 		<th></th>
 		
+		
 	</thead>
 	<tbody>
+		<a href="{{ url('#') }}"><b>Create New User<b></a>
+		<br>
+		 
+		
 		@foreach ($user as $data)
 
 		
-		{!! Form::submit('Create') !!}   
+		<br>
+		<br>
+		  @if(Auth::user()-> auth_level < $data['auth_level'])
 
 		<tr>
-			<td><a href="{{ url('user/'. $data->id . '/edit') }}">{{ $data->username }}</a></td>
+			<td>{{ $data->username }}</td>
 			<td>{{ $data->email}}</td>
 			<td>{{ $data->auth_level }}</td>			
 			<td>                
@@ -36,12 +44,17 @@ active
 				{!! Form::close() !!}
 				
 				</td>
-				<td>                
+				<td><a href="{{url('/edituser/edit/'.$data->id)}}"><b>Edit Data<b></a>  </td>
 				
-				{!! Form::submit('Edit') !!}   
+		@endif		
 				
+
+			    
+			    
+
+  
+                
 				
-				</td>
 				              
 				
 				

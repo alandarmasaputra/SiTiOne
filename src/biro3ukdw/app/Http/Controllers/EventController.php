@@ -70,7 +70,11 @@ class EventController extends Controller
         $event_kategori = trim($input['kategori']);
         $event_sumber = trim($input['sumber']);
         $event_tempat = trim($input['tempat']);
-        $event_date = Carbon::createFromFormat('Y-m-d', $request->input('tanggal'));
+		if($request->input('tanggal')){
+        	$event_date = Carbon::createFromFormat('Y-m-d', $request->input('tanggal'));
+		}else{
+        	$event_date = null;
+		}
         
         $errors = array();
         if(!isset($event_name) || $event_name==''){
@@ -96,12 +100,6 @@ class EventController extends Controller
         if(!isset($event_tempat) || $event_tempat==''){
             $errors[] = "Tempat Event harus diisi";
             
-        }
-        if(!isset($event_date)){
-            $errors[] = "Tanggal Event harus diisi";
-        }
-        if(strtotime($event_date)==false){
-            $errors[] = "Tanggal Event tidak valid";
         }
 
 
@@ -234,14 +232,18 @@ class EventController extends Controller
     }
 
     public function update(Request $request, $id){
-    	
+    	$deletables = array();
         $input = $request->all();
                                                        
         $event_name = trim($input['title']);
         $event_kategori = trim($input['kategori']);
         $event_sumber = trim($input['sumber']);
         $event_tempat = trim($input['tempat']);
-        $event_date = $event_date = Carbon::createFromFormat('Y-m-d', $request->input('tanggal'));
+		if($request->input('tanggal')){
+        	$event_date = Carbon::createFromFormat('Y-m-d', $request->input('tanggal'));
+		}else{
+        	$event_date = null;
+		}
 
         
         $errors = array();
@@ -305,11 +307,12 @@ class EventController extends Controller
                 $filename = 'event_';
                 $filename .= AppUtility::get_random_name('');
                 $filename .= $extension;
-
                 //compress image
                 $image = AppUtility::compress_image($image);
 
                 //Save Image filename
+				$deletables[$newEvent->header_pic] = false;
+				$deletables[$filename] = true;
                 $newEvent->header_pic = $filename;
 
                 //Save Image
@@ -320,13 +323,19 @@ class EventController extends Controller
         }
         else{
             if(isset($input['header-pic-old']) && trim($input['header-pic-old'])!=''){
-                $newEvent->header_pic = $input['header-pic-old'];
+				$filename = $input['header-pic-old'];
+                $newEvent->header_pic = $filename;
+				$deletables[$filename] = true;
             }
         }
         
         $newEvent->save();
-        $newEvent->clear();
-        
+        $oldImages = $newEvent->clear();
+        foreach($oldImages as $oldImage){
+			$deletables[$oldImage->content]=false;
+		}
+		
+		
         //Make Contents
         $content_id = 0;
         while(true){
@@ -357,6 +366,7 @@ class EventController extends Controller
                             $filename = 'ukm_c_';
                             $filename .= AppUtility::get_random_name('');
                             $filename .= $extension;
+							$deletables[$filename]=true;
 
                             //extension ga jelas: buang
                             if(trim($extension) == ''){
@@ -376,7 +386,9 @@ class EventController extends Controller
                     }
                     else{
                         if(isset($input['content-'.$content_id.'-old'])){   
-                            $newEventContent->content = $input['content-'.$content_id.'-old'];
+							$filename = $input['content-'.$content_id.'-old'];
+                            $newEventContent->content = $filename;
+							$deletables[$filename] = true;
                         }
                     }
                     
@@ -393,6 +405,8 @@ class EventController extends Controller
             
             $content_id++;
         }
+		
+		AppUtility::unlink_deletables($deletables);
         
         // Testing Materials
         /*
