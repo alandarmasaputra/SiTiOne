@@ -119,18 +119,15 @@
     <footer id="footer" class="midnight-blue">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-6">
-                    &copy; 2016 <a target="_blank">UKDW</a>. All Rights Reserved.
+                <div class="col-sm-4">
+					 <p class="glyphicon glyphicon-map-marker"> Jl.Dr.Wahidin Sudiro Husodo No.5–25, Yogyakarta (55224)</p>
+					<p class="glyphicon glyphicon-earphone"> Telp.0274–563929 Fax.0274–513235   </p>
+					<p class="glyphicon glyphicon-envelope"> Email: humas@staff.ukdw.ac.id</p>
                 </div>
-                <div class="col-sm-6">
-                    <ul class="pull-right">
-					<li><a class="@yield('nav_home')" href="{{ url('/') }}">Home</a></li>
-					<li><a class="@yield('nav_beasiswa')" href="{{url('/beasiswa')}}">Beasiswa</a></li> 
-					<li><a class="@yield('nav_event')" href="{{url('/event')}}">Event</a></li>    
-					<li><a class="@yield('nav_news')" href="{{url('/news')}}">News</a></li>
-					<li><a class="@yield('nav_ukm')" href="{{url('/ukm')}}">UKM</a></li>
-                    <li><a class="@yield('nav_profil')" href="{{url('/profil')}}">Profil</a></li>
-                    </ul>
+                <div class="col-sm-8">
+                    <div class="pull-right">
+						&copy; 2016 <a target="_blank">UKDW</a>. All Rights Reserved.
+                    </div>
                 </div>
             </div>
         </div>
