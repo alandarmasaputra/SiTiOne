@@ -28,6 +28,7 @@ var searchBuff = {};
 		}
 	}
 	searchBuff.request = function(sendData){
+		searchBuff.preload();
 		$.ajax({
 			url: searchBuff.url,
 			method: 'post',

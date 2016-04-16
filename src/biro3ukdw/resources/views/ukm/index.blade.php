@@ -50,9 +50,12 @@ active
 	searchBuff.success = function(data){
 		$('.ukm-container').html(data);
 	}
+	searchBuff.preload = function(){
+		$('.ukm-container').html("<div class='cinema'><span>Memuat</span></div>")
+	}
 	searchBuff.error = function(data){
 		if($('.ukm-container').html().trim()==''){
-			$('.ukm-container').html("<div class='cinema'>Telah terjadi kesalahan</div>")
+			$('.ukm-container').html("<div class='cinema'><span>Telah terjadi kesalahan</span></div>")
 		}
 	}
 	searchBuff.data = {query:""};

@@ -167,6 +167,14 @@ body{
 	padding-bottom: 15vh;
 }
 
+.cinema>*{
+	padding: 15px 20px;
+	background: white;
+	color: black;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+
 .loading{
 	display: inline-block;
 }

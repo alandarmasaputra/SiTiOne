@@ -3,6 +3,7 @@
 use Carbon\Carbon;
 
 ?>
+
 @if(Auth::user())
 <div class="beasiswa-preview-item">
 	<div class="beasiswa-facade">
