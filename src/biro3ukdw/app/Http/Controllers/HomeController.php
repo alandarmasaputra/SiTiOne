@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\AppUtility;
 use Illuminate\Http\Request;
 use App\News;
 use App\Beasiswa;
@@ -25,15 +26,53 @@ class HomeController extends Controller
      */
     public function index()
     {
-		$newss = News::get();
-		$ukms = Ukm::get();
-		$beasiswas = Beasiswa::get();
-		$events = Event::get();
+		$newss = News::orderBy('id','desc')->get();
+		$ukms = Ukm::orderBy('id','desc')->get();
+		$beasiswas = Beasiswa::orderBy('id','desc')->get();
+		$events = Event::orderBy('id','desc')->get();
+		
+		$carousel = array();
+		
+		foreach($newss as $news){
+			if($news->header_pic){
+				$carousel['news'] = $news;
+				break;
+			}
+		}
+		
+		foreach($beasiswas as $beasiswa){
+			if($beasiswa->header_pic){
+				$carousel['beasiswa'] = $beasiswa;
+				break;
+			}
+		}
+		
+		foreach($events as $event){
+			if($event->header_pic){
+				$carousel['event'] = $event;
+				break;
+			}
+		}
+		
+		$ukmWithPic = array();
+		foreach($ukms as $ukm){
+			if($ukm->header_pic){
+				$ukmWithPic[] = $ukm;
+			}
+		}
+		
+		if(count($ukmWithPic)>0){
+			$index = mt_rand(0,count($ukmWithPic)-1);
+			$carousel['ukm'] = $ukmWithPic[$index];
+		}
+		
+		
 		return view('home',[
 			'newss'=>$newss,
 			'ukms'=>$ukms,
 			'beasiswas'=>$beasiswas,
-			'events'=>$events
+			'events'=>$events,
+			'carousel'=>$carousel
 		]);
     }
 	
