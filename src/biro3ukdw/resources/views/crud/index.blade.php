@@ -23,15 +23,14 @@ active
 		
 	</thead>
 	<tbody>
-		<a href="{{ url('#') }}"><b>Create New User<b></a>
+		<a href="{{ url('/cruduser/new') }}"><b>Create New User<b></a>
 		<br>
 		 
 		
 		@foreach ($user as $data)
 
 		
-		<br>
-		<br>
+		
 		  @if(Auth::user()-> auth_level < $data['auth_level'])
 
 		<tr>
@@ -44,7 +43,7 @@ active
 				{!! Form::close() !!}
 				
 				</td>
-				<td><a href="{{url('/edituser/edit/'.$data->id)}}"><b>Edit Data<b></a>  </td>
+				<td><a href="{{url('/cruduser/edit/'.$data->id)}}"><b>Edit Data<b></a>  </td>
 				
 		@endif		
 

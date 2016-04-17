@@ -27,11 +27,11 @@ $addition = $user->addition();
 </div>
 
 <div class="form-g">
-    {!! Form::label('description', 'Email:', ['class' => 'control-label']) !!}
+    {!! Form::label('description', 'Email:',['class' => 'control-label']) !!}
    <br> {!! Form::text('email') !!}
 </div>
 <div class="form-g">
-    {!! Form::label('description', 'Level:', ['class' => 'control-label']) !!}
+    {!! Form::label('description', 'Level:',['class' => 'control-label']) !!}
     <br>{!! Form::text('auth_level') !!}
 </div>
 <div class="form-g">
