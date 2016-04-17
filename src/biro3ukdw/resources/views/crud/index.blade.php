@@ -47,6 +47,7 @@ active
 				<td><a href="{{url('/edituser/edit/'.$data->id)}}"><b>Edit Data<b></a>  </td>
 				
 		@endif		
+
 				
 
 			    
