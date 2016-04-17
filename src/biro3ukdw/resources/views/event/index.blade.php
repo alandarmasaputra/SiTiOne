@@ -91,6 +91,5 @@ active
 			@endforeach
 		</div>
 	</div>
-    
 </div>
 @endsection

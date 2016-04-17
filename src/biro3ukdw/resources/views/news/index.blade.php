@@ -12,6 +12,8 @@ News - Biro3 | UKDW
 use Carbon\Carbon;
 use App\AppUtility;
 ?>
+
+
 <div class="container body-content">
 	<div class="row">
 		<div class="col-md-12">
@@ -24,6 +26,7 @@ use App\AppUtility;
 					<span class="glyphicon glyphicon-search"></span>
 					{!! csrf_field() !!}
 				</span>
+
 			</div>
 		</div>
 	</div>
@@ -45,9 +48,14 @@ use App\AppUtility;
 	searchBuff.success = function(data){
 		itemContainer.html(data);
 	}
+	searchBuff.preload = function(){
+		itemContainer.html("<div class='cinema'><span>Memuat</span></div>")
+	}
 	searchBuff.error = function(data){
+		console.log(data.responseText);
 		if(itemContainer.html().trim()==''){
-			itemContainer.html("<div class='cinema'>Telah terjadi kesalahan</div>")
+			//itemContainer.html(data.responseText)
+			itemContainer.html("<div class='cinema'><span>Telah terjadi kesalahan</span></div>")
 		}
 	}
 	searchBuff.data = {query:""};

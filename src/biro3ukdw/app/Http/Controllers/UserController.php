@@ -17,11 +17,12 @@ class UserController extends Controller
 		
 	}
 
-	function index()
+	public function index()
 	{
 		$user = User::all();
-		return view('crud.index', compact('user'));
+		return view('user', compact('user'));
 	}
+
 
 	function edit($id)
 	{
@@ -30,6 +31,7 @@ class UserController extends Controller
 	}
 
 	function create()
+
 	{
 		return view('news.new');
 	}

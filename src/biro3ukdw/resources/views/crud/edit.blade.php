@@ -8,7 +8,10 @@ active
 
 @extends('layout.app')
 @section('body_content')
-
+<?php 
+use App\AppUtility;
+$addition = $user->addition();
+?>
 <div class="card">
  <h1>Data User</h1> <hr>
 
@@ -41,6 +44,7 @@ active
 
 {!! Form::close() !!}
  
+
 
 		@stop
 			

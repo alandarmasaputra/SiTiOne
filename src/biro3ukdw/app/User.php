@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\UserAddition;
 
 class User extends Authenticatable
 {
@@ -32,5 +33,15 @@ class User extends Authenticatable
 			case 2: return "staff";
 			case 3: return "volunteer";
 		}
+	}
+	
+	public function addition(){
+		return UserAddition::where('user_id',$this->id)->first();
+	}
+	
+	public function clear(){
+		$add = UserAddition::where('user_id',$this->id)->get();
+		UserAddition::where('user_id',$this->id)->delete();
+		return $add;
 	}
 }
