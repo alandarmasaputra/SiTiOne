@@ -32,11 +32,12 @@ $addition = $user->addition();
 </div>
 <div class="form-g">
     {!! Form::label('description', 'Level:',['class' => 'control-label']) !!}
-    <br>{!! Form::text('auth_level') !!}
+    <br>
+    {!! Form::select('auth_level', array('0' => 'Super Admin', '1' => 'Admin',  '2' => 'Staff', '3' => 'Volunteer')); !!}
 </div>
 <div class="form-g">
     {!! Form::label('description', 'Status:', ['class' => 'control-label']) !!}
-    <br>{!! Form::text('is_aktif') !!}
+    <br>{!! Form::select('is_aktif', array('0' => 'Tidak Aktif', '1' => 'Aktif')); !!}
 </div>
 
 

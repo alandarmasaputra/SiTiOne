@@ -8,6 +8,9 @@ use App\Http\Requests;
 use App\User;
 use Input;
 use Auth;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Redirect;
+
 
 
 
@@ -66,8 +69,24 @@ class UserController extends Controller
 	}
 
 	function store()
+
 	{
-	    $user = new User;
+
+		$data = Input::all();
+
+         $rules = array(
+        
+        'email' => 'required',
+        'password' => 'required|min:6',
+        'password_confirmation' => 'required|min:6|same:password'
+         );
+
+    
+        $validator = Validator::make($data, $rules);
+
+        if($validator->passes()){
+
+        $user = new User;
         $user->username    = Input::get('username');
         $user->email    = Input::get('email');
         $user->auth_level    = Input::get('auth_level');
@@ -75,8 +94,15 @@ class UserController extends Controller
         $user->password = bcrypt(Input::get('password'));
         $user->save();
 
-    
-
 	   return redirect('user')->with('message','Data berhasil di tambhkan!');
-	}
+        }
+        else{
+        	return view('crud.create')
+                ->withErrors($validator)
+                ->withInput(Input::except('password'));
+
+      
+	    
+	   }
+	  }
 }

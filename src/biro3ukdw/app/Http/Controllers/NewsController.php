@@ -83,7 +83,7 @@ class NewsController extends Controller
         
         $errors = array();
         if(!isset($news_name) || $news_name==''){
-            $errors[] = "Nama Beasiswa harus diisi";
+            $errors[] = "Nama News harus diisi";
             
         }
         else{
