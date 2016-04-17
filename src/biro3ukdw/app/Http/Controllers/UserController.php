@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\User;
 use Input;
+use Auth;
+
 
 
 
@@ -20,7 +22,7 @@ class UserController extends Controller
 	public function index()
 	{
 		$user = User::all();
-		return view('user', compact('user'));
+		return view('crud.index', compact('user'));
 	}
 
 
@@ -33,7 +35,7 @@ class UserController extends Controller
 	function create()
 
 	{
-		return view('news.new');
+		return view('crud.create');
 	}
 
 
@@ -63,10 +65,18 @@ class UserController extends Controller
         return view('user.show', compact('user'));
 	}
 
-	function store(CreateUserRequest $request)
+	function store()
 	{
-	    User::create($request->all());
+	    $user = new User;
+        $user->username    = Input::get('username');
+        $user->email    = Input::get('email');
+        $user->auth_level    = Input::get('auth_level');
+        $user->is_aktif  = Input::get('is_aktif');
+        $user->password = bcrypt(Input::get('password'));
+        $user->save();
 
-	    return redirect('user')->with('message', 'Data berhasil ditambahkan!');        	   	
+    
+
+	   return redirect('user')->with('message','Data berhasil di tambhkan!');
 	}
 }

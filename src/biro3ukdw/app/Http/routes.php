@@ -86,9 +86,14 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/beasiswa/delete/{id}','BeasiswaController@delete');
 
         Route::get('/user', "UserController@index");
-        Route::get('/edituser/edit/{id}',"UserController@edit");
-        Route::get('/edituser/update/{id}',['as'=>'edituser_update', 'uses'=>'UserController@update']);
+        Route::get('/cruduser/edit/{id}',"UserController@edit");
+        Route::post('/cruduser/update/{id}',['as'=>'crcuduser_update', 'uses'=>'UserController@update']);
+        Route::get('/cruduser/new',['as'=>'cruduser_new', 'uses'=>'UserController@create']);
+        Route::post('/cruduser',['as'=>'cruduser_new', 'uses'=>'UserController@store']);
         
+
+        
+        Route::post('editprofile/editself','EditProfileController@editself');
 
         Route::get('/editprofile', "EditProfileController@index");
         

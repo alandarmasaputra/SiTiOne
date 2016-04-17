@@ -416,18 +416,8 @@ shortcodes page css
 .tags a.warning{color:#FFF;background-color:#F0AD4E;border-color:#EEA236}
 .tags a.danger{color:#FFF;background-color:#D9534F;border-color:#D43F3A}
 
-/*Ini css untuk Galery*/
-.rows img {
-  filter: gray; /* IE6-9 */
-  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
-    -webkit-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
-    box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
-    margin-bottom:20px;
-}
-
-img:hover {
-  filter: none; /* IE6-9 */
-  -webkit-filter: grayscale(0); /* Google Chrome, Safari 6+ & Opera 15+ */
- 
+/*Untuk gambar jadi responsive*/
+.img-responsive {
+  margin: 0 auto;
+	align-content: center;
 }
