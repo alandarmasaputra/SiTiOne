@@ -53,12 +53,26 @@ class UserController extends Controller
 {
     $user = User::findOrFail($id);
 
-
     $input = array_except(Input::all(), '_method');
+
+    $rules = array(
+        
+        'email' => 'required',
+        
+         );
+    $validator = Validator::make($input, $rules);
+    if($validator->passes()){
 
     $user->update($input);
 
-    return redirect('user');
+    return redirect('user');}
+    else{
+    	return view('crud.edit', compact('user'))
+                ->withErrors($validator);
+                
+                
+
+    }
 }
      
     function show($id)
