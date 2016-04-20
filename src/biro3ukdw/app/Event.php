@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\EventContent;
+use App\Ukm;
 class Event extends Model
 {
     public function content(){
@@ -31,4 +32,18 @@ class Event extends Model
             }
         }*/
     }
+	
+	public function otherEvents(){
+		return Event::where('id','<>',$this->id)->get();
+	}
+	
+	public function sumberlink(){
+		$sumberlink = Ukm::where('name','like',$this->sumber)->first();
+		if($sumberlink){
+			return "/ukm/".$sumberlink->id;
+		}
+		else{
+			return false;
+		}
+	}
 }

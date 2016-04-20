@@ -1,10 +1,10 @@
 @extends('layout.app')
 
 @section('head_title')
-New Event - Biro3 | UKW
+Biro Kemahasiswaan UKDW
 @endsection
 
-@section('nav_beasiswa')
+@section('nav_event')
 active
 @endsection
 

@@ -89,10 +89,6 @@ class EventController extends Controller
             }
             
         }
-        if(!isset($event_kategori) || $event_kategori==''){
-            $errors[] = "Kategori Event harus diisi";
-            
-        }
         if(!isset($event_sumber) || $event_sumber==''){
             $errors[] = "Sumber Event harus diisi";
             
@@ -256,10 +252,6 @@ class EventController extends Controller
             if($newEvent!=null){
                 $errors[] = "Nama Event sudah ada";
             }
-        }
-        if(!isset($event_kategori) || $event_kategori==''){
-            $errors[] = "Kategori Event harus diisi";
-            
         }
         if(!isset($event_sumber) || $event_sumber==''){
             $errors[] = "Sumber Event harus diisi";

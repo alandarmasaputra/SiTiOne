@@ -1,6 +1,9 @@
 @extends('layout.app')
 @section('head_title')
-Create Event - Biro3 | UKDW
+New Event
+@endsection
+@section('nav_event')
+active
 @endsection
 @section('body_content')
 <div class="container-fluid">

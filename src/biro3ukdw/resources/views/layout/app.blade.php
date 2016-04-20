@@ -66,8 +66,8 @@
                     <li><a class="@yield('nav_profil')" href="{{url('/profil')}}">Profil</a></li>
 					<li>
 						<div class="search">
-							<form role="form">
-								<input type="text" class="search-form" autocomplete="off" placeholder="Search">
+							<form method="get" action="{{ url('/search/') }}" role="form">
+								<input name="q" type="text" class="search-form" autocomplete="off" placeholder="Search">
 								<i class="glyphicon glyphicon-search"></i><!-- class="fa fa-search" -->
 							</form>
 						</div>

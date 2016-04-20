@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('head_title')
-Event - Biro3 | UKDW
+Biro Kemahasiswaan UKDW
 @endsection
 
 @section('nav_event')

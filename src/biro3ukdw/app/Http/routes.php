@@ -66,6 +66,7 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/event/new','EventController@create');
 		Route::get('/event/edit/{id}','EventController@edit');
 		Route::post('/event/update/{id}','EventController@update');
+		Route::get('/event/delete/{id}','UkmController@delete');
 		
 		Route::get('/ukm/new',['as'=>'ukm_new', 'uses'=>'UkmController@create']);
 		Route::post('/ukm/new',['as'=>'ukm_new', 'uses'=>'UkmController@submit_new']);
@@ -91,6 +92,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/cruduser/new',['as'=>'cruduser_new', 'uses'=>'UserController@create']);
         Route::post('/cruduser',['as'=>'cruduser_new', 'uses'=>'UserController@store']);
         
+		Route::get('/search','SearchController@search');
 
         
         Route::post('editprofile/editself','EditProfileController@editself');
