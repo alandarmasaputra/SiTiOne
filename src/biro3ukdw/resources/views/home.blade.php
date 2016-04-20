@@ -118,7 +118,9 @@ active
 				<span class="sr-only">Next</span>
 			</a>
 		</div>
-		<div class="row card">
+		<div class="row home-white-preview" style="margin-top:0; margin-bottom:0">
+			<div class="row">
+			</div>
 			<div class="col-sm-7">
 				<h2>
 					Beasiswa
@@ -170,7 +172,108 @@ active
 					Berita dan Event terkini
 					<hr>
 				</h2>
+				<?php
+				$i = 0;
+				$n = 0;
+				$e = 0;
+				$ei = 0;
+				$ni = 0;
+				$e_n;
+				$link;
+				
+				$e_ava = true;
+				$n_ava = true;
+				?>
+				@while(true)
+				<?php
+				if($e_ava == true && count($events)<=$ei){
+					$e_ava = false;
+				}
+				if($n_ava == true && count($newss)<=$ni){
+					$n_ava = false;
+				}
+				
+				if(!$e_ava && !$n_ava){
+					break;
+				}
+				else if(!$e_ava){
+					$e_n = $newss[$ni];
+					$link = 'news';
+					$ni++;
+				}
+				else if(!$n_ava){
+					$e_n = $events[$ei];
+					$link = 'event';
+					$ei++;
+				}
+				else{
+					if($events[$ei]->created_at>$newss[$ni]->created_at){
+						$e_n = $events[$ei];
+						$link = 'event';
+						$ei++;
+					}
+					else{
+						$e_n = $newss[$ni];
+						$link = 'news';
+						$ni++;
+					}
+				}
+				?>
+				<div class="e-n-home-preview">
+					<h2><a href="{{ url($link."/"."$e_n->id") }}">{{$e_n->name}}</a></h2>
+					<small>{{(new Carbon($e_n->created_at))->format('l, d F Y')}}</small>
+				</div>
+				<?php
+					$i++;
+					if($i>6){
+						break;
+					}
+				?>
+				@endwhile
 			</div>
+		</div>
+		<div class="row ukm-home-preview" style="margin-top:0px;">
+			<h2>
+				Ukm
+				<hr>
+			</h2>
+			@if(count($ukms)>0)
+			<div class="ukm-container">
+				@foreach($ukms as $ukm)
+				<div class="ukm-item"
+					<?php if($ukm->header_pic){ ?>
+					style="background-image: url('{{ AppUtility::get_image_data($ukm->header_pic)}}')"
+					<?php } ?>>
+					<a href="{{ url('/ukm/'.$ukm->id) }}">
+						<div class="ukm-item-facade">
+							<div class="ukm-preview-title">
+									{{$ukm->name}}
+							</div>
+							<div class="ukm-preview-content">
+								@foreach($ukm->content as $content)
+									@if($content->type=='s')
+									<div>
+										{!!$content->content!!}
+									</div>
+										<?php break; ?>
+									@endif
+								@endforeach
+							</div>
+						</div>
+					</a>
+				</div>
+				@endforeach
+				<div class="ukm-item">
+					<a href="{{ url('/ukm') }}">
+						<div class="ukm-item-facade" style="justify-content: center;">
+							<h4>
+								<span class="glyphicon glyphicon-menu-right"></span>Selengkapnya
+							</h4>
+						</div>
+					</a>
+				</div>
+			</div>
+			@endif
 		</div>
 	</div>
 </div>

@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\UkmContent;
+use App\Event;
 
 class Ukm extends Model
 {
@@ -31,4 +32,9 @@ class Ukm extends Model
 		
 		return $imagescontent;
     }
+	
+	public function events(){
+		return Event::where('sumber','like','%'.$this->name.'%')
+			->get();
+	}
 }

@@ -31,10 +31,12 @@ active
 		</div>
 	</div>
 	<div class="row">
-		<div class="event-container event-timeline">
+		<div class="event-container event-timeline glass">
 			<div class="event-timeline-block">
 				<div class="event-timeline-img">
-					<img src="{{ asset('style/images/eventmark/cd-icon-location.svg') }}">
+					<div>
+						<span class="glyphicon glyphicon-plus"></span>
+					</div>
 				</div>
 				<div class="event-timeline-content">
 					<a href="{{url('/event/new')}}">
@@ -54,8 +56,17 @@ active
 			</div>
 			@foreach($events as $event)
 			<div class="event-timeline-block">
-				<div class="event-timeline-img">
-					<img src="{{ asset('style/images/eventmark/cd-icon-location.svg') }}">
+				<div class="event-timeline-img text-center">
+					<div>
+						<?php $nowDate = new Carbon($event->created_at)?>
+						<div class="text-left">
+							{{$nowDate->format('M')}}
+						</div>
+						<div class="text-left">
+							{{$nowDate->format('d')}}
+						</div>
+					</div>
+					<!--<img src="{{ asset('style/images/eventmark/cd-icon-location.svg') }}"> -->
 				</div>
 				<div class="event-timeline-content">
 					@if($event->header_pic)
@@ -72,7 +83,9 @@ active
 						</div>
 						@if($event->event_date)
 						<div class="event-timeline-date">
-							{{(new Carbon($event->event_date))->format('l, d F Y')}}
+							<strong>
+							Tanggal Event: {{(new Carbon($event->event_date))->format('l, d F Y')}}
+							</strong>
 						</div>
 						@endif
 						<div class="event-detail-content">
@@ -83,6 +96,21 @@ active
 								</div>
 									<?php break; ?>
 								@endif
+							@endforeach
+						</div>
+						<hr>
+						<div>
+							<?php
+							$tags = trim($event->kategori);
+							$tags = explode(' ',$tags);
+							?>
+							Tags:
+							@foreach($tags as $tag)
+							<span class="tag-list-item">
+								<a href="{{ url('search?q='.$tag) }}">
+									{{$tag}}
+								</a>
+							</span>
 							@endforeach
 						</div>
 					</div>

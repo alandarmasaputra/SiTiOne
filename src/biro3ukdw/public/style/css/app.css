@@ -222,7 +222,8 @@ body{
 }
 
 .glass{
-	background: rgba(255,255,255,0.4);
+	border: 3px solid rgba(255,255,255,0.4);
+	background: rgba(0,0,0,0.3);
 	margin-top: 15px;
 	padding-top: 20px;
 	padding-bottom: 20px;
@@ -551,6 +552,10 @@ header .container-fluid{
 	margin-bottom: 5px;
 }
 
+.home .beasiswa-home-preview div{
+	background: white;
+}
+
 .home .beasiswa-home-preview .picture{
 	float: left;
 	margin-bottom: 5px;
@@ -576,6 +581,22 @@ header .container-fluid{
 .home .beasiswa-home-preview .title a{
 	font-variant: normal;
 	cursor: pointer;
+}
+
+.home-white-preview{
+	background: rgba(255,255,255,0.9);
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 0;
+	padding-right: 0;
+	box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+.e-n-home-preview{
+	margin: 5px 0;
+	background: white;
+	padding: 5px 5px;
+	box-shadow: 1px 1px 2px rgba(124,124,124,0.2);
 }
 
 img.carousel-logo{
@@ -826,11 +847,34 @@ input[type="text"]{
     width: 100%;
 }
 
+.ukm-home-preview{
+	background: rgba(0,0,0,0.7);
+}
+
+.ukm-home-preview>h2{
+	padding-left: 15px;
+	padding-right: 15px;
+	color: white;
+}
+
+.ukm-home-preview .ukm-preview-title{
+	font-size: 1.5em;
+}
+
+.ukm-home-preview>h2 hr{
+	border-bottom: 1px solid rgba(255,255,255,0.5); 
+	border-top: 0;
+}
+
+.ukm-home-preview .ukm-item{
+	min-height: 250px;
+	max-height: 250px;
+}
 
 .ukm-container{
 	display: flex;
 	flex-flow: row wrap;
-	justify-content: center;
+	justify-content: flex-start;
 }
 
 .ukm-cover{
@@ -886,8 +930,7 @@ input[type="text"]{
 
 .ukm-description{
 	background: white;
-	padding: 20px 5%;
-	min-height: 200px;
+	padding: 50px 5% 40px 5%;
 }
 
 .ukm-description *{
@@ -950,7 +993,7 @@ input[type="text"]{
 .beasiswa-container{
 	display: flex;
 	flex-flow: row wrap;
-	justify-content: center;
+	justify-content: flex-start;
 	align-content: center;
 	padding-left: 5%;
 	padding-right: 5%;
@@ -1151,7 +1194,6 @@ input[type="text"]{
 }
 
 .event-container{
-	background: rgba(255,255,255,0.2);
 	box-shadow: 0 3px 10px rgba(0,0,0,0.3);
 	/*max-width: 1170px;*/
 	margin: 0 auto;
@@ -1165,7 +1207,7 @@ input[type="text"]{
 
 .event-timeline {
 	position: relative;
-	padding: 20px 10px;
+	padding: 60px 10px;
 }
 
 .event-timeline::before {
@@ -1225,9 +1267,31 @@ input[type="text"]{
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
-	box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
-	background: rgba(0,0,0,0.4);
+	box-shadow: 0 0 0 2px rgba(255,255,255,0.8), inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+	/*background: rgba(0,0,0,0.4);*/
+	background-image: url('../images/background/bodybackgroundbw.jpg');
+	background-color: rgba(0,0,0,0.5);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-blend-mode: darken;
+	flex-flow: column;
+	justify-content: space-around;
+	align-items: center;
+	align-content: center;
+	display: flex;
 }
+
+.event-timeline-img>div {
+	display: inline;
+	color: white;
+	font-weight: bold;
+}
+
+.event-timeline-img>div>div:nth-child(2) {
+	font-size: 1.5em;
+}
+
 .event-timeline-img img {
   display: block;
   width: 24px;
@@ -1328,6 +1392,11 @@ input[type="text"]{
 
 .event-tambah{
 	padding: 10px 0;
+	transition: box-shadow 0.3s ease;
+}
+
+.event-tambah:hover{
+	box-shadow: 0 1px 3px rgba(124,124,124,0.3);
 }
 
 .event-timeline-pic{
@@ -1338,8 +1407,8 @@ input[type="text"]{
 }
 
 .event-timeline-sumber{
-	font-size: 0.7em;
-	color: darkgray;
+	font-size: 0.8em;
+	color: dimgray;
 }
 
 .event-timeline-text{
@@ -1354,8 +1423,8 @@ input[type="text"]{
 }
 
 .event-timeline-date{
-	color: darkgray;
-	font-size: 0.9em;
+	color: dimgray;
+	font-size: 1em;
 }
 
 .event-timeline-content {
