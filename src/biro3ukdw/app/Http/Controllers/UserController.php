@@ -49,8 +49,9 @@ class UserController extends Controller
         return redirect('user')->with('message', 'Data berhasil dihapus!');
 	}
 
+
 	public function update($id, Request $request)
-{
+    {
     $user = User::findOrFail($id);
 
     $input = array_except(Input::all(), '_method');
@@ -73,9 +74,10 @@ class UserController extends Controller
                 
 
     }
-}
+    }
 
 
+    //buat update reset password
     public function updatess($id, Request $request)
     {
     $user = User::findOrFail($id);
@@ -103,13 +105,15 @@ class UserController extends Controller
 
     }
     }
-
+   
+    
     function resets($id)
     {
         $user = User::find($id);
 
         return view('crud.reset', compact('user'));
     }
+
      
     function show($id)
 	{
@@ -117,6 +121,7 @@ class UserController extends Controller
 
         return view('user.show', compact('user'));
 	}
+
 
 	function store()
 

@@ -33,7 +33,7 @@ $addition = $user->addition();
 </div>
 
 
-{!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}
+{!! Form::submit('Reset Password', ['class' => 'btn btn-primary']) !!}
 
 {!! Form::close() !!}
  
