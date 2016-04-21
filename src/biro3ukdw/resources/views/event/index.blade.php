@@ -106,11 +106,13 @@ active
 							?>
 							Tags:
 							@foreach($tags as $tag)
+							@if($tag!='')
 							<span class="tag-list-item">
 								<a href="{{ url('search?q='.$tag) }}">
 									{{$tag}}
 								</a>
 							</span>
+							@endif
 							@endforeach
 						</div>
 					</div>

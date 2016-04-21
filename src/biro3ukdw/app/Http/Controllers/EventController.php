@@ -19,7 +19,7 @@ use Auth;
 class EventController extends Controller
 {
     public function index(){
-        $events = Event::get();
+        $events = Event::orderBy('created_at','desc')->get();
         return view('event.index',[
             'events'=>$events
         ]);
@@ -402,7 +402,24 @@ class EventController extends Controller
         
         // Testing Materials
         /*
-            echo "<pre>".json_encode($input,JSON_PRETTY_PRINT)."</pre>";
+            echo "<pre>".json_encode($input,JSON_PR
+		$errors = array();
+		$deleteUkm = Ukm::find($id);
+		
+		if(!$deleteUkm){
+			$errors[] = "Ukm tidak ditemukan";
+			return redirect(url('/ukm'))->withErrors($errors);
+		}
+		
+		$oldImages = $deleteUkm->clear();
+		$deletables = array();
+		foreach($oldImages as $oldImage){
+			$deletables[$oldImage->content] = false;
+		}
+		AppUtility::unlink_deletables($deletables);
+		Ukm::destroy($id);
+		
+		return redirect(url('/ukm'))->with('successMessage','Ukm berhasil di hapus');ETTY_PRINT)."</pre>";
             echo "<pre>";
             print_r($input);
             echo "</pre>";
@@ -413,4 +430,24 @@ class EventController extends Controller
         $request->session()->flash('successMessage',$successMessage);
         return redirect(url('/event/edit/'.$id))->withErrors($errors)->with('successMessage',$successMessage);
     }
+	
+	public function delete($id){
+		$errors = array();
+		$deleteEvent = Event::find($id);
+		
+		if(!$deleteEvent){
+			$errors[] = "Event tidak ditemukan";
+			return redirect(url('/event'))->withErrors($errors);
+		}
+		
+		$oldImages = $deleteEvent->clear();
+		$deletables = array();
+		foreach($oldImages as $oldImage){
+			$deletables[$oldImage->content] = false;
+		}
+		AppUtility::unlink_deletables($deletables);
+		Event::destroy($id);
+		
+		return redirect(url('/event'))->with('successMessage','Event berhasil di hapus');
+	}
 }

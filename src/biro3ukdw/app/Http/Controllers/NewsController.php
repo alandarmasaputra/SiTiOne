@@ -22,7 +22,7 @@ class NewsController extends Controller
     public function index(){
       //print news
 
-     $news= News::all();
+     $news= News::orderBy('created_at','desc')->get();
         return view('news.index',[
             'news'=> $news
         ]);
