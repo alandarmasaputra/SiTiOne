@@ -88,10 +88,11 @@ Route::group(['middleware' => ['web']], function () {
 
         Route::get('/user', "UserController@index");
         Route::get('/cruduser/edit/{id}',"UserController@edit");
-        Route::post('/cruduser/update/{id}',['as'=>'crcuduser_update', 'uses'=>'UserController@update']);
+        Route::post('/cruduser/update/{id}',['as'=>'cruduser_update', 'uses'=>'UserController@update']);
         Route::get('/cruduser/new',['as'=>'cruduser_new', 'uses'=>'UserController@create']);
         Route::post('/cruduser',['as'=>'cruduser_new', 'uses'=>'UserController@store']);
-        
+        Route::get('/cruduser/resets/{id}',"UserController@resets");
+        Route::post('/cruduser/updates/{id}','UserController@updatess');
 		Route::get('/search','SearchController@search');
 
         
