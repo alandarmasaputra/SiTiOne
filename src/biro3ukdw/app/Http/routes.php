@@ -66,7 +66,7 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/event/new','EventController@create');
 		Route::get('/event/edit/{id}','EventController@edit');
 		Route::post('/event/update/{id}','EventController@update');
-		Route::get('/event/delete/{id}','UkmController@delete');
+		Route::get('/event/delete/{id}','EventController@delete');
 		
 		Route::get('/ukm/new',['as'=>'ukm_new', 'uses'=>'UkmController@create']);
 		Route::post('/ukm/new',['as'=>'ukm_new', 'uses'=>'UkmController@submit_new']);

@@ -18,7 +18,7 @@ use Carbon\Carbon;
 class BeasiswaController extends Controller
 {
     public function index(){
-        $beasiswas = Beasiswa::all();
+        $beasiswas = Beasiswa::orderBy('created_at','desc')->get();
         return view('beasiswa.index',[
             'beasiswas'=> $beasiswas
         ]);
