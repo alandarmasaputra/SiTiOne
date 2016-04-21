@@ -49,8 +49,9 @@ class UserController extends Controller
         return redirect('user')->with('message', 'Data berhasil dihapus!');
 	}
 
+
 	public function update($id, Request $request)
-{
+    {
     $user = User::findOrFail($id);
 
     $input = array_except(Input::all(), '_method');
@@ -73,7 +74,46 @@ class UserController extends Controller
                 
 
     }
-}
+    }
+
+
+    //buat update reset password
+    public function updatess($id, Request $request)
+    {
+    $user = User::findOrFail($id);
+
+    $input = array_except(Input::all(), '_method');
+
+    $rules = array(
+        
+        'password' => 'required|min:6',
+        'password_confirmation' => 'required|min:6|same:password'
+         );
+    $validator = Validator::make($input, $rules);
+    if($validator->passes()){
+
+     $user->password = bcrypt(Input::get('password'));
+     $user->save();
+
+    return redirect('user')->with('message','Password berhasil di reset!');
+    }
+    else{
+        return view('crud.reset', compact('user'))
+                ->withErrors($validator);
+                
+                
+
+    }
+    }
+   
+    
+    function resets($id)
+    {
+        $user = User::find($id);
+
+        return view('crud.reset', compact('user'));
+    }
+
      
     function show($id)
 	{
@@ -81,6 +121,7 @@ class UserController extends Controller
 
         return view('user.show', compact('user'));
 	}
+
 
 	function store()
 

@@ -67,7 +67,7 @@ active
 							Event Terkini
 						</div>
 						<div class="title">
-							<a href="{{ url('news/'.$carousel['ukm']->id) }}" style="font-size:1em; font-variant: normal">
+							<a href="{{ url('news/'.$carousel['news']->id) }}" style="font-size:1em; font-variant: normal">
 								{{ $carousel['news']->name }}
 							</a>
 						</div>
