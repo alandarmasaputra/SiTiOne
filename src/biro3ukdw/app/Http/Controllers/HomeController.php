@@ -128,11 +128,11 @@ class HomeController extends Controller
 	}
 	
 	public function profil(){
-		return view('profil');
+		return view('profil.profil');
 	}
 	
 	public function profiledit(){
-		return view('profil');
+		return view('profil.edit');
 	}
 	
 	public function profilupdate(){
