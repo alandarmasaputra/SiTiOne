@@ -134,10 +134,9 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/beasiswa/','BeasiswaController@index');  
 	Route::get('/beasiswa/{id}','BeasiswaController@detail'); 
 
-    Route::get('/profil',function()
-    {
-		return view('profil');
-	});
+    Route::post('/profil/edit','HomeController@profilupdate');
+    Route::get('/profil/edit','HomeController@profiledit');
+    Route::get('/profil','HomeController@profil');
 
 
 });

@@ -126,4 +126,16 @@ class HomeController extends Controller
 		$successMessage = "Telah berhasil logout";
 		return redirect('/')->with('successMessage',$successMessage);
 	}
+	
+	public function profil(){
+		return view('profil');
+	}
+	
+	public function profiledit(){
+		return view('profil');
+	}
+	
+	public function profilupdate(){
+		return view('profil');
+	}
 }
