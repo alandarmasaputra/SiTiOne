@@ -51,7 +51,7 @@ active
 							Ambil Beasiswa Terbaru
 						</div>
 						<div class="title">
-							<a href="{{ url('beasiswa/'.$carousel['ukm']->id) }}" style="font-size:1em; font-variant: normal">
+							<a href="{{ url('beasiswa/'.$carousel['beasiswa']->id) }}" style="font-size:1em; font-variant: normal">
 								{{ $carousel['beasiswa']->name }}
 							</a>
 						</div>
