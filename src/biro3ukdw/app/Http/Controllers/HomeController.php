@@ -132,10 +132,26 @@ class HomeController extends Controller
 	}
 	
 	public function profiledit(){
-		return view('profil.edit');
+		return view('profil.profiledit');
 	}
 	
-	public function profilupdate(){
+	public function profilupdate(Request $request){
+		$data = json_decode($request->data);
+		$contents = $data->content;
+		$content_id = 0;
+		$strlen = strlen( $content );
+		ProfileContent::where('section_name', $this->section_name)->delete();
+		for( $i = 0; $i <= $strlen; $i+=255 ) {
+			$newProfileContent = new ProfileContent();
+			$newProfileContent->section_name = $section_name;
+    		$content = substr( $contents, $i, 255);
+                if($newProfileContent->content){
+                    $newProfileContent->save();
+                }
+            $content_id++;
+    	
+		}
+        
 		return view('profil');
 	}
 }
