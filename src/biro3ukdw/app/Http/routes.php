@@ -97,8 +97,10 @@ Route::group(['middleware' => ['web']], function () {
 
         
         Route::post('editprofile/editself','EditProfileController@editself');
-
         Route::get('/editprofile', "EditProfileController@index");
+
+		Route::post('/profil/edit','HomeController@profilupdate');
+		Route::get('/profil/edit','HomeController@profiledit');
         
 
         Route::resource('user', 'UserController');
@@ -133,9 +135,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('/beasiswa/list','BeasiswaController@getList');
 	Route::get('/beasiswa/','BeasiswaController@index');  
 	Route::get('/beasiswa/{id}','BeasiswaController@detail'); 
-
-    Route::post('/profil/edit','HomeController@profilupdate');
-    Route::get('/profil/edit','HomeController@profiledit');
+	
     Route::get('/profil','HomeController@profil');
 
 
