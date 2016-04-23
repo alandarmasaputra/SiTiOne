@@ -56,7 +56,7 @@ active
 				@-webkit-keyframes fadein {
 					from { opacity: 0; }
 					to   { opacity: 1; }
-				}
+				}​
 
 				/* Internet Explorer */
 				@-ms-keyframes fadein {

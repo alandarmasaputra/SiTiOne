@@ -7,6 +7,10 @@ Biro Kemahasiswaan UKDW
 active
 @endsection
 
+@section('head_addition')
+<script src="{{ url('/utility/searchbuff/searchbuff.js') }}"></script>
+@endsection
+
 <?php
     use App\AppUtility;
 	use Carbon\Carbon;

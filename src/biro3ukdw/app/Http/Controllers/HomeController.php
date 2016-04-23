@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\AppUtility;
+use App\ProfileContent;
 use Illuminate\Http\Request;
 use App\News;
 use App\Beasiswa;
@@ -132,7 +133,16 @@ class HomeController extends Controller
 	}
 	
 	public function profiledit(){
-		return view('profil.profiledit');
+		$section_top = ProfileContent::where('section_name','section-top')->get();
+		$section_middle = ProfileContent::where('section_name','section-middle')->get();
+		$section_side = ProfileContent::where('section_name','section-side')->get();
+		$section_avatar = ProfileContent::where('section_name','section_avatar')->get();
+		return view('profil.edit',[
+			'section_top' => $section_top,
+			'section_middle' => $section_middle,
+			'section_side' => $section_side,
+			'section_avatar' => $section_avatar
+		]);
 	}
 	
 	public function profilupdate(Request $request){

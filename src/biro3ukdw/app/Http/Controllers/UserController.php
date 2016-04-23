@@ -21,16 +21,31 @@ class UserController extends Controller
 	function loginpage(){
 		
 	}
-
+	
 	public function index()
 	{
-		$user = User::all();
+		if(Auth::user()->auth_level>1){
+			$errors = array();
+			$errors[] = "Anda tidak berhak mengakses halaman berikut.";
+			return redirect('/')->withErrors($errors);
+		}
+		$user = User::where('auth_level','>','0')->where('id','<>',Auth::user()->id)->get();
 		return view('crud.index', compact('user'));
 	}
 
 
 	function edit($id)
 	{
+		if(Auth::user()->auth_level>1){
+			$errors = array();
+			$errors[] = "Anda tidak berhak mengakses halaman berikut.";
+			return redirect('/')->withErrors($errors);
+		}
+		if($id == Auth::user()->id){
+			$errors = array();
+			$errors[] = "Anda tidak berhak mengakses halaman berikut.";
+			return redirect('/')->withErrors($errors);
+		}
 		$user = User::find($id);
 		return view('crud.edit', compact('user'));
 	}
@@ -52,58 +67,53 @@ class UserController extends Controller
 
 	public function update($id, Request $request)
     {
-    $user = User::findOrFail($id);
+		$user = User::findOrFail($id);
 
-    $input = array_except(Input::all(), '_method');
+		$input = array_except(Input::all(), '_method');
 
-    $rules = array(
-        
-        'email' => 'required',
-        
-         );
-    $validator = Validator::make($input, $rules);
-    if($validator->passes()){
+		$rules = array(
 
-    $user->update($input);
+		'email' => 'required',
 
-    return redirect('user');}
-    else{
-    	return view('crud.edit', compact('user'))
-                ->withErrors($validator);
-                
-                
+		 );
+		$validator = Validator::make($input, $rules);
+		if($validator->passes()){
 
-    }
+			$user->update($input);
+
+			return redirect('user');
+		}
+		else{
+			return view('crud.edit', compact('user'))
+					->withErrors($validator);
+		}
     }
 
 
     //buat update reset password
     public function updatess($id, Request $request)
     {
-    $user = User::findOrFail($id);
+		$user = User::findOrFail($id);
 
-    $input = array_except(Input::all(), '_method');
+		$input = array_except(Input::all(), '_method');
 
-    $rules = array(
-        
-        'password' => 'required|min:6',
-        'password_confirmation' => 'required|min:6|same:password'
-         );
-    $validator = Validator::make($input, $rules);
-    if($validator->passes()){
+		$rules = array(
 
-     $user->password = bcrypt(Input::get('password'));
-     $user->save();
+			'password' => 'required|min:6',
+			'password_confirmation' => 'required|min:6|same:password'
+			 );
+		$validator = Validator::make($input, $rules);
+		if($validator->passes()){
 
-    return redirect('user')->with('message','Password berhasil di reset!');
-    }
-    else{
-        return view('crud.reset', compact('user'))
-                ->withErrors($validator);
-                
-                
+			$user->password = bcrypt(Input::get('password'));
+			$user->save();
 
-    }
+			return redirect('user')->with('message','Password berhasil di reset!');
+		}
+		else{
+			return view('crud.reset', compact('user'))
+					->withErrors($validator);
+		}
     }
    
     

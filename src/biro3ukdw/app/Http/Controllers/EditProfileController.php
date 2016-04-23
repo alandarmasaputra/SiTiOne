@@ -8,6 +8,7 @@ use App\Http\Requests;
 use Auth;
 use App\UserAddition;
 use App\AppUtility;
+use Intervention\Image\Facades\Image as Intervention;
 
 
 
@@ -37,7 +38,41 @@ class EditProfileController extends Controller
         $newUser = Auth::user();
         $newUserAddition = new UserAddition();
 		$newUserAddition->user_id = $newUser->id;
-         
+                 
+        //check if header picture exist
+        if($request->hasFile('foto')){
+            try{
+                $file = $request->file('foto');
+
+                //make image
+                $image = Intervention::make($file);
+
+                //make filename
+                $extension = AppUtility::image_mime_to_extension($image->mime()); 
+                $filename = 'dp_';
+                $filename .= AppUtility::get_random_name('');
+                $filename .= $extension;
+
+                //compress image
+                $image = AppUtility::compress_image($image);
+				$deletables[$newUserAddition->display_pic] = false;
+				$deletables[$filename] = true;
+                //Save Image filename
+                $newUserAddition->display_pic = $filename;
+
+                //Save Image
+                AppUtility::save_image($filename,$image);
+            }catch(\Exception $e){
+                $errors[] = "Terjadi kesalahan saat mengupload gambar.";
+            }
+        }
+		else{
+			if(isset($input['foto-old']) && trim($input['foto-old'])!=''){
+				$filename = $input['foto-old'];
+				$newUserAddition->display_pic = $filename;
+				$deletables[$filename] = true;
+			}
+		}
         $newUser->email = $user_email;
         $newUserAddition->jabatan = $user_jabatan;
         $newUserAddition->phone = $user_phone;
