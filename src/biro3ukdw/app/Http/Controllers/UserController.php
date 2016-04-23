@@ -72,6 +72,7 @@ class UserController extends Controller
 		$input = array_except(Input::all(), '_method');
 
 		$rules = array(
+		'username' => 'required|unique:users,username',
 
 		'email' => 'required',
 
@@ -140,7 +141,7 @@ class UserController extends Controller
 		$data = Input::all();
 
          $rules = array(
-        
+        'username' => 'required|unique:users,username',
         'email' => 'required',
         'password' => 'required|min:6',
         'password_confirmation' => 'required|min:6|same:password'
@@ -159,7 +160,7 @@ class UserController extends Controller
         $user->password = bcrypt(Input::get('password'));
         $user->save();
 
-	   return redirect('user')->with('message','Data berhasil di tambhkan!');
+	   return redirect('user')->with('message','Data berhasil di tambahkan!');
         }
         else{
         	return view('crud.create')
