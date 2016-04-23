@@ -118,6 +118,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('user','UserController');
 	Route::get('/user', "UserController@index");
 
+	Route::post('/event/list','EventController@getList');
     Route::get('/event/','EventController@index');  
     Route::get('/event/{id}','EventController@detail'); 
 	

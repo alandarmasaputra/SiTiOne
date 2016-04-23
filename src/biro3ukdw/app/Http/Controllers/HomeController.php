@@ -146,22 +146,31 @@ class HomeController extends Controller
 	}
 	
 	public function profilupdate(Request $request){
-		$data = json_decode($request->data);
-		$contents = $data->content;
-		$content_id = 0;
-		$strlen = strlen( $content );
-		ProfileContent::where('section_name', $this->section_name)->delete();
-		for( $i = 0; $i <= $strlen; $i+=255 ) {
-			$newProfileContent = new ProfileContent();
-			$newProfileContent->section_name = $section_name;
-    		$content = substr( $contents, $i, 255);
-                if($newProfileContent->content){
-                    $newProfileContent->save();
-                }
-            $content_id++;
-    	
+		$ret = array();
+		$ret['status'] = 0;
+		try{
+			$ret['a'] = 1;
+			$data = json_decode($request->data);
+			$ret['b'] = 1;
+			$contents = $data->content;
+			$section_name = $data->section_name;
+			$strlen = strlen($contents);
+			ProfileContent::where('section_name', $section_name)->delete();
+			$ret['c'] = 1;
+			for( $i = 0; $i <= $strlen; $i+=255 ) {
+				$content = substr( $contents, $i, 255);
+				$newProfileContent = new ProfileContent();
+				$newProfileContent->section_name = $section_name;
+				$newProfileContent->content = $content;
+				$ret[] = $content;
+				if($newProfileContent->content){
+					$newProfileContent->save();
+				}
+			}
+			$ret['status'] = 1;
+		}catch(\Exception $e){
+			$ret['message'] = $e->getMessage();
 		}
-        
-		return view('profil');
+		echo json_encode($ret);
 	}
 }

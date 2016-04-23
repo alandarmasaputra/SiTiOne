@@ -62,11 +62,9 @@ use Carbon\Carbon;
                                         <label>Kategori: </label>
                                         <div>
                                             <div>
-                                                <input type="radio" name="kategori-utama" value="internal" required<?php if($news->isInternal()){ echo " checked"; } ?>><label>Internal</label>
+                                                <input type="radio" name="kategori-utama" value="internal" <?php if($news->isInternal()){ echo " checked"; } ?>><label>Internal</label>
                                             </div>
-                                            <div>
-                                                <input type="radio" name="kategori-utama" value="external" required<?php if($news->isExternal()){ echo " checked"; } ?>><label>External</label>
-                                            </div>
+                                            
                                         </div>
                                     </div>
 
