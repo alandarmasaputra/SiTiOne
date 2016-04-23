@@ -35,6 +35,22 @@ class EventController extends Controller
     	return view('event.new');
     	 	
     }
+	
+	function getList(Request $request){
+		
+		try{
+			$events = Event::where('name','like','%'.$request->all()['query'].'%')
+				->orderBy('id','desc')
+				->get();
+			return view('event.list',[
+				'events'=>$events
+			]);
+		}
+		catch(\Exception $e){
+			echo $e;
+		}
+	}
+	
     public function edit($id){
         $event = Event::where('id',$id)->first();
         if($event==null){
