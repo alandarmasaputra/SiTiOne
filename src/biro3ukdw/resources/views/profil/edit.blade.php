@@ -11,7 +11,6 @@ active
 
 @section('head_addition')
 <!--script src="readmore.js"></script-->
-<script src="{{ url('') }}"></script>
 <script src="{{ url('utility/summernote/summernote.js') }}"></script>
 <link rel='stylesheet' href="{{ url('utility/summernote/summernote.css') }}">
         
@@ -86,7 +85,7 @@ active
 				<div class="col-xs-12 col-sm-12 avatar-container">
 				</div>
 				<div class="col-xs-12 col-sm-12 text-right">
-					<button type="button" class="section-submit button-submit">Save</button>
+					<button type="button" class="button-submit">Save</button>
 				</div>
 			</div>
 		</div>
@@ -141,9 +140,18 @@ active
 	<a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
 </section>
 
+<div class='hidden' id='repo'>
+	<div class='submitUrl'>
+		{{ url('/profil/edit') }}
+	</div>
+</div>
+
+<script src="{{ url('utility/searchbuff/preparetoken.js') }}"></script>
 <script>
 	var staffs = [];
+	var submitUrl;
 	$(document).ready(function(){
+		submitUrl = $('#repo>.submitUrl').html().trim();
 		$('textarea.summernote').each(function(){
 			var thisElement = $(this)
 			var thisId = $(this).attr('id')
@@ -192,7 +200,39 @@ active
 		});
 		
 		$('button.section-submit').click(function(){
+			var textarea = $(this).parents('.editor-parent').find('.summernote')
+			var data = {
+				'section_name' : textarea.attr('id'),
+				'content' : textarea.summernote('code')
+			}
+			console.log(textarea.summernote('code'))
+			
+			
 			$.ajax({
+				url: submitUrl,
+				method: 'post',
+				data: {'data':JSON.stringify(data)},
+				success : function(data){
+					console.log(data)
+					data = JSON.parse(data)
+					if(data['status']==1){
+						$('.notification-bar').html('<div><span class="label">Success</span>Berhasil mengupdate '+textarea.attr('id')+' </div>')
+					}
+					else{
+						$('.notification-bar').html('<div><span class="label">Alert</span>Terjadi kesalahan pada sistem</div>')
+					}
+				},
+				error : function(error){
+					console.log(error)
+					$('.notification-bar').html(error.responseText)
+					//$('.notification-bar').html('<div><span class="label">Alert</span>Terjadi kesalahan pada sistem</div>')
+					/*
+						<div>
+							<span class="label">Alert</span>
+						</div>
+					*/
+				}
+				
 			})
 		})
 	})
