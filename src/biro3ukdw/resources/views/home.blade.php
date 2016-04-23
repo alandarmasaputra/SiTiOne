@@ -64,7 +64,7 @@ active
 				<div class="item" style="background-image: url('{{ AppUtility::get_image_data($carousel['news']->header_pic) }}')">
 					<div class="facade">
 						<div class="pre-title">
-							Event Terkini
+							Berita Terbaru
 						</div>
 						<div class="title">
 							<a href="{{ url('news/'.$carousel['news']->id) }}" style="font-size:1em; font-variant: normal">
