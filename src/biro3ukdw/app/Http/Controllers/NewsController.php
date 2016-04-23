@@ -95,11 +95,12 @@ class NewsController extends Controller
             
         }
         if(!isset($kategori_utama) || $kategori_utama==''){
-            $errors[] = "Kategori internal/external harus diisi";
+            $news_kategori = trim($input['kategori-tambahan']);
         }
+        else{
         
         $news_kategori = trim($kategori_utama." ".trim($input['kategori-tambahan']));
-        
+        }
         //Kalau error redirect kembali
         if(count($errors)>0){
             return back()->withErrors($errors);
@@ -235,11 +236,13 @@ class NewsController extends Controller
             
         }
         
-        if(!isset($kategori_utama) || $kategori_utama==''){
-            $errors[] = "Kategori internal/external harus diisi";
+         if(!isset($kategori_utama) || $kategori_utama==''){
+            $news_kategori = trim($input['kategori-tambahan']);
         }
+        else{
         
         $news_kategori = trim($kategori_utama." ".trim($input['kategori-tambahan']));
+        }
         
         //Kalau error redirect kembali
         if(count($errors)>0){

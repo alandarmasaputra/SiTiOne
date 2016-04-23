@@ -17,13 +17,10 @@ class News extends Model
         return strpos($this->kategori,'internal')!==false;
     }
     
-    public function isExternal(){
-        return strpos($this->kategori,'internal')===false;
-    }
 
 
     public function tags(){
-        return trim(str_replace('external','',str_replace('internal','',$this->kategori)));
+        return trim(str_replace('internal','',$this->kategori));
     }
     
     public function clear(){
