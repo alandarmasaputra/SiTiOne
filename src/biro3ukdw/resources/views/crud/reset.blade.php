@@ -12,9 +12,15 @@ active
 use App\AppUtility;
 $addition = $user->addition();
 ?>
-<div class="card">
+<div class=" container card">
+	<div class="row">
+        <div class="col-md-10 col-md-offset-1">
  <h1>Data User</h1> <hr>
+ </div></div>
 
+ <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <table class="table table-bordered">
 
   {!! Form::open(array('action' => array('UserController@updatess', $user->id))) !!}
 
@@ -37,7 +43,7 @@ $addition = $user->addition();
 
 {!! Form::close() !!}
  
-
+</table></div></div>
 
         @stop
             
