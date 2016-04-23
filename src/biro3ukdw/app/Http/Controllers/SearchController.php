@@ -24,9 +24,10 @@ class SearchController extends Controller
 		$news = News::where('name','like','%'.$q.'%')
 			->orWhere('kategori','like','%'.$q.'%')
 			->get();
-		$beasiswa = Beasiswa::where('name','like','%'.$q.'%')
+		$beasiswas = Beasiswa::where('name','like','%'.$q.'%')
 			->orWhere('kategori','like','%'.$q.'%')
 			->orWhere('sumber','like','%'.$q.'%')
 			->get();
+		return view('search.result', compact('ukms', 'events', 'news', 'beasiswas'));
 	}
 }
