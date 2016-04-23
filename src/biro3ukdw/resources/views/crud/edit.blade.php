@@ -15,8 +15,9 @@ $addition = $user->addition();
 <div class="container card">
 	<div class="row">
 		<div class="col-md-11 col-md-offset-1">
- 			<h2>Data User</h2>
-			<hr>
+ 			<a href="{{ url('/user') }}"><h1>Data User</h1> </a>
+<hr>
+			
 		</div>
 		<div class="col-md-11 col-md-offset-1">
 			
