@@ -27,6 +27,10 @@ $addition = $user->addition();
 					<div>
 						<div class="editor-header-input-group">
 							<div class="editor-header-input-control">
+								<label>Nama User:</label>
+								<input type="text" name="display_name" <?php if($addition){if($addition->display_name){echo "value='$addition->display_name'";}} ?>>
+							</div>
+							<div class="editor-header-input-control">
 								<label>Jabatan User:</label>
 								<input type="text" name="jabatan" <?php if($addition){if($addition->jabatan){echo "value='$addition->jabatan'";}} ?>>
 							</div>

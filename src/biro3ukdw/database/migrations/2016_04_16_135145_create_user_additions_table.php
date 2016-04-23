@@ -16,6 +16,7 @@ class CreateUserAdditionsTable extends Migration
             $table->increments('id');
 			$table->integer('user_id');
 			$table->string('display_pic');
+            $table->string('display_name');
 			$table->string('jabatan');
 			$table->string('email');
 			$table->string('phone');

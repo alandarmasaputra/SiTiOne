@@ -34,6 +34,7 @@ class EditProfileController extends Controller
         $user_email = trim($input['email']);
         $user_jabatan = trim($input['jabatan']);
         $user_phone = trim($input['phone']);
+        $user_name = trim($input['display_name']);
        
         $newUser = Auth::user();
         $newUserAddition = new UserAddition();
@@ -76,6 +77,7 @@ class EditProfileController extends Controller
         $newUser->email = $user_email;
         $newUserAddition->jabatan = $user_jabatan;
         $newUserAddition->phone = $user_phone;
+        $newUserAddition->display_name = $user_name;
         
         
         /*foreach($oldAddition as $old){
