@@ -47,7 +47,7 @@ use Carbon\Carbon;
                             {!! csrf_field() !!}
                             <div class="editor-header">
                                 @if($news->header_pic)
-                                <div id="header-pic-show" style="background-image: url('{{AppUtility::get_image_data($beasiswa->header_pic) }}'); height: 400px">
+                                <div id="header-pic-show" style="background-image: url('{{AppUtility::get_image_data($news->header_pic) }}'); height: 400px">
                                     <div id="header-pic-alert" style="display:none;">please select valid file type. The supported file types are .jpg, .png, .bmp</div>
                                     <label>Upload foto:</label> <input name="header-pic" id="header-pic" type="file" onchange="imageupload(this)">
                                 </div>

@@ -70,7 +70,13 @@ use Carbon\Carbon;
                     </dd>
                 </dl>
                 @foreach($news->content as $content)
+                @if($content->type=='i')
+                <div class="img-container">
+                    <img src="{{AppUtility::get_image_data($content->content)}}">
+                </div>
+                @else
                 {!! $content->content !!}
+                @endif
                 @endforeach
             </div>
         </div>
