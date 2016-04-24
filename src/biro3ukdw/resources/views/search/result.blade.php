@@ -26,7 +26,7 @@ Event - Biro3 | UKW
     </div>
     <div class="text-center">
     @foreach($news as $new)
-    <a href="{{url('/news/'.$news->id)}}" style="display:block;">
+    <a href="{{url('/news/'.$new->id)}}" style="display:block;">
     <h2>{{ $new->name }} {{ $new->kategori }}</h2>
     </a>
     @endforeach
