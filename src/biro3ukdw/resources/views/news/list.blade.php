@@ -1,11 +1,8 @@
 <?php
 
-
 use Carbon\Carbon;
 use App\AppUtility;
-
 ?>
-
 @if(Auth::user())
 <div class="beasiswa-preview-item">
 	<div class="beasiswa-facade">
@@ -43,13 +40,11 @@ use App\AppUtility;
 					style="background-image: url('{{AppUtility::get_image_data($news->header_pic)}}')" 
 				 <?php
 				 }else{
-					 if(strpos($news->kategori,'internal')!==false){
-						 $internal = true;
+					 if($news->isInternal()){
 				 ?>
 					style="background-image: url('{{url('style/images/ico/beasiswa_dalam.png')}}')"
 				 <?php
 					 }else{
-						 $internal = false;
 				 ?>
 					style="background-image: url('{{url('style/images/ico/beasiswa_luar.png')}}')"
 				 <?php
@@ -60,12 +55,13 @@ use App\AppUtility;
 		<div class="text-center beasiswa-preview-title">
 			<h2>
 				{{$news->name}}
-				@if($internal)
+				@if($news->isInternal())
 				(<em>Internal</em>)
 				@endif
 			</h2>
 		</div>
 		<div class="beasiswa-preview-description">
+			<h4 class="text-left">Nama: <strong>{{$news->name}}</strong></h4>
 			
 			<br>
 			@foreach($news->content as $content)
