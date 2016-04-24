@@ -2,6 +2,12 @@
 @section('head_title')
 Detail News - Biro3 | UKW
 @endsection
+
+
+@section('nav_news')
+active
+@endsection
+
 @section('body_content')
 <?php
 use App\AppUtility;

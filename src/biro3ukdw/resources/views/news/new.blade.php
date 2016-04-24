@@ -4,7 +4,7 @@
 New News- Biro3 | UKW
 @endsection
 
-@section('nav_beasiswa')
+@section('nav_news')
 active
 @endsection
 
@@ -50,15 +50,6 @@ active
                                     <input name="title" id="editor-header-title" type="text" placeholder="Judul News" required>
                                 </h2>
                                 <div class="editor-header-input-group">
-                                    <div class="editor-header-input-control">
-                                        <label>Kategori: </label>
-                                        <div>
-                                            <div>
-                                                <input type="radio" name="kategori-utama" value="internal" ><label>Internal</label>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
 
                                     <div class="editor-header-input-control">
                                         <label>Tags:</label>
@@ -69,10 +60,6 @@ active
                                         </div>
                                         <input type="hidden" id="kategori-tambahan" name="kategori-tambahan">
                                     </div>
-                                 
-
-    
-
                                    
                                 </div>
                             </div>
