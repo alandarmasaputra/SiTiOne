@@ -367,67 +367,21 @@ shortcodes page css
   margin-left: 15px;
 }
 
-/*CSS buat dihapus editan*/
-
-/* Makes images fully responsive */
-
-.img-responsive,
-.thumbnail > img,
-.thumbnail a > img,
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
-  display: block;
-  width: 100%;
-  height: auto;
+/*disini buat css kolom search yang besar nya*/
+.text-center{
+	padding-bottom: 20px;
 }
 
+/*Disini buat CSS hasil search nya*/
+.nav-tabs { border-bottom: 2px solid #DDD; }
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { border-width: 0; }
+    .nav-tabs > li > a { border: none; color: #666; }
+        .nav-tabs > li.active > a, .nav-tabs > li > a:hover { border: none; color: #4285F4 !important; background: transparent; }
+        .nav-tabs > li > a::after { content: ""; background: #4285F4; height: 2px; position: absolute; width: 100%; left: 0px; bottom: -1px; transition: all 250ms ease 0s; transform: scale(0); }
+    .nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after { transform: scale(1); }
+.tab-nav > li > a::after { background: #21527d none repeat scroll 0% 0%; color: #fff; }
+.tab-pane { padding: 15px 0; }
+.tab-content{padding:20px}
 
-.section-white {
-   padding: 10px 0;
-}
-
-.section-white {
-  background-color: #fff;
-  color: #555;
-}
-
-@media screen and (min-width: 768px) {
-
-  .section-white {
-     padding: 1.5em 0;
-  }
-
-}
-
-@media screen and (min-width: 992px) {
-
-  .container {
-    max-width: 930px;
-  }
-
-}
-
-/*Ini Untuk Tags*/
-.tags a{border:1px solid #DDD;display:inline-block;color:#717171;background:#FFF;-webkit-box-shadow:0 1px 1px 0 rgba(180,180,180,0.1);box-shadow:0 1px 1px 0 rgba(180,180,180,0.1);-webkit-transition:all .1s ease-in-out;-moz-transition:all .1s ease-in-out;-o-transition:all .1s ease-in-out;-ms-transition:all .1s ease-in-out;transition:all .1s ease-in-out;border-radius:2px;margin:0 3px 6px 0;padding:5px 10px}
-.tags a:hover{border-color:rgba(180,180,180,0.1);}
-.tags a.primary{color:#FFF;background-color:#428BCA;border-color:#357EBD}
-.tags a.success{color:#FFF;background-color:#5CB85C;border-color:#4CAE4C}
-.tags a.info{color:#FFF;background-color:#5BC0DE;border-color:#46B8DA}
-.tags a.warning{color:#FFF;background-color:#F0AD4E;border-color:#EEA236}
-.tags a.danger{color:#FFF;background-color:#D9534F;border-color:#D43F3A}
-
-/*Ini css untuk Galery*/
-.rows img {
-  filter: gray; /* IE6-9 */
-  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
-    -webkit-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
-    box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
-    margin-bottom:20px;
-}
-
-img:hover {
-  filter: none; /* IE6-9 */
-  -webkit-filter: grayscale(0); /* Google Chrome, Safari 6+ & Opera 15+ */
- 
-}
+.card {background: #FFF none repeat scroll 0% 0%; box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); margin-bottom: 30px; }
+body{ background: #EDECEC; padding:50px}

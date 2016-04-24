@@ -6,17 +6,32 @@
 .blog-item{
 color: white;}
 
+.text-center h2{
+	color: white;
+}
+
 .accordion-group p{
 color:white;}
 
 .accordion-group h2{
 color:blue;}
 
-.row h4{
+.text-center{
+	padding-top: -30px;
+}
+
+.text-center h1{
+	color: white;
+	text-shadow: 2px;
 }
 
 .widget h3{
 color:blue;}
+
+.tab-content{
+	color: black;
+}
+
 
 
 /*************************
@@ -2553,9 +2568,3 @@ shortcodes page css
   display: inline-block;
   margin-left: 15px;
 }
-
-
-
-
-
-

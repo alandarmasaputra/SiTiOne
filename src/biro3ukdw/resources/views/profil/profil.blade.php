@@ -74,8 +74,12 @@ active
 </style>
 @section('body_content')
   <section id="blog" class="container">
+	  	<div class="text-center">
+	  			<h1>Jam Pelayanan : Senin - Jum'at </h1>
+                <h1>Jam : 07.30 – 15.00 WIB</h1>
+	  	</div>
         <div class="blog">
-            <div class="row">	
+            <div class="row">
 				<div class="col-md-2 text-center avatars">
 					<div class="row">
 						<a href="" data-toggle="modal" data-target=".bs-example-modal-lg"><img class="img-circle avatar avatar-original" src="{{url('/style/images/download.png')}}"></a>
@@ -121,74 +125,47 @@ active
 						
 					</div>
 				
-                 <div class="col-md-7">
+                 <div class="col-md-10">
                     <div class="blog-item">
                         <div class="row">  
-                            <div class="col-xs-12 col-sm-10 blog-content">
-                                <h8>Jam Pelayanan : Senin - Jum'at </h8><br>
-                                	<h8>Jam : 07.30 – 15.00 WIB</h8>
-								  <div class="col-sm-10 blog-content">
-									 
-									  <div class="accordion-group">
-    								<!--<div class="accordion-heading">
-      									<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion5" href="#collapseFive">-->
-      									
-											<h2>A. VISI-MISI</h2>
-										
-    								</div>
-								<!--<div id="collapseFive" class="accordion-body collapse">-->
-      							<div class="accordion-inner">
-										<h4>VISI :</h4>
-											<p>Menjadi unit pelaksana teknis pelayanan bidang kemahasiswaan dan alumni yang professional, guna mendukung mewujudkan visi misi UKDW Menjadi Universitas Kristen unggul dan terpercaya yang melahirkan generasi profesional mandiri bagi dunia pluralistik berdasarkan kasih.</p>
+                            <div class="col-xs-12 col-sm-12 blog-content">
+		                                <div class="col-md-12 blog-content">
+                                    <!-- Nav tabs --><div class="card">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#au" aria-controls="home" role="tab" data-toggle="tab">About Us</a></li>
+                                        <li role="presentation"><a href="#vm" aria-controls="profile" role="tab" data-toggle="tab">Visi Misi</a></li>
+                                        <li role="presentation"><a href="#tt" aria-controls="messages" role="tab" data-toggle="tab">Target Tujuan</a></li>
+                                        <li role="presentation"><a href="#tp" aria-controls="settings" role="tab" data-toggle="tab">Tugas Pokok</a></li>
+										<li role="presentation"><a href="#lu" aria-controls="settings" role="tab" data-toggle="tab">Layanan Unit</a></li>
+                                    </ul>
 
- 										<h4>MISI :</h4>
-											<ol>
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                       
+										<div role="tabpanel" class="tab-pane active" id="au"><h3>Tentang Biro Kemahasiswaan</h3>
+										<p>  Biro III atau dapat juga disebut sebagai Biro Kemahasiswaan dan Alumni merupakan biro yang pendiriaannya berdasarkan statuta UKDW tahun 1987 – 1992, Bab 1 pasal 7 ayat 2, yaitu pembentukan sejumlah biro yang terdiri atas Biro Akademik (Biro 1), Biro Keuangan (Biro 2), dan Biro Kemahasiswaan dan Alumni (Biro 3).</p><p>  Biro III Bidang kemahasiswaan dan alumni adalah unit kerjayang menangani seluruh dinamika problematik  kemahasiswaan dan alumni, kerjasama dan beasiswa sekaligus pelaksana administrasi ekstrakulikuler mahasiswa dan alumni yang bertanggung jawab pada Pimpinan UKDW dalam hal ini Wakil Rektor III.  Pada saat yang sama BKA (Biro Kemahasiswaan dan Alumni) bertanggung jawab untuk ikut terlibat aktif mengarahkan pentingnya mendasari mahasiswa tentang nilai-nilai moralitas dan intelektualitas yang menjunjung tinggi iman Kristen serta membentuk karakter mahasiswa yang berkepribadian mantap, berwawasan kebangsaan yang tangguh, mempunyai  pemahaman kebudayaan yang matang, dan berjiwa kepemimpinan penuh kasih, mempunyai cakrawala pemikiran progresif-inovatif-inspiratif, disamping memiliki  sikap juang dan militansi yang tidak mudah menyerah dalam menghadapi masalah.</p> <p> Pembentukan karakter mahasiswa dan alumni ini akan menginternalisasi dan menjadi
+										episentrum berbagai program kegiatan, muara akhir yang didapat adalah terciptanya lulusan profesional mandiri yang tanggap tanggon tangguh dalam masyarakat, dan alumni yang mampu memenangkan kompetisi dalam dunia kerja serta alumni yang berperan besar dalam ikut serta menentukan arah masa depan bangsa. Bentuk-bentuk program pembentukan karakter ini dapat ditempuh melalui berbagai pelatihan yang penyelenggaraannya dilakukan kerja sama dengan pihak ke III (sponsor)</p><p>	Komunikasi dan konsolidasi yang intens dengan alumni menjadi program kerja prioritas
+										berikutnya, dimana alumni Duta Wacana harus ditempatkan sebagai mitra perjuangan untuk secara bersama-sama terus mengibarkan Panji Duta Wacana : Palang dan Lilin yang menyala. Mendukung kembali Duta Wacana sebagai almamater harus ditanamkan sebagai bentuk kasih dan rasa syukur pemeliharaan Duta Wacana sebagai ladang Tuhan. Membekali pengetahuan praktis  Survival of life dalam etos kehidupan luas, akan berguna untuk memenangkan pertarungan di berbagai medan kompetisi, baik di dunia kerja, ekonomi kewirausahaan, politik, budaya, namun sekaligus mampu menempatkan diri sebagai tokoh pribadi yang memotori toleransi kehidupan pluralistic : makhluk sosial-beragama.</p><p>  Pengelolaan dan pengembangan Bidang kerjasama dan beasiswa merupakan tugas penting, bukansaja hanya sekedar menyalurkan-mengurus administrasi program beasiswa yang sudah ada, namun harus berupaya menambah kuantitas, kualitas dan jejaring kerjasama pemberi beasiswa, dalam kerangka memberikan kesejahteraan kepada Mahasiswa. Dalam bidang ini Biro III perlu secara intens menjalin kerjasama dengan berbagai lembaga/ gereja / perusahaan untuk secara bersama-sama merancang program beasiswa secara holistic, sehingga output penerima mahasiswa berpengaruh terhadap agent of change maupun income yang positif bagi hubungan simbiose mutualisme antara stake holders.</p><p>  Pelayanan yang baik dan terpadu,  pendataan dan sistem administrasi yang rapi, sistem
+										alur birokrasi yang ramah, informative, pelayanan yang mudah dan cepat bagi mahasiswa dan alumni serta mitra kerja Biro III akan membantu meningkatnya pencitraan terhadap Duta Wacana secara utuh. Oleh karenanya struktur, sistematika kerja  dan pembagian tugas harus jelas dan dilaksanakan secara disiplin, dedikasi dan penuh tanggungjawab disertai harapan dan pemahaman spiritualitas, bahwa semua pekerjaan yang dilakukan adalah untuk kemuliaan Kerajaan Allah.</p></div>
+										
+                                        <div role="tabpanel" class="tab-pane" id="vm"><h4>VISI :</h4><p>Menjadi unit pelaksana teknis pelayanan bidang kemahasiswaan dan alumni yang professional, guna mendukung mewujudkan visi misi UKDW Menjadi Universitas Kristen unggul dan terpercaya yang melahirkan generasi profesional mandiri bagi dunia pluralistik berdasarkan kasih.</p><h4>MISI :</h4><ol>
 												<li>Melayani hak-hak dan kepentingan mahasiswa dan alumni secara holistik, adil bermartabat dan transparans.</li>
 												<li>Mengagregasi dan mengkomunikasikan  antara kepentingan Universitas, 
 												mahasiswa dan alumni maupun mitra kerja di luar lingkup UKDW, terutama dalam bidang riset, beasiswa dan jejaring kerjasama</li>
 												<li>Melaksanakan pendampingan program kegiatan kemahasiswaan dan alumni guna 
 												mengimplementasikan Tri Darma Perguruan Tinggi.</li>
 											</ol>
-										<!--<button class="SeeMore2" data-toggle="collapse" href="#collapseFive">See Less</button>
-										<div>
-									       <h2>      </h2>
-										</div></div></div>-->
-							 	</div> 
-									 
-								<div class="accordion-group">
-    							<!--	<div class="accordion-heading">
-      									<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">-->
-									  
-											<h2>B. Target Tujuan</h2>
+										</div>
 										
-    								</div>
-								<!--<div id="collapseOne" class="accordion-body collapse">-->
-      							<div class="accordion-inner">
-										<ol>
+                                        <div role="tabpanel" class="tab-pane" id="tt"><ol>
 											<li>Membentuk akademisi Kristen yang beriman takut akan Tuhan, pemimpin berkarakter unggul , tangguh cakap, percaya diri dan berdayaguna untuk perubahan.</li>
 											<li>Peningkatan kualitas dan profesionalitas pelayanan (operator) administrasi  kemahasiswaan, alumni dan kerja sama.</li>
 											<li>Memberikan peningkatan fasilitas dan peran edukasi pelaksanaan administrasi kemahasiswaan yang meliputi bidang minat, penalaran, dan informasi kemahasiswaan, serta layanan kesejahteraan mahasiswa dalam rangka menunjang aktivitas mahasiswa terhadap kegiatan ekstrakurikuler  sebagai penunjang pembentukan karakter, kemandirian  mahasiswa.</li>
 											<li>Peningkatan kualitas dan profesionalitas layanan sistem informasi yang mencakup pengumpulan, pengolahan, dan penyajian data serta layanan informasi dalam rangka pengembangan karir mahasiwa dan alumni.
 											</li>
-										</ol>
-										<!--<button class="SeeMore2" data-toggle="collapse" href="#collapseOne">See Less</button>
-										<div>
-									       <h2>      </h2>
-										</div>
-									</div>
-							 	</div>--> 
-							</div>	
-							
-									  <div class="accordion-group">
-    							<!--	<div class="accordion-heading">
-      									<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseThree">-->
-										 
-											<h2>C. Tugas Pokok</h2>
+										</ol></div>
 										
-    								</div>
-								<!--<div id="collapseThree" class="accordion-body collapse">-->
-      							<div class="accordion-inner">
-										<ol>
+                                        <div role="tabpanel" class="tab-pane" id="tp"><ol>
 											<li>Menyusun Rencana dan Program kerja Biro III sebagai pedoman pelaksanaan tugas, dengan agenda pokok :</li>
 								   		<ul>
 											<li>Berkoordinasi dengan BEMU dan Pengurus Organisasi Kemahasiswaan,  melakukan konsolidasi rencana kegiatan wajib tahunan  rutin dan non rutin serta alokasi anggaran.</li>
@@ -205,25 +182,9 @@ active
 								   			<li>Melaksanakan pengumuman, penawaran dan seleksi calon penerima beasiswa berdasarkan ketentuan yang berlaku.</li>
 								   			<li>Menyusun laporan Biro III sesuai dengan hasil yang dicapai sebagai pertanggung jawaban pelaksanaan tugas, bertanggungjawab kepada Wakil Rektor III</li>
 								   			<li>Melaksanakan tugas lain yang diberikan atasan, sepanjang berlandasrkan visi misi Duta Wacana dan tata peraturan yang berlaku.</li>
-						    			</ol> 
-										<!--<button class="SeeMore2" data-toggle="collapse" href="#collapseThree">See Less</button>
-										<div>
-									       <h2>      </h2>
-										</div>
-									</div>
-							 	</div> -->
-							</div>
-								
-								<!--<div class="accordion-group">-->
-    								<div class="accordion-group">
-      								<!--<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#collapseFour">-->
-									 
-											<h2>D. Layanan Unit</h2>
-									 
-    								</div>
-									<!--<div id="collapseFour" class="accordion-body collapse">-->
-      								<div class="accordion-inner">
-										<ol>
+						    			</ol> </div>
+										
+                                        <div role="tabpanel" class="tab-pane" id="lu"><ol>
 											<li>Bidang Pengembangan Kemahasiswaan:</li>
 											<ul>
 													<li>Merencanakan dan menyelenggarakan program dan kegiatan peningkatan penalaran, pelatihan kepemimpinan, pendidikan karakter, pembinaan minat dan bakat kemahasiswaan</li>
@@ -258,58 +219,18 @@ active
 													<li>Mengkoordinir alumni dan mahasiswa untuk terlibat aktif dalam kerja sosial/pengabdian pada masyarakat terutama dalam tanggap darurat dan mitigasi bencana</li>
 													<li>Membangun dan mengelola media komunikasi (bulletin),  official website  bagi para alumni</li>
 												</ul>
-											</ol>
-											<!--<button class="SeeMore2" data-toggle="collapse" href="#collapseFour">See Less</button>
-											<div>
-									       <h2>      </h2>
-										</div>
-										</div>
-							 		</div> -->
+											</ol></div>
+                                    </div>
 								</div>
-                            </div>
-                            </div>
-							
-                        </div>    
+                             </div>
+						  </div>
+                      </div>    
                     </div><!--/.blog-item-->
                    
                 </div><!--/.col-md-8-->
-
-                <aside class="col-md-3">
-                    <div class="widget search">
-                        <h3>Tentang Biro Kemahasiswaan</h3>
-						 <div class="accordion-group">
-    						<!--<div class="accordion-heading">
-      							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">-->
-									<p>  Biro III atau dapat juga disebut sebagai Biro Kemahasiswaan dan Alumni merupakan biro yang pendiriaannya berdasarkan statuta UKDW tahun 1987 – 1992, Bab 1 pasal 7 ayat 2, yaitu pembentukan sejumlah biro yang terdiri atas Biro Akademik (Biro 1), Biro Keuangan (Biro 2), dan Biro Kemahasiswaan dan Alumni (Biro 3).</p>
-								<!--</a>
-    						</div>
-							<div id="collapseTwo" class="accordion-body collapse">
-      							<div class="accordion-inner">-->
-										<p>  Biro III Bidang kemahasiswaan dan alumni adalah unit kerjayang menangani seluruh dinamika problematik  kemahasiswaan dan alumni, kerjasama dan beasiswa sekaligus pelaksana administrasi ekstrakulikuler mahasiswa dan alumni yang bertanggung jawab pada Pimpinan UKDW dalam hal ini Wakil Rektor III.  Pada saat yang sama BKA (Biro Kemahasiswaan dan Alumni) bertanggung jawab untuk ikut terlibat aktif mengarahkan pentingnya mendasari mahasiswa tentang nilai-nilai moralitas dan intelektualitas yang menjunjung tinggi iman Kristen serta membentuk karakter mahasiswa yang berkepribadian mantap, berwawasan kebangsaan yang tangguh, mempunyai  pemahaman kebudayaan yang matang, dan berjiwa kepemimpinan penuh kasih, mempunyai cakrawala pemikiran progresif-inovatif-inspiratif, disamping memiliki  sikap juang dan militansi yang tidak mudah menyerah dalam menghadapi masalah.</p> 
-								
-										<p> Pembentukan karakter mahasiswa dan alumni ini akan menginternalisasi dan menjadi
-										episentrum berbagai program kegiatan, muara akhir yang didapat adalah terciptanya lulusan profesional mandiri yang tanggap tanggon tangguh dalam masyarakat, dan alumni yang mampu memenangkan kompetisi dalam dunia kerja serta alumni yang berperan besar dalam ikut serta menentukan arah masa depan bangsa. Bentuk-bentuk program pembentukan karakter ini dapat ditempuh melalui berbagai pelatihan yang penyelenggaraannya dilakukan kerja sama dengan pihak ke III (sponsor)</p>
-
-										<p>	Komunikasi dan konsolidasi yang intens dengan alumni menjadi program kerja prioritas
-										berikutnya, dimana alumni Duta Wacana harus ditempatkan sebagai mitra perjuangan untuk secara bersama-sama terus mengibarkan Panji Duta Wacana : Palang dan Lilin yang menyala. Mendukung kembali Duta Wacana sebagai almamater harus ditanamkan sebagai bentuk kasih dan rasa syukur pemeliharaan Duta Wacana sebagai ladang Tuhan. Membekali pengetahuan praktis  Survival of life dalam etos kehidupan luas, akan berguna untuk memenangkan pertarungan di berbagai medan kompetisi, baik di dunia kerja, ekonomi kewirausahaan, politik, budaya, namun sekaligus mampu menempatkan diri sebagai tokoh pribadi yang memotori toleransi kehidupan pluralistic : makhluk sosial-beragama.</p>
-
-										<p>  Pengelolaan dan pengembangan Bidang kerjasama dan beasiswa merupakan tugas penting, bukansaja hanya sekedar menyalurkan-mengurus administrasi program beasiswa yang sudah ada, namun harus berupaya menambah kuantitas, kualitas dan jejaring kerjasama pemberi beasiswa, dalam kerangka memberikan kesejahteraan kepada Mahasiswa. Dalam bidang ini Biro III perlu secara intens menjalin kerjasama dengan berbagai lembaga/ gereja / perusahaan untuk secara bersama-sama merancang program beasiswa secara holistic, sehingga output penerima mahasiswa berpengaruh terhadap agent of change maupun income yang positif bagi hubungan simbiose mutualisme antara stake holders.</p>
-
-										<p>  Pelayanan yang baik dan terpadu,  pendataan dan sistem administrasi yang rapi, sistem
-										alur birokrasi yang ramah, informative, pelayanan yang mudah dan cepat bagi mahasiswa dan alumni serta mitra kerja Biro III akan membantu meningkatnya pencitraan terhadap Duta Wacana secara utuh. Oleh karenanya struktur, sistematika kerja  dan pembagian tugas harus jelas dan dilaksanakan secara disiplin, dedikasi dan penuh tanggungjawab disertai harapan dan pemahaman spiritualitas, bahwa semua pekerjaan yang dilakukan adalah untuk kemuliaan Kerajaan Allah.</p>
-								<!--		<button class="SeeMore2" data-toggle="collapse" href="#collapseTwo">See Less</button>
-										<div>
-									       <h2>      </h2>
-										</div>
-								</div>
-							 </div>-->
-							 
-						</div>
-                    </div>
-    			</aside> 
 				
             </div><!--/.row-->
-			<a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
+			<!--Tombol untuk back to top karena kepanjangan    <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>-->
         </div>
 		
     </section><!--/#blog-->
