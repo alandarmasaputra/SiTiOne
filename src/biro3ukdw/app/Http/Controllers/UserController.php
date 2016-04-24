@@ -104,7 +104,7 @@ class UserController extends Controller
 
 		$rules = array(
 
-			'password' => 'required|min:6',
+			'password' => 'required|min:8',
 			'password_confirmation' => 'required|min:8|same:password'
 			 );
 		$validator = Validator::make($input, $rules);
