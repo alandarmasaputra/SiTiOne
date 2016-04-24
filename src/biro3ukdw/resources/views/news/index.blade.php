@@ -3,6 +3,10 @@
 News - Biro3 | UKDW
 @endsection
 
+@section('nav_news')
+active
+@endsection
+
 @section('head_addition')
 <script src="{{ url('/utility/searchbuff/searchbuff.js') }}"></script>
 @endsection
@@ -12,7 +16,6 @@ News - Biro3 | UKDW
 use Carbon\Carbon;
 use App\AppUtility;
 ?>
-
 
 <div class="container body-content">
 	<div class="row">

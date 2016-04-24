@@ -15,13 +15,17 @@ $addition = $user->addition();
 <div class=" container card">
 	<div class="row">
         <div class="col-md-10 col-md-offset-1">
- <h1>Data User</h1> <hr>
+ <a href="{{ url('/user') }}"><h1>Data User</h1> </a><hr>
+
  </div></div>
 
  <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <table class="table table-bordered">
+  Username : <i><b>{{ $user->username }}</b></i>
 
+  <br>
+  <br>
   {!! Form::open(array('action' => array('UserController@updatess', $user->id))) !!}
 
 <div class="form-g">
@@ -38,7 +42,7 @@ $addition = $user->addition();
 
 </div>
 
-
+<br>
 {!! Form::submit('Reset Password', ['class' => 'btn btn-primary']) !!}
 
 {!! Form::close() !!}

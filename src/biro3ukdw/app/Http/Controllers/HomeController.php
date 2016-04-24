@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\AppUtility;
 use App\ProfileContent;
+use App\User;
 use Illuminate\Http\Request;
 use App\News;
 use App\Beasiswa;
@@ -172,5 +173,27 @@ class HomeController extends Controller
 			$ret['message'] = $e->getMessage();
 		}
 		echo json_encode($ret);
+	}
+	
+	public function profilavatarcheck(Request $request){
+		$data = array();
+		try{
+			$username = $request->username;
+			if(User::where('username',$username)->where('auth_level','>','0')->first()!=null){
+				$data['status']=1;
+				$data['message']="Berhasil menambah staff yang akan ditampilkan";
+			}
+			else{
+				$data['status']=0;
+				$data['message']="Staff tidak terdaftar";
+			}
+		}catch(\Exception $e){
+			$data['status']=0;
+			$data['message']="Terjadi kesalahan pada server";
+		}
+		echo json_encode($data);
+	}
+	
+	public function profilavatarsave(){
 	}
 }

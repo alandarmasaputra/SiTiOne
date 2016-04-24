@@ -3,6 +3,10 @@
 Edit News - Biro3 | UKDW
 @endsection
 
+@section('nav_news')
+active
+@endsection
+
 @section('head_addition')
 <link href="{{ url('utility/summernote/summernote.css')}}" rel="stylesheet" type="text/css">
 <script src="{{ url('utility/summernote/summernote.js') }}"></script>
@@ -58,15 +62,6 @@ use Carbon\Carbon;
                                     <input name="title" id="editor-header-title" type="text" value="{{ $news->name }}" required>
                                 </h2>
                                 <div class="editor-header-input-group">
-                                <div class="editor-header-input-control">
-                                        <label>Kategori: </label>
-                                        <div>
-                                            <div>
-                                                <input type="radio" name="kategori-utama" value="internal" <?php if($news->isInternal()){ echo " checked"; } ?>><label>Internal</label>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
 
                                     <div class="editor-header-input-control">
                                         <label>Tags:</label>

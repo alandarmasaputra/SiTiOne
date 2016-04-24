@@ -101,6 +101,9 @@ Route::group(['middleware' => ['web']], function () {
 
 		Route::post('/profil/edit','HomeController@profilupdate');
 		Route::get('/profil/edit','HomeController@profiledit');
+		
+		Route::post('/profil/saveavatar','HomeController@profilavatarsave');
+		Route::post('/profil/checkavatar','HomeController@profilavatarcheck');
         
 
         Route::resource('user', 'UserController');
