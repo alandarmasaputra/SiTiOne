@@ -6,10 +6,6 @@
 .blog-item{
 color: white;}
 
-.text-center h2{
-	color: white;
-}
-
 .accordion-group p{
 color:white;}
 
@@ -18,11 +14,6 @@ color:blue;}
 
 .text-center{
 	padding-top: -30px;
-}
-
-.text-center h1{
-	color: white;
-	text-shadow: 2px;
 }
 
 .widget h3{
