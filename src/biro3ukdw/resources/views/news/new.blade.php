@@ -54,11 +54,9 @@ active
                                         <label>Kategori: </label>
                                         <div>
                                             <div>
-                                                <input type="radio" name="kategori-utama" value="internal" required><label>Internal</label>
+                                                <input type="radio" name="kategori-utama" value="internal" ><label>Internal</label>
                                             </div>
-                                            <div>
-                                                <input type="radio" name="kategori-utama" value="external" required><label>External</label>
-                                            </div>
+                                            
                                         </div>
                                     </div>
 

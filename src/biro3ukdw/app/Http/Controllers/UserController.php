@@ -61,7 +61,9 @@ class UserController extends Controller
 	{		
 		User::find($id)->delete();
 
-        return redirect('user')->with('message', 'Data berhasil dihapus!');
+        $successMessage = 'Selamat, User berhasil di hapus !';
+            return back()
+            ->with('successMessage',$successMessage);
 	}
 
 
@@ -72,6 +74,7 @@ class UserController extends Controller
 		$input = array_except(Input::all(), '_method');
 
 		$rules = array(
+		'username' => 'required|unique:users,username',
 
 		'email' => 'required',
 
@@ -81,7 +84,9 @@ class UserController extends Controller
 
 			$user->update($input);
 
-			return redirect('user');
+			$successMessage = 'Selamat, User berhasil di update !';
+            return back()
+            ->with('successMessage',$successMessage);
 		}
 		else{
 			return view('crud.edit', compact('user'))
@@ -99,8 +104,8 @@ class UserController extends Controller
 
 		$rules = array(
 
-			'password' => 'required|min:6',
-			'password_confirmation' => 'required|min:6|same:password'
+			'password' => 'required|min:8',
+			'password_confirmation' => 'required|min:8|same:password'
 			 );
 		$validator = Validator::make($input, $rules);
 		if($validator->passes()){
@@ -108,7 +113,12 @@ class UserController extends Controller
 			$user->password = bcrypt(Input::get('password'));
 			$user->save();
 
-			return redirect('user')->with('message','Password berhasil di reset!');
+			$successMessage = 'Selamat, Password berhasil di reset !';
+            return back()
+            ->with('successMessage',$successMessage);
+            
+
+			
 		}
 		else{
 			return view('crud.reset', compact('user'))
@@ -140,10 +150,10 @@ class UserController extends Controller
 		$data = Input::all();
 
          $rules = array(
-        
+        'username' => 'required|unique:users,username',
         'email' => 'required',
-        'password' => 'required|min:6',
-        'password_confirmation' => 'required|min:6|same:password'
+        'password' => 'required|min:8',
+        'password_confirmation' => 'required|min:8|same:password'
          );
 
     
@@ -159,7 +169,9 @@ class UserController extends Controller
         $user->password = bcrypt(Input::get('password'));
         $user->save();
 
-	   return redirect('user')->with('message','Data berhasil di tambhkan!');
+	    $successMessage = 'Selamat, user berhasil di buat !';
+            return back()
+            ->with('successMessage',$successMessage);
         }
         else{
         	return view('crud.create')

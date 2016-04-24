@@ -12,8 +12,18 @@ active
 use App\AppUtility;
 
 ?>
-<div class="card">
- <h1>Data User</h1> <hr>
+<div class="container card">
+<div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <a href="{{ url('/user') }}"><h1>Data User</h1> </a>
+            <hr>
+            
+            
+        </div>
+    </div>
+<div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <table class="table table-bordered">
 
 
  {!! Form::model( new App\User, [
@@ -51,13 +61,18 @@ use App\AppUtility;
     {!! Form::label('is_aktif', 'Status:', ['class' => 'control-label']) !!}
     <br>{!! Form::select('is_aktif', array('0' => 'Tidak Aktif', '1' => 'Aktif')); !!}
 </div>
-</div>
-
-
 {!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}
 
+
+
+
+
 {!! Form::close() !!}
- 
+ </table>
+</div>
+</div>
+</div>
+
 
 
         @stop

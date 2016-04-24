@@ -11,7 +11,9 @@ active
 <div class="container card">
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
-			<h2>Data User</h2>
+			<h1>Data User</h1>
+			<hr>
+			
 			<a href="{{ url('/cruduser/new') }}"><b>Create New User<b></a>
 		</div>
 	</div>
@@ -59,8 +61,10 @@ active
 					@endforeach
 				</tbody>
 			</table>
+			<a href="{{url('/editprofile')}}">Kembali</a>
 		</div>
 	</div>
+
 
 </div>
  
