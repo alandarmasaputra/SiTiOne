@@ -80,12 +80,21 @@ active
 						{{ $content->content }}
 						@endforeach
 					</textarea>
-					<input class="hidden" id="avatar" type="number">
+					<div class="editor-header-input-control">
+						<label>Staff yang akan ditampilkan:</label>
+						<label><small>Instruksi: masukkan username dari staff yang akan ditampilkan</small></label>
+						<div>
+							<input type="text" id="tag-input"><button id="tag-add"><span class="glyphicon glyphicon-plus"></span></button>
+						</div>
+						<div id="tag-list">
+						</div>
+						<span id='tag-notification'></span>
+					</div>   
 				</div>
 				<div class="col-xs-12 col-sm-12 avatar-container">
 				</div>
 				<div class="col-xs-12 col-sm-12 text-right">
-					<button type="button" class="button-submit">Save</button>
+					<button type="button" class="avatar-submit button-submit">Save</button>
 				</div>
 			</div>
 		</div>
@@ -141,6 +150,12 @@ active
 </section>
 
 <div class='hidden' id='repo'>
+	<div class="avatarSubmitUrl">
+		{{ url('/profil/saveavatar') }}
+	</div>
+	<div class="avatarCheckUrl">
+		{{ url('/profil/checkavatar') }}
+	</div>
 	<div class='submitUrl'>
 		{{ url('/profil/edit') }}
 	</div>
@@ -150,8 +165,71 @@ active
 <script>
 	var staffs = [];
 	var submitUrl;
+	var avatarSubmitUrl;
+	var avatarCheckUrl;
+	var refreshStaff;
+	var removeStaff;
+	var checkAvatar;
+	var saveAvatar;
+	var tagNotification;
+	var tagInput;
+	var tagList
+	var createTagListItem;
 	$(document).ready(function(){
+		createTagListItem = function(word,i){
+			return "<span data-index='"+i+"' class='tag-list-item'><span class='tag-list-string'>"+word+"</span><span class='glyphicon glyphicon-remove tag-list-remove'></span></span>"
+		}
 		submitUrl = $('#repo>.submitUrl').html().trim();
+		avatarSubmitUrl = $('#repo>.avatarSubmitUrl').html().trim();
+		avatarCheckUrl = $('#repo>.avatarCheckUrl').html().trim();
+		tagNotification = $('#tag-notification')
+		tagInput = $('#tag-input')
+		tagList = $('#tag-list')
+		refreshStaff = function(){
+			$('#tag-list').html('')
+			for(var i = 0; i< staffs.length; i++){
+				$('#tag-list').append(createTagListItem(staffs[i],i))
+			}
+			$('#tag-list .tag-list-remove').click(removeStaff)
+		}
+		removeStaff = function(e){
+			staffs.splice($(this).attr('data-index'),1);
+			refreshStaff();
+		}
+		checkAvatar = function(){
+			var username  = tagInput.val().trim()
+			if(username.length<1){
+				return
+			}
+			$.ajax({
+				url: avatarCheckUrl,
+				method: 'post',
+				data: {'username':username},
+				success: function(data){
+					try{
+						data = JSON.parse(data);
+						if(data['status']==1){
+							tagNotification.html('<span class="alert-success">'+data['message']+'</span>')
+							staffs.push(username)
+							refreshStaff();
+							tagInput.val('')
+						}
+						else if(data['status']==0){
+						console.log(data)
+							tagNotification.html('<span class="alert-warning">'+data['message']+'</span>')
+						}
+					}catch(error){
+						console.log(error)
+						tagNotification.html('<span class="alert-danger">Terjadi kesalahan pada sistem</span>')
+					}
+				},
+				error: function(error){
+					console.log(error)
+					tagNotification.html('<span class="alert-danger">Terjadi kesalahan pada sistem</span>')
+				}
+			})
+		}
+		$('#tag-add').click(checkAvatar)
 		$('textarea.summernote').each(function(){
 			var thisElement = $(this)
 			var thisId = $(this).attr('id')

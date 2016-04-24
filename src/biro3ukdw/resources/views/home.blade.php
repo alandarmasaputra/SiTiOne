@@ -164,7 +164,11 @@ active
 					}
 				?>
 				@endforeach
+				@if(count($beasiswas)>0)
 				<div style="clear:both" class="text-right"><a href="{{ url('/beasiswa') }}">Beasiswa Selengkapnya</a></div>
+				@else
+				<div style="clear:both" class="text-center">Belum ada beasiswa</div>
+				@endif
 				<hr>
 			</div>
 			<div class="col-sm-5">
@@ -230,14 +234,17 @@ active
 					}
 				?>
 				@endwhile
+				@if(count($events) == 0 || count($newss) == 0)
+				<div style="clear:both" class="text-center">Belum ada event dan berita</div>
+				@endif
 			</div>
 		</div>
+		@if(count($ukms)>0)
 		<div class="row ukm-home-preview" style="margin-top:0px;">
 			<h2>
 				Ukm
 				<hr>
 			</h2>
-			@if(count($ukms)>0)
 			<div class="ukm-container">
 				@foreach($ukms as $ukm)
 				<div class="ukm-item"
@@ -273,8 +280,8 @@ active
 					</a>
 				</div>
 			</div>
-			@endif
 		</div>
+		@endif
 	</div>
 </div>
  
