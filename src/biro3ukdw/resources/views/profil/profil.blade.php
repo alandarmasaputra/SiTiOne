@@ -229,8 +229,7 @@ active
                    
                 </div><!--/.col-md-8-->
 				
-            </div><!--/.row-->
-			<!--Tombol untuk back to top karena kepanjangan    <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>-->
+            </div>
         </div>
 		
     </section><!--/#blog-->
