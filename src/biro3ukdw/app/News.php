@@ -13,9 +13,6 @@ class News extends Model
     	return $this->hasMany("App\NewsContent");
     }
 
-    public function isInternal(){
-        return strpos($this->kategori,'internal')!==false;
-    }
     
 
 

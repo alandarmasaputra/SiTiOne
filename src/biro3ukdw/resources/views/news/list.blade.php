@@ -40,24 +40,19 @@ use App\AppUtility;
 					style="background-image: url('{{AppUtility::get_image_data($news->header_pic)}}')" 
 				 <?php
 				 }else{
-					 if($news->isInternal()){
+					
 				 ?>
 					style="background-image: url('{{url('style/images/ico/beasiswa_dalam.png')}}')"
+				
 				 <?php
-					 }else{
-				 ?>
-					style="background-image: url('{{url('style/images/ico/beasiswa_luar.png')}}')"
-				 <?php
-				 }}
+				 }
 				 ?>>
 			</div>
 		</div>
 		<div class="text-center beasiswa-preview-title">
 			<h2>
 				{{$news->name}}
-				@if($news->isInternal())
-				(<em>Internal</em>)
-				@endif
+				
 			</h2>
 		</div>
 		<div class="beasiswa-preview-description">
