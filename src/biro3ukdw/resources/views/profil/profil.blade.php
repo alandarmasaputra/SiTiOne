@@ -83,7 +83,7 @@ active
 				<div class="col-md-2 text-center avatars">
 					<div class="row">
 						<a href="" data-toggle="modal" data-target=".bs-example-modal-lg"><img class="img-circle avatar avatar-original" src="{{url('/style/images/download.png')}}"></a>
-						<div><h4 class="only-bottom-margin">Crisna Julius</h4></div>
+						<div class="nama"><h3 class="only-bottom-margin">Crisna Julius</h3></div>
 					</div>
 							<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
   								<div class="modal-dialog modal-lg">
@@ -102,8 +102,8 @@ active
 							</div>
 					<div class="row">
 						<a href="" data-toggle="modal" data-target=".bs-example-modal"><img class="img-circle avatar avatar-original" src="{{url('/style/images/sutapa.jpg')}}"></a>
-						<div>
-							<h4 class="only-bottom-margin">Sutopo Atmojo</h4>
+						<div class="nama">
+							<h3 class="only-bottom-margin">Sutopo Atmojo</h3>
 						</div>
 					</div>
 							<div class="modal fade bs-example-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
