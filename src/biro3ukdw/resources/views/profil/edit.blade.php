@@ -175,6 +175,7 @@ active
 	var tagInput;
 	var tagList
 	var createTagListItem;
+	var loadStaff;
 	$(document).ready(function(){
 		createTagListItem = function(word,i){
 			return "<span data-index='"+i+"' class='tag-list-item'><span class='tag-list-string'>"+word+"</span><span class='glyphicon glyphicon-remove tag-list-remove'></span></span>"
@@ -185,6 +186,15 @@ active
 		tagNotification = $('#tag-notification')
 		tagInput = $('#tag-input')
 		tagList = $('#tag-list')
+		loadStaff = function(){
+			var oldStaffs = $('#avatar-old').html().trim();
+			oldStaffs = oldStaffs.split(' ');
+			
+			for(var i = 0; i<oldStaffs.length; i++){
+				staffs.push(oldStaffs[i]);
+			}
+			refreshStaff();
+		}
 		refreshStaff = function(){
 			$('#tag-list').html('')
 			for(var i = 0; i< staffs.length; i++){
@@ -313,6 +323,36 @@ active
 				
 			})
 		})
+		
+		$('button.avatar-submit').click(function(){
+			$.ajax({
+				url: avatarSubmitUrl,
+				method: 'post',
+				data: {'data':JSON.stringify(staffs)},
+				success : function(data){
+					console.log(data)
+					data = JSON.parse(data)
+					if(data['status']==1){
+						$('.notification-bar').html('<div><span class="label">Success</span>Berhasil mengupdate daftar staff. </div>')
+					}
+					else{
+						$('.notification-bar').html('<div><span class="label">Alert</span>Terjadi kesalahan pada sistem</div>')
+					}
+				},
+				error : function(error){
+					console.log(error)
+					$('.notification-bar').html(error.responseText)
+					//$('.notification-bar').html('<div><span class="label">Alert</span>Terjadi kesalahan pada sistem</div>')
+					/*
+						<div>
+							<span class="label">Alert</span>
+						</div>
+					*/
+				}
+				
+			})
+		})
+		loadStaff();
 	})
 </script>
 @endsection

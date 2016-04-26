@@ -194,6 +194,33 @@ class HomeController extends Controller
 		echo json_encode($data);
 	}
 	
-	public function profilavatarsave(){
+	public function profilavatarsave(Request $request){
+		$ret = array();
+		$ret['status'] = 0;
+		try{
+			$section_name = "section_avatar";
+			ProfileContent::where('section_name', $section_name)->delete();
+			$data = json_decode($request->data);
+			$contents = "";
+			for( $i = 0; $i < count($data); $i++){
+				$contents.=" ".$data[$i];
+			}
+			$contents = trim($contents);
+			
+			for( $i = 0; $i <= strlen($contents); $i+=255 ) {
+				$content = substr( $contents, $i, 255);
+				$newProfileContent = new ProfileContent();
+				$newProfileContent->section_name = $section_name;
+				$newProfileContent->content = $content;
+				$ret[] = $content;
+				if($newProfileContent->content){
+					$newProfileContent->save();
+				}
+			}
+			$ret['status'] = 1;
+		}catch(\Exception $e){
+			$ret['message'] = $e->getMessage();
+		}
+		echo json_encode($ret);
 	}
 }
