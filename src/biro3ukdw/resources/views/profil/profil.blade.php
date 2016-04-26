@@ -74,7 +74,7 @@ active
 </style>
 @section('body_content')
   <section id="blog" class="container">
-	  	<div class="text-center">
+	  	<div class="profil-section-title">
 	  			<h1>Jam Pelayanan : Senin - Jum'at </h1>
                 <h1>Jam : 07.30 – 15.00 WIB</h1>
 	  	</div>

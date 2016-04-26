@@ -23,12 +23,97 @@ color:blue;}
 	color: black;
 }
 
-.text-center h1{
+.profil-section-title h1{
 	color: black;
+	text-align: center;
 }
 
 
+/*************************
+*******Search Result******
+**************************/
 
+.result-event{
+	background: white;
+	padding-top: 10px;
+	text-align: center;
+	  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #fff;
+	margin-bottom: 10px;
+	
+}
+
+.result-event h1{
+	color: black;
+	text-align: center;
+}
+.result-event h2{
+	color: skyblue;
+	text-align: center;
+	font-size: 30px;
+}
+
+/*--------------------------------------*/
+
+.result-ukm{
+	background: white;
+	text-align: center;
+	  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #fff;
+	margin-bottom: 10px;
+	
+}
+
+.result-ukm h1{
+	color: black;
+	text-align: center;
+}
+.result-ukm h2{
+	color: skyblue;
+	text-align: center;
+	font-size: 30px;
+}
+/*--------------------------------------*/
+
+.result-news{
+	background: white;
+	text-align: center;
+	  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #fff;
+	margin-bottom: 10px;
+	
+}
+
+.result-news h1{
+	color: black;
+	text-align: center;
+}
+.result-news h2{
+	color: skyblue;
+	text-align: center;
+	font-size: 30px;
+}
+
+/*--------------------------------------*/
+
+.result-beasiswa{
+	background: white;
+	text-align: center;
+	  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #fff;
+	margin-bottom: 10px;
+	
+}
+
+.result-beasiswa h1{
+	color: black;
+	text-align: center;
+}
+.result-beasiswa h2{
+	color: skyblue;
+	text-align: center;
+	font-size: 30px;
+}
 /*************************
 *******Typography******
 **************************/
