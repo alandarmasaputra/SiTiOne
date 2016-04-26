@@ -3,6 +3,10 @@
 /*************************
 *******Profil******
 **************************/
+.nama h3{
+color:black;
+font-size: 20px;}
+
 .blog-item{
 color: white;}
 
@@ -155,8 +159,9 @@ h3{
   line-height: 24px;
 }
 
-h4{
+h4 {
   font-size: 16px;
+  
 }
 
 

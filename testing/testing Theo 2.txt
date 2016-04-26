@@ -3,7 +3,7 @@
 
 
 *)pada halaman profil, warna pada keterangan nama (Crisna Julius & Sutopo Atmoko) kurang terlihat jelas
-
+WELLY: FIXED
 
 *)pada halaman tambah beasiswa,menambahkan tanggal pendaftaran terakhir, seharusnya tidak bisa meng-inputkan tanggal yang sudah lalu
 ALAN: kemarin sudah dibicarakan dengan pak krisna, masalah input tanggal itu urusan staff biro 3
