@@ -58,7 +58,7 @@ active
 									</div>
 									<div class="editor-header-input-control">
 										<label>Tanggal Event: </label>
-										<input type="date" name="tanggal">
+										<input type="date" name="tanggal" required>
                                     </div>
 									<div class="editor-header-input-control">
 										<label>Tempat Event:</label>

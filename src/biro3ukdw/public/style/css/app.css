@@ -410,6 +410,9 @@ header .container-fluid{
 
 .login-form label{
 	font-weight: bold;
+	color: white;
+	background: rgba(0,0,0,0.3);
+	padding: 2px 4px;
 }
 
 .login-form>form{
@@ -665,6 +668,11 @@ input{
 	background: linear-gradient(white,#eee);
 	margin: 3px;
 	border-radius: 3px;
+}
+
+.notification-bar>div{
+	font-size: 1.2em;
+	margin: 5px;
 }
 
 .notification-bar, .notification-bar *{
@@ -1703,6 +1711,7 @@ input[type="text"]{
 	background-position: center;
 	background-repeat: no-repeat;
 	border: 1px solid rgba(124,124,124,0.5);
+	background-color: black;
 }
 
 .event-lain{
