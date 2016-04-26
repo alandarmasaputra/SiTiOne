@@ -15,7 +15,7 @@ Event - Biro3 | UKW
 		<h1>Event</h1>
 				@foreach($events as $event)
 				<a href="{{url('/event/'.$event->id)}}" style="display:block;">
-				<h2>{{ $event->name }} {{ $event->kategori }} {{ $event->sumber }} {{ $event->tempat }}</h2>
+					<h2>{{ $event->name }}</h2><h2>{{ $event->kategori }} </h2> <h2> {{ $event->sumber }} </h2> <h2> {{ $event->tempat }}</h2>
 				</a>
 				@endforeach
     </div>
@@ -35,7 +35,7 @@ Event - Biro3 | UKW
 		<h1>News</h1>
 				@foreach($news as $new)
 				<a href="{{url('/news/'.$new->id)}}" style="display:block;">
-				<h2>{{ $new->name }} {{ $new->kategori }}</h2>
+				<h2>{{ $new->name }}</h2><h2> {{ $new->kategori }}</h2>
 				</a>
 				@endforeach
     </div>
@@ -45,7 +45,7 @@ Event - Biro3 | UKW
 		<h1>Beasiswa</h1>
 				@foreach($beasiswas as $beasiswa)
 				<a href="{{url('/beasiswa/'.$beasiswa->id)}}" style="display:block;">
-				<h2>{{ $beasiswa->name }} {{ $beasiswa->kategori }} {{ $beasiswa->sumber }}</h2>
+				<h2>{{ $beasiswa->name }}</h2><h2> {{ $beasiswa->kategori }} {{ $beasiswa->sumber }}</h2>
 				</a>
 				@endforeach
     </div>
