@@ -1,0 +1,18 @@
+26/4
+*)pada halaman beasiswa, setactive navigasi (warna) tidak berubah.
+
+
+*)pada halaman profil, warna pada keterangan nama (Crisna Julius & Sutopo Atmoko) kurang terlihat jelas
+
+
+*)pada halaman tambah beasiswa,menambahkan tanggal pendaftaran terakhir, seharusnya tidak bisa meng-inputkan tanggal yang sudah lalu
+
+
+*)saat menambahkan tanggal event, admin masih dapat meng-inputkan tanggal yang sudah lalu, 
+namun ketika ditampilkan pada "lihat event" walaupun input tanggal event hari lalu, tetapi munculnya adalah tanggal dimana admin meng-inputkan data tersebut
+
+*)Saat creat user, bila ada "alert" atau peringatan tidak terlalu terlihat karena letak diatas
+
+
+*)sebaiknya tombol login/logout lebih diperjelas lagi 
+
