@@ -240,4 +240,20 @@ class HomeController extends Controller
 		}
 		echo json_encode($ret);
 	}
+	/*
+	public function test(){
+		$section_top = ProfileContent::where('section_name','section-top')->get();
+		$section_middle = ProfileContent::where('section_name','section-middle')->get();
+		$section_side = ProfileContent::where('section_name','section-side')->get();
+		$section_avatar = ProfileContent::where('section_name','section_avatar')->get();
+		
+		echo "<div>";
+		$c = "";
+		foreach($section_side as $content){
+			$c.=$content->content;
+		}
+		//echo str_replace('&','&amp;',str_replace('>','&gt;',str_replace('<','&lt;',$c)));
+		echo $c;
+		echo "</div>";
+	}*/
 }
