@@ -94,6 +94,11 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/cruduser/resets/{id}',"UserController@resets");
         Route::post('/cruduser/updates/{id}','UserController@updatess');
 
+
+        Route::get('/admin/reset/{id}',"UserController@resetsadmin");
+        Route::post('/admin/updates/{id}',"UserController@updateadmin");
+
+
         
         Route::post('editprofile/editself','EditProfileController@editself');
         Route::get('/editprofile', "EditProfileController@index");

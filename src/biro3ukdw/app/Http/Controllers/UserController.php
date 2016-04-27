@@ -125,6 +125,36 @@ class UserController extends Controller
 					->withErrors($validator);
 		}
     }
+
+     public function updateadmin($id, Request $request)
+    {
+		$user = User::findOrFail($id);
+
+		$input = array_except(Input::all(), '_method');
+
+		$rules = array(
+
+			'password' => 'required|min:8',
+			'password_confirmation' => 'required|min:8|same:password'
+			 );
+		$validator = Validator::make($input, $rules);
+		if($validator->passes()){
+
+			$user->password = bcrypt(Input::get('password'));
+			$user->save();
+
+			$successMessage = 'Selamat, Password berhasil di reset !';
+            return back()
+            ->with('successMessage',$successMessage);
+            
+
+			
+		}
+		else{
+			return back()
+					->withErrors($validator);
+		}
+    }
    
     
     function resets($id)
@@ -132,6 +162,13 @@ class UserController extends Controller
         $user = User::find($id);
 
         return view('crud.reset', compact('user'));
+    }
+
+    function resetsadmin($id)
+    {
+        $user = User::find($id);
+
+        return view('crud.resetadmin', compact('user'));
     }
 
      

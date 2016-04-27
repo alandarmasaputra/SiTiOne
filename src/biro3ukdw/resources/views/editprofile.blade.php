@@ -17,7 +17,8 @@ $addition = $user->addition();
 			<div class='row'>
 				<div class="col-xs-10 col-xs-offset-1 text-center">
 					Sebagai administrator anda memiliki akses untuk mengedit user yang ada di website ini dengan mengeklik tombol berikut
-					<a href="{{url('/user')}}"><button class="button-delete">Ubah User</button></a>
+					<br><a href="{{url('/user')}}"><button class="button-delete">Ubah User</button></a>
+					<a href="{{url('/admin/reset/'.$user->id)}}"><button class="button-delete">Ubah Password Anda</button></a>
 				</div>
 			</div>
 			<?php } ?>
