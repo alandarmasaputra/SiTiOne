@@ -204,7 +204,7 @@ class UserController extends Controller
             ->with('successMessage',$successMessage);
         }
         else{
-        	return back()
+        	return view('crud.create', compact('user'))
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
 
