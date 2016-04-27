@@ -1,0 +1,23 @@
+21/4
+
+Fungsi search dekat menu belum berjalan
+
+button login mungkin sedikit aneh (kliatan kayak hiasan). mungkin
+bisa ditaruh di dekat menu2 bawah
+
+kirim kueri beasiswa error saat pendaftaran terakhir diisi. klu  dikosongin malah bisa
+http://localhost/SiTiOne/src/biro3ukdw/public/beasiswa/new
+>>ALAN: need check, tak cek udah bener, mungkin masalah dependency, tampilin screenshot kirim ke fb ja
+
+kirim kueri event error saat tanggal diisi. klu tanggalnya dikosongin malah bisa
+http://localhost/SiTiOne/src/biro3ukdw/public/event/new
+>>ALAN: need check, tak cek udah bener, mungkin masalah dependency, tampilin screenshot kirim ke fb ja
+
+admin edit profil belum jalan
+http://localhost/SiTiOne/src/biro3ukdw/public/editprofile
+
+search event belum jalan. saat menulis kata kunci, ttp di halaman sama
+tidak ada perubahan menuju yang dicari. ga kayak yang lainnya yang selalu
+menuju yang dicari
+http://localhost/SiTiOne/src/biro3ukdw/public/event
+>>ALAN: FIXED, tolong dicek lagi.

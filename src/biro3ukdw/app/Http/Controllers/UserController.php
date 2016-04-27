@@ -74,7 +74,7 @@ class UserController extends Controller
 		$input = array_except(Input::all(), '_method');
 
 		$rules = array(
-		'username' => 'required|unique:users,username',
+		'username' => 'required|unique:users,username,'.$user->username.',username',
 
 		'email' => 'required',
 
@@ -89,7 +89,7 @@ class UserController extends Controller
             ->with('successMessage',$successMessage);
 		}
 		else{
-			return view('crud.edit', compact('user'))
+			return back()
 					->withErrors($validator);
 		}
     }
@@ -121,7 +121,7 @@ class UserController extends Controller
 			
 		}
 		else{
-			return view('crud.reset', compact('user'))
+			return back()
 					->withErrors($validator);
 		}
     }
@@ -167,7 +167,7 @@ class UserController extends Controller
             ->with('successMessage',$successMessage);
         }
         else{
-        	return view('crud.create')
+        	return back()
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
 

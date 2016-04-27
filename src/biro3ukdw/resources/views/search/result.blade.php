@@ -20,6 +20,9 @@ Event - Biro3 | UKW
 						<h2>{{ $event->name }}</h2><h2>{{ $event->kategori }} </h2> <h2> {{ $event->sumber }} </h2> <h2> {{ $event->tempat }}</h2>
 					</a>
 					@endforeach
+					@if (count($events) === 0)
+					Tidak ada yang sesuai dengan kata kunci...
+					@endif
 		</div>
 
 		<div></div>
@@ -30,6 +33,9 @@ Event - Biro3 | UKW
 					<h2>{{ $ukm->name }}</h2>
 					</a>
 					@endforeach
+					@if (count($ukms) === 0)
+					Tidak ada yang sesuai dengan kata kunci...
+					@endif
 		</div>
 
 
@@ -40,6 +46,9 @@ Event - Biro3 | UKW
 					<h2>{{ $new->name }}</h2><h2> {{ $new->kategori }}</h2>
 					</a>
 					@endforeach
+					@if (count($news) === 0)
+					Tidak ada yang sesuai dengan kata kunci...
+					@endif
 		</div>
 
 
@@ -50,6 +59,9 @@ Event - Biro3 | UKW
 					<h2>{{ $beasiswa->name }}</h2><h2> {{ $beasiswa->kategori }} {{ $beasiswa->sumber }}</h2>
 					</a>
 					@endforeach
+					@if (count($beasiswas) === 0)
+					Tidak ada yang sesuai dengan kata kunci...
+					@endif
 		</div>
 	</div>
 	
