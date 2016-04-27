@@ -36,7 +36,7 @@ use App\AppUtility;
 <div class="event-timeline-block">
 	<div class="event-timeline-img text-center">
 		<div>
-			<?php $nowDate = new Carbon($event->created_at)?>
+			<?php $nowDate = new Carbon($event->event_date)?>
 			<div class="text-left">
 				{{$nowDate->format('M')}}
 			</div>

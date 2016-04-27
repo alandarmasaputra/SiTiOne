@@ -3,6 +3,10 @@
 Beasiswa - Biro3 | UKW
 @endsection
 
+@section('nav_beasiswa')
+active
+@endsection
+
 @section('head_addition')
 <script src="{{ url('/utility/searchbuff/searchbuff.js') }}"></script>
 @endsection

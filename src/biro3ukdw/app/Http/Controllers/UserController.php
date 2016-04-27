@@ -135,13 +135,6 @@ class UserController extends Controller
     }
 
      
-    function show($id)
-	{
-		$user = User::find($id);
-
-        return view('user.show', compact('user'));
-	}
-
 
 	function store()
 
@@ -151,7 +144,7 @@ class UserController extends Controller
 
          $rules = array(
         'username' => 'required|unique:users,username',
-        'email' => 'required',
+        'email' => 'required|unique:users,username',
         'password' => 'required|min:8',
         'password_confirmation' => 'required|min:8|same:password'
          );

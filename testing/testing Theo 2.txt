@@ -1,0 +1,19 @@
+26/4
+*)pada halaman beasiswa, setactive navigasi (warna) tidak berubah.
+
+
+*)pada halaman profil, warna pada keterangan nama (Crisna Julius & Sutopo Atmoko) kurang terlihat jelas
+WELLY: FIXED
+
+*)pada halaman tambah beasiswa,menambahkan tanggal pendaftaran terakhir, seharusnya tidak bisa meng-inputkan tanggal yang sudah lalu
+ALAN: kemarin sudah dibicarakan dengan pak krisna, masalah input tanggal itu urusan staff biro 3, jadi dibebaskan saja
+
+*)saat menambahkan tanggal event, admin masih dapat meng-inputkan tanggal yang sudah lalu, 
+namun ketika ditampilkan pada "lihat event" walaupun input tanggal event hari lalu, tetapi munculnya adalah tanggal dimana admin meng-inputkan data tersebut
+ALAN: sapp, fixed.
+
+*)Saat creat user, bila ada "alert" atau peringatan tidak terlalu terlihat karena letak diatas
+ALAN: alert diperbesar, tapi tidak diubah lokasinya karena keterbatasan layout view. Cek lagi coba udah keliatan jelas apa belum
+
+*)sebaiknya tombol login/logout lebih diperjelas lagi 
+ALAN: tombol login sudah dipindah ke bawah, nanti diperjelas fungsinya di dokumentasi soale login cmn bwt staff, bukan buat umum

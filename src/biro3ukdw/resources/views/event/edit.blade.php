@@ -69,9 +69,9 @@ use Carbon\Carbon;
                                     <div class="editor-header-input-control">
 										<label>Tanggal Event: </label>
 										@if($event->event_date)
-										<input type="date" name="tanggal" value="{{ (new Carbon($event->event_date))->format('Y-m-d') }}">
+										<input type="date" name="tanggal" value="{{ (new Carbon($event->event_date))->format('Y-m-d') }}" required>
 										@else
-										<input type="date" name="tanggal">
+										<input type="date" name="tanggal" required>
 										@endif
                                     </div>
                                     <div class="editor-header-input-control">

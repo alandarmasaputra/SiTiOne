@@ -75,6 +75,7 @@
 				</ul>
 			</div>
 		</div>
+		 <!--
 		<div id="header-login" class="container-fluid header-login collapse">
 			<div class="navbar-right">
 				<ul class="nav navbar-nav">
@@ -96,11 +97,14 @@
 				</ul>
 			</div>
 		</div>
+		-->
+		 <!--
 		<div class="header-login-button container-fluid text-right">
 			<button type="button" data-toggle="collapse" data-target=".header-login">
 				<span class="glyphicon glyphicon-menu-down"></span>
 			</button>
 		</div>
+		-->
     </header><!--/header-->
 	<script>
 	$('.header-login-button button').click(function(){
@@ -131,6 +135,28 @@
                 </div>
             </div>
         </div>
+		
+		<div id="header-login" class="container-fluid footer-login">
+			<div class="navbar-right">
+				<ul class="nav navbar-nav">
+					@if(!Auth::user())
+					<li>
+						<a href="{{url('/login')}}">Masuk Halaman maintenance</a>
+					</li>
+					@else
+					<li>
+						<span><em>{{Auth::user()->authlevelstring()}}</em></span>
+					</li>
+					<li>
+						<span><strong><a href="{{url('/editprofile')}}">{{Auth::user()->username}}</a></strong></span>
+					</li>
+					<li>
+						<a href="{{url('/logout')}}">Logout</a>
+					</li>
+					@endif
+				</ul>
+			</div>
+		</div>
     </footer><!--/#footer-->
 </body>
 </html>
