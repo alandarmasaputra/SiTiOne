@@ -196,7 +196,7 @@ use App\AppUtility;
         <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <table class="table table-bordered">
-            	<h3>Staff Admin</h3> 
+            	<h3>Staff</h3> 
                 <thead>
                     <th>Username</th>
                     <th>Email</th>
