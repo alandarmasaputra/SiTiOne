@@ -34,6 +34,7 @@ use Carbon\Carbon;
             <div class="news-detail-header">
 				 {{(new Carbon($news->craeted_at))->format('l, d F Y')}}
 				<h1 class="news-detail-header-title">{{$news->name}}</h1>
+				<hr>
               <div class="news-detail-pic">
                     @if($news->header_pic)
                     <img src="{{AppUtility::get_image_data($news->header_pic)}}">
