@@ -106,7 +106,7 @@
 .clndr .clndr-grid>.days-of-the-week>.header-day,
 .clndr .clndr-grid>.days>.day
 {
-	padding: 7px 0px;
+	padding: 10px 0px;
 }
 .clndr .clndr-grid>.days>.day
 {
@@ -125,10 +125,49 @@
 }
 .clndr .clndr-grid>.days>.day.today
 {
-	box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+	box-shadow: inset 0 0 15px #005F6E;
 	font-weight: bold;
 }
 .clndr .clndr-grid>.days>.day.event
 {
 	box-shadow: inset 0 -3px 0 0 #005F6E;
+}
+.clndr .clndr-grid>.days>.day.event.today
+{
+	box-shadow: inset 0 -3px 0 0 #005F6E, inset 0 0 15px #005F6E;
+}
+.clndr .event-listing{
+	border-top: 3px solid white;
+	background: #eeeeee;
+}
+.clndr .event-listing>.event-listing-title{
+	text-align: center;
+	padding: 10px 0;
+	background: #005F6E;
+	color: white;
+}
+.clndr .event-listing>.event-listing-content{
+	background: #eeeeee;
+	padding: 10px;
+	height: 180px;
+	overflow-y: scroll;
+}
+.clndr .event-listing>.event-listing-content .event-item{
+	box-shadow: inset 3px 0 0 0 #005F6E;
+	padding: 8px;
+	margin: 10px 0;
+}
+.clndr .event-listing>.event-listing-content .event-item>.event-item-name{
+	font-size: 1.2em;
+}
+.clndr .event-listing>.event-listing-content .event-item>.event-item-name a{
+	font-variant: normal;
+}
+.clndr .event-listing>.event-listing-content .event-item>.event-item-date{
+	font-size: 0.9em;
+	line-height: 1.5;
+}
+.clndr .event-listing>.event-listing-content .event-item>.event-item-location{
+	font-size: 0.9em;
+	line-height: 1.5;
 }

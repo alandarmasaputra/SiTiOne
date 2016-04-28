@@ -307,11 +307,19 @@ active
 <div class="hidden" id="eventrepo">
 	@foreach($events as $event)
 	<div class="item">
+		@if($event->event_date)
 		<div class="date">
+			{{$event->event_date}}
 		</div>
+		@endif
 		<div class="title">
+			{{$event->name}}
+		</div>
+		<div class="location">
+			{{ $event->tempat }}
 		</div>
 		<div class="url">
+			{{ url('/event/'.$event->id) }}
 		</div>
 	</div>
 	@endforeach
@@ -338,23 +346,32 @@ active
 </div>
 <div class="event-listing">
   <div class="event-listing-title">EVENTS THIS MONTH</div>
+  <div class="event-listing-content">
   <% _.each(eventsThisMonth, function(event) { %>
 	  <div class="event-item">
 		<div class="event-item-name"><a href="<%= event.url %>"><%= event.title %></a></div>
 		<div class="event-item-location"><%= event.location %></div>
-		<div class="event-item-location"><%= moment(event.date,'YYYY-MM-DD').format('dddd[,] DD MMMM YYYY') %></div>
+		<div class="event-item-date"><%= moment(event.date,'YYYY-MM-DD').format('dddd[,] DD MMMM YYYY') %></div>
 	  </div>
 	<% }); %>
+  </div>
 </div>
 </script>
 
 <script>
+	var eventsFromServer = [];
 	$(document).ready(function(){
+		$('#eventrepo').children('.item').each(function(){
+			var newEvent = {};
+			newEvent.date = $(this).find('.date').html().trim();
+			newEvent.title = $(this).find('.title').html().trim();
+			newEvent.location = $(this).find('.location').html().trim();
+			newEvent.url = $(this).find('.url').html().trim();
+			eventsFromServer.push(newEvent)
+		})
 		$('.home-calendar').clndr({
 			template: $('#full-clndr-template').html(),
-			events: [
-			{ date: '2016-04-04', title: 'CLNDR GitHub Page Finished', url: 'http://github.com/kylestetz/CLNDR' }
-			]
+			events: eventsFromServer
 		});
 	})
 </script>
