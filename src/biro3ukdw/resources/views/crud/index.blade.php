@@ -185,7 +185,7 @@ use App\AppUtility;
     {!! Form::label('is_aktif', 'Status:') !!}
     <br>{!! Form::select('is_aktif', array('0' => 'Tidak Aktif', '1' => 'Aktif')); !!}
 </div>
-{!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}
+{!! Form::submit('Create', ['class' => 'btn btn-primary']) !!}
 {!! Form::close() !!}
  </table>
 </div>
