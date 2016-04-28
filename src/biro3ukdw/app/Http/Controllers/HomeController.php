@@ -130,7 +130,28 @@ class HomeController extends Controller
 	}
 	
 	public function profil(){
-		return view('profil.profil');
+		$section_top = ProfileContent::where('section_name','section-top')->get();
+		$section_middle = ProfileContent::where('section_name','section-middle')->get();
+		$section_side = ProfileContent::where('section_name','section-side')->get();
+		$section_avatar = ProfileContent::where('section_name','section_avatar')->get();
+		$avatars = "";
+		foreach($section_avatar as $content){
+			$avatars.=" ".$content->content;
+		}
+		$section_avatar = explode(' ',trim($avatars));
+		$avatars = array();
+		for($i=0;$i<count($section_avatar);$i++){
+			$newUser = User::where('username',$section_avatar[$i])->first();
+			if($newUser){
+				$avatars[]=$newUser;	
+			}
+		}
+		return view('profil.profil',[
+			'section_top' => $section_top,
+			'section_middle' => $section_middle,
+			'section_side' => $section_side,
+			'section_avatar' => $avatars
+		]);
 	}
 	
 	public function profiledit(){
@@ -150,20 +171,16 @@ class HomeController extends Controller
 		$ret = array();
 		$ret['status'] = 0;
 		try{
-			$ret['a'] = 1;
 			$data = json_decode($request->data);
-			$ret['b'] = 1;
 			$contents = $data->content;
 			$section_name = $data->section_name;
 			$strlen = strlen($contents);
 			ProfileContent::where('section_name', $section_name)->delete();
-			$ret['c'] = 1;
 			for( $i = 0; $i <= $strlen; $i+=255 ) {
 				$content = substr( $contents, $i, 255);
 				$newProfileContent = new ProfileContent();
 				$newProfileContent->section_name = $section_name;
-				$newProfileContent->content = $content;
-				$ret[] = $content;
+				$newProfileContent->content = trim($content);
 				if($newProfileContent->content){
 					$newProfileContent->save();
 				}
@@ -223,4 +240,20 @@ class HomeController extends Controller
 		}
 		echo json_encode($ret);
 	}
+	/*
+	public function test(){
+		$section_top = ProfileContent::where('section_name','section-top')->get();
+		$section_middle = ProfileContent::where('section_name','section-middle')->get();
+		$section_side = ProfileContent::where('section_name','section-side')->get();
+		$section_avatar = ProfileContent::where('section_name','section_avatar')->get();
+		
+		echo "<div>";
+		$c = "";
+		foreach($section_side as $content){
+			$c.=$content->content;
+		}
+		//echo str_replace('&','&amp;',str_replace('>','&gt;',str_replace('<','&lt;',$c)));
+		echo $c;
+		echo "</div>";
+	}*/
 }

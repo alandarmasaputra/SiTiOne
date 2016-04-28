@@ -93,7 +93,11 @@ Route::group(['middleware' => ['web']], function () {
         Route::post('/cruduser',['as'=>'cruduser_new', 'uses'=>'UserController@store']);
         Route::get('/cruduser/resets/{id}',"UserController@resets");
         Route::post('/cruduser/updates/{id}','UserController@updatess');
-		Route::get('/search','SearchController@search');
+
+
+        Route::get('/admin/reset/{id}',"UserController@resetsadmin");
+        Route::post('/admin/updates/{id}',"UserController@updateadmin");
+
 
         
         Route::post('editprofile/editself','EditProfileController@editself');
@@ -140,7 +144,10 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/beasiswa/','BeasiswaController@index');  
 	Route::get('/beasiswa/{id}','BeasiswaController@detail'); 
 	
-    Route::get('/profil','HomeController@profil');
+	Route::get('/profil','HomeController@profil');
+	Route::get('/search','SearchController@search');
 
 
 });
+
+//Route::get('/ftest','HomeController@test');

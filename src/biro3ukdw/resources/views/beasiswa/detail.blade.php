@@ -2,6 +2,11 @@
 @section('head_title')
 Detail Beasiswa - Biro3 | UKW
 @endsection
+
+@section('nav_beasiswa')
+active
+@endsection
+
 @section('body_content')
 
 <?php

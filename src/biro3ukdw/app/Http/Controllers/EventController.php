@@ -19,7 +19,7 @@ use Auth;
 class EventController extends Controller
 {
     public function index(){
-        $events = Event::orderBy('created_at','desc')->get();
+        $events = Event::orderBy('event_date','desc')->get();
         return view('event.index',[
             'events'=>$events
         ]);
@@ -251,10 +251,10 @@ class EventController extends Controller
         $event_kategori = trim($input['kategori']);
         $event_sumber = trim($input['sumber']);
         $event_tempat = trim($input['tempat']);
-		if($request->input('tanggal')){
-        	$event_date = Carbon::createFromFormat('Y-m-d', $request->input('tanggal'));
-		}else{
+		if($request->input('tanggal')=="" || $request->input('tanggal')==null){
         	$event_date = null;
+		}else{
+        	$event_date = Carbon::createFromFormat('Y-m-d', $request->input('tanggal'));
 		}
 
         

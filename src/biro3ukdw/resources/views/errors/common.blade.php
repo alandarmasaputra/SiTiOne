@@ -1,5 +1,5 @@
 @if(isset($errors) || session('errorMessage') || session('successMessage'))
-	<div class="notification-bar">
+<div class="notification-bar">
 	@if(session('errorMessage'))
 	<div>
 		<span class="label">Alert</span> {{ session('errorMessage') }}
@@ -18,5 +18,5 @@
 		@endforeach
 	@endif
 
-	</div>
+</div>
 @endif

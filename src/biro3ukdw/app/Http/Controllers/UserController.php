@@ -74,7 +74,7 @@ class UserController extends Controller
 		$input = array_except(Input::all(), '_method');
 
 		$rules = array(
-		'username' => 'required|unique:users,username',
+		'username' => 'required|unique:users,username,'.$user->username.',username',
 
 		'email' => 'required',
 
@@ -89,7 +89,7 @@ class UserController extends Controller
             ->with('successMessage',$successMessage);
 		}
 		else{
-			return view('crud.edit', compact('user'))
+			return back()
 					->withErrors($validator);
 		}
     }
@@ -121,7 +121,37 @@ class UserController extends Controller
 			
 		}
 		else{
-			return view('crud.reset', compact('user'))
+			return back()
+					->withErrors($validator);
+		}
+    }
+
+     public function updateadmin($id, Request $request)
+    {
+		$user = User::findOrFail($id);
+
+		$input = array_except(Input::all(), '_method');
+
+		$rules = array(
+
+			'password' => 'required|min:8',
+			'password_confirmation' => 'required|min:8|same:password'
+			 );
+		$validator = Validator::make($input, $rules);
+		if($validator->passes()){
+
+			$user->password = bcrypt(Input::get('password'));
+			$user->save();
+
+			$successMessage = 'Selamat, Password berhasil di reset !';
+            return back()
+            ->with('successMessage',$successMessage);
+            
+
+			
+		}
+		else{
+			return back()
 					->withErrors($validator);
 		}
     }
@@ -134,14 +164,14 @@ class UserController extends Controller
         return view('crud.reset', compact('user'));
     }
 
+    function resetsadmin($id)
+    {
+        $user = User::find($id);
+
+        return view('crud.resetadmin', compact('user'));
+    }
+
      
-    function show($id)
-	{
-		$user = User::find($id);
-
-        return view('user.show', compact('user'));
-	}
-
 
 	function store()
 
@@ -151,7 +181,7 @@ class UserController extends Controller
 
          $rules = array(
         'username' => 'required|unique:users,username',
-        'email' => 'required',
+        'email' => 'required|unique:users,username',
         'password' => 'required|min:8',
         'password_confirmation' => 'required|min:8|same:password'
          );
@@ -174,7 +204,7 @@ class UserController extends Controller
             ->with('successMessage',$successMessage);
         }
         else{
-        	return view('crud.create')
+        	return view('crud.create', compact('user'))
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
 

@@ -3,6 +3,11 @@
 Edit Beasiswa - Biro3 | UKDW
 @endsection
 
+@section('nav_beasiswa')
+active
+@endsection
+
+
 @section('head_addition')
 <link href="{{ url('utility/summernote/summernote.css')}}" rel="stylesheet" type="text/css">
 <script src="{{ url('utility/summernote/summernote.js') }}"></script>
