@@ -1,0 +1,134 @@
+/* calendar-controls */
+/* ================================================================================== */
+.clndr .clndr-controls
+{
+	background: #949494;
+	background: #007182;
+	margin: 0px;
+}
+
+.clndr .clndr-controls:after
+{
+	content:'';
+	clear: both;
+	display: block;
+}
+
+.clndr .clndr-controls>div
+{
+	float:left;
+	display: inline-block;
+	height: 100%;
+	margin: 0px;
+	color: white;
+}
+
+.clndr .clndr-controls>.clndr-previous-button-container,
+.clndr .clndr-controls>.clndr-next-button-container
+{
+	margin: 0px;
+	width: 20%;
+}
+
+.clndr .clndr-controls>.clndr-next-button-container
+{
+	text-align: right;
+}
+
+.clndr .clndr-controls>.clndr-previous-button-container
+{
+	text-align: left;
+}
+
+.clndr .clndr-controls>.current-month
+{
+	width: 60%;
+	text-align: center;
+	font-weight: bold;
+}
+
+.clndr .clndr-controls>.clndr-previous-button-container>span,
+.clndr .clndr-controls>.clndr-next-button-container>span
+{
+	margin: 0px;
+	display: inline-block;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.clndr .clndr-controls>.clndr-previous-button-container>span:hover,
+.clndr .clndr-controls>.clndr-next-button-container>span:hover
+{
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
+}
+
+.clndr .clndr-controls>.clndr-previous-button-container>span,
+.clndr .clndr-controls>.clndr-next-button-container>span,
+.clndr .clndr-controls>.current-month
+{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+/* calendar-grid */
+/* ================================================================================== */
+.clndr .clndr-grid
+{
+	display:block;
+}
+.clndr .clndr-grid:after
+{
+	content:'';
+	clear:both;
+	display:block;
+}
+.clndr .clndr-grid>div
+{
+	display: block;
+}
+.clndr .clndr-grid>.days-of-the-week>.header-day
+{
+	width: calc(100% / 7);
+	float:left;
+	text-align: center;
+	background: #C7E8ED;
+	color: #aaa;
+	background: #8AC8D1;
+	color: white;
+	font-weight: bold;
+}
+.clndr .clndr-grid>.days-of-the-week:after
+{
+	content:'';
+	clear:both;
+	display:block;
+}
+.clndr .clndr-grid>.days-of-the-week>.header-day,
+.clndr .clndr-grid>.days>.day
+{
+	padding: 7px 0px;
+}
+.clndr .clndr-grid>.days>.day
+{
+	width: calc(100% / 7);
+	float:left;
+	text-align: center;
+	background: #F7F7F7;
+	color: #005F6E;
+	font-size: 0.9em;
+	font-weight: 
+}
+.clndr .clndr-grid>.days>.day.adjacent-month
+{
+	background: #eeeeee;
+	color: #005F6E;
+}
+.clndr .clndr-grid>.days>.day.today
+{
+	box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+	font-weight: bold;
+}
+.clndr .clndr-grid>.days>.day.event
+{
+	box-shadow: inset 0 -3px 0 0 #005F6E;
+}

@@ -19,6 +19,43 @@ active
 <section id="blog" class="container">
 	{!! csrf_field() !!}
 	<div class="row profil-card">	
+
+		<div class="col-md-4">
+			<div class="row editor-parent">
+				<div class="col-md-11">
+					<textarea class="hidden" id="section-side-old">@foreach($section_side as $content){!! trim($content->content) !!}@endforeach</textarea>
+					<textarea class="summernote" id="section-side"></textarea>
+				</div>
+				<div class="col-xs-12 col-sm-10 text-right">
+					<button type="button" class="section-submit button-submit">Save</button>
+				</div>
+			</div>
+		</div> 
+
+		<div class="col-md-5">
+			<div class="row editor-parent">
+				<div class="col-xs-12 col-sm-12 blog-content">
+					<textarea class="hidden" id="section-top-old">@foreach($section_top as $content){!! trim($content->content) !!}@endforeach
+					</textarea>
+					<textarea class="summernote" id="section-top">
+					</textarea>
+				</div>
+				<div class="col-xs-12 col-sm-12 text-right">
+					<button type="button" class="section-submit button-submit">Save</button>
+				</div>
+			</div>   
+			<hr>
+			<div class="row editor-parent">
+				<div class="col-xs-12 col-sm-12 blog-content">
+					<textarea class="hidden" id="section-middle-old">@foreach($section_middle as $content){!! $content->content !!}@endforeach
+					</textarea>
+					<textarea class="summernote" id="section-middle"></textarea>
+				</div>
+				<div class="col-xs-12 col-sm-12 text-right">
+					<button type="button" class="section-submit button-submit">Save</button>
+				</div>
+			</div> 
+		</div>
 		<div class="col-md-3 avatars">
 			<div class="row">
 				<div class="col-xs-12 col-sm-12">
@@ -45,43 +82,6 @@ active
 				</div>
 			</div>
 		</div>
-
-		<div class="col-md-5">
-			<div class="row editor-parent">
-				<div class="col-xs-12 col-sm-12 blog-content">
-					<textarea class="hidden" id="section-top-old">@foreach($section_top as $content){!! trim($content->content) !!}@endforeach
-					</textarea>
-					<textarea class="summernote" id="section-top">
-					</textarea>
-				</div>
-				<div class="col-xs-12 col-sm-12 text-right">
-					<button type="button" class="section-submit button-submit">Save</button>
-				</div>
-			</div>   
-			<hr>
-			<div class="row editor-parent">
-				<div class="col-xs-12 col-sm-12 blog-content">
-					<textarea class="hidden" id="section-middle-old">@foreach($section_middle as $content){!! $content->content !!}@endforeach
-					</textarea>
-					<textarea class="summernote" id="section-middle"></textarea>
-				</div>
-				<div class="col-xs-12 col-sm-12 text-right">
-					<button type="button" class="section-submit button-submit">Save</button>
-				</div>
-			</div> 
-		</div>
-
-		<div class="col-md-4">
-			<div class="row editor-parent">
-				<div class="col-md-11">
-					<textarea class="hidden" id="section-side-old">@foreach($section_side as $content){!! trim($content->content) !!}@endforeach</textarea>
-					<textarea class="summernote" id="section-side"></textarea>
-				</div>
-				<div class="col-xs-12 col-sm-10 text-right">
-					<button type="button" class="section-submit button-submit">Save</button>
-				</div>
-			</div>
-		</div> 
 	</div>
 	
 </section>

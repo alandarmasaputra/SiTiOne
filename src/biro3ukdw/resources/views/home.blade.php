@@ -7,6 +7,14 @@ active
 @endsection
 
 @extends('layout.app')
+
+@section('head_addition')
+<link rel="stylesheet" href="{{ url('utility/clndr/clndr_custom.css') }}">
+<script src="{{ url('utility/moment/moment.js') }}"></script>
+<script src="{{ url('utility/underscore/underscore.js') }}"></script>
+<script src="{{ url('utility/clndr/clndr.min.js') }}"></script>
+@endsection
+
 @section('body_content')
 
 <?php
@@ -282,8 +290,74 @@ active
 			</div>
 		</div>
 		@endif
+		<div class="row home-bottom">
+			<div class="col-sm-7 section-top">
+				@foreach($section_top as $content)
+				{!! $content->content !!}
+				@endforeach
+			</div>
+			<div class="col-sm-5">
+				<div class="cal1 home-calendar">
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
- 
+
+<div class="hidden" id="eventrepo">
+	@foreach($events as $event)
+	<div class="item">
+		<div class="date">
+		</div>
+		<div class="title">
+		</div>
+		<div class="url">
+		</div>
+	</div>
+	@endforeach
+</div>
+
+<script type="text/template" id="full-clndr-template">
+<div class="clndr-controls">
+  <div class="clndr-previous-button-container"><span class="clndr-previous-button"><span class="glyphicon glyphicon-menu-left"></span></span></div>
+  <div class="current-month"><%= month %> <%= year %></div>
+  <div class="clndr-next-button-container"><span class="clndr-next-button"><span class="glyphicon glyphicon-menu-right"></span></span></div>
+
+</div>
+<div class="clndr-grid">
+  <div class="days-of-the-week clearfix">
+	<% _.each(daysOfTheWeek, function(day) { %>
+	  <div class="header-day"><%= day %></div>
+	<% }); %>
+  </div>
+  <div class="days">
+	<% _.each(days, function(day) { %>
+	  <div class="<%= day.classes %>" id="<%= day.id %>"><span class="day-number"><%= day.day %></span></div>
+	<% }); %>
+  </div>
+</div>
+<div class="event-listing">
+  <div class="event-listing-title">EVENTS THIS MONTH</div>
+  <% _.each(eventsThisMonth, function(event) { %>
+	  <div class="event-item">
+		<div class="event-item-name"><a href="<%= event.url %>"><%= event.title %></a></div>
+		<div class="event-item-location"><%= event.location %></div>
+		<div class="event-item-location"><%= moment(event.date,'YYYY-MM-DD').format('dddd[,] DD MMMM YYYY') %></div>
+	  </div>
+	<% }); %>
+</div>
+</script>
+
+<script>
+	$(document).ready(function(){
+		$('.home-calendar').clndr({
+			template: $('#full-clndr-template').html(),
+			events: [
+			{ date: '2016-04-04', title: 'CLNDR GitHub Page Finished', url: 'http://github.com/kylestetz/CLNDR' }
+			]
+		});
+	})
+</script>
+
 @stop
 

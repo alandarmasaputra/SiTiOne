@@ -32,6 +32,7 @@ class HomeController extends Controller
 		$ukms = Ukm::orderBy('id','desc')->get();
 		$beasiswas = Beasiswa::orderBy('id','desc')->get();
 		$events = Event::orderBy('id','desc')->get();
+		$section_top = ProfileContent::where('section_name','section-top')->get();
 		
 		$carousel = array();
 		
@@ -74,7 +75,8 @@ class HomeController extends Controller
 			'ukms'=>$ukms,
 			'beasiswas'=>$beasiswas,
 			'events'=>$events,
-			'carousel'=>$carousel
+			'carousel'=>$carousel,
+			'section_top'=>$section_top
 		]);
     }
 	

@@ -114,7 +114,7 @@ class UserController extends Controller
 			$user->save();
 
 			$successMessage = 'Selamat, Password berhasil di reset !';
-            return back()
+            return redirect('/editprofile')
             ->with('successMessage',$successMessage);
             
 
