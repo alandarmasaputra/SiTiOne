@@ -38,7 +38,7 @@ $addition = $user->addition();
 			<div class="form-g">
 				{!! Form::label('description', 'Level:',['class' => 'control-label']) !!}
 				<br>
-				{!! Form::select('auth_level', array('0' => 'Super Admin', '1' => 'Admin',  '2' => 'Staff', '3' => 'Volunteer')); !!}
+				{!! Form::select('auth_level', array('1' => 'Admin',  '2' => 'Staff', '3' => 'Volunteer')); !!}
 			</div>
 			<div class="form-g">
 				{!! Form::label('description', 'Status:', ['class' => 'control-label']) !!}

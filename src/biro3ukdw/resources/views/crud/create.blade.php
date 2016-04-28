@@ -55,7 +55,7 @@ use App\AppUtility;
 </div>
 <div class="form-g">
     {!! Form::label('auth_level', 'Level:', ['class' => 'control-label']) !!} <br>
-    {!! Form::select('auth_level', array('0' => 'Super Admin', '1' => 'Admin',  '2' => 'Staff', '3' => 'Volunteer')); !!}
+    {!! Form::select('auth_level', array('1' => 'Admin',  '2' => 'Staff', '3' => 'Volunteer')); !!}
 </div>
 <div class="form-g">
     {!! Form::label('is_aktif', 'Status:', ['class' => 'control-label']) !!}

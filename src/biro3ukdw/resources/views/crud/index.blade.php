@@ -29,7 +29,7 @@ active
                                         <li role="presentation" class="active"><a href="#au" aria-controls="home" role="tab" data-toggle="tab">Data User</a></li>
                                         <li role="presentation"><a href="#tt" aria-controls="profile" role="tab" data-toggle="tab">Create user</a></li>
                                         <li role="presentation"><a href="#vm" aria-controls="messages" role="tab" data-toggle="tab">Admin</a></li>
-                                        <li role="presentation"><a href="#tp" aria-controls="settings" role="tab" data-toggle="tab">Staff Admin</a></li>
+                                        <li role="presentation"><a href="#tp" aria-controls="settings" role="tab" data-toggle="tab">Staff</a></li>
                                         <li role="presentation"><a href="#lu" aria-controls="settings" role="tab" data-toggle="tab">Volunteer</a></li>
                                         <li role="presentation"> <a href="{{url('/editprofile')}}" >Edit Profile</a></li>
                                     </ul>    
@@ -179,13 +179,13 @@ use App\AppUtility;
 </div>
 <div class="form-g">
     {!! Form::label('auth_level', 'Level:') !!} <br>
-    {!! Form::select('auth_level', array('0' => 'Super Admin', '1' => 'Admin',  '2' => 'Staff', '3' => 'Volunteer')); !!}
+    {!! Form::select('auth_level', array( '1' => 'Admin',  '2' => 'Staff', '3' => 'Volunteer')); !!}
 </div>
 <div class="form-g">
     {!! Form::label('is_aktif', 'Status:') !!}
     <br>{!! Form::select('is_aktif', array('0' => 'Tidak Aktif', '1' => 'Aktif')); !!}
 </div>
-{!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}
+{!! Form::submit('Create', ['class' => 'btn btn-primary']) !!}
 {!! Form::close() !!}
  </table>
 </div>
@@ -196,7 +196,7 @@ use App\AppUtility;
         <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <table class="table table-bordered">
-            	<h3>Staff Admin</h3> 
+            	<h3>Staff</h3> 
                 <thead>
                     <th>Username</th>
                     <th>Email</th>
@@ -212,7 +212,7 @@ use App\AppUtility;
                     <tr>
                         <td>{{ $data->username }}</td>
                         <td>{{ $data->email}}</td>
-                        <td>Staff Admin</td>
+                        <td>Staff</td>
                         @if($data->is_aktif=="0")   
                         <td>Tidak aktif</td>
                         @else

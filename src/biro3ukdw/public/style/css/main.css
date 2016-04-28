@@ -39,17 +39,21 @@ color:blue;}
 
 .result-event{
 	background: white;
-	padding-top: 10px;
-	text-align: center;
 	  border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #fff;
+	color: steelblue;
+	text-align: center;
+	margin-left: 15%;
+	margin-right: 15%;
 	margin-bottom: 10px;
+	padding-bottom: 10px;
 	
 }
-
 .result-event h1{
 	color: #2e2e2e;
-	text-align: center;
+	text-align: left;
+	padding-left: 10px;
+	border-bottom: 1px solid lightgray; 
 }
 .result-event h2{
 	color: steelblue;
@@ -64,13 +68,18 @@ color:blue;}
 	text-align: center;
 	  border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #fff;
+	margin-left: 15%;
+	margin-right: 15%;
+	color: steelblue;
 	margin-bottom: 10px;
-	
+	padding-bottom: 10px;
 }
 
 .result-ukm h1{
 	color: #2e2e2e;
-	text-align: center;
+	padding-left: 10px;
+	text-align: left;
+border-bottom: 1px solid lightgray; 
 }
 .result-ukm h2{
 	color: steelblue;
@@ -84,13 +93,18 @@ color:blue;}
 	text-align: center;
 	  border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #fff;
+	margin-left: 15%;
+	margin-right: 15%;
+	color: steelblue;
 	margin-bottom: 10px;
-	
+	padding-bottom: 10px;
 }
 
 .result-news h1{
 	color: #2e2e2e;
-	text-align: center;
+	padding-left: 10px;
+	text-align: left;
+	border-bottom: 1px solid lightgray; 
 }
 .result-news h2{
 	color: steelblue;
@@ -105,11 +119,18 @@ color:blue;}
 	text-align: center;
 	  border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #fff;
+margin-left: 15%;
+	margin-right: 15%;
+	color: steelblue;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
 }
 
 .result-beasiswa h1{
 	color: #2e2e2e;
-	text-align: center;
+	padding-left: 10px;
+	text-align: left;
+	border-bottom: 1px solid lightgray; 
 }
 .result-beasiswa h2{
 	color: steelblue;
