@@ -1172,6 +1172,7 @@ input[type="text"]{
 	}
 }
 
+/*css ini untuk halaman detail beasiswa*/
 .beasiswa-detail-body{
 	display: flex;
 	flex-flow: row wrap;
@@ -1923,4 +1924,37 @@ input[type="text"]{
 .note-editor.note-frame .note-editing-area .note-editable.panel-body{
 	background-color: rgba(255,255,255,0.9);
 	box-shadow: inset 0px 2px 10px rgba(0,0,0,0.3);
+}
+
+/*Detail News*/
+.news-detail-body{
+	padding-left: 0;
+	box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+	background: white;
+}
+
+.news-detail-header{
+	padding: 10px;
+	border: 1px solid rgba(100,100,100,0.3);
+	color: black;
+}
+news-detail-header-title{
+	padding-top: -20%;
+}
+.news-detail-pic{
+	text-align: center;
+	background: white;
+}
+
+.news-detail-pic img{
+	max-width: 100%;
+	max-height: 300px;
+	height: auto;
+	width: auto;
+	
+}
+.news-detail-header-buttons{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
 }

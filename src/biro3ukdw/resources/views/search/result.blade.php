@@ -17,7 +17,10 @@ Event - Biro3 | UKW
 		</div>
 					@foreach($events as $event)
 					<a href="{{url('/event/'.$event->id)}}" style="display:inline-block;">
-						<h2>{{ $event->name }}</h2><h2>{{ $event->kategori }} </h2> <h2> {{ $event->sumber }} </h2> <h2> {{ $event->tempat }}</h2>
+						<h2>{{ $event->name }}</h2>
+						<h2>{{ $event->kategori }}</h2>
+						<h2> {{ $event->sumber }}</h2> 
+						<h2> {{ $event->tempat }}</h2>
 					</a>
 					@endforeach
 					@if (count($events) === 0)
