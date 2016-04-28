@@ -51,7 +51,7 @@ use Carbon\Carbon;
 				
                         <div>
                             @foreach(explode(' ',$news->kategori) as $tag)
-                            <span class="tag-list-item">{{$tag}}</span>
+                            <span class="tag-list-items">{{$tag}}</span>
                             @endforeach
                         </div>
                 <br>
