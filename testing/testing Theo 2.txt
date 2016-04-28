@@ -25,3 +25,8 @@ THEO : CLOSED!
 
 *)pada saat tambah beasiswa, admin masih bisa submit tanpa mengisi tanggal terakhir pendaftaran
 
+
+*)design tampilan pada ukm kurang rapi bila jumlah ukm banyak
+
+
+*)belum bisa upload foto untuk foto staff yang akan ditampilkan
