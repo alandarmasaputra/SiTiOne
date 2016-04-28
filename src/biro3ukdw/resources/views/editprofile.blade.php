@@ -16,12 +16,20 @@ $addition = $user->addition();
 			<?php if(Auth::user()->auth_level<=1){?>
 			<div class='row'>
 				<div class="col-xs-10 col-xs-offset-1 text-center">
-					Selamat datang <i><b>{{ $user->username }}</b></i>, Anda memiliki akses untuk melakukan edit user yang ada di website ini dengan mengeklik tombol dibawah ini :<br>
+					Selamat datang <i><b>{{ $user->username }}</b></i>, Anda memiliki akses untuk melakukan edit user yang ada di website ini dengan mengklik tombol dibawah ini :<br>
 					<br><a href="{{url('/user')}}"><button class="button-delete">Ubah User</button></a>
 					<a href="{{url('/admin/reset/'.$user->id)}}"><button class="button-delete">Ubah Password Anda</button></a>
 				</div>
 			</div><br>
-			<?php } ?>
+			<?php } else{?>
+			<div class='row'>
+				<div class="col-xs-10 col-xs-offset-1 text-center">
+					Selamat datang <i><b>{{ $user->username }}</b></i>, Anda memiliki akses untuk melakukan edit password anda dengan mengklik tombol dibawah ini :<br>
+					<a href="{{url('/admin/reset/'.$user->id)}}"><br><button class="button-delete">Ubah Password Anda</button></a>
+				</div>
+			</div><br>
+			<?php }?>
+
 			<form method="post" action="{{ url('/editprofile/editself') }}" enctype="multipart/form-data"><!--  -->
 				{!! csrf_field() !!}
 				<div class="row">
