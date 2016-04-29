@@ -33,8 +33,10 @@ active
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-12 ukm-container">
+		<div class="col-md-12" style="padding:0">
+			<div class="ukm-container">
 
+			</div>
 		</div>
 	</div>
 </div>
