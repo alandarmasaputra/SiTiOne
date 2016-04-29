@@ -96,7 +96,7 @@ class NewsController extends Controller
 			
 			
 			if(strlen($news_name)>$this->maxTitleLength){
-				$errors[] = "Nama UKM tidak boleh lebih dari ".$this->maxTitleLength." huruf";
+				$errors[] = "Nama News tidak boleh lebih dari ".$this->maxTitleLength." huruf";
 			}
             
         }

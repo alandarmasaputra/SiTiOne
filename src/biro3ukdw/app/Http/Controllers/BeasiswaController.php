@@ -92,7 +92,7 @@ class BeasiswaController extends Controller
             }
 			
 			if(strlen($beasiswa_name)>$this->maxTitleLength){
-				$errors[] = "Nama UKM tidak boleh lebih dari ".$this->maxTitleLength." huruf";
+				$errors[] = "Nama Beasiswa tidak boleh lebih dari ".$this->maxTitleLength." huruf";
 			}
             
         }
