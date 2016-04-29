@@ -10,8 +10,7 @@ use App\Ukm;
 use App\Event;
 use App\News;
 use App\Beasiswa;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Pagination\LengthAwarePaginator;
+
 
 class SearchController extends Controller
 {
