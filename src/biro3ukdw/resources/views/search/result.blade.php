@@ -41,7 +41,7 @@ Event - Biro3 | UKW
 					<br>
 					
 					@endforeach
-					{!!$events->appends(array_except(Request::query(), 'page_nameee'))->links();!!}
+					{!!$events->appends(array_except(Request::query(), 'page_event'))->links();!!}
  
 
 					@if (count($events) === 0)
@@ -66,7 +66,7 @@ Event - Biro3 | UKW
 					<br>
 					
 					@endforeach
-					{!!$ukms->appends(array_except(Request::query(), 'page_namee'))->links();!!}
+					{!!$ukms->appends(array_except(Request::query(), 'page_ukm'))->links();!!}
 					@if (count($ukms) === 0)
 					Tidak ada yang sesuai dengan kata kunci
 					@endif
@@ -102,7 +102,7 @@ Event - Biro3 | UKW
 					<br>
 					
 					@endforeach
-					{!!$news->appends(array_except(Request::query(), 'page_name'))->links();!!}
+					{!!$news->appends(array_except(Request::query(), 'page_news'))->links();!!}
 					@if (count($news) === 0)
 					Tidak ada yang sesuai dengan kata kunci
 					@endif
@@ -140,7 +140,7 @@ Event - Biro3 | UKW
 					
 					@endforeach
 
-                    {!!$beasiswas->appends(array_except(Request::query(), 'page_names'))->links();!!}
+                    {!!$beasiswas->appends(array_except(Request::query(), 'page_bea'))->links();!!}
 					@if (count($beasiswas) === 0)
 					Tidak ada yang sesuai dengan kata kunci
 					@endif
