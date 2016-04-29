@@ -948,15 +948,45 @@ input[type="text"]{
 	transition: padding 0.5s ease;
 	border: 1px solid rgba(124,124,124,0.5);
 	box-shadow: 0 3px 5px rgba(0,0,0,0.3);
-	flex-basis: 200px;
-	max-width: 250px;
 	min-height: 80vh;
 	height: 60vh;
-	flex-grow: 1;
+	flex-basis: 100%;
+	flex-grow: 0;
+	flex-shrink: 0;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+
+@media only screen and (min-width:400px){
+	.ukm-item{
+		flex-basis: calc(100% / 2);
+		max-width: calc(100% / 2);
+	}
+}
+
+@media only screen and (min-width:600px){
+	.ukm-item{
+		flex-basis: calc(100% / 3);
+		max-width: calc(100% / 3);
+	}
+}
+
+@media only screen and (min-width: 768px){
+	.ukm-item{
+		flex-basis: calc(100% / 4);
+		max-width: calc(100% / 4);
+	}
+}
+
+@media only screen and (min-width: 991px){
+	.ukm-item{
+		flex-basis: calc(100% / 5);
+		max-width: calc(100% / 5);
+	}
+}
+
+
 
 .ukm-item:hover{
 	padding: 10px;
