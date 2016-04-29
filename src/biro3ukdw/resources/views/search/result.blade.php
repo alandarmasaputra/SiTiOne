@@ -44,7 +44,7 @@ Event - Biro3 | UKW
 					@if (count($events) === 0)
 					Tidak ada yang sesuai dengan kata kunci
 					@endif
-		</div>
+			</div>
 			
 		</div>	
 
