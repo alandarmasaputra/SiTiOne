@@ -70,7 +70,7 @@ use App\AppUtility;
 				@foreach($event->content as $content)
 					@if($content->type=='s')
 					<div>
-						{!!$content->content!!}
+						{!!AppUtility::str_limit($content->content,100)!!}
 					</div>
 						<?php break; ?>
 					@endif

@@ -60,10 +60,10 @@ use App\AppUtility;
 			
 			<br>
 			@foreach($news->content as $content)
-			@if($content->type == 's')
-			{!! $content->content !!}
-			<?php break; ?>
-			@endif
+				@if($content->type == 's')
+				{!! AppUtility::str_limit($content->content,100) !!}
+				<?php break; ?>
+				@endif
 			@endforeach
 		</div>
 		<div class="beasiswa-addnew flex justify-center">

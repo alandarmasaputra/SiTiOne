@@ -87,4 +87,11 @@ class AppUtility
 			return "";
 		}
     }
+	
+	public static function str_limit($word, $limit){
+		if(strlen($word)>$limit){
+			return substr($word,0,$limit-3)."...";
+		}
+		return $word;
+	}
 }
