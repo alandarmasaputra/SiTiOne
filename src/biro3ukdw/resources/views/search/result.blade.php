@@ -15,7 +15,8 @@ Event - Biro3 | UKW
 			<div class="judul-event">
 			<h1>Event</h1>
 		</div>
-					@foreach($events as $event)
+		<div class="result-detail">
+			@foreach($events as $event)
 					<div class="text-left">
 					<a href="{{url('/event/'.$event->id)}}">
 						Nama Event : {{ $event->name }}
@@ -44,12 +45,14 @@ Event - Biro3 | UKW
 					Tidak ada yang sesuai dengan kata kunci
 					@endif
 		</div>
+			
+		</div>	
 
-		<div></div>
 		<div class="result-ukm">
 			<div class="judul-UKM">
 			<h1>UKM</h1>
 		</div>
+			<div class="result-detail">
 					@foreach($ukms as $ukm)
 					<div class="text-left">
 					<a href="{{url('/ukm/'.$ukm->id)}}">
@@ -64,12 +67,13 @@ Event - Biro3 | UKW
 					Tidak ada yang sesuai dengan kata kunci
 					@endif
 		</div>
-
+		</div>
 
 		<div class="result-news">
 			<div class="judul-news">
 			<h1>News</h1>
 		</div>
+		<div class="result-detail">
 					@foreach($news as $new)
 					<div class="text-left">
 					<a href="{{url('/news/'.$new->id)}}">
@@ -98,12 +102,13 @@ Event - Biro3 | UKW
 					Tidak ada yang sesuai dengan kata kunci
 					@endif
 		</div>
-
+		</div>
 
 		<div class="result-beasiswa">
 			<div class="judul-beasiswa">
 			<h1>Beasiswa</h1>
 		</div>
+		<div class="result-detail">
 					@foreach($beasiswas as $beasiswa)
 					<div class="text-left">
 					<a href="{{url('/beasiswa/'.$beasiswa->id)}}">
@@ -132,7 +137,7 @@ Event - Biro3 | UKW
 					@if (count($beasiswas) === 0)
 					Tidak ada yang sesuai dengan kata kunci
 					@endif
-
+			</div>
 		</div>
 	</div>
 </div>
