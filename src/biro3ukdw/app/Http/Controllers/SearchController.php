@@ -17,21 +17,21 @@ class SearchController extends Controller
     function search(Request $request){
 		$q = $request->q;
 		$ukms = Ukm::where('name','like','%'.$q.'%')
-		    ->paginate(2, ['*'], 'page_ukm');
+		    ->paginate(3, ['*'], 'page_ukm');
 		$events = Event::where('name','like','%'.$q.'%')
 			->orWhere('kategori','like','%'.$q.'%')
 			->orWhere('sumber','like','%'.$q.'%')
 			->orWhere('tempat','like','%'.$q.'%')
-			->paginate(2, ['*'], 'page_event');
+			->paginate(3, ['*'], 'page_event');
 		
 		$news = News::where('name','like','%'.$q.'%')
 			->orWhere('kategori','like','%'.$q.'%')
-			->paginate(2, ['*'], 'page_news');
+			->paginate(3, ['*'], 'page_news');
 		
 		$beasiswas = Beasiswa::where('name','like','%'.$q.'%')
 			->orWhere('kategori','like','%'.$q.'%')
 			->orWhere('sumber','like','%'.$q.'%')
-			->paginate(2, ['*'], 'page_bea');
+			->paginate(3, ['*'], 'page_bea');
 		
 		return view('search.result', compact('ukms', 'events', 'news', 'beasiswas'));
 	}
