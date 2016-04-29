@@ -41,6 +41,9 @@ Event - Biro3 | UKW
 					<br>
 					
 					@endforeach
+					{!!$events->appends(array_except(Request::query(), 'page_nameee'))->links();!!}
+ 
+
 					@if (count($events) === 0)
 					Tidak ada yang sesuai dengan kata kunci
 					@endif
@@ -63,6 +66,7 @@ Event - Biro3 | UKW
 					<br>
 					
 					@endforeach
+					{!!$ukms->appends(array_except(Request::query(), 'page_namee'))->links();!!}
 					@if (count($ukms) === 0)
 					Tidak ada yang sesuai dengan kata kunci
 					@endif

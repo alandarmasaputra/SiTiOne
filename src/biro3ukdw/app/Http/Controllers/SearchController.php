@@ -17,12 +17,13 @@ class SearchController extends Controller
 {
     function search(Request $request){
 		$q = $request->q;
-		$ukms = Ukm::where('name','like','%'.$q.'%')->get();
+		$ukms = Ukm::where('name','like','%'.$q.'%')
+		    ->paginate(2, ['*'], 'page_namee');
 		$events = Event::where('name','like','%'.$q.'%')
 			->orWhere('kategori','like','%'.$q.'%')
 			->orWhere('sumber','like','%'.$q.'%')
 			->orWhere('tempat','like','%'.$q.'%')
-			->get();
+			->paginate(2, ['*'], 'page_nameee');
 		
 		$news = News::where('name','like','%'.$q.'%')
 			->orWhere('kategori','like','%'.$q.'%')
