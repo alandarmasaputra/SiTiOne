@@ -52,6 +52,7 @@ $addition = $user->addition();
 			
 		</div>
 	</div>
+</div>
 @stop
 			
 			

@@ -48,7 +48,7 @@ $addition = $user->addition();
 {!! Form::close() !!}
  
 </table></div></div>
-
+</div>
         @stop
             
             
