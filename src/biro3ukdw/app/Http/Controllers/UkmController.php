@@ -16,6 +16,7 @@ use App\AppUtility;
 
 class UkmController extends Controller
 {
+	private $maxTitleLength = 200;
     function index(){
         $ukms = Ukm::get();
         return view('ukm.index');
@@ -71,6 +72,10 @@ class UkmController extends Controller
             if($newUkm!=null){
                 $errors[] = "Nama UKM sudah ada";
             }
+			
+			if(strlen($ukm_name)>$this->maxTitleLength){
+				$errors[] = "Nama UKM tidak boleh lebih dari ."$this->maxTitleLength". huruf";
+			}
             
         }
         
@@ -258,6 +263,10 @@ class UkmController extends Controller
             if($newUkm!=null){
                 $errors[] = "Nama UKM sudah ada";
             }
+			
+			if(strlen($ukm_name)>$this->maxTitleLength){
+				$errors[] = "Nama UKM tidak boleh lebih dari ".$this->maxTitleLength." huruf";
+			}
         }
         
         //Kalau error redirect kembali

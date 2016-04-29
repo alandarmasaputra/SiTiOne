@@ -18,6 +18,8 @@ use Auth;
 
 class EventController extends Controller
 {
+	public $maxTitleLength = 200;
+	
     public function index(){
         $events = Event::orderBy('event_date','desc')->get();
         return view('event.index',[
@@ -103,6 +105,10 @@ class EventController extends Controller
             if($newEvent!=null){
                 $errors[] = "Nama Event sudah ada";
             }
+			
+			if(strlen($event_name)>$this->maxTitleLength){
+				$errors[] = "Nama UKM tidak boleh lebih dari ".$this->maxTitleLength." huruf";
+			}
             
         }
         if(!isset($event_sumber) || $event_sumber==''){
@@ -268,6 +274,10 @@ class EventController extends Controller
             if($newEvent!=null){
                 $errors[] = "Nama Event sudah ada";
             }
+			
+			if(strlen($event_name)>$this->maxTitleLength){
+				$errors[] = "Nama UKM tidak boleh lebih dari ".$this->maxTitleLength." huruf";
+			}
         }
         if(!isset($event_sumber) || $event_sumber==''){
             $errors[] = "Sumber Event harus diisi";
