@@ -26,10 +26,13 @@ THEO : CLOSED!
 
 *)pada saat tambah beasiswa, admin masih bisa submit tanpa mengisi tanggal terakhir pendaftaran
 ALAN: memang begitu mintanya :v
+THEO : Mantab :v. CLOSED!
 
 *)design tampilan pada ukm kurang rapi bila jumlah ukm banyak
 ALAN: FIXED!
+THEO :CLOSED!
 
 
 *)belum bisa upload foto untuk foto staff yang akan ditampilkan
 ALAN: nampilkan e lewat edit user sendiri. coba login ke user yg akan ditampilkan, trus klik nama di deket tombol logout. di situ bisa upload foto
+THEO :CLOSED!
