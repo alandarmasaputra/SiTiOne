@@ -10,6 +10,8 @@ use App\Ukm;
 use App\Event;
 use App\News;
 use App\Beasiswa;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class SearchController extends Controller
 {
@@ -21,13 +23,16 @@ class SearchController extends Controller
 			->orWhere('sumber','like','%'.$q.'%')
 			->orWhere('tempat','like','%'.$q.'%')
 			->get();
+		
 		$news = News::where('name','like','%'.$q.'%')
 			->orWhere('kategori','like','%'.$q.'%')
-			->get();
+			->paginate(2, ['*'], 'page_name');
+		
 		$beasiswas = Beasiswa::where('name','like','%'.$q.'%')
 			->orWhere('kategori','like','%'.$q.'%')
 			->orWhere('sumber','like','%'.$q.'%')
-			->get();
+			->paginate(2, ['*'], 'page_names');
+		
 		return view('search.result', compact('ukms', 'events', 'news', 'beasiswas'));
 	}
 }

@@ -98,6 +98,7 @@ Event - Biro3 | UKW
 					<br>
 					
 					@endforeach
+					{!!$news->appends(array_except(Request::query(), 'page_name'))->links();!!}
 					@if (count($news) === 0)
 					Tidak ada yang sesuai dengan kata kunci
 					@endif
@@ -134,6 +135,8 @@ Event - Biro3 | UKW
 					<br>
 					
 					@endforeach
+
+                    {!!$beasiswas->appends(array_except(Request::query(), 'page_names'))->links();!!}
 					@if (count($beasiswas) === 0)
 					Tidak ada yang sesuai dengan kata kunci
 					@endif
