@@ -2,7 +2,9 @@
 @section('head_title')
 Event - Biro3 | UKW
 @endsection
-
+<?php
+use Carbon\Carbon;
+?>
 @section('body_content')
 <div class="container">
     <div class="page-header">
@@ -15,15 +17,20 @@ Event - Biro3 | UKW
 			<div class="judul-event">
 			<h1>Event</h1>
 		</div>
+		
 		<div class="result-detail">
 			@foreach($events as $event)
+			<div class="results">
+
 					<div class="text-left">
+
 					<a href="{{url('/event/'.$event->id)}}">
-						Nama Event : {{ $event->name }}
-						</a>
+					<div class="judul">	Nama Event : {{ $event->name }}
+						</div></a>
 						</div>
-						<div class="text-left"><?php
-				$tags = $event->kategori;
+						<div class="text-left">
+							<?php 
+			    $tags = $event->kategori;
 				$tags = explode(' ',$tags);
 				?>
  				@foreach($tags as $tag)
@@ -34,22 +41,27 @@ Event - Biro3 | UKW
 					
 				</span>
 				@endif
+
 				@endforeach </div> 
-						<div class="text-left"> {{ $event->sumber }}</div> 
-						<div class="text-left"> {{ $event->tempat }}</div>
+						<div class="text-left"> Sumber : {{ $event->sumber }}</div> 
+						<div class="text-left"> Tempat : {{ $event->tempat }}</div>
 
 					<br>
-					
+					</div>
 					@endforeach
+
+				
 					{!!$events->appends(array_except(Request::query(), 'page_event'))->links();!!}
  
-
+       
 					@if (count($events) === 0)
 					Tidak ada yang sesuai dengan kata kunci
 					@endif
 			</div>
+
 			
 		</div>	
+
 
 		<div class="result-ukm">
 			<div class="judul-UKM">
@@ -57,14 +69,15 @@ Event - Biro3 | UKW
 		</div>
 			<div class="result-detail">
 					@foreach($ukms as $ukm)
+					<div class="results">
 					<div class="text-left">
 					<a href="{{url('/ukm/'.$ukm->id)}}">
-						Nama UKM : {{ $ukm->name }}
-						</a>
+					<div class="judul">	Nama UKM : {{ $ukm->name }}
+					</div>	</a>
 						</div>
 
 					<br>
-					
+					</div>
 					@endforeach
 					{!!$ukms->appends(array_except(Request::query(), 'page_ukm'))->links();!!}
 					@if (count($ukms) === 0)
@@ -79,10 +92,11 @@ Event - Biro3 | UKW
 		</div>
 		<div class="result-detail">
 					@foreach($news as $new)
+					<div class="results">
 					<div class="text-left">
 					<a href="{{url('/news/'.$new->id)}}">
-						Nama Berita : {{ $new->name }}
-						</a>
+					<div class="judul">	Nama Berita : {{ $new->name }}
+						</div></a>
 						</div>
 						<div class="text-left"><?php
 				$tags = $new->kategori;
@@ -90,17 +104,19 @@ Event - Biro3 | UKW
 				?>
  				@foreach($tags as $tag)
 				@if($tag!='')
+
 				<span class="tag-list-item">
 					
-						{{ $tag }}
+						{{ $tag }} 
 					
 				</span>
 				@endif
-				@endforeach </div> 
+				@endforeach 
+			    <br>Tanggal Buat : {{(new Carbon($new->created_at))->format('l, d F Y')}}			    </div> 
 					
 
 					<br>
-					
+					</div>
 					@endforeach
 					{!!$news->appends(array_except(Request::query(), 'page_news'))->links();!!}
 					@if (count($news) === 0)
@@ -115,10 +131,11 @@ Event - Biro3 | UKW
 		</div>
 		<div class="result-detail">
 					@foreach($beasiswas as $beasiswa)
+					<div class="results">
 					<div class="text-left">
 					<a href="{{url('/beasiswa/'.$beasiswa->id)}}">
-						Nama Beasiswa : {{ $beasiswa->name }}
-						</a>
+					<div class="judul">	Nama Beasiswa : {{ $beasiswa->name }}
+					</div>	</a>
 						</div>
 						<div class="text-left"><?php
 				$tags = $beasiswa->kategori;
@@ -133,11 +150,12 @@ Event - Biro3 | UKW
 				</span>
 				@endif
 				@endforeach </div> 
-						<div class="text-left"> {{ $beasiswa->sumber }}</div> 
+						<div class="text-left"> Sumber :{{ $beasiswa->sumber }}
+						<br>Tanggal Buat : {{(new Carbon($beasiswa->created_at))->format('l, d F Y')}}</div> 
 						
 
-					<br>
-					
+					<br>	
+					</div>
 					@endforeach
 
                     {!!$beasiswas->appends(array_except(Request::query(), 'page_bea'))->links();!!}

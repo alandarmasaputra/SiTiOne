@@ -1,3 +1,15 @@
+/*************************
+*******search besar******
+**************************/
+.result-event .result-detail .result-search{
+border: solid 2px #eceff5; 
+background: #ccc; 
+padding: 15px; 
+margin: 0; 
+line-height: 23px; 
+color: blue; 
+font-size: 18px;
+}
 
 
 /*************************
@@ -36,7 +48,26 @@ color:blue;}
 /*************************
 *******Search Result******
 **************************/
+.result-detail .results{
+border: solid 2px #eceff5; 
+background: #ccc; 
+padding: 15px; 
+margin: 0; 
+line-height: 23px; 
+color: blue; 
+font-size: 18px;
+}
 
+.judul{
+color:blue;
+text-decoration:underline;
+font-size: 20px;
+
+}
+
+.a:hover{
+background-color: yellow;}
+/*----------------------------*/
 .result-event{
 	background: white;
 	  border-top: 1px solid #e5e5e5;
@@ -64,6 +95,8 @@ color:blue;}
 .result-detail{
 	padding-left: 20px;
 }
+
+
 
 .pagination>li>a, .pagination>li>span { 
 	border-radius: 50% !important;margin: 0 5px;
