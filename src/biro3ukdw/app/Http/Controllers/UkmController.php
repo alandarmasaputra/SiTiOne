@@ -74,7 +74,7 @@ class UkmController extends Controller
             }
 			
 			if(strlen($ukm_name)>$this->maxTitleLength){
-				$errors[] = "Nama UKM tidak boleh lebih dari .".$this->maxTitleLength." huruf";
+				$errors[] = "Nama UKM tidak boleh lebih dari ".$this->maxTitleLength." huruf";
 			}
             
         }
