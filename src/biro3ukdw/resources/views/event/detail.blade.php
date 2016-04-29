@@ -73,9 +73,13 @@ use Carbon\Carbon;
 								$tags = explode(' ',$tags);
 							?>
 							@foreach($tags as $tag)
-							<span class="tag-list-item">
-								{{$tag}}
-							</span>
+							@if($tag!='')
+							<a href="{{ url('/search?q='.$tag) }}">
+								<span class="tag-list-item">
+									{{$tag}}
+								</span>
+							</a>
+							@endif
 							@endforeach
 						</div>
 						@endif

@@ -1230,7 +1230,6 @@ input[type="text"]{
 
 .beasiswa-detail-pic img{
 	max-width: 100%;
-	max-height: 300px;
 	height: auto;
 	width: auto;
 }
@@ -1976,6 +1975,7 @@ news-detail-header-title{
 	background: white;
 }
 
+.news-detail-description img,
 .news-detail-pic img{
 	max-width: 100%;
 	max-height: 300px;

@@ -63,11 +63,11 @@ use Carbon\Carbon;
 				<dl class="beasiswa-detail-metadata">
 					<dt>Sumber</dt>
 					<dd>{{ $beasiswa->sumber }}</dd>
-					<dt>Kata Kunci</dt>
+					<dt>Tags</dt>
 					<dd>
 						<div class="tag-list-container">
 							@foreach(explode(' ',$beasiswa->kategori) as $tag)
-							<span class="tag-list-item">{{$tag}}</span>
+							<a href="{{ url('/search?q='.$tag) }}"><span class="tag-list-item">{{$tag}}</span></a>
 							@endforeach
 						</div>
 					</dd>
