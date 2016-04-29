@@ -39,7 +39,7 @@ use Carbon\Carbon;
                     @if($news->header_pic)
                     <img src="{{AppUtility::get_image_data($news->header_pic)}}">
                     @else
-                    <img src="{{url('style/images/ico/beasiswa_dalam.png')}}">
+                    <img src="{{url('style/images/ico/background_news.gif')}}">
                     @endif
                     
                 </div>
