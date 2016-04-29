@@ -47,7 +47,7 @@ active
 
 		<div class="col-md-3 avatars">
 			<div>
-				<h2><strong>Staff Biro Kemahasiswaan</strong></h2>
+				<h2><strong>Staff dan Karyawan</strong></h2>
 			</div>
 			@foreach($section_avatar as $avatar)
 			<?php

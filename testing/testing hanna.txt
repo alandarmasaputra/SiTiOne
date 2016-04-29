@@ -1,9 +1,10 @@
 [DESIGN UKM] terlihat belum rapi bila 10 ukm dimasukkan (atas bawah gak sama)
 di home jg ga rapi kalau ada 10 ukm
+ALAN: FIXED
 
 
 [DESIGN EDITOR INSERT LINK] ga kliatan kalau mau ngedit
-
+ALAN: FIXED
 
 
 [SEARCH RESULT] saat hasil yang dicari tidak ada mungkin dikasih 
@@ -15,13 +16,14 @@ WELLY :FIXED
 [HALAMAN PROFILE] 
 1.Yang bagian staff / karyawan kasih judul "Staff dan Karyawan".
 2.Isi about us, visi misi, dsb rata kanan kirinya masih ada tulisan kepotong potong
+ALAN: FIXED
 
 
 
 [MENU ADMIN] belum jalan...
 
-[ALERT] dari orang awam ga ngeh kalau ada alert di atas
 
+[ALERT] dari orang awam ga ngeh kalau ada alert di atas
 
 
  
