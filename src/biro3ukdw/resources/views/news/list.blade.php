@@ -42,7 +42,7 @@ use App\AppUtility;
 				 }else{
 					
 				 ?>
-					style="background-image: url('{{url('style/images/ico/beasiswa_dalam.png')}}')"
+					style="background-image: url('{{url('style/images/ico/background_news.gif')}}')"
 				
 				 <?php
 				 }
