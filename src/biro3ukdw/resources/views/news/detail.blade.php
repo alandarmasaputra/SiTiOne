@@ -40,6 +40,7 @@ use Carbon\Carbon;
 					<img src="{{AppUtility::get_image_data($news->header_pic)}}">
 				@endif
 				</div>
+				<br>
 				@if(Auth::user())
 				<div class="news-detail-header-buttons">
 					<a href="{{url('/news/edit/'.$news->id)}}"><button>Edit</button></a>
