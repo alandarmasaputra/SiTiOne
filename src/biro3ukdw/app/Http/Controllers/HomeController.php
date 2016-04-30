@@ -95,18 +95,26 @@ class HomeController extends Controller
 		$username = $request->input('username');
 		$password = $request->input('password');
 		$errors = array();
+
+		
 		
 		if($username == null || trim($username)==''){
-			$errors[] = "username tidak boleh kosong";
+			if($password == null || trim($password)==''){
+			$errors[] = "username dan password tidak boleh kosong";
+			
+		    }else{
+			$errors[] = "username tidak boleh kosong";}
+			return redirect('/login')->withErrors($errors);
+
 		}
 		
 		if($password == null || trim($password)==''){
 			$errors[] = "password tidak boleh kosong";
-		}
-		
-		if(count($errors)>0){
 			return redirect('/login')->withErrors($errors);
 		}
+		
+		
+
 		
 		if(Auth::attempt(['username'=>$username, 'password'=>$password])){
 			if(Auth::user()->is_aktif==false){
