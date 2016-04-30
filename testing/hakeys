@@ -1,0 +1,7 @@
+url: http://localhost/SiTiOne/src/biro3ukdw/public/login
+
+deskrispsi
+saat username dan password dikosongkan, akan ada alert username tidak boleh kosong, password tidak boleh kosong
+
+saran
+alertnya disederhanain, kurang lebih seperti ini "username atau password tidak boleh kosong"
