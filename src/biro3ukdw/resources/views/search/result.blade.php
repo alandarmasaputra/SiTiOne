@@ -30,22 +30,26 @@ use Carbon\Carbon;
 						</div>
 						<div class="text-left">
 							<?php 
-			    $tags = $event->kategori;
-				$tags = explode(' ',$tags);
-				?>
- 				@foreach($tags as $tag)
-				@if($tag!='')
-				<span class="tag-list-item">
+								$tags = $event->kategori;
+								$tags = explode(' ',$tags);
+							?>
+ 							@foreach($tags as $tag)
+							@if($tag!='')
+							<span class="tag-list-item">
 					
-						{{ $tag }}
+								{{ $tag }}
 					
-				</span>
-				@endif
-
-				@endforeach </div> 
-						<div class="text-left"> Sumber : {{ $event->sumber }}</div> 
-						<div class="text-left"> Tempat : {{ $event->tempat }}</div>
-
+							</span>
+							@endif
+								
+							@endforeach 
+						</div> 
+						<div class="text-left"> 
+							Sumber : {{ $event->sumber }}
+						</div> 
+						<div class="text-left">
+							Tempat : {{ $event->tempat }}
+						</div>
 					<br>
 					</div>
 					@endforeach

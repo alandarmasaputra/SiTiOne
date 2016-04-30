@@ -39,19 +39,23 @@ color:blue;}
 **************************/
 .result-detail .results{
 border: solid 2px #eceff5; 
-background: #ccc; 
+background: lightgray; 
 padding: 15px; 
 margin: 0; 
 line-height: 23px; 
-color: blue; 
 font-size: 18px;
+
 }
 
 .judul{
-color:blue;
+color:steelblue;
 text-decoration:underline;
 font-size: 20px;
+padding-bottom: 2%;
 
+}
+.result-detail .text-left{
+	color:steelblue;
 }
 
 .a:hover{
