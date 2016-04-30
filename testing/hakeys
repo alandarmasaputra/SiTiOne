@@ -1,7 +1,15 @@
-url: http://localhost/SiTiOne/src/biro3ukdw/public/login
+url: http://localhost/SiTiOne/src/biro3ukdw/public/login ->(1)
 
 deskrispsi
-saat username dan password dikosongkan, akan ada alert username tidak boleh kosong, password tidak boleh kosong
+1. saat username dan password dikosongkan, akan ada alert username tidak boleh kosong, password tidak boleh kosong
+2. alamat email
+3. tampilan kalender jika diakses dari perangkat mobile
+4. warna tulisan ukdw di daerah kanan bawah akan berubah jika disentuh cursor
 
 saran
-alertnya disederhanain, kurang lebih seperti ini "username atau password tidak boleh kosong"
+1. alertnya disederhanain, kurang lebih seperti ini "username atau password tidak boleh kosong"
+2. akan lebih efisien dibuat jadi link, saat diklik nantinya window popup muncul dan langsung dapat mengirim surel
+ref:http://www.w3schools.com/tags/tryit.asp?filename=tryhtml_link_mailto
+3. sebaiknya kalender dihilangkan jika resolusi layar < 760px supaya pengunjung tidak kebingungan karena informasi yg terlalu banyak
+dan juga kalender sejauh ini dibuat hanya untuk memberi informasi waktu yg tidak terlalu penting
+4. sebaiknya biasa saja, toh juga gunanya apa?
