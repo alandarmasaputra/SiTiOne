@@ -22,45 +22,45 @@ use Carbon\Carbon;
 			@foreach($events as $event)
 			<div class="results">
 
-					<div class="text-left">
+				<div class="text-left">
 
-					<a href="{{url('/event/'.$event->id)}}">
-					<div class="judul">	Nama Event : {{ $event->name }}
-						</div></a>
-						</div>
-						<div class="text-left">
-							<?php 
-								$tags = $event->kategori;
-								$tags = explode(' ',$tags);
-							?>
- 							@foreach($tags as $tag)
-							@if($tag!='')
-							<span class="tag-list-item">
-					
-								{{ $tag }}
-					
-							</span>
-							@endif
-								
-							@endforeach 
-						</div> 
-						<div class="text-left"> 
-							Sumber : {{ $event->sumber }}
-						</div> 
-						<div class="text-left">
-							Tempat : {{ $event->tempat }}
-						</div>
-					<br>
+				<a href="{{url('/event/'.$event->id)}}">
+				<div class="judul">	Nama Event : {{ $event->name }}
+					</div></a>
 					</div>
-					@endforeach
+					<div class="text-left">
+						<?php 
+							$tags = $event->kategori;
+							$tags = explode(' ',$tags);
+						?>
+						@foreach($tags as $tag)
+						@if($tag!='')
+						<span class="tag-list-item">
 
-				
-					{!!$events->appends(array_except(Request::query(), 'page_event'))->links();!!}
- 
-       
-					@if (count($events) === 0)
-					Tidak ada yang sesuai dengan kata kunci
-					@endif
+							{{ $tag }}
+
+						</span>
+						@endif
+
+						@endforeach 
+					</div> 
+					<div class="text-left"> 
+						Sumber : {{ $event->sumber }}
+					</div> 
+					<div class="text-left">
+						Tempat : {{ $event->tempat }}
+					</div>
+				<br>
+			</div>
+			@endforeach
+
+
+			{!!$events->appends(array_except(Request::query(), 'page_event'))->links();!!}
+
+
+			@if (count($events) === 0)
+			Tidak ada yang sesuai dengan kata kunci
+			@endif
 			</div>
 
 			
