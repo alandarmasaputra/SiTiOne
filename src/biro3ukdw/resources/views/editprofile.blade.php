@@ -49,7 +49,7 @@ $addition = $user->addition();
 							</div>
 							<div class="editor-header-input-control">
 								<label>Telepon User:</label>
-								<input type="text" name="phone" pattern="[0-9].{3,}"<?php if($addition){if($addition->phone){echo "value='$addition->phone'";}} ?>>
+								<input type="text" name="phone" pattern=".{3,}[0-9]"<?php if($addition){if($addition->phone){echo "value='$addition->phone'";}} ?>>
 							</div>
 							<div class="editor-header-input-control display-picture"
 								 <?php if($addition){if($addition->display_pic){echo 'style="background-image:url(\''.AppUtility::get_image_data($addition->display_pic).'\');"';}} ?>
