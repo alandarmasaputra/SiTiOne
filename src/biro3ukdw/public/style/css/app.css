@@ -924,8 +924,8 @@ input[type="text"]{
 }
 
 .ukm-home-preview .ukm-item{
-	min-height: 250px;
-	max-height: 250px;
+	min-height: 200px;
+	max-height: 200px;
 }
 
 .ukm-container{
@@ -1000,10 +1000,16 @@ input[type="text"]{
 	color: white;
 }
 
-@media (max-width: 400px){
+@media only screen and (max-width: 400px){
 	.ukm-item{
 		min-width: 100%;
 		max-width: 100%;
+	}
+	.ukm-home-preview .ukm-item{
+		min-height: 150px;
+		max-height: 150px;
+		min-width: 50%;
+		flex-basis: 50%;
 	}
 }
 
