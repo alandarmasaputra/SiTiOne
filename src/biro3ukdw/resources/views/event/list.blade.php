@@ -28,7 +28,7 @@ use App\AppUtility;
 </div>
 @else
 @if(count($events)==0)
-<div class='cinema'><span>Belum ada event yang terdaftar</span></div>
+<div class='cinema'><span>Hasil yang sesuai dengan pencarian tidak ditemukan</span></div>
 @endif
 @endif
 
