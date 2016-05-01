@@ -150,7 +150,7 @@ active
 					@endif
 					@endif
 					<div class="title">
-						<a>
+						<a href = "{{url('beasiswa/'.$beasiswa->id)}}">
 							{{ $beasiswa->name }}
 						</a>
 						<small>
