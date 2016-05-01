@@ -109,6 +109,11 @@ body{
 	background-size: cover;
 	font-variant: normal;
 }
+@media only screen and (max-width: 500px){
+	.no-mobile{
+		display: none;
+	}
+}
 
 .hidden{
 	display: none;

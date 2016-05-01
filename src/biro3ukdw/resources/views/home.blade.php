@@ -254,8 +254,9 @@ active
 				<hr>
 			</h2>
 			<div class="ukm-container">
+				<?php $i = 0; ?>
 				@foreach($ukms as $ukm)
-				<div class="ukm-item"
+				<div class="ukm-item<?php echo $i>3?" no-mobile":"";?>"
 					<?php if($ukm->header_pic){ ?>
 					style="background-image: url('{{ AppUtility::get_image_data($ukm->header_pic)}}')"
 					<?php } ?>>
@@ -277,6 +278,7 @@ active
 						</div>
 					</a>
 				</div>
+				<?php $i++; ?>
 				@endforeach
 				<div class="ukm-item">
 					<a href="{{ url('/ukm') }}">

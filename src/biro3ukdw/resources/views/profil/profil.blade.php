@@ -84,7 +84,9 @@ active
 							Email
 						</dt>
 						<dd>
+							<a href="{{"mailto:".$avatar->email}}">
 							{{ $avatar->email }}
+							</a>
 						</dd>
 						@endif
 						@if($addition->jabatan)
