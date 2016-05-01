@@ -13,10 +13,15 @@ alertnya disederhanain, kurang lebih seperti ini "username atau password tidak b
 =======
 1. alertnya disederhanain, kurang lebih seperti ini "username atau password tidak boleh kosong"
 WELLY -> FIXED
+
 2. akan lebih efisien dibuat jadi link, saat diklik nantinya window popup muncul dan langsung dapat mengirim surel
 ref:http://www.w3schools.com/tags/tryit.asp?filename=tryhtml_link_mailto
+ALAN: (security)link mailto tidak bisa dipasang, karena bisa diambil oleh email harvester lalu digunakan untuk spam
+sumber: http://webmasters.stackexchange.com/questions/19148/are-mailto-links-practically-deprecatedhttp://webmasters.stackexchange.com/questions/19148/are-mailto-links-practically-deprecated
+
 3. sebaiknya kalender dihilangkan jika resolusi layar < 760px supaya pengunjung tidak kebingungan karena informasi yg terlalu banyak
 dan juga kalender sejauh ini dibuat hanya untuk memberi informasi waktu yg tidak terlalu penting
-4. sebaiknya biasa saja, toh juga gunanya apa?
 WELLY -> menurutku kalender biarin aja gpp, gak ganggu amat, guna kalender user bisa liat di bulan ini ada event apa saja
 
+4. sebaiknya biasa saja, toh juga gunanya apa?
+ALAN: link

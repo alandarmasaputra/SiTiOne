@@ -145,6 +145,10 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/beasiswa/{id}','BeasiswaController@detail'); 
 	
 	Route::get('/profil','HomeController@profil');
+	Route::post('/search/news','SearchController@news');
+	Route::post('/search/beasiswa','SearchController@beasiswa');
+	Route::post('/search/ukm','SearchController@ukm');
+	Route::post('/search/event','SearchController@event');
 	Route::get('/search','SearchController@search');
 
 

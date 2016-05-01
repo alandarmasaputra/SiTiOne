@@ -43,8 +43,9 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $e
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $e)
-    {
-        return parent::render($request, $e);
-    }
+    public function render($request, Exception $e) {
+
+        return response()->view('errors.500', [], 500);
+		//return parent::render($request, $e);
+	}
 }

@@ -1,173 +1,163 @@
 @extends('layout.app')
 @section('head_title')
-Event - Biro3 | UKW
+Search
 @endsection
 <?php
 use Carbon\Carbon;
 ?>
+
 @section('body_content')
+{!! csrf_field() !!}
 <div class="container">
-    <div class="page-header">
-        <h2>
-            Search Result
-        </h2>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header">
+                <h2>
+                    Search Result for : {{$query}}
+                </h2>
+            </div>
+        </div>
     </div>
 	<div class="row">
-		<div class="result-event">
-			<div class="judul-event">
-			<h1>Event</h1>
-		</div>
-		
-		<div class="result-detail">
-			@foreach($events as $event)
-			<div class="results">
-
-				<div class="text-left">
-
-				<a href="{{url('/event/'.$event->id)}}">
-				<div class="judul">	Nama Event : {{ $event->name }}
-					</div></a>
+		<div class="col-md-12 search-page">
+			<div class="row">
+				<div class="col-sm-6 search-result search-beasiswa" data-url="{{url('/search/beasiswa')}}">
+					<div class="section-name">
+						Beasiswa
 					</div>
-					<div class="text-left">
-						<?php 
-							$tags = $event->kategori;
-							$tags = explode(' ',$tags);
-						?>
-						@foreach($tags as $tag)
-						@if($tag!='')
-						<span class="tag-list-item">
-
-							{{ $tag }}
-
-						</span>
-						@endif
-
-						@endforeach 
-					</div> 
-					<div class="text-left"> 
-						Sumber : {{ $event->sumber }}
-					</div> 
-					<div class="text-left">
-						Tempat : {{ $event->tempat }}
+					@if($beasiswaCount>0)
+					<div class="result">
 					</div>
-				<br>
+					<div class="pagination">
+						<ul class="pagination">
+							<?php
+							for($i=1; $i<=$beasiswaCount; $i++){
+							?>
+							<li <?php if($i==1){echo 'class="active"';}?> ><a onclick="page.changePage(event,this)" data-page='{{$i}}'>{{$i}}</a></li>
+							<?php
+							}
+							?>
+						</ul>
+					</div>
+					@else
+					<div class="no-result">Hasil tidak ditemukan</div>
+					@endif
+				</div>
+				<div class="col-sm-6 search-result search-events" data-url="{{url('/search/event')}}">
+					<div class="section-name">
+						Events
+					</div>
+					@if($eventCount>0)
+					<div class="result">
+					</div>
+					<div class="pagination">
+						<ul class="pagination">
+							<?php
+							for($i=1; $i<=$eventCount; $i++){
+							?>
+							<li <?php if($i==1){echo 'class="active"';}?> ><a onclick="page.changePage(event,this)" data-page='{{$i}}'>{{$i}}</a></li>
+							<?php
+							}
+							?>
+						</ul>
+					</div>
+					@else
+					<div class="no-result">Hasil tidak ditemukan</div>
+					@endif
+				</div>
 			</div>
-			@endforeach
-
-
-			{!!$events->appends(array_except(Request::query(), 'page_event'))->links();!!}
-
-
-			@if (count($events) === 0)
-			Tidak ada yang sesuai dengan kata kunci
-			@endif
-			</div>
-
-			
-		</div>	
-
-
-		<div class="result-ukm">
-			<div class="judul-UKM">
-			<h1>UKM</h1>
-		</div>
-			<div class="result-detail">
-					@foreach($ukms as $ukm)
-					<div class="results">
-					<div class="text-left">
-					<a href="{{url('/ukm/'.$ukm->id)}}">
-					<div class="judul">	Nama UKM : {{ $ukm->name }}
-					</div>	</a>
-						</div>
-
-					<br>
+			<div class="row">
+				<div class="col-sm-6 search-result search-news" data-url="{{url('/search/news')}}">
+					<div class="section-name">
+						News
 					</div>
-					@endforeach
-					{!!$ukms->appends(array_except(Request::query(), 'page_ukm'))->links();!!}
-					@if (count($ukms) === 0)
-					Tidak ada yang sesuai dengan kata kunci
-					@endif
-		</div>
-		</div>
-
-		<div class="result-news">
-			<div class="judul-news">
-			<h1>News</h1>
-		</div>
-		<div class="result-detail">
-					@foreach($news as $new)
-					<div class="results">
-					<div class="text-left">
-					<a href="{{url('/news/'.$new->id)}}">
-					<div class="judul">	Nama Berita : {{ $new->name }}
-						</div></a>
-						</div>
-						<div class="text-left"><?php
-				$tags = $new->kategori;
-				$tags = explode(' ',$tags);
-				?>
- 				@foreach($tags as $tag)
-				@if($tag!='')
-
-				<span class="tag-list-item">
-					
-						{{ $tag }} 
-					
-				</span>
-				@endif
-				@endforeach 
-			    <br>Tanggal Buat : {{(new Carbon($new->created_at))->format('l, d F Y')}}			    </div> 
-					
-
-					<br>
+					@if($newsCount>0)
+					<div class="result">
 					</div>
-					@endforeach
-					{!!$news->appends(array_except(Request::query(), 'page_news'))->links();!!}
-					@if (count($news) === 0)
-					Tidak ada yang sesuai dengan kata kunci
-					@endif
-		</div>
-		</div>
-
-		<div class="result-beasiswa">
-			<div class="judul-beasiswa">
-			<h1>Beasiswa</h1>
-		</div>
-		<div class="result-detail">
-					@foreach($beasiswas as $beasiswa)
-					<div class="results">
-					<div class="text-left">
-					<a href="{{url('/beasiswa/'.$beasiswa->id)}}">
-					<div class="judul">	Nama Beasiswa : {{ $beasiswa->name }}
-					</div>	</a>
-						</div>
-						<div class="text-left"><?php
-				$tags = $beasiswa->kategori;
-				$tags = explode(' ',$tags);
-				?>
- 				@foreach($tags as $tag)
-				@if($tag!='')
-				<span class="tag-list-item">
-					
-						{{ $tag }}
-					
-				</span>
-				@endif
-				@endforeach </div> 
-						<div class="text-left"> Sumber :{{ $beasiswa->sumber }}
-						<br>Tanggal Buat : {{(new Carbon($beasiswa->created_at))->format('l, d F Y')}}</div> 
-						
-
-					<br>	
+					<div class="pagination">
+						<ul class="pagination">
+							<?php
+							for($i=1; $i<=$newsCount; $i++){
+							?>
+							<li <?php if($i==1){echo 'class="active"';}?> ><a onclick="page.changePage(event,this)" data-page='{{$i}}'>{{$i}}</a></li>
+							<?php
+							}
+							?>
+						</ul>
 					</div>
-					@endforeach
-
-                    {!!$beasiswas->appends(array_except(Request::query(), 'page_bea'))->links();!!}
-					@if (count($beasiswas) === 0)
-					Tidak ada yang sesuai dengan kata kunci
+					@else
+					<div class="no-result">Hasil tidak ditemukan</div>
 					@endif
+				</div>
+				<div class="col-sm-6 search-result search-ukm" data-url="{{url('/search/ukm')}}">
+					<div class="section-name">
+						UKM
+					</div>
+					@if($ukmCount>0)
+					<div class="result">
+					</div>
+					<div class="pagination">
+						<ul class="pagination">
+							<?php
+							for($i=1; $i<=$ukmCount; $i++){
+							?>
+							<li <?php if($i==1){echo 'class="active"';}?> ><a onclick="page.changePage(event,this)" data-page='{{$i}}'>{{$i}}</a></li>
+							<?php
+							}
+							?>
+						</ul>
+					</div>
+					@else
+					<div class="no-result">Hasil tidak ditemukan</div>
+					@endif
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<div id="repo" class="hidden">
+	<div class="query">
+		{{$query}}
+	</div>
+</div>
+
+<script src="{{ url('utility/searchbuff/preparetoken.js') }}"></script>
+<script>
+	var page = {};
+	$(document).ready(function(){
+		page.query = $('#repo>.query').html().trim()
+		page.getPage = function(element){
+			var pagenumber = $(element).attr('data-page')
+			var section = $(element).parents('div.search-result');
+			var url = section.attr('data-url').trim()
+			var result = section.find('div.result')
+			console.log(url)
+			try{
+				$.ajax({
+					url: url,
+					method: 'post',
+					data: {'pageNumber':pagenumber,'q':page.query},
+					success: function(data){
+						result.html(data)
+					},
+					error: function(e){
+						console.log(e)
+						//result.html("Terjadi kesalahan")
+						result.html(e.responseText)
+					}
+				})
+			}catch(e){
+				result.html("Terjadi kesalahan")
+			}
+		}
+		page.changePage = function(e,element){
+			e.preventDefault();
+			page.getPage(element)
+		}
+		$('.pagination li.active').each(function(){
+			page.getPage(this)
+		})
+	})
+</script>
 @endsection
