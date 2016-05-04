@@ -244,6 +244,7 @@ class EventController extends Controller
         
         
         $successMessage = 'Event berhasil terdaftar';
+        AppUtility::writeLog("membuat event baru");
         return back()
           ->with('successMessage',$successMessage)
             ->withErrors($errors);
@@ -454,6 +455,7 @@ class EventController extends Controller
         $errors = array();
         $successMessage = 'Event berhasil diedit';
         $request->session()->flash('successMessage',$successMessage);
+        AppUtility::writeLog("melakukan edit event");
         return redirect(url('/event/edit/'.$id))->withErrors($errors)->with('successMessage',$successMessage);
     }
 	
@@ -474,6 +476,7 @@ class EventController extends Controller
 		AppUtility::unlink_deletables($deletables);
 		Event::destroy($id);
 		
+        AppUtility::writeLog("melakukan delete event");
 		return redirect(url('/event'))->with('successMessage','Event berhasil di hapus');
 	}
 }

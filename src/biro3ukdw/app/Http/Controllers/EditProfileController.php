@@ -95,6 +95,7 @@ class EditProfileController extends Controller
         
    
         $successMessage = 'User berhasil diedit';
+        AppUtility::writeLog("edit profile");
         $request->session()->flash('successMessage',$successMessage);
         return redirect(url('/editprofile'));
     }

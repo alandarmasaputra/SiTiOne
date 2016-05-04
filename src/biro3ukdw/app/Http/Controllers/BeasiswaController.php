@@ -212,7 +212,7 @@ class BeasiswaController extends Controller
         }
         
         
-        
+        AppUtility::writeLog("membuat beasiswa baru");
         $successMessage = 'Beasiswa berhasil terdaftar';
         return back()
             ->with('successMessage',$successMessage)
@@ -237,7 +237,7 @@ class BeasiswaController extends Controller
 		}
 		AppUtility::unlink_deletables($deletables);
 		Beasiswa::destroy($id);
-		
+		AppUtility::writeLog("melakukan delete beasiswa");
 		return redirect(url('/beasiswa'))->with('successMessage','Beasiswa berhasil di hapus');
 	}
 
@@ -417,7 +417,7 @@ class BeasiswaController extends Controller
         }
         
         
-        
+        AppUtility::writeLog("melakukan edit beasiswa");
         $successMessage = 'Beasiswa berhasil terdaftar';
         return back()
             ->with('successMessage',$successMessage)

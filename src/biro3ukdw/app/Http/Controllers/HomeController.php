@@ -123,7 +123,7 @@ class HomeController extends Controller
 				return redirect('/login')->withErrors($errors);
 			}
 			
-			
+			AppUtility::writeLog("melakukan login");
 			$successMessage = "Telah berhasil login";
 			return redirect()->intended('/')->with('successMessage',$successMessage);
 		}else{
@@ -134,6 +134,7 @@ class HomeController extends Controller
 	}
 	
 	public function logout(){
+		AppUtility::writeLog("melakukan logout");
 		Auth::logout();
 		$successMessage = "Telah berhasil logout";
 		return redirect('/')->with('successMessage',$successMessage);
@@ -193,6 +194,7 @@ class HomeController extends Controller
 				$newProfileContent->content = trim($content);
 				if($newProfileContent->content){
 					$newProfileContent->save();
+					AppUtility::writeLog("mengubah konten profile");
 				}
 			}
 			$ret['status'] = 1;
@@ -208,6 +210,7 @@ class HomeController extends Controller
 			$username = $request->username;
 			if(User::where('username',$username)->where('auth_level','>','0')->first()!=null){
 				$data['status']=1;
+				AppUtility::writeLog("menambah staff pada profile");
 				$data['message']="Berhasil menambah staff yang akan ditampilkan";
 			}
 			else{
@@ -241,7 +244,9 @@ class HomeController extends Controller
 				$newProfileContent->content = $content;
 				$ret[] = $content;
 				if($newProfileContent->content){
+					AppUtility::writeLog("mengubah konten profile");
 					$newProfileContent->save();
+
 				}
 			}
 			$ret['status'] = 1;

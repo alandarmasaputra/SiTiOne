@@ -197,6 +197,7 @@ class UkmController extends Controller
         
         
         $successMessage = 'UKM berhasil terdaftar';
+        AppUtility::writeLog("membuat ukm baru");
         return back()
             ->with('successMessage',$successMessage)
             ->withErrors($errors);
@@ -238,7 +239,7 @@ class UkmController extends Controller
 		}
 		AppUtility::unlink_deletables($deletables);
 		Ukm::destroy($id);
-		
+		AppUtility::writeLog("melakukan delete ukm");
 		return redirect(url('/ukm'))->with('successMessage','Ukm berhasil di hapus');
 	}
     
@@ -405,6 +406,7 @@ class UkmController extends Controller
 		
 		$errors = array();
         $successMessage = 'UKM berhasil diedit';
+        AppUtility::writeLog("melakukan edit ukm");
         $request->session()->flash('successMessage',$successMessage);
         return redirect(url('/ukm/'.$id))->withErrors($errors)->with('successMessage',$successMessage);
     }

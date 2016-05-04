@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\News;
+use App\Log;
 use App\NewsContent;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -14,6 +15,7 @@ use Intervention\Image\Facades\Image as Intervention;
 use Image;
 use App\AppUtility;
 use Carbon\Carbon;
+use Auth;
 
 
 class NewsController extends Controller
@@ -218,6 +220,7 @@ class NewsController extends Controller
         
         
         $successMessage = 'News berhasil terdaftar';
+        AppUtility::writeLog("membuat news baru");
         return back()
             ->with('successMessage',$successMessage)
             ->withErrors($errors);
@@ -373,6 +376,7 @@ class NewsController extends Controller
         
         $errors = array();
         $successMessage = 'News berhasil diedit';
+        AppUtility::writeLog("melakukan edit news");
         $request->session()->flash('successMessage',$successMessage);
         return redirect(url('/news/'.$id))->withErrors($errors)->with('successMessage',$successMessage);
     }
@@ -395,9 +399,12 @@ class NewsController extends Controller
         foreach($oldImages as $oldImage){
             $deletables[$oldImage->content] = false;
         }
+
+
         AppUtility::unlink_deletables($deletables);
         News::destroy($id);
-        
+
+        AppUtility::writeLog("melakukan delete news");
         return redirect(url('/news'))->with('successMessage','News berhasil di hapus');
     }
 

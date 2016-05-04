@@ -4,9 +4,19 @@ namespace App;
 use Intervention\Image\Facades\Image as Intervention;
 use Storage;
 use File;
+use Auth;
 
 class AppUtility
 {
+    public static function writeLog($words){   
+        $log = new Log;
+        $log->user_id = Auth::user()->id;
+        $log->username = Auth::user()->username;
+        $log->activity = $words;
+        $log->save();
+
+    }
+
     public static function get_random_name($word){
         $name = $word.microtime();
         return AppUtility::base64_url_encode($name);

@@ -26,7 +26,8 @@ active
                                     <!-- Tab panes -->
                                     <div class="tab-content">  
                                     	<ul class="nav nav-tabs" role="tablist">
-                                        <li role="presentation" class="active"><a href="#au" aria-controls="home" role="tab" data-toggle="tab">Data User</a></li>
+                                        <li role="presentation" class="active"><a href="#li" aria-controls="home" role="tab" data-toggle="tab">Aktifitas User</a></li>
+                                        <li role="presentation"><a href="#au" aria-controls="settings" role="tab" data-toggle="tab">Data User</a></li>
                                         <li role="presentation"><a href="#tt" aria-controls="profile" role="tab" data-toggle="tab">Create user</a></li>
                                         <li role="presentation"><a href="#vm" aria-controls="messages" role="tab" data-toggle="tab">Admin</a></li>
                                         <li role="presentation"><a href="#tp" aria-controls="settings" role="tab" data-toggle="tab">Staff</a></li>
@@ -35,10 +36,10 @@ active
                                     </ul>    
                                     <hr>
                                                                     
-                                        <div role="tabpanel" class="tab-pane active" id="au">
+                                        <div role="tabpanel" class="tab-pane" id="au">
                                         <div class="row">
                                         <div class="col-md-10 col-md-offset-1">
-            <table class="table table-bordered">
+                                        <table class="table table-bordered">
             	                        <h3>Data User</h3>
                                         <thead>
                                         <th>Username</th>
@@ -236,7 +237,20 @@ use App\AppUtility;
     </div><hr>
                                         </div>
                                         
-                                        
+        
+        <div role="tabpanel" class="tab-pane active" id="li">                                           
+        <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+
+                    @foreach ($log as $data)
+                     {{ $data->username }} {{ $data->activity}} pada {{ $data->created_at }}<br>
+                    @endforeach
+                    {!!$log->render()!!}
+
+        </div>
+    </div><hr>
+                                        </div>
+
 
         <div role="tabpanel" class="tab-pane" id="lu">                                          
         <div class="row">
