@@ -4,6 +4,9 @@ ukuran div/kotak yg nampilin beasiswa akan menyesuaikan panjang inputan (judul b
 rusak/hancur, sebaiknya setiap div memiliki ukuran tinggi dan lebar yg fix (tidak flexibel mengikuti inputan), coba widthnya pake satuan
 persen (%), height pake piksel (px).
 
+http://localhost/SiTiOne/src/biro3ukdw/public/
+1. tampilan mengikuti isi dari seitap section, tidak rapi
+
 http://localhost/SiTiOne/src/biro3ukdw/public/event
 1. jika inputan judul eventnya panjang, tampilannya judulnya keluar dari kotak divnya
 2. event diurutkan berdasarkan waktu inputan, bukan waktu dari event tersebut berlangsung. Kalau dibuat berurut dari waktu pelaksanaan
@@ -15,3 +18,5 @@ http://localhost/SiTiOne/src/biro3ukdw/public/ukm/(id)
 #inputan foto
 setiap aku input foto (.jpg) ukuran 3,75MB hasilnya nggak nampil, apakah ada syarat2 untuk fotonya. Kalau ada di tulis aja 
 langsung, misalnya dibawah form sebagai petunjuk ke usernya
+
+belum ada page 404 error page
