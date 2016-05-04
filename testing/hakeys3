@@ -17,6 +17,8 @@ http://localhost/SiTiOne/src/biro3ukdw/public/ukm/(id)
 
 #inputan foto
 setiap aku input foto (.jpg) ukuran 3,75MB hasilnya nggak nampil, apakah ada syarat2 untuk fotonya. Kalau ada di tulis aja 
-langsung, misalnya dibawah form sebagai petunjuk ke usernya
+langsung dibawah form sebagai petunjuk ke usernya
 
 belum ada 404 error page
+
+kalo di buka di IE logo & tulisan universitas kristen duta wacana nggak tepat, gambarnya juga, intinya belum kompatibel di ie
