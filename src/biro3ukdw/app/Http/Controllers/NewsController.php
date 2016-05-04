@@ -361,7 +361,7 @@ class NewsController extends Controller
                     
                 }
                 //Save Content
-                echo "<pre>".json_encode($newNewsContent,JSON_PRETTY_PRINT)."</pre>";
+                //echo "<pre>".json_encode($newNewsContent,JSON_PRETTY_PRINT)."</pre>";
                 if($newNewsContent->content){
                     $newNewsContent->save();
                 }

@@ -39,7 +39,7 @@ use App\AppUtility;
 				@foreach($ukm->content as $content)
 					@if($content->type=='s')
 					<div>
-						{!! AppUtility::str_limit($content->content,100)!!}
+						{!! $content->content !!}
 					</div>
 						<?php break; ?>
 					@endif
