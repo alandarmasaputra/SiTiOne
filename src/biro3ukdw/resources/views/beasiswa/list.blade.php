@@ -68,7 +68,7 @@ use App\AppUtility;
 			<br>
 			@foreach($beasiswa->content as $content)
 			@if($content->type == 's')
-			{!! AppUtility::str_limit($content->content,100) !!}
+			{!! $content->content !!}
 			<?php break; ?>
 			@endif
 			@endforeach

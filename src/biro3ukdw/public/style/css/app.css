@@ -1768,6 +1768,8 @@ input[type="text"]{
 }
 
 .event-detail-content{
+	max-height: 80px;
+	overflow-y:hidden;
 }
 
 .event-detail-content img{

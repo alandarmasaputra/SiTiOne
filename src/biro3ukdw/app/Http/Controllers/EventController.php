@@ -165,7 +165,7 @@ class EventController extends Controller
         }
         
         $newEvent->save();
-        echo "Save!!!!!!!!!!";
+        //echo "Save!!!!!!!!!!";
         $newEvent = Event::where('name',$event_name)->first();
         
         
@@ -236,10 +236,10 @@ class EventController extends Controller
         
         // Testing Materials
         
-            echo "<pre>".json_encode($input,JSON_PRETTY_PRINT)."</pre>";
-            echo "<pre>";
-            print_r($input);
-            echo "</pre>";
+            //echo "<pre>".json_encode($input,JSON_PRETTY_PRINT)."</pre>";
+            //echo "<pre>";
+            //print_r($input);
+            //echo "</pre>";
         
         
         
@@ -413,7 +413,7 @@ class EventController extends Controller
                     
                 }
                 //Save Content
-                echo "<pre>".json_encode($newEventContent,JSON_PRETTY_PRINT)."</pre>";
+//echo "<pre>".json_encode($newEventContent,JSON_PRETTY_PRINT)."</pre>";
                 if($newEventContent->content){
                     $newEventContent->save();
                 }
