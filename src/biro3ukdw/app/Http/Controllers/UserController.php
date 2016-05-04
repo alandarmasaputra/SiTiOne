@@ -31,9 +31,10 @@ class UserController extends Controller
 			return redirect('/')->withErrors($errors);
 		}
 		$user = User::where('auth_level','>','0')->where('id','<>',Auth::user()->id)->get();
-		$log =Log::paginate(10);
+		$log =Log::orderBy('created_at','desc')->paginate(15);
 		return view('crud.index', compact('user','log'));
 	}
+
 
 
 	function edit($id)
@@ -57,7 +58,6 @@ class UserController extends Controller
 	{
 		return view('crud.create');
 	}
-
 
 	function destroy($id)
 	{		
