@@ -42,3 +42,4 @@ THEO :CLOSED!
 
 *)ketika masuk ke halaman admin, kemudian bisa melihat aktifitas/perubahan apa saja yang telah dilakukan.
   Namun masih ada error ketika menampilkan jam:menit:detik. error terdapat pada saat menampilkan jam saja, menit:detik sudah sesuai.
+WELLY->FIXED
