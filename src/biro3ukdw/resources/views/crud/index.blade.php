@@ -245,7 +245,9 @@ use App\AppUtility;
                     @foreach ($log as $data)
                      {{ $data->username }} {{ $data->activity}} pada {{ $data->created_at }}<br>
                     @endforeach
+                    <a href="{{url('/cruduser/deletelog/')}}" onclick="return confirm('Are you sure?');">Clear All</a>
                     {!!$log->render()!!}
+
 
         </div>
     </div><hr>

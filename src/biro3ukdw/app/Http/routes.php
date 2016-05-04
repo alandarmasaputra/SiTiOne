@@ -93,6 +93,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::post('/cruduser',['as'=>'cruduser_new', 'uses'=>'UserController@store']);
         Route::get('/cruduser/resets/{id}',"UserController@resets");
         Route::post('/cruduser/updates/{id}','UserController@updatess');
+        Route::get('/cruduser/deletelog/',"UserController@hapuslog");
 
 
         Route::get('/admin/reset/{id}',"UserController@resetsadmin");

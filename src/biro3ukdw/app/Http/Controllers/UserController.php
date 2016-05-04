@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Redirect;
 use App\AppUtility;
 use App\Log;
-
+use DB;
 
 
 
@@ -57,6 +57,15 @@ class UserController extends Controller
 
 	{
 		return view('crud.create');
+	}
+
+	function hapuslog()
+	{		
+		DB::table('logs')->truncate();
+
+        $successMessage = 'Selamat, Log berhasil di hapus !';
+            return back()
+            ->with('successMessage',$successMessage);
 	}
 
 	function destroy($id)
