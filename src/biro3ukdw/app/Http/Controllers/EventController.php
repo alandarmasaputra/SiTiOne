@@ -277,7 +277,7 @@ class EventController extends Controller
             }
 			
 			if(strlen($event_name)>$this->maxTitleLength){
-				$errors[] = "Nama UKM tidak boleh lebih dari ".$this->maxTitleLength." huruf";
+				$errors[] = "Nama Event tidak boleh lebih dari ".$this->maxTitleLength." huruf";
 			}
         }
         if(!isset($event_sumber) || $event_sumber==''){
