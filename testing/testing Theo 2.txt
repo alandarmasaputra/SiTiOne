@@ -38,8 +38,7 @@ ALAN: nampilkan e lewat edit user sendiri. coba login ke user yg akan ditampilka
 THEO :CLOSED!
 
 *)pada saat admin akan mengedit news,beasiswa,event,ukm pada kolom edit paragraf, Masih sering muncul code jika admin menambahkan paragraf/tulisan yang terlalu panjang.
-
+JONATHAN: FIXED
 
 *)ketika masuk ke halaman admin, kemudian bisa melihat aktifitas/perubahan apa saja yang telah dilakukan.
   Namun masih ada error ketika menampilkan jam:menit:detik. error terdapat pada saat menampilkan jam saja, menit:detik sudah sesuai.
-WELLY->FIXED
