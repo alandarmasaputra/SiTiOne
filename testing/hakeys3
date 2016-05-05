@@ -11,6 +11,7 @@ http://localhost/SiTiOne/src/biro3ukdw/public/event
 1. jika inputan judul eventnya panjang, tampilannya judulnya keluar dari kotak divnya
 2. event diurutkan berdasarkan waktu inputan, bukan waktu dari event tersebut berlangsung. Kalau dibuat berurut dari waktu pelaksanaan
 event kayaknya lebih bagus.
+JONATHAN : FIXED 
 
 http://localhost/SiTiOne/src/biro3ukdw/public/ukm/(id)
 1. saat judulnya terlalu panjang, teks judulnya keluar dari kotak/div
