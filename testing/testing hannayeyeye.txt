@@ -1,0 +1,15 @@
+[EDITOR LINK] Go to Linknya blm bisa
+
+
+[EDITOR STRIKETHROUGH] 
+1.saat lihat event setelah nambah event 
+menggunakan editor strikethrough, tulisan tags di halaman event ikut ke strikethrough
+http://localhost/SiTiOne/src/biro3ukdw/public/event
+
+2.saat lihat beasiswa setelah nambah beasiswa
+menggunakan editor strikethrough, tulisan Readmore di halaman beasiswa ikut ke strikethrough
+http://localhost/SiTiOne/src/biro3ukdw/public/beasiswa
+
+3. Saat lihat news setelah nambah news
+menggunakan editor strikethrough, tulisan Readmore di halaman news ikut ke strikethrough
+http://localhost/SiTiOne/src/biro3ukdw/public/news
