@@ -1,0 +1,36 @@
+RAPAT setelah libur 15 April 2016
+
+Yang hadir :
+Rezha
+Alan 
+Jonathan
+Hanna
+Sri
+Thara
+Nitha
+Karel
+Hake
+Theo
+Welly
+Nugroho : izin plkmm
+
+Agenda Rapat : melihat progres web sudah sampai mana 
+
+- programmer menampilkan dan mempresentasikan web 
+- melihat fitur apa saja yang sudah dan yang mana yang error atau belum lengkap)
+- tester melist apa saja yang perlu ditest
+  input -> oferflow, guard(sudah dimasukkan apa belum)
+  search -> ajaxnya error atau tidak
+  button -> tombolnya sudah benar atau belum
+  Cek Berapa maksimum kata yang dimasukkan
+  folder storage dicek kalau ada images lama yang hilang
+- Mengganti hak cipta pada desain web menjadi "Humas UKDW"
+- Mencantumkan alamat Universitas pada website
+- Tim Planning Membuat manual book
+- Target tanggal 29 april progres website 90%
+- ketemuan dengan desainer
+
+
+kesimpulan :
+Tanggal 29 April pertemuan kelompok dan buat janji dengan pak krisna Biro 3
+Tanggal 2 Mei ketemu dengan Pak Krisna
