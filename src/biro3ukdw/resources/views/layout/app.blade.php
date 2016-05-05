@@ -130,7 +130,7 @@
                 </div>
                 <div class="col-sm-8">
                     <div class="pull-right">
-						&copy; 2016 <a target="_blank">UKDW</a>. All Rights Reserved.
+						&copy; 2016 <a href="http://ukdw.ac.id">UKDW</a>. All Rights Reserved.
                     </div>
                 </div>
             </div>

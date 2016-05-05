@@ -18,6 +18,8 @@ use Auth;
 
 class EventController extends Controller
 {
+	public $maxTitleLength = 200;
+	
     public function index(){
         $events = Event::orderBy('event_date','desc')->get();
         return view('event.index',[
@@ -40,7 +42,7 @@ class EventController extends Controller
 		
 		try{
 			$events = Event::where('name','like','%'.$request->all()['query'].'%')
-				->orderBy('id','desc')
+				->orderBy('event_date','desc')
 				->get();
 			return view('event.list',[
 				'events'=>$events
@@ -103,6 +105,10 @@ class EventController extends Controller
             if($newEvent!=null){
                 $errors[] = "Nama Event sudah ada";
             }
+			
+			if(strlen($event_name)>$this->maxTitleLength){
+				$errors[] = "Nama Event tidak boleh lebih dari ".$this->maxTitleLength." huruf";
+			}
             
         }
         if(!isset($event_sumber) || $event_sumber==''){
@@ -159,7 +165,7 @@ class EventController extends Controller
         }
         
         $newEvent->save();
-        echo "Save!!!!!!!!!!";
+        //echo "Save!!!!!!!!!!";
         $newEvent = Event::where('name',$event_name)->first();
         
         
@@ -230,14 +236,15 @@ class EventController extends Controller
         
         // Testing Materials
         
-            echo "<pre>".json_encode($input,JSON_PRETTY_PRINT)."</pre>";
-            echo "<pre>";
-            print_r($input);
-            echo "</pre>";
+            //echo "<pre>".json_encode($input,JSON_PRETTY_PRINT)."</pre>";
+            //echo "<pre>";
+            //print_r($input);
+            //echo "</pre>";
         
         
         
         $successMessage = 'Event berhasil terdaftar';
+        AppUtility::writeLog("membuat event baru");
         return back()
           ->with('successMessage',$successMessage)
             ->withErrors($errors);
@@ -268,6 +275,10 @@ class EventController extends Controller
             if($newEvent!=null){
                 $errors[] = "Nama Event sudah ada";
             }
+			
+			if(strlen($event_name)>$this->maxTitleLength){
+				$errors[] = "Nama Event tidak boleh lebih dari ".$this->maxTitleLength." huruf";
+			}
         }
         if(!isset($event_sumber) || $event_sumber==''){
             $errors[] = "Sumber Event harus diisi";
@@ -402,7 +413,7 @@ class EventController extends Controller
                     
                 }
                 //Save Content
-                echo "<pre>".json_encode($newEventContent,JSON_PRETTY_PRINT)."</pre>";
+//echo "<pre>".json_encode($newEventContent,JSON_PRETTY_PRINT)."</pre>";
                 if($newEventContent->content){
                     $newEventContent->save();
                 }
@@ -444,6 +455,7 @@ class EventController extends Controller
         $errors = array();
         $successMessage = 'Event berhasil diedit';
         $request->session()->flash('successMessage',$successMessage);
+        AppUtility::writeLog("melakukan edit event");
         return redirect(url('/event/edit/'.$id))->withErrors($errors)->with('successMessage',$successMessage);
     }
 	
@@ -464,6 +476,7 @@ class EventController extends Controller
 		AppUtility::unlink_deletables($deletables);
 		Event::destroy($id);
 		
+        AppUtility::writeLog("melakukan delete event");
 		return redirect(url('/event'))->with('successMessage','Event berhasil di hapus');
 	}
 }

@@ -42,7 +42,7 @@ use App\AppUtility;
 				 }else{
 					
 				 ?>
-					style="background-image: url('{{url('style/images/ico/beasiswa_dalam.png')}}')"
+					style="background-image: url('{{url('style/images/ico/background_news.gif')}}')"
 				
 				 <?php
 				 }
@@ -60,10 +60,10 @@ use App\AppUtility;
 			
 			<br>
 			@foreach($news->content as $content)
-			@if($content->type == 's')
-			{!! $content->content !!}
-			<?php break; ?>
-			@endif
+				@if($content->type == 's')
+				{!! $content->content !!}
+				<?php break; ?>
+				@endif
 			@endforeach
 		</div>
 		<div class="beasiswa-addnew flex justify-center">

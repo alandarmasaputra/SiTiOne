@@ -1,0 +1,16 @@
+url: http://localhost/SiTiOne/src/biro3ukdw/public/editprofile
+
+deskripsi:
+
+1. jabatan user harus input manual
+2. telepon user bisa teks
+3. email user bisa tidak mengandung @
+
+saran: 
+1. dibuat option, jadi jabatannya sudah didefinisikan sebelumnya
+WELLY->untuk yang jabatan itu buat di profile, jabatan biar ngisi manual aja
+brangkali besok ada jabatan baru(wakilI,wakilII,DLL) biar gk repot, toh klo slah nulis bisa di eedit 
+2. saat inputan selain number akan muncul alert dan tidak memproses request
+WELLY->FIXED
+3. dicek dulu, harus memiliki ciri2 alamat email, jika tidak request tidak diproses
+WELLY->FIXED

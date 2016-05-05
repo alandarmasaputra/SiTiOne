@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\News;
+use App\Log;
 use App\NewsContent;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -14,10 +15,12 @@ use Intervention\Image\Facades\Image as Intervention;
 use Image;
 use App\AppUtility;
 use Carbon\Carbon;
+use Auth;
 
 
 class NewsController extends Controller
 {   
+	private $maxTitleLength = 200;
     //
     public function index(){
       //print news
@@ -92,6 +95,11 @@ class NewsController extends Controller
             if($newNews!=null){
                 $errors[] = "Nama News sudah ada";
             }
+			
+			
+			if(strlen($news_name)>$this->maxTitleLength){
+				$errors[] = "Nama News tidak boleh lebih dari ".$this->maxTitleLength." huruf";
+			}
             
         }
         if(!isset($kategori_utama) || $kategori_utama==''){
@@ -212,6 +220,7 @@ class NewsController extends Controller
         
         
         $successMessage = 'News berhasil terdaftar';
+        AppUtility::writeLog("membuat news baru");
         return back()
             ->with('successMessage',$successMessage)
             ->withErrors($errors);
@@ -235,6 +244,10 @@ class NewsController extends Controller
             $errors[] = "Nama News harus diisi";
             
         }
+			
+		if(strlen($news_name)>$this->maxTitleLength){
+			$errors[] = "Nama UKM tidak boleh lebih dari ".$this->maxTitleLength." huruf";
+		}
         
          if(!isset($kategori_utama) || $kategori_utama==''){
             $news_kategori = trim($input['kategori-tambahan']);
@@ -348,7 +361,7 @@ class NewsController extends Controller
                     
                 }
                 //Save Content
-                echo "<pre>".json_encode($newNewsContent,JSON_PRETTY_PRINT)."</pre>";
+                //echo "<pre>".json_encode($newNewsContent,JSON_PRETTY_PRINT)."</pre>";
                 if($newNewsContent->content){
                     $newNewsContent->save();
                 }
@@ -363,6 +376,7 @@ class NewsController extends Controller
         
         $errors = array();
         $successMessage = 'News berhasil diedit';
+        AppUtility::writeLog("melakukan edit news");
         $request->session()->flash('successMessage',$successMessage);
         return redirect(url('/news/'.$id))->withErrors($errors)->with('successMessage',$successMessage);
     }
@@ -385,9 +399,12 @@ class NewsController extends Controller
         foreach($oldImages as $oldImage){
             $deletables[$oldImage->content] = false;
         }
+
+
         AppUtility::unlink_deletables($deletables);
         News::destroy($id);
-        
+
+        AppUtility::writeLog("melakukan delete news");
         return redirect(url('/news'))->with('successMessage','News berhasil di hapus');
     }
 
@@ -408,20 +425,6 @@ class NewsController extends Controller
             echo $e;
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     
 }

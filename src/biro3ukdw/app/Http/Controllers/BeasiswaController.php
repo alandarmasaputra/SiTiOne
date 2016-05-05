@@ -17,6 +17,7 @@ use Carbon\Carbon;
 
 class BeasiswaController extends Controller
 {
+	private $maxTitleLength = 200;
     public function index(){
         $beasiswas = Beasiswa::orderBy('created_at','desc')->get();
         return view('beasiswa.index',[
@@ -89,6 +90,10 @@ class BeasiswaController extends Controller
             if($newBeasiswa!=null){
                 $errors[] = "Nama Beasiswa sudah ada";
             }
+			
+			if(strlen($beasiswa_name)>$this->maxTitleLength){
+				$errors[] = "Nama Beasiswa tidak boleh lebih dari ".$this->maxTitleLength." huruf";
+			}
             
         }
 		if(!isset($kategori_utama) || $kategori_utama==''){
@@ -207,7 +212,7 @@ class BeasiswaController extends Controller
         }
         
         
-        
+        AppUtility::writeLog("membuat beasiswa baru");
         $successMessage = 'Beasiswa berhasil terdaftar';
         return back()
             ->with('successMessage',$successMessage)
@@ -232,7 +237,7 @@ class BeasiswaController extends Controller
 		}
 		AppUtility::unlink_deletables($deletables);
 		Beasiswa::destroy($id);
-		
+		AppUtility::writeLog("melakukan delete beasiswa");
 		return redirect(url('/beasiswa'))->with('successMessage','Beasiswa berhasil di hapus');
 	}
 
@@ -264,6 +269,10 @@ class BeasiswaController extends Controller
             $errors[] = "Nama Beasiswa harus diisi";
             
         }
+			
+		if(strlen($beasiswa_name)>$this->maxTitleLength){
+			$errors[] = "Nama UKM tidak boleh lebih dari ".$this->maxTitleLength." huruf";
+		}
 		
 		if(!isset($kategori_utama) || $kategori_utama==''){
 			$errors[] = "Kategori internal/external harus diisi";
@@ -408,7 +417,7 @@ class BeasiswaController extends Controller
         }
         
         
-        
+        AppUtility::writeLog("melakukan edit beasiswa");
         $successMessage = 'Beasiswa berhasil terdaftar';
         return back()
             ->with('successMessage',$successMessage)

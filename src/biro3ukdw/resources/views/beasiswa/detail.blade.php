@@ -48,7 +48,7 @@ use Carbon\Carbon;
 				@if(Auth::user())
 				<div class="beasiswa-detail-header-buttons">
 					<a href="{{url('/beasiswa/edit/'.$beasiswa->id)}}"><button>Edit</button></a>
-					<a href="{{url('/beasiswa/delete/'.$beasiswa->id)}}"><button class="button-delete">Delete</button></a>
+					<a href="{{url('/beasiswa/delete/'.$beasiswa->id)}}" onclick="return confirm('Anda yakin akan melakukan delete?');"><button class="button-delete">Delete</button></a>
 				</div>
 				@endif
 				<h2 class="beasiswa-detail-header-title"><strong>{{$beasiswa->name}}</strong></h2>
@@ -63,11 +63,11 @@ use Carbon\Carbon;
 				<dl class="beasiswa-detail-metadata">
 					<dt>Sumber</dt>
 					<dd>{{ $beasiswa->sumber }}</dd>
-					<dt>Kata Kunci</dt>
+					<dt>Tags</dt>
 					<dd>
 						<div class="tag-list-container">
 							@foreach(explode(' ',$beasiswa->kategori) as $tag)
-							<span class="tag-list-item">{{$tag}}</span>
+							<a href="{{ url('/search?q='.$tag) }}"><span class="tag-list-item">{{$tag}}</span></a>
 							@endforeach
 						</div>
 					</dd>

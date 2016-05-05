@@ -91,8 +91,10 @@ Route::group(['middleware' => ['web']], function () {
         Route::post('/cruduser/update/{id}',['as'=>'cruduser_update', 'uses'=>'UserController@update']);
         Route::get('/cruduser/new',['as'=>'cruduser_new', 'uses'=>'UserController@create']);
         Route::post('/cruduser',['as'=>'cruduser_new', 'uses'=>'UserController@store']);
+        Route::get('/cruduser/delete/{id}',"UserController@destroy");
         Route::get('/cruduser/resets/{id}',"UserController@resets");
         Route::post('/cruduser/updates/{id}','UserController@updatess');
+        Route::get('/cruduser/deletelog/',"UserController@hapuslog");
 
 
         Route::get('/admin/reset/{id}',"UserController@resetsadmin");
@@ -145,6 +147,10 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/beasiswa/{id}','BeasiswaController@detail'); 
 	
 	Route::get('/profil','HomeController@profil');
+	Route::post('/search/news','SearchController@news');
+	Route::post('/search/beasiswa','SearchController@beasiswa');
+	Route::post('/search/ukm','SearchController@ukm');
+	Route::post('/search/event','SearchController@event');
 	Route::get('/search','SearchController@search');
 
 

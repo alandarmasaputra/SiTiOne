@@ -79,10 +79,9 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
-
 *{
-	word-break: break-all;
 	word-wrap: break-word;
+	word-break: break-word;
 }
 
 #footer{
@@ -109,6 +108,11 @@ body{
 	background-repeat: no-repeat;
 	background-size: cover;
 	font-variant: normal;
+}
+@media only screen and (max-width: 500px){
+	.no-mobile{
+		display: none;
+	}
 }
 
 .hidden{
@@ -920,8 +924,8 @@ input[type="text"]{
 }
 
 .ukm-home-preview .ukm-item{
-	min-height: 250px;
-	max-height: 250px;
+	min-height: 200px;
+	max-height: 200px;
 }
 
 .ukm-container{
@@ -948,15 +952,45 @@ input[type="text"]{
 	transition: padding 0.5s ease;
 	border: 1px solid rgba(124,124,124,0.5);
 	box-shadow: 0 3px 5px rgba(0,0,0,0.3);
-	flex-basis: 200px;
-	max-width: 250px;
 	min-height: 80vh;
 	height: 60vh;
-	flex-grow: 1;
+	flex-basis: 100%;
+	flex-grow: 0;
+	flex-shrink: 0;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+
+@media only screen and (min-width:400px){
+	.ukm-item{
+		flex-basis: calc(100% / 2);
+		max-width: calc(100% / 2);
+	}
+}
+
+@media only screen and (min-width:600px){
+	.ukm-item{
+		flex-basis: calc(100% / 3);
+		max-width: calc(100% / 3);
+	}
+}
+
+@media only screen and (min-width: 768px){
+	.ukm-item{
+		flex-basis: calc(100% / 4);
+		max-width: calc(100% / 4);
+	}
+}
+
+@media only screen and (min-width: 991px){
+	.ukm-item{
+		flex-basis: calc(100% / 5);
+		max-width: calc(100% / 5);
+	}
+}
+
+
 
 .ukm-item:hover{
 	padding: 10px;
@@ -966,10 +1000,16 @@ input[type="text"]{
 	color: white;
 }
 
-@media (max-width: 400px){
+@media only screen and (max-width: 400px){
 	.ukm-item{
 		min-width: 100%;
 		max-width: 100%;
+	}
+	.ukm-home-preview .ukm-item{
+		min-height: 150px;
+		max-height: 150px;
+		min-width: 50%;
+		flex-basis: 50%;
 	}
 }
 
@@ -1200,7 +1240,6 @@ input[type="text"]{
 
 .beasiswa-detail-pic img{
 	max-width: 100%;
-	max-height: 300px;
 	height: auto;
 	width: auto;
 }
@@ -1729,6 +1768,8 @@ input[type="text"]{
 }
 
 .event-detail-content{
+	max-height: 80px;
+	overflow-y:hidden;
 }
 
 .event-detail-content img{
@@ -1891,11 +1932,12 @@ input[type="text"]{
 
 /*Summernote*/
 .modal-dialog{
-	color: white;
+	color: black;
 }
 
-.modal-content{
-	color: white;
+.modal-content,
+.modal-conten label{
+	color: black;
 }
 
 .note-editor.note-frame .note-editing-area .note-editable.panel-body,
@@ -1926,6 +1968,108 @@ input[type="text"]{
 	box-shadow: inset 0px 2px 10px rgba(0,0,0,0.3);
 }
 
+
+/*************************
+*******Search Result******
+**************************/
+
+.search-page{
+	background: white;
+}
+
+.search-result{
+	display: flex;
+	flex-flow: column;
+	align-content: stretch;
+}
+
+.search-result>div{
+}
+
+.search-result>div.section-name{
+	flex-basis: 0 0 auto;
+	padding-top: 18px;
+	padding-bottom: 8px;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 1.5em;
+	border-bottom: 1px solid rgba(0,0,0,0.3);
+	color: #999;
+}
+
+.search-result>div.result{
+	flex-basis: 300px;
+	max-height: 300px;
+	flex-grow: 1;
+	flex-shrink: 0;
+	overflow-y: auto;
+}
+
+.search-result>div.pagination{
+	flex: 0 0 auto;
+	max-height: 80px;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	text-align: center;
+	white-space: nowrap;
+	border-radius: 0;
+	border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.search-result>div.pagination>ul.pagination{
+	white-space: nowrap;
+	font-size: 0px;
+	margin: 0;
+	padding: 0;
+	border-radius: 0;
+}
+
+.search-result>div.pagination>ul.pagination>li{
+	margin: 0;
+	float: none;
+	display: inline-block;
+	border-radius: 0;
+}
+
+.search-result>div.pagination>ul.pagination>li>a{
+	margin: 0;
+	cursor: pointer;
+	border-radius: 0;
+}
+
+.search-result>div.no-result{
+	flex-basis: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: darkgrey;
+	text-shadow: inset 1px 1px 2px rgba(0,0,0,0.2);
+	height: 300px;
+}
+
+.search-result .item{
+	padding: 3px 10px;
+	margin: 12px 3px;
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+.search-result .judul{
+	font-variant: normal;
+	font-size: 1.8em;
+	margin: 5px 0px;
+}
+
+.search-result .tag-list-item{
+	font-size: 0.7em;
+}
+
+.search-result dt{
+	color: #aaa;
+}
+
+
+
+
 /*Detail News*/
 .news-detail-body{
 	padding-left: 20;
@@ -1946,6 +2090,7 @@ news-detail-header-title{
 	background: white;
 }
 
+.news-detail-description img,
 .news-detail-pic img{
 	max-width: 100%;
 	max-height: 300px;

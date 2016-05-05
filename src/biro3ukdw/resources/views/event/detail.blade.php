@@ -38,7 +38,7 @@ use Carbon\Carbon;
 						@if(Auth::user())
 						<div>
 							<a href="{{ url('event/edit/'.$event->id) }}"><button>Edit</button></a>
-							<a href="{{ url('event/delete/'.$event->id) }}"><button class="button-delete">Delete</button></a>
+							<a href="{{ url('event/delete/'.$event->id) }}" onclick="return confirm('Anda yakin akan melakukan delete?');"><button class="button-delete">Delete</button></a>
 						</div>
 						@endif
 						@if($event->event_date)
@@ -73,9 +73,13 @@ use Carbon\Carbon;
 								$tags = explode(' ',$tags);
 							?>
 							@foreach($tags as $tag)
-							<span class="tag-list-item">
-								{{$tag}}
-							</span>
+							@if($tag!='')
+							<a href="{{ url('/search?q='.$tag) }}">
+								<span class="tag-list-item">
+									{{$tag}}
+								</span>
+							</a>
+							@endif
 							@endforeach
 						</div>
 						@endif

@@ -10,8 +10,9 @@ use Input;
 use Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Redirect;
-
-
+use App\AppUtility;
+use App\Log;
+use DB;
 
 
 
@@ -30,8 +31,10 @@ class UserController extends Controller
 			return redirect('/')->withErrors($errors);
 		}
 		$user = User::where('auth_level','>','0')->where('id','<>',Auth::user()->id)->get();
-		return view('crud.index', compact('user'));
+		$log =Log::orderBy('created_at','desc')->paginate(15);
+		return view('crud.index', compact('user','log'));
 	}
+
 
 
 	function edit($id)
@@ -56,11 +59,20 @@ class UserController extends Controller
 		return view('crud.create');
 	}
 
+	function hapuslog()
+	{		
+		DB::table('logs')->truncate();
+
+        $successMessage = 'Selamat, Log berhasil di hapus !';
+            return back()
+            ->with('successMessage',$successMessage);
+	}
 
 	function destroy($id)
 	{		
 		User::find($id)->delete();
 
+        AppUtility::writeLog("melakukan delete user");
         $successMessage = 'Selamat, User berhasil di hapus !';
             return back()
             ->with('successMessage',$successMessage);
@@ -83,7 +95,7 @@ class UserController extends Controller
 		if($validator->passes()){
 
 			$user->update($input);
-
+            AppUtility::writeLog("melakukan edit user");
 			$successMessage = 'Selamat, User berhasil di update !';
             return back()
             ->with('successMessage',$successMessage);
@@ -112,7 +124,7 @@ class UserController extends Controller
 
 			$user->password = bcrypt(Input::get('password'));
 			$user->save();
-
+            AppUtility::writeLog("melakukan reset password user");
 			$successMessage = 'Selamat, Password berhasil di reset !';
             return redirect('/editprofile')
             ->with('successMessage',$successMessage);
@@ -142,7 +154,7 @@ class UserController extends Controller
 
 			$user->password = bcrypt(Input::get('password'));
 			$user->save();
-
+            AppUtility::writeLog("melakukan reset password diri sendiri");
 			$successMessage = 'Selamat, Password berhasil di reset !';
             return back()
             ->with('successMessage',$successMessage);
@@ -198,7 +210,8 @@ class UserController extends Controller
         $user->is_aktif  = Input::get('is_aktif');
         $user->password = bcrypt(Input::get('password'));
         $user->save();
-
+        
+        AppUtility::writeLog("membuat user baru");
 	    $successMessage = 'Selamat, user berhasil di buat !';
             return back()
             ->with('successMessage',$successMessage);

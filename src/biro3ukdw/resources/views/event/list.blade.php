@@ -28,7 +28,7 @@ use App\AppUtility;
 </div>
 @else
 @if(count($events)==0)
-<div class='cinema'><span>Belum ada event yang terdaftar</span></div>
+<div class='cinema'><span>Hasil yang sesuai dengan pencarian tidak ditemukan</span></div>
 @endif
 @endif
 
@@ -62,7 +62,7 @@ use App\AppUtility;
 			@if($event->event_date)
 			<div class="event-timeline-date">
 				<strong>
-				Tanggal Event: {{(new Carbon($event->event_date))->format('l, d F Y')}}
+				Tanggal Posting: {{(new Carbon($event->created_at))->format('l, d F Y')}}
 				</strong>
 			</div>
 			@endif
@@ -70,7 +70,7 @@ use App\AppUtility;
 				@foreach($event->content as $content)
 					@if($content->type=='s')
 					<div>
-						{!!$content->content!!}
+						{!! $content->content !!}
 					</div>
 						<?php break; ?>
 					@endif
