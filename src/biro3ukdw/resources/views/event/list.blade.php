@@ -62,7 +62,7 @@ use App\AppUtility;
 			@if($event->event_date)
 			<div class="event-timeline-date">
 				<strong>
-				Tanggal Event: {{(new Carbon($event->event_date))->format('l, d F Y')}}
+				Tanggal Posting: {{(new Carbon($event->created_at))->format('l, d F Y')}}
 				</strong>
 			</div>
 			@endif

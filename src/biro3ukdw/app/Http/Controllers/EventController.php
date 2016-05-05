@@ -42,7 +42,7 @@ class EventController extends Controller
 		
 		try{
 			$events = Event::where('name','like','%'.$request->all()['query'].'%')
-				->orderBy('id','desc')
+				->orderBy('event_date','desc')
 				->get();
 			return view('event.list',[
 				'events'=>$events
