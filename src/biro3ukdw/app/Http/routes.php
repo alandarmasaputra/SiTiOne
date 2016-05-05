@@ -91,6 +91,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::post('/cruduser/update/{id}',['as'=>'cruduser_update', 'uses'=>'UserController@update']);
         Route::get('/cruduser/new',['as'=>'cruduser_new', 'uses'=>'UserController@create']);
         Route::post('/cruduser',['as'=>'cruduser_new', 'uses'=>'UserController@store']);
+        Route::get('/cruduser/delete/{id}',"UserController@destroy");
         Route::get('/cruduser/resets/{id}',"UserController@resets");
         Route::post('/cruduser/updates/{id}','UserController@updatess');
         Route::get('/cruduser/deletelog/',"UserController@hapuslog");

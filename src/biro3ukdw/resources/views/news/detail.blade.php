@@ -44,7 +44,7 @@ use Carbon\Carbon;
 				@if(Auth::user())
 				<div class="news-detail-header-buttons">
 					<a href="{{url('/news/edit/'.$news->id)}}"><button>Edit</button></a>
-					<a href="{{url('/news/delete/'.$news->id)}}"><button class="button-delete">Delete</button></a>
+					<a href="{{url('/news/delete/'.$news->id)}}" onclick="return confirm('Anda yakin akan melakukan delete?');"><button class="button-delete">Delete</button></a>
 				</div>
 				@endif
 				<div class="news-detail-description">

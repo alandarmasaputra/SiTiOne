@@ -71,12 +71,10 @@ active
                         <td>Aktif</td>
                         @endif  
                         <td>                
-                        {!! Form::open(['method' => 'DELETE', 'route' => ['user.destroy', $data->id]]) !!}
-                        {!! Form::submit('Hapus') !!}   
-                        {!! Form::close() !!}
+                        <a href="{{url('/cruduser/delete/'.$data->id)}}" onclick="return confirm('Anda yakin akan melakukan delete?');"><b>Hapus Data<b></a> 
 
                         </td>
-                        <td><a href="{{url('/cruduser/edit/'.$data->id)}}"><b>Edit Data<b></a>
+                        <td><a href="{{url('/cruduser/edit/'.$data->id)}}"><b>Edit Data<b></a> </td>
                         <td><a href="{{url('/cruduser/resets/'.$data->id)}}"><b>Reset Password<b></a>  </td>  </td>
                     </tr>
                     @endforeach
@@ -119,9 +117,7 @@ active
                         <td>Aktif</td>
                         @endif  
                         <td>                
-                        {!! Form::open(['method' => 'DELETE', 'route' => ['user.destroy', $data->id]]) !!}
-                        {!! Form::submit('Hapus') !!}   
-                        {!! Form::close() !!}
+                        <a href="{{url('/cruduser/delete/'.$data->id)}}" onclick="return confirm('Anda yakin akan melakukan delete?');"><b>Hapus Data<b></a> 
 
                         </td>
                         <td><a href="{{url('/cruduser/edit/'.$data->id)}}"><b>Edit Data<b></a>
@@ -220,9 +216,7 @@ use App\AppUtility;
                         <td>Aktif</td>
                         @endif  
                         <td>                
-                        {!! Form::open(['method' => 'DELETE', 'route' => ['user.destroy', $data->id]]) !!}
-                        {!! Form::submit('Hapus') !!}   
-                        {!! Form::close() !!}
+                        <a href="{{url('/cruduser/delete/'.$data->id)}}" onclick="return confirm('Anda yakin akan melakukan delete?');"><b>Hapus Data<b></a> 
 
                         </td>
                         <td><a href="{{url('/cruduser/edit/'.$data->id)}}"><b>Edit Data<b></a>
@@ -281,9 +275,7 @@ use App\AppUtility;
                         <td>Aktif</td>
                         @endif  
                         <td>                
-                        {!! Form::open(['method' => 'DELETE', 'route' => ['user.destroy', $data->id]]) !!}
-                        {!! Form::submit('Hapus') !!}   
-                        {!! Form::close() !!}
+                        <a href="{{url('/cruduser/delete/'.$data->id)}}" onclick="return confirm('Anda yakin akan melakukan delete?');"><b>Hapus Data<b></a> 
 
                         </td>
                         <td><a href="{{url('/cruduser/edit/'.$data->id)}}"><b>Edit Data<b></a>

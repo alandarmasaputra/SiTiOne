@@ -48,7 +48,7 @@ use Carbon\Carbon;
 				@if(Auth::user())
 				<div class="beasiswa-detail-header-buttons">
 					<a href="{{url('/beasiswa/edit/'.$beasiswa->id)}}"><button>Edit</button></a>
-					<a href="{{url('/beasiswa/delete/'.$beasiswa->id)}}"><button class="button-delete">Delete</button></a>
+					<a href="{{url('/beasiswa/delete/'.$beasiswa->id)}}" onclick="return confirm('Anda yakin akan melakukan delete?');"><button class="button-delete">Delete</button></a>
 				</div>
 				@endif
 				<h2 class="beasiswa-detail-header-title"><strong>{{$beasiswa->name}}</strong></h2>
