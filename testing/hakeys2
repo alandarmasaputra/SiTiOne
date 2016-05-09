@@ -12,5 +12,7 @@ WELLY->untuk yang jabatan itu buat di profile, jabatan biar ngisi manual aja
 brangkali besok ada jabatan baru(wakilI,wakilII,DLL) biar gk repot, toh klo slah nulis bisa di eedit 
 2. saat inputan selain number akan muncul alert dan tidak memproses request
 WELLY->FIXED
+HAKE->CLOSED!
 3. dicek dulu, harus memiliki ciri2 alamat email, jika tidak request tidak diproses
 WELLY->FIXED
+HAKE->CLOSED!
