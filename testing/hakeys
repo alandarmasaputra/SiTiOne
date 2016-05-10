@@ -13,6 +13,7 @@ alertnya disederhanain, kurang lebih seperti ini "username atau password tidak b
 =======
 1. alertnya disederhanain, kurang lebih seperti ini "username atau password tidak boleh kosong"
 WELLY -> FIXED
+HAKE -> CLOSED!
 
 2. akan lebih efisien dibuat jadi link, saat diklik nantinya window popup muncul dan langsung dapat mengirim surel
 ref:http://www.w3schools.com/tags/tryit.asp?filename=tryhtml_link_mailto

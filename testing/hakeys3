@@ -12,6 +12,7 @@ http://localhost/SiTiOne/src/biro3ukdw/public/event
 2. event diurutkan berdasarkan waktu inputan, bukan waktu dari event tersebut berlangsung. Kalau dibuat berurut dari waktu pelaksanaan
 event kayaknya lebih bagus.
 JONATHAN : FIXED 
+HAKE : CLOSED!
 
 http://localhost/SiTiOne/src/biro3ukdw/public/ukm/(id)
 1. saat judulnya terlalu panjang, teks judulnya keluar dari kotak/div
