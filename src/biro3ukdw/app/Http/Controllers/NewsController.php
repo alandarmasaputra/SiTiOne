@@ -343,8 +343,7 @@ class NewsController extends Controller
                             $filename = 'news_c_';
                             $filename .= AppUtility::get_random_name('');
                             $filename .= $extension;
-							$deletables[$filename]=true;
-
+							$deletables[$filename] = true;
                             //extension ga jelas: buang
                             if(trim($extension) == ''){
                                 break;
