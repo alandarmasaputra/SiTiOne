@@ -5,6 +5,7 @@ use Intervention\Image\Facades\Image as Intervention;
 use Storage;
 use File;
 use Auth;
+use Log as Logger;
 
 class AppUtility
 {
@@ -94,6 +95,7 @@ class AppUtility
 			return $data;
 		}
 		catch(\Exception $e){
+			Logger::error($e->getTraceAsString());
 			return "";
 		}
     }
