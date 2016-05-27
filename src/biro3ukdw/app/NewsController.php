@@ -228,7 +228,6 @@ class NewsController extends Controller
 
 
        public function update(Request $request, $id){
-		$deletables = array();
         $input = $request->all();
                                                        
         try{
@@ -290,8 +289,6 @@ class NewsController extends Controller
                 $image = AppUtility::compress_image($image);
 
                 //Save Image filename
-                $deletables[$newNews->header_pic] = false;
-				$deletables[$filename] = true;
                 $newNews->header_pic = $filename;
 
                 //Save Image
@@ -303,15 +300,11 @@ class NewsController extends Controller
         else{
             if(isset($input['header-pic-old']) && trim($input['header-pic-old'])!=''){
                 $newNews->header_pic = $input['header-pic-old'];
-            	$deletables[$input['header-pic-old']] = true;
-			}
+            }
         }
         
         $newNews->save();
-        $oldImages = $newNews->clear();
-        foreach($oldImages as $oldImage){
-			$deletables[$oldImage->content]=false;
-		}
+        $newNews->clear();
         
         //Make Contents
         $content_id = 0;
@@ -343,7 +336,7 @@ class NewsController extends Controller
                             $filename = 'news_c_';
                             $filename .= AppUtility::get_random_name('');
                             $filename .= $extension;
-							$deletables[$filename] = true;
+
                             //extension ga jelas: buang
                             if(trim($extension) == ''){
                                 break;
@@ -362,9 +355,8 @@ class NewsController extends Controller
                     }
                     else{
                         if(isset($input['content-'.$content_id.'-old'])){   
-							$newNewsContent->content = $input['content-'.$content_id.'-old'];
-                        	$deletables[$input['content-'.$content_id.'-old']] = true;
-						}
+                            $newNewsContent->content = $input['content-'.$content_id.'-old'];
+                        }
                     }
                     
                 }
@@ -380,8 +372,6 @@ class NewsController extends Controller
             
             $content_id++;
         }
-		   
-        AppUtility::unlink_deletables($deletables);
         
         
         $errors = array();
